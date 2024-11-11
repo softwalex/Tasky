@@ -31,3 +31,14 @@ C:\Users\gold\Documents\Project\TaskyService\ViewModel\obj\Debug\ViewModel.cspro
 C:\Users\gold\Documents\Project\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.Up2Date
 C:\Users\gold\Documents\Project\TaskyService\ViewModel\obj\Debug\ViewModel.dll
 C:\Users\gold\Documents\Project\TaskyService\ViewModel\obj\Debug\ViewModel.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\TaskyDataBase.mdf
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\TaskyDataBase_log.ldf
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\ViewModel.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\ViewModel.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\Model.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\Model.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.AssemblyReference.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.CoreCompileInputs.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.pdb

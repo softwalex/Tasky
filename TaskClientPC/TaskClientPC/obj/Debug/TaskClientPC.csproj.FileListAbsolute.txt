@@ -1,0 +1,17 @@
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\bin\Debug\TaskClientPC.exe.config
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\bin\Debug\TaskClientPC.exe
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\bin\Debug\TaskClientPC.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.csproj.AssemblyReference.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\App.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC_MarkupCompile.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC_MarkupCompile.lref
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.g.resources
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.Properties.Resources.resources
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.csproj.GenerateResource.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.csproj.CoreCompileInputs.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.exe
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\LogIn.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\SignUp.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\LogIn.baml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\SignUp.baml

@@ -38,3 +38,16 @@ C:\Users\gold\Documents\Project\TaskyService\WcfService\obj\Debug\WcfService.csp
 C:\Users\gold\Documents\Project\TaskyService\WcfService\obj\Debug\WcfService.csproj.Up2Date
 C:\Users\gold\Documents\Project\TaskyService\WcfService\obj\Debug\WcfService.dll
 C:\Users\gold\Documents\Project\TaskyService\WcfService\obj\Debug\WcfService.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\TaskyDataBase.mdf
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\TaskyDataBase_log.ldf
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\WcfService.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\WcfService.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\Model.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\ViewModel.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\Model.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\ViewModel.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.csproj.AssemblyReference.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.csproj.CoreCompileInputs.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.csproj.CopyComplete
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.pdb

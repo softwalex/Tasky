@@ -22,3 +22,9 @@ C:\Users\gold\Documents\Project\TaskyService\Model\obj\Debug\Model.csproj.Assemb
 C:\Users\gold\Documents\Project\TaskyService\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 C:\Users\gold\Documents\Project\TaskyService\Model\obj\Debug\Model.dll
 C:\Users\gold\Documents\Project\TaskyService\Model\obj\Debug\Model.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\bin\Debug\Model.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\bin\Debug\Model.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\obj\Debug\Model.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\Model\obj\Debug\Model.pdb

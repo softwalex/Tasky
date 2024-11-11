@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="UserService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfService/UserService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfService/UserService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfService/UserService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUserService_UserLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UserLogin" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UserLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UserLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsEmailFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailFree" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_IsEmailFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailFreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersbyType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersbyType" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersbyType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersbyTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentsBySubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsBySubject" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentsBySubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsBySubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentsByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsByCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentsByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteAssignment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAssignment" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteAssignment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAssignmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsersInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersInShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUser" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewUserInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewUserInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewUserInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewUserInShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateUserInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserInShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUserInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteUserInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserInShiftResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetByName" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:NewCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_NewCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NewCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_UpdateCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_DeleteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUserService">
+    <wsdl:operation name="UserLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UserLogin" message="tns:IUserService_UserLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UserLoginResponse" message="tns:IUserService_UserLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewUser" message="tns:IUserService_NewUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NewUserResponse" message="tns:IUserService_NewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUser" message="tns:IUserService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserResponse" message="tns:IUserService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteUser" message="tns:IUserService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteUserResponse" message="tns:IUserService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsEmailFree" message="tns:IUserService_IsEmailFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsEmailFreeResponse" message="tns:IUserService_IsEmailFree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersbyType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersbyType" message="tns:IUserService_GetUsersbyType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersbyTypeResponse" message="tns:IUserService_GetUsersbyType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShift" message="tns:IUserService_GetShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftResponse" message="tns:IUserService_GetShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewShift" message="tns:IUserService_NewShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NewShiftResponse" message="tns:IUserService_NewShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateShift" message="tns:IUserService_UpdateShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateShiftResponse" message="tns:IUserService_UpdateShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteShift" message="tns:IUserService_DeleteShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteShiftResponse" message="tns:IUserService_DeleteShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentsBySubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubject" message="tns:IUserService_GetAssignmentsBySubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubjectResponse" message="tns:IUserService_GetAssignmentsBySubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentsByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsByCategory" message="tns:IUserService_GetAssignmentsByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsByCategoryResponse" message="tns:IUserService_GetAssignmentsByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewAssignment" message="tns:IUserService_NewAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NewAssignmentResponse" message="tns:IUserService_NewAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateAssignment" message="tns:IUserService_UpdateAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateAssignmentResponse" message="tns:IUserService_UpdateAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAssignment">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteAssignment" message="tns:IUserService_DeleteAssignment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteAssignmentResponse" message="tns:IUserService_DeleteAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersInShift" message="tns:IUserService_GetUsersInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersInShiftResponse" message="tns:IUserService_GetUsersInShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetByUser" message="tns:IUserService_GetByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetByUserResponse" message="tns:IUserService_GetByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewUserInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewUserInShift" message="tns:IUserService_NewUserInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NewUserInShiftResponse" message="tns:IUserService_NewUserInShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserInShift" message="tns:IUserService_UpdateUserInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserInShiftResponse" message="tns:IUserService_UpdateUserInShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteUserInShift" message="tns:IUserService_DeleteUserInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteUserInShiftResponse" message="tns:IUserService_DeleteUserInShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetCategories" message="tns:IUserService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetCategoriesResponse" message="tns:IUserService_GetCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetByName" message="tns:IUserService_GetByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetByNameResponse" message="tns:IUserService_GetByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewCategory" message="tns:IUserService_NewCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/NewCategoryResponse" message="tns:IUserService_NewCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateCategory" message="tns:IUserService_UpdateCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateCategoryResponse" message="tns:IUserService_UpdateCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteCategory" message="tns:IUserService_DeleteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteCategoryResponse" message="tns:IUserService_DeleteCategory_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UserLogin">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UserLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/NewUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsEmailFree">
+      <soap:operation soapAction="http://tempuri.org/IUserService/IsEmailFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersbyType">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersbyType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/NewShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentsBySubject">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentsBySubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentsByCategory">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentsByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewAssignment">
+      <soap:operation soapAction="http://tempuri.org/IUserService/NewAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAssignment">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAssignment">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersInShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByUser">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewUserInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/NewUserInShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserInShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteUserInShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetByName">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NewCategory">
+      <soap:operation soapAction="http://tempuri.org/IUserService/NewCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategory">
+      <soap:operation soapAction="http://tempuri.org/IUserService/UpdateCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategory">
+      <soap:operation soapAction="http://tempuri.org/IUserService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserService">
+    <wsdl:port name="BasicHttpBinding_IUserService" binding="tns:BasicHttpBinding_IUserService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfService/UserService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

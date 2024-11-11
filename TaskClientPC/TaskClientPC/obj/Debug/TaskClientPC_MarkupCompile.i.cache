@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\sasha\Desktop\Project-Alex\Tasky\Client_PC\TaskClientPC\TaskClientPC\obj\Debug\
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\
 TaskClientPC
 none
 false
 DEBUG;TRACE
-C:\Users\sasha\Desktop\Project-Alex\Tasky\Client_PC\TaskClientPC\TaskClientPC\App.xaml
-1219584333
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\App.xaml
+22021287199
 
-6-793535042
-13-38814620
-MainWindow.xaml;
+8-1310792430
+15-472223226
+LogIn.xaml;SignUp.xaml;
 
-True
+False
 
