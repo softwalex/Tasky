@@ -62,13 +62,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="LogIn.xaml.cs">
-      <DependentUpon>LogIn.xaml</DependentUpon>
+    <Compile Include="LogInWindow.xaml.cs">
+      <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.xaml.cs">
-      <DependentUpon>SignUp.xaml</DependentUpon>
+    <Compile Include="SignUpWindow.xaml.cs">
+      <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="LogIn.xaml">
+    <Compile Include="Valideaions\ValidDate.cs" />
+    <Compile Include="Valideaions\ValidEmail.cs" />
+    <Compile Include="Valideaions\ValidFirstName.cs" />
+    <Compile Include="Valideaions\ValidLastName.cs" />
+    <Compile Include="Valideaions\ValidPassword.cs" />
+    <Page Include="LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,7 +81,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SignUp.xaml">
+    <Page Include="SignUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

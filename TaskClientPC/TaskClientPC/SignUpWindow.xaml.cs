@@ -11,17 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskClientPC.TaskyServiceReference;
 
 namespace TaskClientPC
 {
     /// <summary>
     /// Interaction logic for SignUp.xaml
     /// </summary>
-    public partial class SignUp : Window
+    public partial class SignUpWindow : Window
     {
-        public SignUp()
+        User user;
+        public SignUpWindow()
         {
             InitializeComponent();
+            this.DataContext=user=new User();
         }
     }
 }

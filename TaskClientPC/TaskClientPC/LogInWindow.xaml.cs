@@ -18,9 +18,9 @@ namespace TaskClientPC
     /// <summary>
     /// Interaction logic for LogIn.xaml
     /// </summary>
-    public partial class LogIn : Window
+    public partial class LogInWindow : Window
     {
-        public LogIn()
+        public LogInWindow()
         {
             InitializeComponent();
         }
