@@ -38,5 +38,13 @@ namespace TaskClientPC
                 MessageBox.Show("EROR");
             }
         }
+        private void Link_To_SignUpWindow(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow signUpWindow = new SignUpWindow();
+            signUpWindow.Show();
+            this.Close();
+        }
+
+        //TODO - Login function (using TaskyService)
     }
 }

@@ -9,13 +9,14 @@
         Title="SignUp" Height="900" Width="800">
     <Window.Resources>
         <Style TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="MinWidth" Value="300"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                            <Label Content="*" FontSize="10" Foreground="red"/>
                             <AdornedElementPlaceholder x:Name="Placeholder"/>
                             <TextBlock FontSize="10"
                                FontStyle="Italic"
@@ -32,6 +33,13 @@
              Path=(Validation.Errors)[0].ErrorContent}"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="MinWidth" Value="300"/>
+            <Setter Property="MinHeight" Value="35"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="1"/>
         </Style>
     </Window.Resources>
     <Grid>
@@ -65,9 +73,11 @@
                             <Border Background="#FF7043" 
                             CornerRadius="4"
                             Padding="8">
-                                <Image Source="images/TaskyLogo.png" 
-                                Width="75" 
-                                Height="63"/>
+                                <Button Click="Link_To_LogInWindow">
+                                    <Button.Content>
+                                        <Image Source="images/TaskyLogo.png" Width="75" Height="63"/>
+                                    </Button.Content>
+                                </Button>
                             </Border>
                             <TextBlock Text="SIGN-UP" 
                             FontSize="24" 
@@ -101,7 +111,15 @@
                         Margin="0,0,0,20"
                         BorderThickness="1"
                         BorderBrush="#E0E0E0"
-                        Padding="10"/>
+                        Padding="10">
+                            <TextBox.Text>
+                                <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <valid:ValidLastName/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <!-- Birthday Field -->
                         <Label Content="Birthday:"/>
@@ -110,7 +128,15 @@
                             Margin="0,0,0,20"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
-                            Padding="10"/>
+                            Padding="10">
+                            <DatePicker.SelectedDate>
+                                <Binding Path="birthday" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <valid:ValidDate/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </DatePicker.SelectedDate>
+                        </DatePicker>
 
                         <!-- Email Field -->
                         <Label Content="Email:"/>
@@ -119,25 +145,37 @@
                         Margin="0,0,0,20"
                         BorderThickness="1"
                         BorderBrush="#E0E0E0"
-                        Padding="10"/>
+                        Padding="10">
+                            <TextBox.Text>
+                                <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                    <Binding.ValidationRules>
+                                        <valid:ValidEmail/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
 
                         <!-- Password Field -->
                         <Label Content="Password"/>
-                        <PasswordBox x:Name="PasswordBox"
+                        <PasswordBox x:Name="tbPass1"
                             Height="40"
                             Margin="0,0,0,20"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
-                            Padding="10"/>
+                            Padding="10"
+                            PasswordChanged="tbPass1_PasswordChanged"/>
+                        <Label x:Name="lblErroPass1" Foreground="red" FontSize="11"/>
 
                         <!-- Repeat Password Field -->
                         <Label Content="Repeat Password:"/>
-                        <PasswordBox x:Name="RepeatPasswordBox"
+                        <PasswordBox x:Name="tbPass2"
                             Height="40"
                             Margin="0,0,0,30"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
-                            Padding="10"/>
+                            Padding="10"
+                            PasswordChanged="tbPass2_PasswordChanged"/>
+                        <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
 
                         <!-- Sign Up Button -->
                         <Button Content="SIGN UP"
@@ -163,11 +201,8 @@
                         <!-- Login Link -->
                         <StackPanel Orientation="Horizontal" 
                             HorizontalAlignment="Center">
-                            <TextBlock Text="Already have an account? "
+                            <TextBlock Text="Press on the logo to login "
                                 Foreground="#666666"/>
-                            <TextBlock Text="Login"
-                                Foreground="#FF7043"
-                                Cursor="Hand"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>
