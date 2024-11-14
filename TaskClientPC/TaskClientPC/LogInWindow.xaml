@@ -37,7 +37,7 @@
                         <Border Background="#FF7043" 
                                CornerRadius="4"
                                Padding="8">
-                            <Button Click="Link_To_SignUpWindow">
+                            <Button Click="LinkToSignUpWindow">
                                 <Button.Content>
                                     <Image Source="images/TaskyLogo.png" 
                                       Width="75" 
@@ -53,6 +53,8 @@
                                 Margin="10,0,0,0"/>
                     </StackPanel>
 
+                    <TextBlock x:Name="ErrorText" Text="" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
+                    
                     <!-- Email Field -->
                     <Label Content="Email:"/>
                     <TextBox x:Name="EmailTextBox"
@@ -96,7 +98,7 @@
                     <!-- Sign Up Link -->
                     <StackPanel Orientation="Horizontal" 
                              HorizontalAlignment="Center">
-                        <TextBlock Text="Press on the logo to sing-up"
+                        <TextBlock Text="Press on the logo to sign-up"
                                 Foreground="#666666"/>
                     </StackPanel>
                 </StackPanel>

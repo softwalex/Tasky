@@ -20,31 +20,31 @@ namespace TaskClientPC
     /// </summary>
     public partial class LogInWindow : Window
     {
+        User user;
         public LogInWindow()
         {
             InitializeComponent();
+            user = new User();
         }
 
         private void EventLogIn(object sender, RoutedEventArgs e)
         {
             UserServiceClient userServiceClient = new UserServiceClient();
-            User user = userServiceClient.UserLogin(EmailTextBox.Text, PasswordBox.Password);
+            user = userServiceClient.UserLogin(EmailTextBox.Text, PasswordBox.Password);
             if (user != null)
             {
-                MessageBox.Show("WELCOME");
+                ErrorText.Text = "User was found!";
             }
             else
             {
-                MessageBox.Show("EROR");
+                ErrorText.Text = "Email or password were not found";
             }
         }
-        private void Link_To_SignUpWindow(object sender, RoutedEventArgs e)
+        private void LinkToSignUpWindow(object sender, RoutedEventArgs e)
         {
             SignUpWindow signUpWindow = new SignUpWindow();
             signUpWindow.Show();
             this.Close();
         }
-
-        //TODO - Login function (using TaskyService)
     }
 }

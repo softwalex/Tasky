@@ -68,11 +68,11 @@
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Valideaions\ValidDate.cs" />
-    <Compile Include="Valideaions\ValidEmail.cs" />
-    <Compile Include="Valideaions\ValidFirstName.cs" />
-    <Compile Include="Valideaions\ValidLastName.cs" />
-    <Compile Include="Valideaions\ValidPassword.cs" />
+    <Compile Include="Validations\ValidDate.cs" />
+    <Compile Include="Validations\ValidEmail.cs" />
+    <Compile Include="Validations\ValidFirstName.cs" />
+    <Compile Include="Validations\ValidLastName.cs" />
+    <Compile Include="Validations\ValidPassword.cs" />
     <Page Include="LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -56,7 +56,9 @@ namespace ViewModel
         }
         public Assignment SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM AssignmentTable WHERE Id={id}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM AssignmentTable WHERE Id=@id";
+            command.Parameters.AddWithValue("@id", id);
             AssignmentList list = new AssignmentList(base.ExecuteCommand());
             if (list.Count > 0)
             {
@@ -66,7 +68,9 @@ namespace ViewModel
         }
         public Assignment SelectBySuject(string subject)
         {
-            command.CommandText = $"SELECT * FROM AssignmentTable WHERE Subject={subject}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM AssignmentTable WHERE Subject=@Sub";
+            command.Parameters.AddWithValue("@Sub", subject);
             AssignmentList list = new AssignmentList(base.ExecuteCommand());
             if (list.Count > 0)
             {
@@ -76,7 +80,9 @@ namespace ViewModel
         }
         public AssignmentList SelectByCategory(string category)
         {
-            command.CommandText = $"SELECT * FROM AssignmentTable WHERE Category={category}";
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM AssignmentTable WHERE Category=@cat";
+            command.Parameters.AddWithValue("@cat", category);
             AssignmentList list = new AssignmentList(base.ExecuteCommand());
             return list;
         }

@@ -12,29 +12,28 @@ namespace WcfService
 {
     public class UserService : IUserService
     {
+        private UserDB userDB = new UserDB();
+
+        #region User
         public User UserLogin(string email, string password)
         {
-            UserDB userDB = new UserDB();
             User user = userDB.Login(email, password);
             return user;
         }
         public UserList GetUsersbyType(string type)
         {
-            UserDB userDB = new UserDB();
             UserList users = userDB.SelectByUserType(type);
             return users;
         }
 
         public bool IsEmailFree(string email)
         {
-            UserDB userDB = new UserDB();
             User user = userDB.SelectByEmail(email);
             return (user == null);
         }
 
         public User NewUser(User user)
         {
-            UserDB userDB = new UserDB();
             if (userDB.SelectByEmail(user.email) != null)
             {
                 return null;
@@ -45,7 +44,6 @@ namespace WcfService
 
         public bool UpdateUser(User user)
         {
-            UserDB userDB = new UserDB();
             if (userDB.SelectByEmail(user.email) != null)
             {
                 userDB.Update(user);
@@ -55,7 +53,6 @@ namespace WcfService
         }
         public bool DeleteUser(User user)
         {
-            UserDB userDB = new UserDB();
             if (userDB.SelectByEmail(user.email) != null)
             {
                 userDB.Delete(user.ID);
@@ -63,9 +60,9 @@ namespace WcfService
             }
             return false;
         }
+        #endregion
 
-        //------------------------------------------------------
-
+        #region Shift
         public Shift GetShift(string name)
         {
             ShiftDB shiftDB = new ShiftDB();
@@ -105,9 +102,9 @@ namespace WcfService
             }
             return false;
         }
+        #endregion
 
-        //------------------------------------------------------
-
+        #region Assignment
         public Assignment GetAssignmentsBySubject(string Subject)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
@@ -155,9 +152,9 @@ namespace WcfService
             }
             return false;
         }
+        #endregion
 
-        //------------------------------------------------------
-
+        #region UserInShiftLis
         public UserInShiftList GetUsersInShift()
         {
             UserInShiftDB usersInShift = new UserInShiftDB();
@@ -204,9 +201,9 @@ namespace WcfService
             }
             return false;
         }
+        #endregion
 
-        //------------------------------------------------------
-
+        #region Category
         public CategoryList GetCategories()
         {
             CategoryDB categoryDB = new CategoryDB();
@@ -254,5 +251,6 @@ namespace WcfService
             }
             return false;
         }
+        #endregion
     }
 }

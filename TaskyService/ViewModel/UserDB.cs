@@ -34,7 +34,9 @@ namespace ViewModel
         }
         public User SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM UserTable WHERE Id={id}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserTable WHERE Id=@id";
+            command.Parameters.AddWithValue("@id", id);
             UserList list = new UserList(base.ExecuteCommand());
             if(list.Count > 0)
             {
@@ -44,7 +46,9 @@ namespace ViewModel
         }
         public User SelectByEmail(string email)
         {
-            command.CommandText = $"SELECT * FROM UserTable WHERE Email={email}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserTable WHERE Email = @Em";
+            command.Parameters.AddWithValue("@Em", email);
             UserList list = new UserList(base.ExecuteCommand());
             if (list.Count > 0)
             {
@@ -54,7 +58,9 @@ namespace ViewModel
         }
         public UserList SelectByUserType(string userType)
         {
-            command.CommandText = $"SELECT * FROM UserTable WHERE UserType={userType}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserTable WHERE UserType=@UT";
+            command.Parameters.AddWithValue("UT", userType);
             UserList list = new UserList(base.ExecuteCommand());
             return list;
         }
@@ -62,7 +68,9 @@ namespace ViewModel
         public User Login(string email, string password)
         {
             command.Parameters.Clear();
-            command.CommandText = $"SELECT * FROM UserTable WHERE Email='{email}' AND Password='{password}'";
+            command.CommandText = "SELECT * FROM UserTable WHERE Email=@em AND Password=@pass";
+            command.Parameters.AddWithValue(@"em", email);
+            command.Parameters.AddWithValue(@"Pass", password);
             UserList users = new UserList(base.ExecuteCommand());
             if (users.Count > 0)
             {

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskClientPC"
         mc:Ignorable="d"
-        xmlns:valid="clr-namespace:TaskClientPC.Valideaions"
+        xmlns:valid="clr-namespace:TaskClientPC.Validations"
         Title="SignUp" Height="900" Width="800">
     <Window.Resources>
         <Style TargetType="TextBox">
@@ -73,7 +73,7 @@
                             <Border Background="#FF7043" 
                             CornerRadius="4"
                             Padding="8">
-                                <Button Click="Link_To_LogInWindow">
+                                <Button Click="LinkToLogInWindow">
                                     <Button.Content>
                                         <Image Source="images/TaskyLogo.png" Width="75" Height="63"/>
                                     </Button.Content>
@@ -85,8 +85,9 @@
                             Foreground="#FF7043"
                             VerticalAlignment="Center"
                             Margin="10,0,0,0"/>
+                           
                         </StackPanel>
-
+                        <TextBlock x:Name="ErrorText" HorizontalAlignment="Center" Foreground="Red" Text=""></TextBlock>
                         <!-- First Name Field -->
                         <Label Content="First Name:"/>
                         <TextBox x:Name="FirstNameTextBox"
@@ -179,6 +180,7 @@
 
                         <!-- Sign Up Button -->
                         <Button Content="SIGN UP"
+                        Click="SubmitButtonClick"
                         Height="40"
                         Background="#FF7043"
                         Foreground="White"

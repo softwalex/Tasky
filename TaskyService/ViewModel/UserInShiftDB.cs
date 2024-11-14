@@ -40,7 +40,9 @@ namespace ViewModel
         }
         public UserInShift SelectById(int id)
         {
-            command.CommandText = "SELECT * FROM UserInShiftTable";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserInShiftTable WHERE Id=@id";
+            command.Parameters.AddWithValue("@id", id);
             UserInShiftList list = new UserInShiftList(base.ExecuteCommand());
             if(list.Count > 0)
             {
@@ -50,7 +52,9 @@ namespace ViewModel
         }
         public UserInShift SelectByUser(User user)
         {
-            command.CommandText = $"SELECT * FROM UserInShiftTable WHERE User={user}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserInShiftTable WHERE User=@us";
+            command.Parameters.AddWithValue("@us", user);
             UserInShiftList list = new UserInShiftList(base.ExecuteCommand());
             if (list.Count > 0)
             {
@@ -60,7 +64,9 @@ namespace ViewModel
         }
         public UserInShiftList SelectByShift(Shift shift)
         {
-            command.CommandText = $"SELECT * FROM UserInShiftTable WHERE Shift={shift}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM UserInShiftTable WHERE Shift=@sh";
+            command.Parameters.AddWithValue("@sh", shift);
             UserInShiftList list = new UserInShiftList(base.ExecuteCommand());
             return list;
         }

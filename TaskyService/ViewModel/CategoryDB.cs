@@ -29,7 +29,9 @@ namespace ViewModel
         }
         public Category SelectById(int id)
         {
-            command.CommandText = $"SELECT * FROM CategoryTable WHERE Id={id}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM CategoryTable WHERE Id=@id";
+            command.Parameters.AddWithValue("@id", id);
             CategoryList list = new CategoryList(base.ExecuteCommand());
             if (list.Count > 0)
             {
@@ -39,7 +41,9 @@ namespace ViewModel
         }
         public Category SelectByName(string name)
         {
-            command.CommandText = $"SELECT * FROM CategoryTable WHERE Name={name}";
+            command.Parameters.Clear();
+            command.CommandText = "SELECT * FROM CategoryTable WHERE Name=@name";
+            command.Parameters.AddWithValue("@name", name);
             CategoryList list = new CategoryList(base.ExecuteCommand());
             if (list.Count > 0)
             {

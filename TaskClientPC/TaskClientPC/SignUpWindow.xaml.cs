@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskClientPC.TaskyServiceReference;
-using TaskClientPC.Valideaions;
+using TaskClientPC.Validations;
 
 namespace TaskClientPC
 {
@@ -30,6 +30,7 @@ namespace TaskClientPC
             user = new User();
             this.DataContext = user;
             PassIsOk = RePassIsOk = false;
+            BirthdayDatePicker.SelectedDate = DateTime.Now;
         }
         private void tbPass1_PasswordChanged(object sender, RoutedEventArgs e)//Check Password Field.
         {
@@ -38,12 +39,12 @@ namespace TaskClientPC
                                                                                     
             if (!result.IsValid)
             {
-                //Eror - password is not valid
+                //Error - password is not valid
                 tbPass1.ToolTip = result.ErrorContent.ToString();
                 tbPass1.BorderBrush = new SolidColorBrush(Colors.Red);
                 tbPass1.BorderThickness = new Thickness(1);
                 lblErroPass1.Content = result.ErrorContent.ToString();
-                PassIsOk = true;
+                PassIsOk = false;
             }
             else
             {
@@ -52,7 +53,7 @@ namespace TaskClientPC
                 tbPass1.BorderBrush = new SolidColorBrush(Colors.Black);
                 tbPass1.BorderThickness = new Thickness(1);
                 lblErroPass1.Content = string.Empty;
-                PassIsOk = false;
+                PassIsOk = true;
             }
             tbPass2_PasswordChanged(sender, e);
         }
@@ -62,12 +63,12 @@ namespace TaskClientPC
             //Is this password is the same as in the passwordbox
             if (!tbPass1.Password.Equals(tbPass2.Password))
             {
-                //Eror - password is not valid
+                //Error - password is not valid
                 tbPass2.ToolTip = "Passwords do not match!";
                 tbPass2.BorderBrush = new SolidColorBrush(Colors.Red);
                 tbPass2.BorderThickness = new Thickness(1);
                 lblErroPass2.Content = "Passwords do not match!";
-                RePassIsOk = true;
+                RePassIsOk = false;
             }
             else
             {
@@ -76,16 +77,54 @@ namespace TaskClientPC
                 tbPass2.BorderBrush = new SolidColorBrush(Colors.Black);
                 tbPass2.BorderThickness = new Thickness(1);
                 lblErroPass2.Content = string.Empty;
-                RePassIsOk = false;
+                RePassIsOk = true;
             }
         }
-        private void Link_To_LogInWindow(object sender, RoutedEventArgs e)
+        private void LinkToLogInWindow(object sender, RoutedEventArgs e)
         {
             LogInWindow logInWindow = new LogInWindow();
             logInWindow.Show();
             this.Close();
         }
+        private bool DataIsValid()//check if all data fields is ok.
+        {
+            if (Validation.GetHasError(FirstNameTextBox)) { return false; }
+            if (Validation.GetHasError(LastNameTextBox)) { return false; }
+            if (Validation.GetHasError(BirthdayDatePicker)) { return false; }
+            if (!PassIsOk || !RePassIsOk) { return false; }
+            return true;
+        }
+        private void SubmitButtonClick(object sender, RoutedEventArgs e)//OP of the submit button.
+        {
+            UserServiceClient serviceClient = new UserServiceClient();
 
-        //TODO - SignUp function (using TaskyService)
+            //Check if the details of the user are valid
+            if (!DataIsValid())
+            {
+                ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
+                return;
+            }
+            if (!serviceClient.IsEmailFree(EmailTextBox.Text))
+            {
+                ErrorText.Text = "Error!\nEmail is already taken";
+                return;
+            }
+
+            //Clean error text
+            ErrorText.Text = string.Empty;
+
+            //Insert user's details
+            user.firstname = FirstNameTextBox.Text;
+            user.lastname = LastNameTextBox.Text;
+            user.birthday = DateTime.Parse(BirthdayDatePicker.Text);
+            user.email = EmailTextBox.Text;
+            user.password = tbPass1.Password.ToString();
+            user.userType = UserType.Admin;//admin sign-up
+
+            User UserToInsert = serviceClient.NewUser(user);
+
+            //redirect to login window
+            LinkToLogInWindow(sender, e);
+        }
     }
 }
