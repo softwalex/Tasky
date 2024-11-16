@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TaskClientPC"
         mc:Ignorable="d"
         xmlns:valid="clr-namespace:TaskClientPC.Validations"
-        Title="SignUp" Height="900" Width="800">
+        Title="SignUp" Height="500" Width="700">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="BorderBrush" Value="Black"/>
@@ -85,128 +85,133 @@
                             Foreground="#FF7043"
                             VerticalAlignment="Center"
                             Margin="10,0,0,0"/>
-                           
+
                         </StackPanel>
-                        <TextBlock x:Name="ErrorText" HorizontalAlignment="Center" Foreground="Red" Text=""></TextBlock>
-                        <!-- First Name Field -->
-                        <Label Content="First Name:"/>
-                        <TextBox x:Name="FirstNameTextBox"
-                        Height="40"
-                        Margin="0,0,0,20"
-                        BorderThickness="1"
-                        BorderBrush="#E0E0E0"
-                        Padding="10">
-                            <TextBox.Text>
-                                <Binding Path="firstname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
-                                    <Binding.ValidationRules>
-                                        <valid:ValidFirstName/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                        <TextBlock x:Name="ErrorText" HorizontalAlignment="Center" Foreground="Red" Text=""/>
 
-                        <!-- Last Name Field -->
-                        <Label Content="Last Name:"/>
-                        <TextBox x:Name="LastNameTextBox"
-                        Height="40"
-                        Margin="0,0,0,20"
-                        BorderThickness="1"
-                        BorderBrush="#E0E0E0"
-                        Padding="10">
-                            <TextBox.Text>
-                                <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
-                                    <Binding.ValidationRules>
-                                        <valid:ValidLastName/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                        <Grid>
+                            <StackPanel x:Name="FirstAndLastName" Visibility="Visible">
+                                <StackPanel x:Name="FirstNameStackPanel" Visibility="Visible">
+                                    <!-- First Name Field -->
+                                    <Label Content="First Name:"/>
+                                    <TextBox x:Name="FirstNameTextBox"
+                                    Height="40"
+                                    Margin="0,0,0,20"
+                                    BorderThickness="1"
+                                    BorderBrush="#E0E0E0"
+                                    Padding="10">
+                                        <TextBox.Text>
+                                            <Binding Path="firstname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                                <Binding.ValidationRules>
+                                                    <valid:ValidFirstName/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </StackPanel>
 
-                        <!-- Birthday Field -->
-                        <Label Content="Birthday:"/>
-                        <DatePicker x:Name="BirthdayDatePicker"
+                                <!-- Last Name Field -->
+                                <StackPanel x:Name="LastNameStackPanel" Visibility="Visible">
+                                    <Label Content="Last Name:"/>
+                                    <TextBox x:Name="LastNameTextBox"
+                            Height="40"
+                            Margin="0,0,0,20"
+                            BorderThickness="1"
+                            BorderBrush="#E0E0E0"
+                            Padding="10">
+                                        <TextBox.Text>
+                                            <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                                <Binding.ValidationRules>
+                                                    <valid:ValidLastName/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </TextBox.Text>
+                                    </TextBox>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <!-- Birthday Field -->
+                            <StackPanel x:Name="BirthdayStackPanel" Visibility="Hidden">
+                                <Label Content="Birthday:"/>
+                                <DatePicker x:Name="BirthdayDatePicker"
                             Height="40"
                             Margin="0,0,0,20"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
                             Padding="10"
                             >
-                            <DatePicker.SelectedDate>
-                                <Binding Path="birthday" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
-                                    <Binding.ValidationRules>
-                                        <valid:ValidDate/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </DatePicker.SelectedDate>
-                        </DatePicker>
+                                    <DatePicker.SelectedDate>
+                                        <Binding Path="birthday" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                            <Binding.ValidationRules>
+                                                <valid:ValidDate/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </DatePicker.SelectedDate>
+                                </DatePicker>
+                            </StackPanel>
 
-                        <!-- Email Field -->
-                        <Label Content="Email:"/>
-                        <TextBox x:Name="EmailTextBox"
-                        Height="40"
-                        Margin="0,0,0,20"
-                        BorderThickness="1"
-                        BorderBrush="#E0E0E0"
-                        Padding="10">
-                            <TextBox.Text>
-                                <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
-                                    <Binding.ValidationRules>
-                                        <valid:ValidEmail/>
-                                    </Binding.ValidationRules>
-                                </Binding>
-                            </TextBox.Text>
-                        </TextBox>
+                            <!-- Email Field -->
+                            <StackPanel x:Name="EmailStackPanel" Visibility="Hidden">
+                                <Label Content="Email:"/>
+                                <TextBox x:Name="EmailTextBox"
+                            Height="40"
+                            Margin="0,0,0,20"
+                            BorderThickness="1"
+                            BorderBrush="#E0E0E0"
+                            Padding="10">
+                                    <TextBox.Text>
+                                        <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                            <Binding.ValidationRules>
+                                                <valid:ValidEmail/>
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </StackPanel>
 
-                        <!-- Password Field -->
-                        <Label Content="Password"/>
-                        <PasswordBox x:Name="tbPass1"
+                            <StackPanel x:Name="PasswordStackPanel" Visibility="Hidden">
+                                <!-- Password Field -->
+                                <Label Content="Password"/>
+                                <PasswordBox x:Name="tbPass1"
                             Height="40"
                             Margin="0,0,0,20"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
                             Padding="10"
                             PasswordChanged="tbPass1_PasswordChanged"/>
-                        <Label x:Name="lblErroPass1" Foreground="red" FontSize="11"/>
+                                <Label x:Name="lblErroPass1" Foreground="red" FontSize="11"/>
 
-                        <!-- Repeat Password Field -->
-                        <Label Content="Repeat Password:"/>
-                        <PasswordBox x:Name="tbPass2"
+                                <!-- Repeat Password Field -->
+                                <Label Content="Repeat Password:"/>
+                                <PasswordBox x:Name="tbPass2"
                             Height="40"
                             Margin="0,0,0,30"
                             BorderThickness="1"
                             BorderBrush="#E0E0E0"
                             Padding="10"
                             PasswordChanged="tbPass2_PasswordChanged"/>
-                        <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
+                                <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
+                            </StackPanel>
 
-                        <!-- Sign Up Button -->
-                        <Button Content="SIGN UP"
+                            <!-- Sign Up Button -->
+                            <StackPanel x:Name="SubmitButton">
+                                <Button Content="Next"
                         Click="SubmitButtonClick"
                         Height="40"
                         Background="#FF7043"
                         Foreground="White"
                         BorderThickness="0"
-                        Margin="0,0,0,20"/>
+                        Margin="0,174,0,20"/>
 
-                        <!-- Terms Text -->
-                        <TextBlock TextAlignment="Center" 
-                            TextWrapping="Wrap"
-                            Foreground="#666666"
-                            FontSize="12"
-                            Margin="0,0,0,20">
-                    <Run Text="By registering, You agree to the"/>
-                    <LineBreak/>
-                    <Run Text="Terms, Conditions and Policies of Borcelle"/>
-                    <LineBreak/>
-                    <Run Text="&amp; Privacy Policy"/>
-                        </TextBlock>
-
-                        <!-- Login Link -->
-                        <StackPanel Orientation="Horizontal" 
+                                <!-- Login Link -->
+                                <StackPanel Orientation="Horizontal" 
                             HorizontalAlignment="Center">
-                            <TextBlock Text="Press on the logo to login "
+                                    <TextBlock Text="Press on the logo to login "
                                 Foreground="#666666"/>
-                        </StackPanel>
+
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
                     </StackPanel>
                 </Border>
             </Grid>

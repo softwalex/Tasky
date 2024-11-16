@@ -23,20 +23,131 @@ namespace TaskClientPC
     public partial class SignUpWindow : Window
     {
         User user;
+        UserServiceClient serviceClient;
         bool PassIsOk, RePassIsOk;
+        int clicks;
+        StackPanel[] stackPanels;
         public SignUpWindow()
         {
             InitializeComponent();
             user = new User();
+            serviceClient = new UserServiceClient();
             this.DataContext = user;
             PassIsOk = RePassIsOk = false;
-            BirthdayDatePicker.SelectedDate = DateTime.Now;
+            clicks= 0;
+            stackPanels = new StackPanel[] { FirstAndLastName, BirthdayStackPanel, EmailStackPanel, PasswordStackPanel };
+        }
+        private void ShowOnly(StackPanel StackPanelToShow)
+        {
+            foreach(StackPanel s in stackPanels)
+            {
+                if (s != StackPanelToShow)
+                {
+                    s.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                    s.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        private bool IsValid(object field)
+        {
+            if(field is TextBox)
+            {
+                if (Validation.GetHasError(field as TextBox)) { return false; }
+            }
+            if(field is DatePicker)
+            {
+                if (Validation.GetHasError(field as DatePicker)) { return false; };
+            }
+            if (field is PasswordBox)
+            {
+                if (!PassIsOk || !RePassIsOk) { return false; }
+            }
+            return true;
+        }
+        private void SubmitButtonClick(object sender, RoutedEventArgs e)//OP of the submit button. 
+        {
+            clicks++;
+            switch (clicks)
+            {
+                case 1:
+                    if (IsValid(FirstNameTextBox) && IsValid(LastNameTextBox))
+                    {
+                        user.firstname = FirstNameTextBox.Text;
+                        user.lastname = LastNameTextBox.Text;
+                        ShowOnly(BirthdayStackPanel);
+                        ErrorText.Text = string.Empty;
+                    }
+                    else
+                    {
+                        ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
+                        clicks--;
+                    }
+                    break;
+                case 2:
+                    if (IsValid(BirthdayDatePicker))
+                    {
+                        user.birthday = DateTime.Parse(BirthdayDatePicker.Text);
+                        ShowOnly(EmailStackPanel);
+                        ErrorText.Text = string.Empty;
+                    }
+                    else
+                    {
+                        ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
+                        clicks--;
+                    }
+                    break;
+                case 3:
+                    if (IsValid(EmailTextBox))
+                    {
+                        if (serviceClient.IsEmailFree(EmailTextBox.Text))
+                        {
+                            user.email = EmailTextBox.Text;
+                            ShowOnly(PasswordStackPanel);
+                            ErrorText.Text = string.Empty;
+                        }
+                        else
+                        {
+                            ErrorText.Text = "Error!\nEmail is already taken";
+                            clicks--;
+                        }
+                    }
+                    else
+                    {
+                        ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
+                        clicks--;
+                    }
+                    break;
+                case 4:
+                    if (IsValid(tbPass1))
+                    {
+                        user.password = tbPass1.Password.ToString();
+                        user.userType = UserType.Admin;
+                        User u = serviceClient.NewUser(user);
+                        LinkToLogInWindow(sender,e);
+                    }
+                    else
+                    {
+                        ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
+                        clicks--;
+                    }
+                    break;
+
+            }
+        }
+        private void LinkToLogInWindow(object sender, RoutedEventArgs e)
+        {
+            LogInWindow logInWindow = new LogInWindow();
+            logInWindow.Show();
+            this.Close();
         }
         private void tbPass1_PasswordChanged(object sender, RoutedEventArgs e)//Check Password Field.
         {
             ValidPassword validPassword = new ValidPassword();
             ValidationResult result = validPassword.Validate(tbPass1.Password, null); //is the password field valid?
-                                                                                    
+
             if (!result.IsValid)
             {
                 //Error - password is not valid
@@ -57,7 +168,6 @@ namespace TaskClientPC
             }
             tbPass2_PasswordChanged(sender, e);
         }
-
         private void tbPass2_PasswordChanged(object sender, RoutedEventArgs e)//Check Repeat Password Field.
         {
             //Is this password is the same as in the passwordbox
@@ -79,54 +189,6 @@ namespace TaskClientPC
                 lblErroPass2.Content = string.Empty;
                 RePassIsOk = true;
             }
-        }
-        private void LinkToLogInWindow(object sender, RoutedEventArgs e)
-        {
-            LogInWindow logInWindow = new LogInWindow();
-            logInWindow.Show();
-            this.Close();
-        }
-        private bool DataIsValid()//check if all data fields is ok.
-        {
-            foreach(TextBox tb in SignUpForm.Children.OfType<TextBox>())
-            {
-                if (Validation.GetHasError(tb)){ return false; };   
-            }
-            if (Validation.GetHasError(BirthdayDatePicker)) { return false; }
-            if (!PassIsOk || !RePassIsOk) { return false; }
-            return true;
-        }
-        private void SubmitButtonClick(object sender, RoutedEventArgs e)//OP of the submit button.
-        {
-            UserServiceClient serviceClient = new UserServiceClient();
-
-            //Check if the details of the user are valid
-            if (!DataIsValid())
-            {
-                ErrorText.Text = "Error!\nCheck all the fields, make sure they are all full and valid";
-                return;
-            }
-            if (!serviceClient.IsEmailFree(EmailTextBox.Text))
-            {
-                ErrorText.Text = "Error!\nEmail is already taken";
-                return;
-            }
-
-            //Clean error text
-            ErrorText.Text = string.Empty;
-
-            //Insert user's details
-            user.firstname = FirstNameTextBox.Text;
-            user.lastname = LastNameTextBox.Text;
-            user.birthday = DateTime.Parse(BirthdayDatePicker.Text);
-            user.email = EmailTextBox.Text;
-            user.password = tbPass1.Password.ToString();
-            user.userType = UserType.Admin;//admin sign-up
-
-            User UserToInsert = serviceClient.NewUser(user);
-
-            //redirect to login window
-            LinkToLogInWindow(sender, e);
         }
     }
 }
