@@ -43,7 +43,7 @@ namespace TaskClientPC
             {
                 if (s != StackPanelToShow)
                 {
-                    s.Visibility = Visibility.Hidden;
+                    s.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
@@ -79,6 +79,7 @@ namespace TaskClientPC
                         user.lastname = LastNameTextBox.Text;
                         ShowOnly(BirthdayStackPanel);
                         ErrorText.Text = string.Empty;
+                        GoBackButton.Visibility = Visibility.Visible;
                     }
                     else
                     {
@@ -137,6 +138,27 @@ namespace TaskClientPC
 
             }
         }
+        private void GoBackButtonClick(object sender, RoutedEventArgs e)
+        {
+            clicks--;
+            if (clicks == 0) { GoBackButton.Visibility = Visibility.Hidden; }
+            switch (clicks)
+            {
+                case 0:
+                    ShowOnly(FirstAndLastName);
+                    break;
+                case 1:
+                    ShowOnly(BirthdayStackPanel);
+                    break;
+                case 2:
+                    ShowOnly(EmailStackPanel);
+                    break;
+                case 3:
+                    ShowOnly(PasswordStackPanel);
+                    break;
+            }
+
+        }
         private void LinkToLogInWindow(object sender, RoutedEventArgs e)
         {
             LogInWindow logInWindow = new LogInWindow();
@@ -168,6 +190,7 @@ namespace TaskClientPC
             }
             tbPass2_PasswordChanged(sender, e);
         }
+
         private void tbPass2_PasswordChanged(object sender, RoutedEventArgs e)//Check Repeat Password Field.
         {
             //Is this password is the same as in the passwordbox

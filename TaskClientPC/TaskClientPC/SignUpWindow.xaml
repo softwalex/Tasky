@@ -95,11 +95,11 @@
                                     <!-- First Name Field -->
                                     <Label Content="First Name:"/>
                                     <TextBox x:Name="FirstNameTextBox"
-                                    Height="40"
-                                    Margin="0,0,0,20"
-                                    BorderThickness="1"
-                                    BorderBrush="#E0E0E0"
-                                    Padding="10">
+                                        Height="40"
+                                        Margin="0,0,0,20"
+                                        BorderThickness="1"
+                                        BorderBrush="#E0E0E0"
+                                        Padding="10">
                                         <TextBox.Text>
                                             <Binding Path="firstname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
@@ -114,11 +114,11 @@
                                 <StackPanel x:Name="LastNameStackPanel" Visibility="Visible">
                                     <Label Content="Last Name:"/>
                                     <TextBox x:Name="LastNameTextBox"
-                            Height="40"
-                            Margin="0,0,0,20"
-                            BorderThickness="1"
-                            BorderBrush="#E0E0E0"
-                            Padding="10">
+                                        Height="40"
+                                        Margin="0,0,0,20"
+                                        BorderThickness="1"
+                                        BorderBrush="#E0E0E0"
+                                        Padding="10">
                                         <TextBox.Text>
                                             <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                                 <Binding.ValidationRules>
@@ -131,15 +131,15 @@
                             </StackPanel>
 
                             <!-- Birthday Field -->
-                            <StackPanel x:Name="BirthdayStackPanel" Visibility="Hidden">
+                            <StackPanel x:Name="BirthdayStackPanel" Visibility="Collapsed">
                                 <Label Content="Birthday:"/>
                                 <DatePicker x:Name="BirthdayDatePicker"
-                            Height="40"
-                            Margin="0,0,0,20"
-                            BorderThickness="1"
-                            BorderBrush="#E0E0E0"
-                            Padding="10"
-                            >
+                                    Height="40"
+                                    Margin="0,0,0,20"
+                                    BorderThickness="1"
+                                    BorderBrush="#E0E0E0"
+                                    Padding="10"
+                                    >
                                     <DatePicker.SelectedDate>
                                         <Binding Path="birthday" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                             <Binding.ValidationRules>
@@ -151,14 +151,14 @@
                             </StackPanel>
 
                             <!-- Email Field -->
-                            <StackPanel x:Name="EmailStackPanel" Visibility="Hidden">
+                            <StackPanel x:Name="EmailStackPanel" Visibility="Collapsed">
                                 <Label Content="Email:"/>
                                 <TextBox x:Name="EmailTextBox"
-                            Height="40"
-                            Margin="0,0,0,20"
-                            BorderThickness="1"
-                            BorderBrush="#E0E0E0"
-                            Padding="10">
+                                    Height="40"
+                                    Margin="0,0,0,20"
+                                    BorderThickness="1"
+                                    BorderBrush="#E0E0E0"
+                                    Padding="10">
                                     <TextBox.Text>
                                         <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                             <Binding.ValidationRules>
@@ -169,46 +169,66 @@
                                 </TextBox>
                             </StackPanel>
 
-                            <StackPanel x:Name="PasswordStackPanel" Visibility="Hidden">
+                            <StackPanel x:Name="PasswordStackPanel" Visibility="Collapsed" Margin="0,-30,0,0">
                                 <!-- Password Field -->
-                                <Label Content="Password"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Password:"/>
+                                    <Label x:Name="lblErroPass1" Foreground="red" FontSize="11"/>
+                                </StackPanel>
                                 <PasswordBox x:Name="tbPass1"
-                            Height="40"
-                            Margin="0,0,0,20"
-                            BorderThickness="1"
-                            BorderBrush="#E0E0E0"
-                            Padding="10"
-                            PasswordChanged="tbPass1_PasswordChanged"/>
-                                <Label x:Name="lblErroPass1" Foreground="red" FontSize="11"/>
-
-                                <!-- Repeat Password Field -->
-                                <Label Content="Repeat Password:"/>
+                                Height="40"
+                                Margin="0,0,0,20"
+                                BorderThickness="1"
+                                BorderBrush="#E0E0E0"
+                                Padding="10"
+                                PasswordChanged="tbPass1_PasswordChanged"/>
+                                    <!-- Repeat Password Field -->
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Repeat Password:"/>
+                                    <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
+                                </StackPanel>
                                 <PasswordBox x:Name="tbPass2"
-                            Height="40"
-                            Margin="0,0,0,30"
-                            BorderThickness="1"
-                            BorderBrush="#E0E0E0"
-                            Padding="10"
-                            PasswordChanged="tbPass2_PasswordChanged"/>
-                                <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
+                                Height="40"
+                                Margin="0,0,0,30"
+                                BorderThickness="1"
+                                BorderBrush="#E0E0E0"
+                                Padding="10"
+                                PasswordChanged="tbPass2_PasswordChanged"/>
+
                             </StackPanel>
 
-                            <!-- Sign Up Button -->
-                            <StackPanel x:Name="SubmitButton">
-                                <Button Content="Next"
-                        Click="SubmitButtonClick"
-                        Height="40"
-                        Background="#FF7043"
-                        Foreground="White"
-                        BorderThickness="0"
-                        Margin="0,174,0,20"/>
+                                <!-- Sign Up Button -->
+                            <StackPanel x:Name="SubmitButtonStackPanel">
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <Button Content="⬅️"
+                                        x:Name="GoBackButton"
+                                        Click="GoBackButtonClick"
+                                        Height="20"
+                                        Background="#FF7043"
+                                        Foreground="White"
+                                        BorderThickness="0"
+                                        Margin="0,174,0,20"
+                                        Width="20"
+                                        HorizontalAlignment="Left"
+                                        Visibility="Hidden"
+                                    />
+                                    <Button Content="Next"
+                                        x:Name="SubmitButton"
+                                        Click="SubmitButtonClick"
+                                        Height="40"
+                                        Background="#FF7043"
+                                        Foreground="White"
+                                        BorderThickness="0"
+                                        Margin="50,174,70,20"
+                                        Width="250"
+                                        HorizontalAlignment="Center"
+                                    />
+
+                                </StackPanel>
 
                                 <!-- Login Link -->
-                                <StackPanel Orientation="Horizontal" 
-                            HorizontalAlignment="Center">
-                                    <TextBlock Text="Press on the logo to login "
-                                Foreground="#666666"/>
-
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="Press on the logo to login" Foreground="#666666"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
