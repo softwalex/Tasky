@@ -25,8 +25,9 @@ namespace TaskClientPC
         User user;
         UserServiceClient serviceClient;
         bool PassIsOk, RePassIsOk;
-        int clicks;
-        StackPanel[] stackPanels;
+        int clicks;//Number of the "Next" button clicks
+        StackPanel[] stackPanels;//collection of all the fields 
+
         public SignUpWindow()
         {
             InitializeComponent();
@@ -35,8 +36,11 @@ namespace TaskClientPC
             this.DataContext = user;
             PassIsOk = RePassIsOk = false;
             clicks= 0;
-            stackPanels = new StackPanel[] { FirstAndLastName, BirthdayStackPanel, EmailStackPanel, PasswordStackPanel };
+            stackPanels = new StackPanel[] 
+                { FirstAndLastNameStackPanel, BirthdayStackPanel, EmailStackPanel, PasswordStackPanel };
         }
+       
+        //Hide all stackpanels except StackPanelToShow
         private void ShowOnly(StackPanel StackPanelToShow)
         {
             foreach(StackPanel s in stackPanels)
@@ -51,6 +55,8 @@ namespace TaskClientPC
                 }
             }
         }
+
+        //check if field is valid to continue
         private bool IsValid(object field)
         {
             if(field is TextBox)
@@ -67,7 +73,9 @@ namespace TaskClientPC
             }
             return true;
         }
-        private void SubmitButtonClick(object sender, RoutedEventArgs e)//OP of the submit button. 
+
+        //Go to the next field of the sign-up if the current stackpanel fields are valid
+        private void SubmitButtonClick(object sender, RoutedEventArgs e) 
         {
             clicks++;
             switch (clicks)
@@ -138,6 +146,8 @@ namespace TaskClientPC
 
             }
         }
+
+        //The option to go back and change previous fields
         private void GoBackButtonClick(object sender, RoutedEventArgs e)
         {
             clicks--;
@@ -145,7 +155,7 @@ namespace TaskClientPC
             switch (clicks)
             {
                 case 0:
-                    ShowOnly(FirstAndLastName);
+                    ShowOnly(FirstAndLastNameStackPanel);
                     break;
                 case 1:
                     ShowOnly(BirthdayStackPanel);

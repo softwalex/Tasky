@@ -21,15 +21,21 @@ namespace TaskClientPC
     public partial class LogInWindow : Window
     {
         User user;
+        UserServiceClient userServiceClient;
         public LogInWindow()
         {
             InitializeComponent();
             user = new User();
+            userServiceClient = new UserServiceClient();
         }
 
-        private void EventLogIn(object sender, RoutedEventArgs e)
+        private void LogInButtonClick(object sender, RoutedEventArgs e)
         {
-            UserServiceClient userServiceClient = new UserServiceClient();
+            if(EmailTextBox.Text == string.Empty || PasswordBox.Password.ToString() == string.Empty)
+            {
+                ErrorText.Text = "You have to fill all of the given fields";
+                return;
+            }
             user = userServiceClient.UserLogin(EmailTextBox.Text, PasswordBox.Password);
             if (user != null)
             {

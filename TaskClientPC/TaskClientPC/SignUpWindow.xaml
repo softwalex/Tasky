@@ -90,7 +90,7 @@
                         <TextBlock x:Name="ErrorText" HorizontalAlignment="Center" Foreground="Red" Text=""/>
 
                         <Grid>
-                            <StackPanel x:Name="FirstAndLastName" Visibility="Visible">
+                            <StackPanel x:Name="FirstAndLastNameStackPanel" Visibility="Visible">
                                 <StackPanel x:Name="FirstNameStackPanel" Visibility="Visible">
                                     <!-- First Name Field -->
                                     <Label Content="First Name:"/>

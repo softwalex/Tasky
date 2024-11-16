@@ -80,21 +80,8 @@
                            Foreground="White"
                            BorderThickness="0"
                            Margin="0,0,0,20"
-                            Click="EventLogIn"/>
-
-                    <!-- Terms Text -->
-                    <TextBlock TextAlignment="Center" 
-                            TextWrapping="Wrap"
-                            Foreground="#666666"
-                            FontSize="12"
-                            Margin="0,0,0,20">
-                       <Run Text="By registering, You agree to the"/>
-                       <LineBreak/>
-                       <Run Text="Terms, Conditions and Policies of Borcelle"/>
-                       <LineBreak/>
-                       <Run Text="&amp; Privacy Policy"/>
-                    </TextBlock>
-
+                           Click="LogInButtonClick"/>
+                    
                     <!-- Sign Up Link -->
                     <StackPanel Orientation="Horizontal" 
                              HorizontalAlignment="Center">
