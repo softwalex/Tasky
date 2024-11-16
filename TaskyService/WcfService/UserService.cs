@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using ViewModel;
+using System.Security.Principal;
 
 namespace WcfService
 {

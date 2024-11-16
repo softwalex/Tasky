@@ -88,8 +88,10 @@ namespace TaskClientPC
         }
         private bool DataIsValid()//check if all data fields is ok.
         {
-            if (Validation.GetHasError(FirstNameTextBox)) { return false; }
-            if (Validation.GetHasError(LastNameTextBox)) { return false; }
+            foreach(TextBox tb in SignUpForm.Children.OfType<TextBox>())
+            {
+                if (Validation.GetHasError(tb)){ return false; };   
+            }
             if (Validation.GetHasError(BirthdayDatePicker)) { return false; }
             if (!PassIsOk || !RePassIsOk) { return false; }
             return true;
