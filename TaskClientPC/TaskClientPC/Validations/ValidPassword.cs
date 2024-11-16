@@ -12,6 +12,7 @@ namespace TaskClientPC.Validations
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
+
             string pass = value.ToString().Trim();
             if (pass.Length < 5)
             {

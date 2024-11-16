@@ -55,7 +55,7 @@ namespace TaskClientPC
         {
             if(field is TextBox)
             {
-                if (Validation.GetHasError(field as TextBox)) { return false; }
+                if (Validation.GetHasError(field as TextBox) || (field as TextBox).Text == string.Empty) { return false; }
             }
             if(field is DatePicker)
             {
@@ -63,7 +63,7 @@ namespace TaskClientPC
             }
             if (field is PasswordBox)
             {
-                if (!PassIsOk || !RePassIsOk) { return false; }
+                if ((!PassIsOk || !RePassIsOk) || (field as PasswordBox).Password.ToString() == string.Empty) { return false; }
             }
             return true;
         }

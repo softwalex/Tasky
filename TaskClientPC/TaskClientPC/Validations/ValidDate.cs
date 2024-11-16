@@ -12,7 +12,7 @@ namespace TaskClientPC.Validations
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-
+            if (value == null) { return new ValidationResult(false,"Date is empty"); }
             DateTime date = DateTime.Parse(value.ToString().Trim());
             if (date == null)
             {
