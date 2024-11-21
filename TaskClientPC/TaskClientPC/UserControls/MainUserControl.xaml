@@ -1,0 +1,40 @@
+﻿<Window x:Class="TaskClientPC.UserControls.MainUserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskClientPC.UserControls"
+        mc:Ignorable="d"
+        Title="MainUserControl" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <!-- Background Gradient -->
+        <Rectangle>
+            <Rectangle.Fill>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FFE5A323" Offset="0.0"/>
+                    <GradientStop Color="#FFFF7043" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <!-- Menu-->
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Users"></Button>
+            <Button Content="Users in shift"></Button>
+            <Button Content="Shifts"></Button>
+            <Button Content="Assigments"></Button>
+            <Button Content="Categories"></Button>
+        </StackPanel>
+        <Grid Background="White" Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="681*"/>
+                <ColumnDefinition Width="119*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+    </Grid>
+</Window>

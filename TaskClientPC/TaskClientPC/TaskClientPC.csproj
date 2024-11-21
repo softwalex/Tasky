@@ -68,6 +68,12 @@
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainUserControl.xaml.cs">
+      <DependentUpon>MainUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Users_UserControl.xaml.cs">
+      <DependentUpon>Users_UserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validations\ValidDate.cs" />
     <Compile Include="Validations\ValidEmail.cs" />
     <Compile Include="Validations\ValidFirstName.cs" />
@@ -82,6 +88,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SignUpWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\MainUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Users_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
