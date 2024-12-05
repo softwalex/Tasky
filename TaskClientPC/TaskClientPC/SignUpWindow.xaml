@@ -79,6 +79,8 @@
                                     </Button.Content>
                                 </Button>
                             </Border>
+                            
+                            
                             <TextBlock Text="SIGN-UP" 
                             FontSize="24" 
                             FontWeight="Bold" 
