@@ -26,6 +26,11 @@ namespace WcfService
             UserList users = userDB.SelectByUserType(type);
             return users;
         }
+        public UserList GetUsers()
+        {
+            UserList users = userDB.SelectAll();
+            return users;
+        }
 
         public bool IsEmailFree(string email)
         {

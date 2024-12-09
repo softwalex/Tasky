@@ -31,12 +31,12 @@ namespace TaskClientPC
 
         private void LogInButtonClick(object sender, RoutedEventArgs e)
         {
-            if(EmailTextBox.Text == string.Empty || PasswordBox.Password.ToString() == string.Empty)
+            if(EmailTextBox.Text == string.Empty || PassBox.Password.ToString() == string.Empty)
             {
                 ErrorText.Text = "You have to fill all of the given fields";
                 return;
             }
-            user = userServiceClient.UserLogin(EmailTextBox.Text, PasswordBox.Password);
+            user = userServiceClient.UserLogin(EmailTextBox.Text, PassBox.Password);
             if (user != null)
             {
                 ErrorText.Text = "User was found!";

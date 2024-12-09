@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskClientPC.TaskyServiceReference;
 
 namespace TaskClientPC.UserControls
 {
@@ -20,9 +21,20 @@ namespace TaskClientPC.UserControls
     /// </summary>
     public partial class Users_UserControl : UserControl
     {
+        private UserServiceClient serviceClient;
+        private UserList users;
         public Users_UserControl()
         {
             InitializeComponent();
+            serviceClient = new UserServiceClient();
+            users=serviceClient.GetUsers();
+            usersListView.ItemsSource = users;
+        }
+
+        private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            User user = usersListView.SelectedItem as User;
+            DataGrid.DataContext = user;
         }
     }
 }

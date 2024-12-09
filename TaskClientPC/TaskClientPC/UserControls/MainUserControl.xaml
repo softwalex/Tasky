@@ -4,37 +4,59 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskClientPC.UserControls"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainUserControl" Height="450" Width="800">
     <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Margin" Value="0,0,20,0"/>
-            <Setter Property="Width" Value="150"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PasswordBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.RadioButton.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <!-- Background Gradient -->
-        <Rectangle>
-            <Rectangle.Fill>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#FFE5A323" Offset="0.0"/>
-                    <GradientStop Color="#FFFF7043" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFE5A323" Offset="0.0"/>
+                <GradientStop Color="#FFFF7043" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <!-- Menu-->
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Orientation="Horizontal">
-            <Button Content="Users"></Button>
-            <Button Content="Users in shift"></Button>
-            <Button Content="Shifts"></Button>
-            <Button Content="Assigments"></Button>
-            <Button Content="Categories"></Button>
-        </StackPanel>
-        <Grid Background="White" Margin="0,20,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="681*"/>
-                <ColumnDefinition Width="119*"/>
-            </Grid.ColumnDefinitions>
-        </Grid>
+        <materialDesign:ColorZone Mode="PrimaryMid" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
+                <RadioButton
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4"
+                    IsChecked="True"
+                    Checked="RadioButton_Checked"
+                    GroupName="action"
+                    Content="Users"
+                    Foreground="Black"/>
+                <RadioButton
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4"
+                    IsChecked="False"
+                    Checked="RadioButton_Checked"
+                    GroupName="action"
+                    Content="Shifts"
+                    Foreground="Black"/>
+                <RadioButton
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4"
+                    IsChecked="False"
+                    Checked="RadioButton_Checked"
+                    GroupName="action"
+                    Content="Assignments" 
+                    Foreground="Black"/>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <Grid x:Name="MainGrid" Grid.Row="1"/>
     </Grid>
 </Window>

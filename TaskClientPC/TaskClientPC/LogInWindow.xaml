@@ -10,7 +10,8 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />-->
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.PasswordBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -43,12 +44,11 @@
                     <StackPanel Orientation="Horizontal" 
                              Margin="0,0,0,30">
                         <Border Background="#FF7043" 
-                               CornerRadius="4"
-                               Padding="8">
-                            <Button Click="LinkToSignUpWindow">
+                               CornerRadius="4">
+                            <Button Click="LinkToSignUpWindow" Height="63">
                                 <Button.Content>
                                     <Image Source="images/TaskyLogo.png" 
-                                      Width="75" 
+                                      Width="70" 
                                       Height="63"/>
                                 </Button.Content>
                             </Button>
@@ -74,12 +74,12 @@
 
                     <!-- Password Field -->
                     <Label Content="Password:"/>
-                    <PasswordBox x:Name="PasswordBox"
+                    <PasswordBox x:Name="PassBox"
                               Height="40"
-                              Margin="0,0,0,30"
-                              BorderThickness="1"
-                              BorderBrush="#E0E0E0"
-                              Padding="10"/>
+                             Margin="0,0,0,20"
+                             BorderThickness="1"
+                             BorderBrush="#E0E0E0"
+                             Padding="10" />
 
                     <!-- Login Button -->
                     <Button Content="LOGIN"

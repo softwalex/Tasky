@@ -19,6 +19,7 @@ namespace WcfService
         [OperationContract] bool DeleteUser(User user);
         [OperationContract] bool IsEmailFree(string email);
         [OperationContract] UserList GetUsersbyType(string type);
+        [OperationContract] UserList GetUsers();
         #endregion
 
         #region Shift

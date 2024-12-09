@@ -43,6 +43,12 @@
   <wsdl:message name="IUserService_GetUsersbyType_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersbyTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetShift_InputMessage">
     <wsdl:part name="parameters" element="tns:GetShift" />
   </wsdl:message>
@@ -182,6 +188,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersbyType" message="tns:IUserService_GetUsersbyType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersbyTypeResponse" message="tns:IUserService_GetUsersbyType_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsers" message="tns:IUserService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersResponse" message="tns:IUserService_GetUsers_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShift" message="tns:IUserService_GetShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftResponse" message="tns:IUserService_GetShift_OutputMessage" />
@@ -308,6 +318,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetUsersbyType">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetUsersbyType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
