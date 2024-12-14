@@ -16,7 +16,16 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
+    
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
+        </Grid.Resources>
         <!-- Background Gradient -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -30,31 +39,27 @@
         </Grid.RowDefinitions>
         <!-- Menu-->
         <materialDesign:ColorZone Mode="PrimaryMid" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="2" HorizontalAlignment="Center">
-                <RadioButton
-                    Style="{StaticResource MaterialDesignTabRadioButton}"
+            <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center">
+                <Image Source="/images/TaskyLogo.png" HorizontalAlignment="Left"/>
+                <Button
                     Margin="4"
-                    IsChecked="True"
-                    Checked="RadioButton_Checked"
-                    GroupName="action"
+                    Click="PropertySelected"
                     Content="Users"
                     Foreground="Black"/>
-                <RadioButton
-                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                <Button
                     Margin="4"
-                    IsChecked="False"
-                    Checked="RadioButton_Checked"
-                    GroupName="action"
+                    Click="PropertySelected"
                     Content="Shifts"
                     Foreground="Black"/>
-                <RadioButton
-                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                <Button
                     Margin="4"
-                    IsChecked="False"
-                    Checked="RadioButton_Checked"
-                    GroupName="action"
-                    Content="Assignments" 
+                    Click="PropertySelected"
+                    Content="Assingment"
                     Foreground="Black"/>
+                <Button
+                    Content="Logout"
+                    Foreground="Red"
+                    Click="LinkToLogInWindow"/>
             </StackPanel>
         </materialDesign:ColorZone>
         <Grid x:Name="MainGrid" Grid.Row="1"/>

@@ -25,20 +25,23 @@ namespace TaskClientPC.UserControls
             InitializeComponent();
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        private void PropertySelected(object sender, RoutedEventArgs e)
         {
-            if((bool)(sender as RadioButton).IsChecked)
+            if ((sender as Button).Content == null) return;
+            string text=(sender as Button).Content.ToString();
+            MainGrid.Children.Clear();
+            switch (text)
             {
-                if ((sender as RadioButton).Content == null) return;
-                string text=(sender as RadioButton).Content.ToString();
-                MainGrid.Children.Clear();
-                switch (text)
-                {
-                    case "Users":
-                        MainGrid.Children.Add(new Users_UserControl());
-                        break;
-                }
+                case "Users":
+                    MainGrid.Children.Add(new Users_UserControl());
+                    break;
             }
+        }
+        private void LinkToLogInWindow(object sender, RoutedEventArgs e)
+        {
+            LogInWindow logInWindow = new LogInWindow();
+            logInWindow.Show();
+            this.Close();
         }
     }
 }

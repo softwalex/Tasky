@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TaskClientPC.UserControls"
+             xmlns:local="clr-namespace:TaskClientPC.UserControls" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="0,20,0,0">
+    <Grid Margin="0,20,0,0" RenderTransformOrigin="0.59,0.471">
         <!-- Background Gradient -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -15,22 +15,22 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Border Grid.Column="0" 
                 Background="White" 
                 CornerRadius="8" 
-                Margin="20" 
+                Margin="20,20,-70,20" 
                 Padding="10">
             <ListView x:Name="usersListView"
                   Grid.Row="1" Grid.Column="0"
                   SelectionChanged="usersListView_SelectionChanged" 
-                  ScrollViewer.CanContentScroll="True" FontSize="10">
+                  ScrollViewer.CanContentScroll="True" FontSize="10" HorizontalAlignment="Left" Width="540">
                 <ListView.View>
                     <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                        <GridViewColumn Header="Name" Width="150">
+                        <GridViewColumn Header="Name" Width="300">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -63,14 +63,103 @@
             </ListView>
         </Border>
 
-        <!-- Right Side - Login Form -->
-        <Border Grid.Column="1" 
+        <!-- Right Side -->
+        <Border Grid.Column="1"
+                x:Name="DataBorder"
+                Visibility="Collapsed"
                 Background="White" 
                 CornerRadius="8" 
-                Margin="80" 
+                Margin="110,68,10,108" 
                 Padding="10">
+            <Border.Resources>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="20"></Setter>
+                    <Setter Property="FontSize" Value="20"/>
+                </Style>
+            </Border.Resources>
             <Grid x:Name="DataGrid">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="13*"/>
+                    <ColumnDefinition Width="67*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.ColumnSpan="3">
+                    <Button Grid.ColumnSpan="3" Background="red" Content="DELETE" Height="30" Width="80" HorizontalAlignment="Right"></Button>
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" x:Name="NameSP">
+                            <TextBlock Text="Full Name: "/>
+                            <TextBlock Text="{Binding firstname}" x:Name="FirstNameBlock"/>
+                            <TextBlock Text="{Binding lastname}" Margin="0,20,20,0" x:Name="LastNameBlock"/>
+                            <StackPanel x:Name="SetName" Orientation="Horizontal">
+                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="AccountEdit"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Undo" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" x:Name="EmailSP">
+                            <TextBlock Text="Email: "/>
+                            <TextBlock Text="{Binding email}" x:Name="EmailBlock"/>
+                            <StackPanel x:Name="SetEmail" Orientation="Horizontal">
+                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="AccountEdit"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Undo" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" x:Name="BirthDaySP">
+                            <TextBlock Text="Birthday: "/>
+                            <TextBlock Text="{Binding birthday}" x:Name="BirthdayBlock"/>
+                            <StackPanel x:Name="SetBirthday" Orientation="Horizontal">
+                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="AccountEdit"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Undo" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" x:Name="UsertypeSP">
+                            <TextBlock Text="Type: "/>
+                            <TextBlock Text="{Binding userType}" x:Name="UsertypeBlock"/>
+                            <StackPanel x:Name="SetUsertype" Orientation="Horizontal">
+                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="AccountEdit"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon Kind="Undo" />
+                                    </Button.Content>
+                                </Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <Button 
+                            HorizontalAlignment="Center"
+                            x:Name="UpdateButton"
+                            Background="Green"
+                            Content="UPDATE"
+                            Height="30"
+                            Width="100"/>
+                    </StackPanel>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>
