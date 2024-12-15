@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\App.xaml
-41117793591
+61719080064
 
-151085319043
+171895147794
 2461716697
-LogInWindow.xaml;SignUpWindow.xaml;UserControls\MainUserControl.xaml;UserControls\Users_UserControl.xaml;
+LogInWindow.xaml;SignUpWindow.xaml;UpdateWindows\UpdateUser.xaml;UpdateWindows\UpdateUserPage.xaml;UserControls\MainUserControl.xaml;UserControls\Users_UserControl.xaml;
 
-False
+True
 

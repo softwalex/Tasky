@@ -164,9 +164,9 @@
                                     BorderBrush="#E0E0E0"
                                     Padding="10">
                                     <TextBox.Text>
-                                        <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                        <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                             <Binding.ValidationRules>
-                                                <valid:ValidEmail/>
+                                                <valid:ValidLastName/>
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>

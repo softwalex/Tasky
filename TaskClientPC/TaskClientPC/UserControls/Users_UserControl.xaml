@@ -50,16 +50,6 @@
                         <Setter Property="Margin" Value="5" />
                     </Style>
                 </ListView.ItemContainerStyle>
-                <!--<ListView.ItemTemplate>
-    <DataTemplate>
-        <Border CornerRadius="8" BorderThickness="2" Width="220" BorderBrush="Red">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding firstname}"/>
-                <TextBlock Text="{Binding lastname}"/>
-            </StackPanel>
-        </Border>
-    </DataTemplate>
-</ListView.ItemTemplate>-->
             </ListView>
         </Border>
 
@@ -90,74 +80,29 @@
                             <TextBlock Text="Full Name: "/>
                             <TextBlock Text="{Binding firstname}" x:Name="FirstNameBlock"/>
                             <TextBlock Text="{Binding lastname}" Margin="0,20,20,0" x:Name="LastNameBlock"/>
-                            <StackPanel x:Name="SetName" Orientation="Horizontal">
-                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="AccountEdit"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="Undo" />
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" x:Name="EmailSP">
                             <TextBlock Text="Email: "/>
                             <TextBlock Text="{Binding email}" x:Name="EmailBlock"/>
-                            <StackPanel x:Name="SetEmail" Orientation="Horizontal">
-                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="AccountEdit"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="Undo" />
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" x:Name="BirthDaySP">
                             <TextBlock Text="Birthday: "/>
                             <TextBlock Text="{Binding birthday}" x:Name="BirthdayBlock"/>
-                            <StackPanel x:Name="SetBirthday" Orientation="Horizontal">
-                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="AccountEdit"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="Undo" />
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" x:Name="UsertypeSP">
                             <TextBlock Text="Type: "/>
                             <TextBlock Text="{Binding userType}" x:Name="UsertypeBlock"/>
-                            <StackPanel x:Name="SetUsertype" Orientation="Horizontal">
-                                <Button Background="White" BorderThickness="0" Visibility="Visible" Click="EditProperty">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="AccountEdit"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Background="White" BorderThickness="0" Visibility="Collapsed">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon Kind="Undo" />
-                                    </Button.Content>
-                                </Button>
-                            </StackPanel>
                         </StackPanel>
-                        <Button 
-                            HorizontalAlignment="Center"
-                            x:Name="UpdateButton"
-                            Background="Green"
+                        <Button
+                            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                            Height="50"
+                            Width="200"
                             Content="UPDATE"
-                            Height="30"
-                            Width="100"/>
+                            Click="OpenUpdateWindow"
+                            Background="Green"
+                            materialDesign:ButtonAssist.CornerRadius="25"
+                            ToolTip="MaterialDesignRaisedDarkButton with Round Corners">
+                        </Button>
                     </StackPanel>
                 </StackPanel>
             </Grid>
