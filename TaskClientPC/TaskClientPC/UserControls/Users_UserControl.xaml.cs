@@ -41,14 +41,25 @@ namespace TaskClientPC.UserControls
         private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DataBorder.Visibility = Visibility.Visible;
+            UpdateButton.Visibility = Visibility.Visible;
+            DeleteButton.Visibility = Visibility.Visible;
             user = usersListView.SelectedItem as User;
             DataGrid.DataContext = user;
         }
         private void OpenUpdateWindow(object sender, RoutedEventArgs e)
         {
-            UpdateUser updateUser = new UpdateUser();
+            UpdateUser updateUser = new UpdateUser(user);
             updateUser.ShowDialog();
             
+        }
+
+        private void DeleteUser(object sender, RoutedEventArgs e)
+        {
+            serviceClient.DeleteUser(user);
+            DataGrid.DataContext= null;
+            DeleteButton.Visibility = Visibility.Collapsed;
+            UpdateButton.Visibility = Visibility.Collapsed;
+            usersListView.ItemsSource = serviceClient.GetUsers();
         }
     }
 }

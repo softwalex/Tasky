@@ -7,7 +7,7 @@
         xmlns:valid="clr-namespace:TaskClientPC.Validations"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UpdateUser" Height="450" Width="800">
+        Title="UpdateUser" Height="500" Width="800">
     <Window.Resources>
         <Style TargetType="TextBox">
                         <Setter Property="Validation.ErrorTemplate">
@@ -52,7 +52,8 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0"  
+                        <TextBox x:Name="FirstNameBox"
+                                 Grid.Column="0"  
                                  Margin="0,0,8,0"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  materialDesign:HintAssist.Hint="First Name"
@@ -66,7 +67,8 @@
                             </TextBox.Text>
                         </TextBox>
 
-                        <TextBox Grid.Column="1"  
+                        <TextBox x:Name="LastNameBox"
+                                 Grid.Column="1"  
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
                                  materialDesign:HintAssist.Hint="Last Name"
                                  materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible">
@@ -81,13 +83,13 @@
                     </Grid>
 
                     <!-- Email Field -->
-                    <TextBox 
+                    <TextBox x:Name="EmailBox"
                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
                              materialDesign:HintAssist.Hint="Email Address"
                              Margin="0,8"
                              materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible">
                         <TextBox.Text>
-                            <Binding Path="lastname" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                            <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                 <Binding.ValidationRules>
                                     <valid:ValidLastName/>
                                 </Binding.ValidationRules>
@@ -96,7 +98,8 @@
                     </TextBox>
 
                     <!-- Birthday Picker -->
-                    <DatePicker Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    <DatePicker x:Name="BirthdayBox"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                 materialDesign:HintAssist.Hint="Birthday"
                                 Margin="0,8">
                         <DatePicker.SelectedDate>
@@ -109,24 +112,26 @@
                     </DatePicker>
 
                     <!-- Role Selection -->
-                    <ComboBox Style="{StaticResource MaterialDesignOutlinedComboBox}"
+                    <ComboBox x:Name="UserTypeBox"
+                              Style="{StaticResource MaterialDesignOutlinedComboBox}"
                               materialDesign:HintAssist.Hint="User Type"
                               Margin="0,8">
-                        <ComboBoxItem>Admin</ComboBoxItem>
-                        <ComboBoxItem>ShiftManager</ComboBoxItem>
-                        <ComboBoxItem>Worker</ComboBoxItem>
                     </ComboBox>
-
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock x:Name="ErorText" Text="" FontSize="15" Foreground="Red"/>
+                    </StackPanel>
                     <!-- Action Buttons -->
                     <StackPanel Orientation="Horizontal" 
-                                HorizontalAlignment="Right" 
+                                HorizontalAlignment="Right"
                                 Margin="0,16,0,0">
                         <Button Content="Cancel" 
                                 Style="{StaticResource MaterialDesignOutlinedButton}"
-                                Margin="0,0,8,0"/>
+                                Margin="0,0,8,0"
+                                Click="CloseUpdateWindow"/>
                         <Button Content="Update Profile" 
                                 Style="{StaticResource MaterialDesignRaisedButton}"
-                                Background="Orange"/>
+                                Background="#f39c12"
+                                Click="UpdateUserButton"/>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>

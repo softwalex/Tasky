@@ -1,0 +1,125 @@
+﻿<Window x:Class="TaskClientPC.UpdateWindows.ConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskClientPC.UpdateWindows"
+        mc:Ignorable="d"
+        Title="ConfirmWindow" Height="250" Width="500">
+
+    <Window.Resources>
+        <!-- Button Style -->
+        <Style x:Key="MaterialButton" TargetType="Button">
+            <Setter Property="Background" Value="#2196F3"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#1976D2"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- Cancel Button Style -->
+        <Style x:Key="MaterialCancelButton" TargetType="Button">
+            <Setter Property="Background" Value="#E0E0E0"/>
+            <Setter Property="Foreground" Value="#424242"/>
+            <Setter Property="Padding" Value="16,8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="4"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#BDBDBD"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <!-- PasswordBox Style -->
+        <Style x:Key="MaterialPasswordBox" TargetType="PasswordBox">
+            <Setter Property="Padding" Value="8,6"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+            <Setter Property="BorderBrush" Value="#BDBDBD"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#e67e22"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Border Background="White" 
+            Margin="10"
+            CornerRadius="8"
+            BorderThickness="1"
+            BorderBrush="#E0E0E0">
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Confirm Password"
+                       FontSize="18"
+                       FontWeight="Medium"
+                       Margin="0,0,0,10"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="You must confirm the changes by entering your password"
+                       TextWrapping="Wrap"
+                       Foreground="#757575"
+                       FontSize="12"
+                       Margin="0,0,0,20"/>
+
+            <PasswordBox x:Name="PasswordBox"
+                        Grid.Row="2"
+                        Style="{StaticResource MaterialPasswordBox}"
+                        Margin="0,0,0,20"/>
+            <TextBlock x:Name="ErorText"
+                        Text=""
+                       Foreground="Red"/>
+
+            <StackPanel Grid.Row="3"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        >
+                <Button Content="Cancel"
+                        Style="{StaticResource MaterialCancelButton}"
+                        Click="CencalButton"
+                        Width="100"/>
+                <Button Content="Confirm"
+                        Style="{StaticResource MaterialButton}"
+                        Width="100"
+                        Background="#f39c12"
+                        Click="SubmitPassword"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

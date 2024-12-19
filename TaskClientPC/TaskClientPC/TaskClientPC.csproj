@@ -89,11 +89,11 @@
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateWindows\ConfirmWindow.xaml.cs">
+      <DependentUpon>ConfirmWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateWindows\UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateWindows\UpdateUserPage.xaml.cs">
-      <DependentUpon>UpdateUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
@@ -118,11 +118,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UpdateWindows\UpdateUser.xaml">
+    <Page Include="UpdateWindows\ConfirmWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UpdateWindows\UpdateUserPage.xaml">
+    <Page Include="UpdateWindows\UpdateUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
