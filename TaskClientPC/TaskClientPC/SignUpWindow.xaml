@@ -186,7 +186,7 @@
                                 BorderBrush="#E0E0E0"
                                 Padding="10"
                                 PasswordChanged="tbPass1_PasswordChanged"/>
-                                    <!-- Repeat Password Field -->
+                                <!-- Repeat Password Field -->
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Repeat Password:"/>
                                     <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
@@ -201,7 +201,7 @@
 
                             </StackPanel>
 
-                                <!-- Sign Up Button -->
+                            <!-- Sign Up Button -->
                             <StackPanel x:Name="SubmitButtonStackPanel">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Button Content="⬅️"

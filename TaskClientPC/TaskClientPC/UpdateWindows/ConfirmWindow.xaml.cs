@@ -20,13 +20,14 @@ namespace TaskClientPC.UpdateWindows
     /// </summary>
     public partial class ConfirmWindow : Window
     {
+        public bool? Result { get; private set; }
         UserServiceClient userServiceClient;
-        List<User> Admins;
+        UserList Admins;
         public ConfirmWindow()
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
-            Admins = userServiceClient.GetUsersbyType("Admin");
+            Admins = userServiceClient.GetUsersbyType(UserType.Admin);
         }
 
         private void SubmitPassword(object sender, RoutedEventArgs e)
@@ -35,14 +36,18 @@ namespace TaskClientPC.UpdateWindows
             {
                 if (Admins[i].password == PasswordBox.Password.ToString())
                 {
-                    this.Close();
-                    return;
+                    Result = true;
+                    this.DialogResult = true;
                 }
             }
             ErorText.Text = "Incorrect Password";
             PasswordBox.BorderBrush = Brushes.Red;
         }
 
-        private void CencalButton(object sender, RoutedEventArgs e) => this.Close();
+        private void CencalButton(object sender, RoutedEventArgs e)
+        {
+            Result = false;
+            this.DialogResult = false;
+        }
     }
 }

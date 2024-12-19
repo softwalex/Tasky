@@ -41,7 +41,7 @@ namespace Model
     public class ShiftList : List<Shift>
     {
         public ShiftList() { }
-        public ShiftList(IEnumerable<UserInShift> list) : base(list.Cast<Shift>().ToList()) { }
+        public ShiftList(IEnumerable<Shift> list) : base(list.Cast<Shift>().ToList()) { }
         public ShiftList(IEnumerable<BaseEntity> list) : base(list.Cast<Shift>().ToList()) { }
 
 

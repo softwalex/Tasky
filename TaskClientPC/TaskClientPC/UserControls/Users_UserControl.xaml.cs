@@ -27,7 +27,6 @@ namespace TaskClientPC.UserControls
         private UserServiceClient serviceClient;
         private UserList users;
         private User user;
-        private List<TextBlock> ValueBlocks;
         public Users_UserControl()
         {
             InitializeComponent();
@@ -35,7 +34,6 @@ namespace TaskClientPC.UserControls
             users=serviceClient.GetUsers();
             usersListView.ItemsSource = users;
             user = new User();
-            ValueBlocks = new List<TextBlock>() { FirstNameBlock, LastNameBlock, EmailBlock, BirthdayBlock, UsertypeBlock};
         }
 
         private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,20 +44,30 @@ namespace TaskClientPC.UserControls
             user = usersListView.SelectedItem as User;
             DataGrid.DataContext = user;
         }
-        private void OpenUpdateWindow(object sender, RoutedEventArgs e)
+        private void UpdateUser(object sender, RoutedEventArgs e)
         {
             UpdateUser updateUser = new UpdateUser(user);
             updateUser.ShowDialog();
-            
         }
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-            serviceClient.DeleteUser(user);
-            DataGrid.DataContext= null;
-            DeleteButton.Visibility = Visibility.Collapsed;
-            UpdateButton.Visibility = Visibility.Collapsed;
-            usersListView.ItemsSource = serviceClient.GetUsers();
+            ConfirmWindow confirmWindow = new ConfirmWindow();
+            confirmWindow.Owner = Application.Current.MainWindow;
+            bool? Result = confirmWindow.ShowDialog();
+            if (Result == true)
+            {
+                serviceClient.DeleteUser(user);
+                DataGrid.DataContext = null;
+                DeleteButton.Visibility = Visibility.Collapsed;
+                UpdateButton.Visibility = Visibility.Collapsed;
+                usersListView.ItemsSource = serviceClient.GetUsers();
+            }
+        }
+
+        private void AddUser(object sender, RoutedEventArgs e)
+        {
+            new UpdateUser().ShowDialog();
         }
     }
 }

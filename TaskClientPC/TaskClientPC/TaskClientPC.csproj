@@ -177,6 +177,9 @@
     <None Include="Connected Services\TaskyServiceReference\TaskClientPC.TaskyServiceReference.Shift.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\TaskyServiceReference\TaskClientPC.TaskyServiceReference.ShiftList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\TaskyServiceReference\TaskClientPC.TaskyServiceReference.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

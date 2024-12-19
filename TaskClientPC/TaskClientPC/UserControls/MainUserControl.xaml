@@ -16,52 +16,151 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    
+
     <Grid>
         <Grid.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Background" Value="White"/>
-                <Setter Property="Width" Value="100"/>
+            <!-- Updated Button Style -->
+            <Style TargetType="Button" x:Key="MenuButton" BasedOn="{StaticResource MaterialDesignFlatButton}">
                 <Setter Property="Height" Value="50"/>
+                <Setter Property="Width" Value="120"/>
+                <Setter Property="Margin" Value="8,0"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="Medium"/>
+                <Setter Property="Foreground" Value="#424242"/>
                 <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="MainBorder" 
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="4">
+                                    <ContentPresenter HorizontalAlignment="Center" 
+                                                VerticalAlignment="Center"/>
+                                </Border>
+                                <Border x:Name="UnderlineBorder" 
+                                    Height="3" 
+                                    Background="Transparent"
+                                    VerticalAlignment="Bottom"
+                                    CornerRadius="2"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFF3E0" TargetName="MainBorder"/>
+                                    <Setter Property="Background" Value="#FF9800" TargetName="UnderlineBorder"/>
+                                    <Setter Property="Foreground" Value="#E65100"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- Logout Button Style -->
+            <Style TargetType="Button" x:Key="LogoutButton" BasedOn="{StaticResource MenuButton}">
+                <Setter Property="Foreground" Value="#D32F2F"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="#FFEBEE"/>
+                        <Setter Property="Foreground" Value="#B71C1C"/>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </Grid.Resources>
+
         <!-- Background Gradient -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#FFE5A323" Offset="0.0"/>
-                <GradientStop Color="#FFFF7043" Offset="1.0"/>
+                <GradientStop Color="#FF9800" Offset="0.0"/>
+                <GradientStop Color="#F57C00" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="64"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
         <!-- Menu-->
-        <materialDesign:ColorZone Mode="PrimaryMid" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Margin="0" HorizontalAlignment="Center">
-                <Image Source="/images/TaskyLogo.png" HorizontalAlignment="Left"/>
-                <Button
-                    Margin="4"
-                    Click="PropertySelected"
-                    Content="Users"
-                    Foreground="Black"/>
-                <Button
-                    Margin="4"
-                    Click="PropertySelected"
-                    Content="Shifts"
-                    Foreground="Black"/>
-                <Button
-                    Margin="4"
-                    Click="PropertySelected"
-                    Content="Assingment"
-                    Foreground="Black"/>
-                <Button
-                    Content="Logout"
-                    Foreground="Red"
-                    Click="LinkToLogInWindow"/>
-            </StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryMid" 
+                             VerticalAlignment="Stretch"
+                             Background="White">
+            <Grid>
+                <StackPanel Orientation="Horizontal" 
+                       Margin="16,0" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+                    <Image Source="/images/TaskyLogo.png" 
+                       Height="40" 
+                       Margin="0,0,24,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+
+                    <Button Style="{StaticResource MenuButton}"
+                        Click="PropertySelected"
+                        Content="Users">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="AccountMultiple" 
+                                                       Margin="0,0,8,0"
+                                                       VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+
+                    <Button Style="{StaticResource MenuButton}"
+                        Click="PropertySelected"
+                        Content="Shifts">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Clock" 
+                                                       Margin="0,0,8,0"
+                                                       VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+
+                    <Button Style="{StaticResource MenuButton}"
+                        Click="PropertySelected"
+                        Content="Assignment">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Assignment" 
+                                                       Margin="0,0,8,0"
+                                                       VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+
+                    <Button Style="{StaticResource LogoutButton}"
+                        Click="LinkToLogInWindow"
+                        Content="Logout">
+                        <Button.ContentTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Logout" 
+                                                       Margin="0,0,8,0"
+                                                       VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </Button.ContentTemplate>
+                    </Button>
+                </StackPanel>
+            </Grid>
         </materialDesign:ColorZone>
+
         <Grid x:Name="MainGrid" Grid.Row="1"/>
     </Grid>
 </Window>

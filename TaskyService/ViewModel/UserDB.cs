@@ -56,11 +56,11 @@ namespace ViewModel
             }
             return null;
         }
-        public UserList SelectByUserType(string userType)
+        public UserList SelectByUserType(UserType userType)
         {
             command.Parameters.Clear();
             command.CommandText = "SELECT * FROM UserTable WHERE UserType=@UT";
-            command.Parameters.AddWithValue("UT", userType);
+            command.Parameters.AddWithValue("@UT", userType);
             UserList list = new UserList(base.ExecuteCommand());
             return list;
         }

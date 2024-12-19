@@ -489,6 +489,13 @@ namespace TaskClientPC.TaskyServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ShiftList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Shift")]
+    [System.SerializableAttribute()]
+    public class ShiftList : System.Collections.Generic.List<TaskClientPC.TaskyServiceReference.Shift> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="AssignmentList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Assignment")]
     [System.SerializableAttribute()]
     public class AssignmentList : System.Collections.Generic.List<TaskClientPC.TaskyServiceReference.Assignment> {
@@ -543,16 +550,22 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
-        TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(string type);
+        TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
-        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(string type);
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(TaskClientPC.TaskyServiceReference.UserType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsers", ReplyAction="http://tempuri.org/IUserService/GetUsersResponse")]
         TaskClientPC.TaskyServiceReference.UserList GetUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsers", ReplyAction="http://tempuri.org/IUserService/GetUsersResponse")]
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShifts", ReplyAction="http://tempuri.org/IUserService/GetShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetShifts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShifts", ReplyAction="http://tempuri.org/IUserService/GetShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShift", ReplyAction="http://tempuri.org/IUserService/GetShiftResponse")]
         TaskClientPC.TaskyServiceReference.Shift GetShift(string name);
@@ -736,11 +749,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.IsEmailFreeAsync(email);
         }
         
-        public TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(string type) {
+        public TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type) {
             return base.Channel.GetUsersbyType(type);
         }
         
-        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(string type) {
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(TaskClientPC.TaskyServiceReference.UserType type) {
             return base.Channel.GetUsersbyTypeAsync(type);
         }
         
@@ -750,6 +763,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersAsync() {
             return base.Channel.GetUsersAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetShifts() {
+            return base.Channel.GetShifts();
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync() {
+            return base.Channel.GetShiftsAsync();
         }
         
         public TaskClientPC.TaskyServiceReference.Shift GetShift(string name) {

@@ -87,7 +87,7 @@ namespace Model
     public class AssignmentList : List<Assignment>
     {
         public AssignmentList() { }
-        public AssignmentList(IEnumerable<UserInShift> list) : base(list.Cast<Assignment>().ToList()) { }
+        public AssignmentList(IEnumerable<Assignment> list) : base(list.Cast<Assignment>().ToList()) { }
         public AssignmentList(IEnumerable<BaseEntity> list) : base(list.Cast<Assignment>().ToList()) { }
 
 

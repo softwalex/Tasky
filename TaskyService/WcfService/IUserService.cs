@@ -18,11 +18,12 @@ namespace WcfService
         [OperationContract] bool UpdateUser(User user);
         [OperationContract] bool DeleteUser(User user);
         [OperationContract] bool IsEmailFree(string email);
-        [OperationContract] UserList GetUsersbyType(string type);
+        [OperationContract] UserList GetUsersbyType(UserType type);
         [OperationContract] UserList GetUsers();
         #endregion
 
         #region Shift
+        [OperationContract] ShiftList GetShifts();
         [OperationContract] Shift GetShift(string name);
         [OperationContract] Shift NewShift(Shift shift);
         [OperationContract] bool UpdateShift(Shift shift);

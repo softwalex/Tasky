@@ -50,20 +50,44 @@
             Padding="15"
             Effect="{StaticResource MaterialShadow}">
             <DockPanel>
-                <TextBlock Text="Users List" 
-                      DockPanel.Dock="Top" 
-                      FontSize="24" 
-                      FontWeight="Bold" 
-                      Margin="10,0,0,15"
-                      Foreground="#FF5722"/>
-                <ListView x:Name="usersListView"
-                     Grid.Row="1" Grid.Column="0"
-                     SelectionChanged="usersListView_SelectionChanged" 
-                     ScrollViewer.CanContentScroll="True" 
-                     FontSize="10" 
-                     HorizontalAlignment="Left" 
-                     Width="540"
-                     BorderThickness="0">
+                <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                    <TextBlock Text="Users List" 
+                              DockPanel.Dock="Left" 
+                              FontSize="24" 
+                              FontWeight="Bold" 
+                              Margin="10,0,0,15"
+                              Foreground="#FF5722"/>
+
+                <Button x:Name="AddNewUserButton"
+                        Click="AddUser"
+                        DockPanel.Dock="Right"
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        Height="36"
+                        Width="120"
+                        Margin="0,0,10,15"
+                        Background="#FB8C00"
+                        BorderThickness="0"
+                        materialDesign:ButtonAssist.CornerRadius="18">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Plus" 
+                                       Height="20" 
+                                       Width="20" 
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,8,0"/>
+                            <TextBlock Text="Add New" 
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                </Button>
+            </DockPanel>
+            <ListView x:Name="usersListView"
+                    Grid.Row="1" Grid.Column="0"
+                    SelectionChanged="usersListView_SelectionChanged" 
+                    ScrollViewer.CanContentScroll="True" 
+                    FontSize="10" 
+                    HorizontalAlignment="Left" 
+                    Width="540"
+                    BorderThickness="0">
+                    <!-- Existing ListView content -->
                     <ListView.View>
                         <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
                             <GridViewColumn Header="Name" Width="300">
@@ -197,7 +221,7 @@
                         Height="50"
                         Width="200"
                         Content="UPDATE"
-                        Click="OpenUpdateWindow"
+                        Click="UpdateUser"
                         Background="#FB8C00"
                         materialDesign:ButtonAssist.CornerRadius="25"
                         Margin="20,20,0,0"

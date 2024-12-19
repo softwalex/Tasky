@@ -21,7 +21,7 @@ namespace WcfService
             User user = userDB.Login(email, password);
             return user;
         }
-        public UserList GetUsersbyType(string type)
+        public UserList GetUsersbyType(UserType type)
         {
             UserList users = userDB.SelectByUserType(type);
             return users;
@@ -69,6 +69,12 @@ namespace WcfService
         #endregion
 
         #region Shift
+        public ShiftList GetShifts()
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectAll();
+            return shifts;
+        }
         public Shift GetShift(string name)
         {
             ShiftDB shiftDB = new ShiftDB();

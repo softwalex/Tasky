@@ -35,6 +35,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserList" nillable="true" type="tns:UserList" />
+  <xs:complexType name="ShiftList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shift" nillable="true" type="tns:Shift" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShiftList" nillable="true" type="tns:ShiftList" />
   <xs:complexType name="Shift">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
