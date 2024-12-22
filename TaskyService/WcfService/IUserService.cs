@@ -24,6 +24,8 @@ namespace WcfService
 
         #region Shift
         [OperationContract] ShiftList GetShifts();
+        [OperationContract] ShiftList GetPastShifts(DateTime date);
+        [OperationContract] ShiftList GetFutureShifts(DateTime date);
         [OperationContract] Shift GetShift(string name);
         [OperationContract] Shift NewShift(Shift shift);
         [OperationContract] bool UpdateShift(Shift shift);

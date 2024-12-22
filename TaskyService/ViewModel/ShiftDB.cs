@@ -30,6 +30,17 @@ namespace ViewModel
             ShiftList list = new ShiftList(base.ExecuteCommand());
             return list;
         }
+        public ShiftList SelectByDate(DateTime date, bool isPast)
+        {
+            command.Parameters.Clear();
+            if (isPast)
+                command.CommandText = "SELECT * FROM ShiftTable WHERE Start<@Start";
+            else
+                command.CommandText = "SELECT * FROM ShiftTable WHERE Star>@Start";
+            command.Parameters.AddWithValue("@Start", date);
+            ShiftList list = new ShiftList(base.ExecuteCommand());
+            return list;
+        }
         public Shift SelectById(int id)
         {
             command.Parameters.Clear();
@@ -69,7 +80,7 @@ namespace ViewModel
         {
             command.Parameters.Clear();
             command.CommandText = @"UPDATE ShiftTable SET " +
-                "ShiftName = @ShiftName, StartTime = @StartTime, EndTime = @EndTime "+
+                "ShiftName = @ShiftName, StartTime = @StartTime, EndTime = @EndTime " +
                 "WHERE Id = @Id";
 
             command.Parameters.AddWithValue("@ShiftName", shift.shiftName);

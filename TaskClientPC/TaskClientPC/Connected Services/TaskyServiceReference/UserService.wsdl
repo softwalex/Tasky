@@ -55,6 +55,18 @@
   <wsdl:message name="IUserService_GetShifts_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetShiftsResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetPastShifts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPastShifts" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPastShifts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPastShiftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetFutureShifts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFutureShifts" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetFutureShifts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFutureShiftsResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetShift_InputMessage">
     <wsdl:part name="parameters" element="tns:GetShift" />
   </wsdl:message>
@@ -202,6 +214,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShifts" message="tns:IUserService_GetShifts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftsResponse" message="tns:IUserService_GetShifts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPastShifts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetPastShifts" message="tns:IUserService_GetPastShifts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetPastShiftsResponse" message="tns:IUserService_GetPastShifts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFutureShifts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetFutureShifts" message="tns:IUserService_GetFutureShifts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetFutureShiftsResponse" message="tns:IUserService_GetFutureShifts_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShift" message="tns:IUserService_GetShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftResponse" message="tns:IUserService_GetShift_OutputMessage" />
@@ -346,6 +366,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetShifts">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPastShifts">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetPastShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFutureShifts">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetFutureShifts" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

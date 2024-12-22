@@ -567,6 +567,18 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShifts", ReplyAction="http://tempuri.org/IUserService/GetShiftsResponse")]
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetPastShifts", ReplyAction="http://tempuri.org/IUserService/GetPastShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetPastShifts(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetPastShifts", ReplyAction="http://tempuri.org/IUserService/GetPastShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetPastShiftsAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetFutureShifts", ReplyAction="http://tempuri.org/IUserService/GetFutureShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetFutureShifts(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetFutureShifts", ReplyAction="http://tempuri.org/IUserService/GetFutureShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetFutureShiftsAsync(System.DateTime date);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShift", ReplyAction="http://tempuri.org/IUserService/GetShiftResponse")]
         TaskClientPC.TaskyServiceReference.Shift GetShift(string name);
         
@@ -771,6 +783,22 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync() {
             return base.Channel.GetShiftsAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetPastShifts(System.DateTime date) {
+            return base.Channel.GetPastShifts(date);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetPastShiftsAsync(System.DateTime date) {
+            return base.Channel.GetPastShiftsAsync(date);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetFutureShifts(System.DateTime date) {
+            return base.Channel.GetFutureShifts(date);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetFutureShiftsAsync(System.DateTime date) {
+            return base.Channel.GetFutureShiftsAsync(date);
         }
         
         public TaskClientPC.TaskyServiceReference.Shift GetShift(string name) {

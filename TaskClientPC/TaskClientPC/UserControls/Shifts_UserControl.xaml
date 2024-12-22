@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="TaskClientPC.UserControls.Users_UserControl"
+﻿<UserControl x:Class="TaskClientPC.UserControls.Shifts_UserControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TaskClientPC.UserControls" 
+             xmlns:local="clr-namespace:TaskClientPC.UserControls"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -43,52 +43,49 @@
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Border Grid.Column="0" 
-            Background="White" 
-            CornerRadius="12" 
-            Margin="20,20,-70,20" 
-            Padding="15"
-            Effect="{StaticResource MaterialShadow}">
+        <Border Grid.Column="0"
+                Background="White"
+                CornerRadius="12"
+                Margin="20,20,-70,20"
+                Padding="15"
+                Effect="{StaticResource MaterialShadow}">
             <DockPanel>
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <TextBlock Text="Users List" 
-                              DockPanel.Dock="Left" 
-                              FontSize="24" 
-                              FontWeight="Bold" 
-                              Margin="10,0,0,15"
-                              Foreground="#FF5722"/>
-
-                <Button x:Name="AddNewUserButton"
-                        Click="AddUser"
-                        DockPanel.Dock="Right"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        Height="36"
-                        Width="120"
-                        Margin="0,0,10,15"
-                        Background="#FB8C00"
-                        BorderThickness="0"
-                        materialDesign:ButtonAssist.CornerRadius="18">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Plus" 
-                                       Height="20" 
-                                       Width="20" 
-                                       VerticalAlignment="Center"
-                                       Margin="0,0,8,0"/>
-                            <TextBlock Text="Add New" 
-                                       VerticalAlignment="Center"/>
-                        </StackPanel>
-                </Button>
-            </DockPanel>
-            <ListView x:Name="usersListView"
-                    Grid.Row="1" Grid.Column="0"
-                    SelectionChanged="usersListView_SelectionChanged" 
-                    ScrollViewer.CanContentScroll="True" 
-                    FontSize="10" 
-                    HorizontalAlignment="Left" 
-                    Width="540"
-                    BorderThickness="0">
-                    <!-- Existing ListView content -->
+                    <TextBlock Text="Shifts List"
+                               DockPanel.Dock="Left"
+                               FontSize="24"
+                               FontWeight="Bold"
+                               Margin="10,0,0,15"
+                               Foreground="#FF5722"/>
+                    <Button x:Name="AddNewShift"
+                            Click="AddShift"
+                                                    DockPanel.Dock="Right"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            Height="36"
+                            Width="120"
+                            Margin="0,0,10,15"
+                            Background="#FB8C00"
+                            BorderThickness="0"
+                            materialDesign:ButtonAssist.CornerRadius="18">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Plus" 
+                                               Height="20" 
+                                               Width="20" 
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,8,0"/>
+                                <TextBlock Text="Add New" 
+                                               VerticalAlignment="Center"/>
+                            </StackPanel>
+                    </Button>
+                </DockPanel>
+                <ListView x:Name="shiftsListView"
+                          Grid.Row="1" Grid.Column="0"
+                          SelectionChanged="shiftsListView_SelectionChanged"
+                          ScrollViewer.CanContentScroll="True"
+                          FontSize="10"
+                          HorizontalAlignment="Left"
+                          Width="540"
+                          BorderThickness="0">
                     <ListView.View>
                         <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
                             <GridViewColumn Header="Name" Width="300">
@@ -103,24 +100,23 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding firstname}" Margin="5,0,5,0"/>
-                                            <TextBlock Text="{Binding lastname}"/>
+                                            <TextBlock Text="{Binding shiftName}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Type" Width="Auto">
+                            <GridViewColumn Header="Date" Width="100">
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="Type" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
+                                        <TextBlock Text="Date"
+                                                   FontWeight="Bold"
+                                                   FontSize="16"
+                                                   Foreground="#FF5722"/>
                                     </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding userType}"/>
+                                        <TextBlock Text="{Binding start}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -149,13 +145,13 @@
         </Border>
 
         <Border Grid.Column="1"
-            x:Name="DataBorder"
-            Visibility="Collapsed"
-            Background="White" 
-            CornerRadius="12" 
-            Margin="110,68,10,108" 
-            Padding="20"
-            Effect="{StaticResource MaterialShadow}">
+                x:Name="DataBorder"
+                Visibility="Collapsed"
+                Background="White"
+                CornerRadius="12"
+                Margin="110,68,10,108"
+                Padding="20"
+                Effect="{StaticResource MaterialShadow}">
             <Grid x:Name="DataGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0*"/>
@@ -164,65 +160,56 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.ColumnSpan="3">
                     <DockPanel>
-                        <TextBlock Text="User Details" 
+                        <TextBlock Text="Shift Details" 
                              FontSize="24" 
                              FontWeight="Bold" 
                              Foreground="#FF5722"
                              DockPanel.Dock="Left"
                              Margin="20,0,0,20"/>
                         <Button x:Name="DeleteButton" 
-                            Grid.ColumnSpan="3" 
-                            Click="DeleteUser" 
-                            Background="#FF5722" 
-                            Content="DELETE" 
-                            Height="36" 
-                            Width="100" 
-                            HorizontalAlignment="Right"
-                            Margin="0,0,20,0"
-                            Foreground="White"
-                            BorderThickness="0">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="18"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+                              Grid.ColumnSpan="3" 
+                              Click="DeleteShift" 
+                              Background="#FF5722" 
+                              Content="DELETE" 
+                              Height="36" 
+                              Width="100" 
+                              HorizontalAlignment="Right"
+                              Margin="0,0,20,0"
+                              Foreground="White"
+                              BorderThickness="0">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="18"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
                     </DockPanel>
 
-                    <Border Background="#FBE9E7" 
-                        CornerRadius="8" 
-                        Margin="10"
-                        Padding="10">
+                    <Border Background="#FBE9E7"
+                            CornerRadius="8"
+                            Margin="10"
+                            Padding="10">
                         <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal" x:Name="NameSP">
-                                <TextBlock Text="Full Name: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding firstname}" x:Name="FirstNameBlock" Style="{StaticResource DetailValueStyle}"/>
-                                <TextBlock Text="{Binding lastname}" x:Name="LastNameBlock" Style="{StaticResource DetailValueStyle}" Margin="0,10,20,10"/>
+                            <StackPanel Orientation="Horizontal" x:Name="ShiftNameSP">
+                                <TextBlock Text="Shift Name: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding shiftName}" x:Name="ShiftNameBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="EmailSP">
-                                <TextBlock Text="Email: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding email}" x:Name="EmailBlock" Style="{StaticResource DetailValueStyle}"/>
+                            <StackPanel Orientation="Horizontal" x:Name="StartTimeSP">
+                                <TextBlock Text="Start Time: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding shiftName}" x:Name="StartTimeBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="BirthDaySP">
-                                <TextBlock Text="Birthday: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding birthday}" x:Name="BirthdayBlock" Style="{StaticResource DetailValueStyle}"/>
-                            </StackPanel>
-                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="UsertypeSP">
-                                <TextBlock Text="Type: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding userType}" x:Name="UsertypeBlock" Style="{StaticResource DetailValueStyle}"/>
-                            </StackPanel>
+                            <TextBlock Text="End Time: " Style="{StaticResource DetailLabelStyle}"/>
+                            <TextBlock Text="{Binding shiftName}" x:Name="EndTimeBlock" Style="{StaticResource DetailValueStyle}"/>
                         </StackPanel>
                     </Border>
-
                     <Button x:Name="UpdateButton"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Height="50"
                         Width="200"
                         Content="UPDATE"
-                        Click="UpdateUser"
+                        Click="UpdateShift"
                         Background="#FB8C00"
                         materialDesign:ButtonAssist.CornerRadius="25"
                         Margin="20,20,0,0"

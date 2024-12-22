@@ -98,6 +98,9 @@
     <Compile Include="UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Shifts_UserControl.xaml.cs">
+      <DependentUpon>Shifts_UserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Users_UserControl.xaml.cs">
       <DependentUpon>Users_UserControl.xaml</DependentUpon>
     </Compile>
@@ -127,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MainUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Shifts_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

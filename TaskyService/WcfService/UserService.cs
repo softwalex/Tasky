@@ -75,6 +75,19 @@ namespace WcfService
             ShiftList shifts = shiftDB.SelectAll();
             return shifts;
         }
+
+        public ShiftList GetPastShifts(DateTime date)
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectByDate(date,true);
+            return shifts;
+        }
+        public ShiftList GetFutureShifts(DateTime date)
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectByDate(date,false);
+            return shifts;
+        }
         public Shift GetShift(string name)
         {
             ShiftDB shiftDB = new ShiftDB();

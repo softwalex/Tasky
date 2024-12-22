@@ -35,6 +35,9 @@ namespace TaskClientPC.UserControls
                 case "Users":
                     MainGrid.Children.Add(new Users_UserControl());
                     break;
+                case "Shifts":
+                    MainGrid.Children.Add(new Shifts_UserControl());
+                    break;
             }
         }
         private void LinkToLogInWindow(object sender, RoutedEventArgs e)
