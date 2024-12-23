@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskClientPC.TaskyServiceReference;
+using TaskClientPC.UpdateWindows;
 
 namespace TaskClientPC.UserControls
 {
@@ -40,16 +41,11 @@ namespace TaskClientPC.UserControls
             shift = shiftsListView.SelectedItem as Shift;
             DataGrid.DataContext = shift;
         }
-
-        private void AddShift(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
 
         }
-
+        private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void DeleteShift(object sender, RoutedEventArgs e)
         {
 

@@ -105,7 +105,7 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Date" Width="100">
+                            <GridViewColumn Header="Date" Width="120">
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="Date"
@@ -116,7 +116,7 @@
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding start}"/>
+                                        <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -197,11 +197,14 @@
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="StartTimeSP">
                                 <TextBlock Text="Start Time: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding shiftName}" x:Name="StartTimeBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}" x:Name="StartTimeBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <TextBlock Text="End Time: " Style="{StaticResource DetailLabelStyle}"/>
-                            <TextBlock Text="{Binding shiftName}" x:Name="EndTimeBlock" Style="{StaticResource DetailValueStyle}"/>
+
+                            <StackPanel Orientation="Horizontal" x:Name="EndTimeSP">
+                                <TextBlock Text="End Time: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding end, StringFormat=dd/MM/yyyy HH:mm}" x:Name="EndTimeBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
                     <Button x:Name="UpdateButton"

@@ -207,7 +207,7 @@
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="BirthDaySP">
                                 <TextBlock Text="Birthday: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding birthday}" x:Name="BirthdayBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding birthday, StringFormat=dd/MM/yyyy}" x:Name="BirthdayBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="UsertypeSP">

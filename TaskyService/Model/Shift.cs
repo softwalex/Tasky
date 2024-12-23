@@ -22,7 +22,7 @@ namespace Model
 		private DateTime Start;
 
 		[DataMember]
-		public DateTime strat
+		public DateTime start
 		{
 			get { return Start; }
 			set { Start = value; }

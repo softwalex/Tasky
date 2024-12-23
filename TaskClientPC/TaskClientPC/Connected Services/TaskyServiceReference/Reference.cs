@@ -76,7 +76,7 @@ namespace TaskClientPC.TaskyServiceReference {
         private string shiftNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime stratField;
+        private System.DateTime startField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime end {
@@ -105,14 +105,14 @@ namespace TaskClientPC.TaskyServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime strat {
+        public System.DateTime start {
             get {
-                return this.stratField;
+                return this.startField;
             }
             set {
-                if ((this.stratField.Equals(value) != true)) {
-                    this.stratField = value;
-                    this.RaisePropertyChanged("strat");
+                if ((this.startField.Equals(value) != true)) {
+                    this.startField = value;
+                    this.RaisePropertyChanged("start");
                 }
             }
         }

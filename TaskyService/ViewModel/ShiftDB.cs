@@ -19,8 +19,8 @@ namespace ViewModel
             Shift shift = entity as Shift;
             shift.ID = int.Parse(reader["id"].ToString());
             shift.shiftName = reader["ShiftName"].ToString();
-            shift.strat = DateTime.Parse(reader["Start"].ToString());
-            shift.end = DateTime.Parse(reader["End"].ToString());
+            shift.start = DateTime.Parse(reader["StartTime"].ToString());
+            shift.end = DateTime.Parse(reader["EndTime"].ToString());
 
             return shift;
         }
@@ -71,7 +71,7 @@ namespace ViewModel
             command.CommandText = @"INSERT INTO ShiftTable (ShiftName, StartTime, EndTime) VALUES " +
                 "(@ShiftName, @StartTime, @EndTime);SELECT SCOPE_IDENTITY();";
             command.Parameters.AddWithValue("@ShiftName", shift.shiftName);
-            command.Parameters.AddWithValue("@StartTime", shift.strat);
+            command.Parameters.AddWithValue("@StartTime", shift.start);
             command.Parameters.AddWithValue("@EndTime", shift.end);
 
             return Convert.ToInt32(base.ExecuteScalar());
@@ -84,7 +84,7 @@ namespace ViewModel
                 "WHERE Id = @Id";
 
             command.Parameters.AddWithValue("@ShiftName", shift.shiftName);
-            command.Parameters.AddWithValue("@StartTime", shift.strat);
+            command.Parameters.AddWithValue("@StartTime", shift.start);
             command.Parameters.AddWithValue("@EndTime", shift.end);
             command.Parameters.AddWithValue("@Id", shift.ID);
 

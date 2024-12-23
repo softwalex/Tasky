@@ -92,6 +92,9 @@
     <Compile Include="UpdateWindows\ConfirmWindow.xaml.cs">
       <DependentUpon>ConfirmWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpdateWindows\UpdateShift.xaml.cs">
+      <DependentUpon>UpdateShift.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateWindows\UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateWindows\ConfirmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateWindows\UpdateShift.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

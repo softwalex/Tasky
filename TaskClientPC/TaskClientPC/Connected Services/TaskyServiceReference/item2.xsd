@@ -47,7 +47,7 @@
         <xs:sequence>
           <xs:element minOccurs="0" name="end" type="xs:dateTime" />
           <xs:element minOccurs="0" name="shiftName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="strat" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="start" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
