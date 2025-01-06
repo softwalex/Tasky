@@ -51,5 +51,8 @@
     <Compile Include="User.cs" />
     <Compile Include="UserInShift.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ModelDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
