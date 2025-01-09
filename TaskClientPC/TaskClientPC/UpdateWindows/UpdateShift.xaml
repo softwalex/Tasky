@@ -84,7 +84,7 @@
                             x:Name="SubmitButton"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             Background="#f39c12"
-                            Click="AddShiftButton"/>
+                            Click="UpdateShiftButton"/>
                     </StackPanel>
                 </StackPanel>
             </ScrollViewer>

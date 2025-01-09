@@ -42,3 +42,8 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewM
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\ViewModel.dll.config
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.xml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.SqlServer.xml

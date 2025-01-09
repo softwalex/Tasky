@@ -94,3 +94,6 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\obj\Debug\WpfHost
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\obj\Debug\WpfHost.csproj.CopyComplete
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\obj\Debug\WpfHost.exe
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\obj\Debug\WpfHost.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\bin\Debug\EntityFramework.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\bin\Debug\ViewModel.dll.config
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WpfHost\bin\Debug\EntityFramework.xml

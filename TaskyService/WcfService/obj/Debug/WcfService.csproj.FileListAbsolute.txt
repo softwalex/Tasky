@@ -51,3 +51,6 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfS
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.csproj.CopyComplete
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\obj\Debug\WcfService.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\EntityFramework.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\ViewModel.dll.config
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\WcfService\bin\Debug\EntityFramework.xml

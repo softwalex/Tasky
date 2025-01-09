@@ -65,9 +65,6 @@ namespace TaskClientPC.UserControls
             }
         }
 
-        private void AddUser(object sender, RoutedEventArgs e)
-        {
-            new UpdateUser().ShowDialog();
-        }
+        private void AddUser(object sender, RoutedEventArgs e) => new UpdateUser().ShowDialog();
     }
 }

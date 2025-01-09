@@ -43,12 +43,23 @@ namespace TaskClientPC.UserControls
         }
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
-
+            UpdateShift updateShift = new UpdateShift(shift);
+            updateShift.ShowDialog();
         }
         private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void DeleteShift(object sender, RoutedEventArgs e)
         {
-
+            ConfirmWindow confirmWindow = new ConfirmWindow();
+            confirmWindow.Owner = Application.Current.MainWindow;
+            bool? Result = confirmWindow.ShowDialog();
+            if (Result == true)
+            {
+                serviceClient.DeleteShift(shift);
+                DataGrid.DataContext = null;
+                DeleteButton.Visibility = Visibility.Collapsed;
+                UpdateButton.Visibility = Visibility.Collapsed;
+                shiftsListView.ItemsSource = serviceClient.GetUsers();
+            }
         }
     }
 }

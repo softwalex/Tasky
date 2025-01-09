@@ -27,6 +27,16 @@ namespace TaskClientPC.UpdateWindows
             InitializeComponent();
             userServiceClient = new UserServiceClient();
             shift = new Shift();
+            SubmitButton.Content = "Add Shift";
+            SubmitButton.Click -= UpdateShiftButton;
+            SubmitButton.Click += AddShiftButton;
+        }
+        public UpdateShift(Shift shift)
+        {
+            InitializeComponent();
+            userServiceClient = new UserServiceClient();
+            this.DataContext = shift;
+            this.shift = shift;
         }
         private void StartTime_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -60,10 +70,24 @@ namespace TaskClientPC.UpdateWindows
                 ErorText.Text = "Date Fields cannot be empty";
                 return false;
             }
-            if(StartDate > EndDate )
+            if (StartDate < DateTime.Now)
+            {
+                ErorText.Text = "Start-Date must be now or in the futrue";
+                return false;
+            }
+            if (StartDate > EndDate )
             {
                 ErorText.Text = "Start-Date must be before the End-Date";
                 return false;
+            }
+            ShiftList shifts = userServiceClient.GetFutureShifts(DateTime.Now);
+            foreach (Shift s in shifts)
+            {
+                if (!(s.start == shift.start && s.end == shift.end))
+                {
+                    if ((StartDate > s.start && StartDate < s.end) || (EndDate > s.start && EndDate < s.end))
+                        return false;
+                }
             }
             return true;
         }
@@ -94,7 +118,29 @@ namespace TaskClientPC.UpdateWindows
         }
         private void UpdateShiftButton(object sender, RoutedEventArgs e)
         {
+            DateTime StartOfShift = DateTime.Parse(StartTime.Text + " " + StartTimePicker.Text);
+            DateTime EndOfShift = DateTime.Parse(EndTime.Text + " " + EndTimePicker.Text);
 
+            if (ShiftNameBox.Text == string.Empty)
+            {
+                ErorText.Text = "The shift must have a name";
+                return;
+            }
+            shift.shiftName = ShiftNameBox.Text;
+            if (!IsValidDate(StartOfShift, EndOfShift))
+                return;
+            shift.start = StartOfShift;
+            shift.end = EndOfShift;
+
+            ConfirmWindow confirmWindow = new ConfirmWindow();
+            confirmWindow.Owner = this;
+            bool? Result = confirmWindow.ShowDialog();
+
+            if (Result == true)
+            {
+                userServiceClient.UpdateShift(shift);
+                this.Close();
+            }
         }
         private void CloseUpdateWindow(object sender, RoutedEventArgs e)=>this.Close();
     }
