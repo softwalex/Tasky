@@ -34,10 +34,10 @@ namespace ViewModel
         {
             command.Parameters.Clear();
             if (isPast)
-                command.CommandText = "SELECT * FROM ShiftTable WHERE Start<@Start";
+                command.CommandText = "SELECT * FROM ShiftTable WHERE StartTime<@StartTime";
             else
-                command.CommandText = "SELECT * FROM ShiftTable WHERE Star>@Start";
-            command.Parameters.AddWithValue("@Start", date);
+                command.CommandText = "SELECT * FROM ShiftTable WHERE StartTime>@StartTime";
+            command.Parameters.AddWithValue("@StartTime", date);
             ShiftList list = new ShiftList(base.ExecuteCommand());
             return list;
         }

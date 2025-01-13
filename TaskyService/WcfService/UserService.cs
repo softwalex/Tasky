@@ -98,23 +98,14 @@ namespace WcfService
         public Shift NewShift(Shift shift)
         {
             ShiftDB ShiftDB = new ShiftDB();
-            if(ShiftDB.SelectByShiftName(shift.shiftName) == null)
-            {
-                ShiftDB.Insert(shift);
-                return shift;
-            }
-            return null;
+            ShiftDB.Insert(shift);
+            return shift;
         }
 
-        public bool UpdateShift(Shift shift)
+        public void UpdateShift(Shift shift)
         {
             ShiftDB shiftDB=new ShiftDB();
-            if (shiftDB.SelectByShiftName(shift.shiftName) != null)
-            {
-                shiftDB.Update(shift);
-                return true;
-            }
-            return false;
+            shiftDB.Update(shift);
         }
 
         public bool DeleteShift(Shift shift)

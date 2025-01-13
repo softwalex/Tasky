@@ -118,28 +118,33 @@ namespace TaskClientPC.UpdateWindows
         }
         private void UpdateShiftButton(object sender, RoutedEventArgs e)
         {
-            DateTime StartOfShift = DateTime.Parse(StartTime.Text + " " + StartTimePicker.Text);
-            DateTime EndOfShift = DateTime.Parse(EndTime.Text + " " + EndTimePicker.Text);
-
-            if (ShiftNameBox.Text == string.Empty)
+            try
             {
-                ErorText.Text = "The shift must have a name";
-                return;
+                DateTime StartOfShift = DateTime.Parse(StartTime.Text + " " + StartTimePicker.Text);
+                DateTime EndOfShift = DateTime.Parse(EndTime.Text + " " + EndTimePicker.Text);
+
+                if (ShiftNameBox.Text == string.Empty)
+                {
+                    ErorText.Text = "The shift must have a name";
+                    return;
+                }
+                if (!IsValidDate(StartOfShift, EndOfShift))
+                    return;
+
+                ConfirmWindow confirmWindow = new ConfirmWindow();
+                confirmWindow.Owner = this;
+                bool? Result = confirmWindow.ShowDialog();
+                shift =new Shift { shiftName = ShiftNameBox.Text, start=StartOfShift, end=EndOfShift, ID=shift.ID};
+                if (Result == true)
+                {
+                    userServiceClient.UpdateShift(shift);
+                    this.Close();
+                }
             }
-            shift.shiftName = ShiftNameBox.Text;
-            if (!IsValidDate(StartOfShift, EndOfShift))
-                return;
-            shift.start = StartOfShift;
-            shift.end = EndOfShift;
-
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = this;
-            bool? Result = confirmWindow.ShowDialog();
-
-            if (Result == true)
+            catch (FormatException)
             {
-                userServiceClient.UpdateShift(shift);
-                this.Close();
+                ErorText.Text = "All the fields must be full";
+                return;
             }
         }
         private void CloseUpdateWindow(object sender, RoutedEventArgs e)=>this.Close();

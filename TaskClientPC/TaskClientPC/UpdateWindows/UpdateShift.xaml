@@ -23,6 +23,7 @@
                          Style="{StaticResource MaterialDesignOutlinedTextBox}"
                          materialDesign:HintAssist.Hint="Shift Name"
                          Margin="0,8"
+                             Text="{Binding shiftName}"
                          materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible">
                     </TextBox>
 
@@ -39,6 +40,7 @@
                                   Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                   materialDesign:HintAssist.Hint="Start Date"
                                   Margin="0,8,4,8"
+                                  SelectedDate="{Binding start,Mode=OneWay}"
                                   SelectedDateChanged="StartTime_SelectedDateChanged"/>
 
                             <materialDesign:TimePicker
@@ -47,7 +49,8 @@
                             materialDesign:HintAssist.Hint="Start Time"
                             Is24Hours="True"
                             Margin="0,0,4,8"
-                            Visibility="Collapsed"/>
+                            Visibility="Collapsed"
+                            SelectedTime="{Binding start, Mode=OneWay}"/>
                         </StackPanel>
 
                         <!-- End Time Controls -->
@@ -56,6 +59,7 @@
                                   Style="{StaticResource MaterialDesignOutlinedDatePicker}"
                                   materialDesign:HintAssist.Hint="End Date"
                                   Margin="4,8,0,8"
+                                  SelectedDate="{Binding end,Mode=OneWay}"
                                   SelectedDateChanged="EndTime_SelectedDateChanged"/>
 
                             <materialDesign:TimePicker
@@ -64,7 +68,8 @@
                             materialDesign:HintAssist.Hint="End Time"
                             Is24Hours="True"
                             Margin="4,0,0,8"
-                            Visibility="Collapsed"/>
+                            Visibility="Collapsed"
+                            SelectedTime="{Binding end, Mode=OneWay}"/>
                         </StackPanel>
                     </Grid>
 

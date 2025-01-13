@@ -39,12 +39,20 @@ namespace TaskClientPC.UserControls
             UpdateButton.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Visible;
             shift = shiftsListView.SelectedItem as Shift;
+            if(shift.end<DateTime.Now)
+                UpdateButton.Visibility = Visibility.Collapsed;
+            else
+                UpdateButton.Visibility = Visibility.Visible;
             DataGrid.DataContext = shift;
         }
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
             UpdateShift updateShift = new UpdateShift(shift);
-            updateShift.ShowDialog();
+          if((bool) updateShift.ShowDialog())
+            {
+                shifts = serviceClient.GetShifts();
+                shiftsListView.ItemsSource = shifts;
+            }    
         }
         private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void DeleteShift(object sender, RoutedEventArgs e)

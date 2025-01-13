@@ -592,10 +592,10 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Shift> NewShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateShift", ReplyAction="http://tempuri.org/IUserService/UpdateShiftResponse")]
-        bool UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift);
+        void UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateShift", ReplyAction="http://tempuri.org/IUserService/UpdateShiftResponse")]
-        System.Threading.Tasks.Task<bool> UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
+        System.Threading.Tasks.Task UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteShift", ReplyAction="http://tempuri.org/IUserService/DeleteShiftResponse")]
         bool DeleteShift(TaskClientPC.TaskyServiceReference.Shift shift);
@@ -817,11 +817,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.NewShiftAsync(shift);
         }
         
-        public bool UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift) {
-            return base.Channel.UpdateShift(shift);
+        public void UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift) {
+            base.Channel.UpdateShift(shift);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
+        public System.Threading.Tasks.Task UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
             return base.Channel.UpdateShiftAsync(shift);
         }
         
