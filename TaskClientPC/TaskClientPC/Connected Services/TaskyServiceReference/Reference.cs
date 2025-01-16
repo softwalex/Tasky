@@ -603,6 +603,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteShift", ReplyAction="http://tempuri.org/IUserService/DeleteShiftResponse")]
         System.Threading.Tasks.Task<bool> DeleteShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignments", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsResponse")]
+        TaskClientPC.TaskyServiceReference.AssignmentList GetAssignments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignments", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentsBySubject", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsBySubjectResponse")]
         TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject);
         
@@ -831,6 +837,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
             return base.Channel.DeleteShiftAsync(shift);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.AssignmentList GetAssignments() {
+            return base.Channel.GetAssignments();
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync() {
+            return base.Channel.GetAssignmentsAsync();
         }
         
         public TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject) {

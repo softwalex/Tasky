@@ -33,6 +33,7 @@ namespace WcfService
         #endregion
 
         #region Assingment
+        [OperationContract] AssignmentList GetAssignments();
         [OperationContract] Assignment GetAssignmentsBySubject(string Subject);
         [OperationContract] AssignmentList GetAssignmentsByCategory(string Category);
         [OperationContract] Assignment NewAssignment(Assignment assignment);

@@ -130,7 +130,7 @@
 
                     <Button Style="{StaticResource MenuButton}"
                         Click="PropertySelected"
-                        Content="Assignment">
+                        Content="Assignments">
                         <Button.ContentTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

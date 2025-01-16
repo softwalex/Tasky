@@ -1,12 +1,12 @@
-﻿<UserControl x:Class="TaskClientPC.UserControls.Shifts_UserControl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TaskClientPC.UserControls"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+﻿<Window x:Class="TaskClientPC.UserControls.Assignment_UserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskClientPC.UserControls"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Assignment" Height="450" Width="800">
     <Grid Margin="0,20,0,0" RenderTransformOrigin="0.59,0.471">
         <!-- Background Gradient with Orange Colors -->
         <Grid.Background>
@@ -38,7 +38,6 @@
                 <Setter Property="Foreground" Value="#424242"/>
             </Style>
         </Grid.Resources>
-
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
@@ -51,14 +50,14 @@
                 Effect="{StaticResource MaterialShadow}">
             <DockPanel>
                 <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <TextBlock Text="Shifts List"
+                    <TextBlock Text="Assignments List"
                                DockPanel.Dock="Left"
                                FontSize="24"
                                FontWeight="Bold"
                                Margin="10,0,0,15"
                                Foreground="#FF5722"/>
-                    <Button x:Name="AddNewShift"
-                            Click="AddShift"
+                    <Button x:Name="AddShift"
+                            Click="AddAssignment"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             Height="36"
@@ -67,20 +66,20 @@
                             Background="#FB8C00"
                             BorderThickness="0"
                             materialDesign:ButtonAssist.CornerRadius="18">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Plus" 
-                                               Height="20" 
-                                               Width="20" 
-                                               VerticalAlignment="Center"
-                                               Margin="0,0,8,0"/>
-                                <TextBlock Text="Add New" 
-                                               VerticalAlignment="Center"/>
-                            </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Plus" 
+                                                   Height="20" 
+                                                   Width="20" 
+                                                   VerticalAlignment="Center"
+                                                   Margin="0,0,8,0"/>
+                            <TextBlock Text="Add New" 
+                                                   VerticalAlignment="Center"/>
+                        </StackPanel>
                     </Button>
                 </DockPanel>
-                <ListView x:Name="shiftsListView"
+                <ListView x:Name="AssignmentsListView"
                           Grid.Row="1" Grid.Column="0"
-                          SelectionChanged="shiftsListView_SelectionChanged"
+                          SelectionChanged="AssignmentsListView_SelectionChanged"
                           ScrollViewer.CanContentScroll="True"
                           FontSize="10"
                           HorizontalAlignment="Left"
@@ -88,19 +87,19 @@
                           BorderThickness="0">
                     <ListView.View>
                         <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                            <GridViewColumn Header="Name" Width="300">
+                            <GridViewColumn Header="Subject" Width="300">
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="Name" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
-                                    </DataTemplate>
+                                        <TextBlock Text="subject" 
+                                                FontWeight="Bold" 
+                                                FontSize="16" 
+                                                Foreground="#FF5722"/>
+                                        </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding shiftName}"/>
+                                            <TextBlock Text="{Binding subject}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -109,14 +108,14 @@
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="Date"
-                                                   FontWeight="Bold"
                                                    FontSize="16"
+                                                   FontWeight="Bold"
                                                    Foreground="#FF5722"/>
                                     </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}"/>
+                                        <TextBlock Text="{Binding dateOfAssigment, StringFormat=dd/MM/yyyy HH:mm}"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -160,7 +159,7 @@
                 </Grid.ColumnDefinitions>
                 <StackPanel Orientation="Vertical" Grid.ColumnSpan="3">
                     <DockPanel>
-                        <TextBlock Text="Shift Details" 
+                        <TextBlock Text="Assignment Details" 
                              FontSize="24" 
                              FontWeight="Bold" 
                              Foreground="#FF5722"
@@ -168,7 +167,7 @@
                              Margin="20,0,0,20"/>
                         <Button x:Name="DeleteButton" 
                               Grid.ColumnSpan="3" 
-                              Click="DeleteShift" 
+                              Click="DeleteAssignment" 
                               Background="#FF5722" 
                               Content="DELETE" 
                               Height="36" 
@@ -177,32 +176,56 @@
                               Margin="0,0,20,0"
                               Foreground="White"
                               BorderThickness="0">
-                                <Button.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="18"/>
-                                    </Style>
-                                </Button.Resources>
-                            </Button>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="18"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </DockPanel>
-
                     <Border Background="#FBE9E7"
                             CornerRadius="8"
                             Margin="10"
                             Padding="10">
                         <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal" x:Name="ShiftNameSP">
-                                <TextBlock Text="Shift Name: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding shiftName}" x:Name="ShiftNameBlock" Style="{StaticResource DetailValueStyle}"/>
+                            <StackPanel Orientation="Horizontal" x:Name="SubjectSP">
+                                <TextBlock Text="Subject: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding subject}" x:Name="SubjectBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="StartTimeSP">
-                                <TextBlock Text="Start Time: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}" x:Name="StartTimeBlock" Style="{StaticResource DetailValueStyle}"/>
+                            <StackPanel Orientation="Horizontal" x:Name="CategorySP">
+                                <TextBlock Text="Category: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding _category.name}" x:Name="CategoryBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="EndTimeSP">
-                                <TextBlock Text="End Time: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding end, StringFormat=dd/MM/yyyy HH:mm}" x:Name="EndTimeBlock" Style="{StaticResource DetailValueStyle}"/>
+                            <StackPanel Orientation="Horizontal" x:Name="DateOfAssignmentSP">
+                                <TextBlock Text="Date: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding dateOfAssignment, StringFormat=dd/MM/yyyy HH:mm}" x:Name="DateOfAssignmentBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="DescriptionSP">
+                                <TextBlock Text="Description: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding description}" x:Name="DescriptionBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="ForShiftSP">
+                                <TextBlock Text="For Shift: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding forShift}" x:Name="ForShiftBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="ForUserSP">
+                                <TextBlock Text="For User: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding forUser}" x:Name="ForUserBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="DoneByUserSP">
+                                <TextBlock Text="Done By User: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding doneByUser}" x:Name="DoneByUserBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="SummerySP">
+                                <TextBlock Text="Summery: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding summery}" x:Name="SummeryBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                         </StackPanel>
                     </Border>
@@ -211,16 +234,16 @@
                         Height="50"
                         Width="200"
                         Content="UPDATE"
-                        Click="UpdateShift"
+                        Click="UpdateAssignment"
                         Background="#FB8C00"
                         materialDesign:ButtonAssist.CornerRadius="25"
                         Margin="20,20,0,0"
                         Foreground="White"
                         BorderThickness="0"
-                        ToolTip="Update Shift information">
+                        ToolTip="Update Assignment information">
                     </Button>
                 </StackPanel>
             </Grid>
         </Border>
     </Grid>
-</UserControl>
+</Window>

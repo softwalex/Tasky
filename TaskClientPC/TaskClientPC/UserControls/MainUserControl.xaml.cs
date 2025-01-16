@@ -38,6 +38,9 @@ namespace TaskClientPC.UserControls
                 case "Shifts":
                     MainGrid.Children.Add(new Shifts_UserControl());
                     break;
+                case "Assignments":
+                    MainGrid.Children.Add(new Assignment_UserControl());
+                    break;
             }
         }
         private void LinkToLogInWindow(object sender, RoutedEventArgs e)

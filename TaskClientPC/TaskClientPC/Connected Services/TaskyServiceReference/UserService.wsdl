@@ -91,6 +91,12 @@
   <wsdl:message name="IUserService_DeleteShift_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteShiftResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignments" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetAssignmentsBySubject_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssignmentsBySubject" />
   </wsdl:message>
@@ -237,6 +243,10 @@
     <wsdl:operation name="DeleteShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteShift" message="tns:IUserService_DeleteShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteShiftResponse" message="tns:IUserService_DeleteShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignments" message="tns:IUserService_GetAssignments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsResponse" message="tns:IUserService_GetAssignments_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAssignmentsBySubject">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubject" message="tns:IUserService_GetAssignmentsBySubject_InputMessage" />
@@ -420,6 +430,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteShift">
       <soap:operation soapAction="http://tempuri.org/IUserService/DeleteShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignments">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignments" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

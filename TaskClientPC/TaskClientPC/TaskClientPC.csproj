@@ -83,6 +83,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Covertors\ConverShift.cs" />
+    <Compile Include="Covertors\ConvertUser.cs" />
     <Compile Include="LogInWindow.xaml.cs">
       <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
@@ -97,6 +99,9 @@
     </Compile>
     <Compile Include="UpdateWindows\UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Assignment_UserControl.xaml.cs">
+      <DependentUpon>Assignment_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
@@ -133,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateWindows\UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Assignment_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -121,6 +121,12 @@ namespace WcfService
         #endregion
 
         #region Assignment
+        public AssignmentList GetAssignments()
+        {
+            AssignmentDB assignmentDB = new AssignmentDB();
+            AssignmentList assignments = assignmentDB.SelectAll();
+            return assignments;
+        }
         public Assignment GetAssignmentsBySubject(string Subject)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
