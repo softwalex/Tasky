@@ -44,6 +44,7 @@ namespace TaskClientPC.UserControls
             user = usersListView.SelectedItem as User;
             DataGrid.DataContext = user;
         }
+        private void AddUser(object sender, RoutedEventArgs e) => new UpdateUser().ShowDialog();
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
             UpdateUser updateUser = new UpdateUser(user);
@@ -64,7 +65,5 @@ namespace TaskClientPC.UserControls
                 usersListView.ItemsSource = serviceClient.GetUsers();
             }
         }
-
-        private void AddUser(object sender, RoutedEventArgs e) => new UpdateUser().ShowDialog();
     }
 }

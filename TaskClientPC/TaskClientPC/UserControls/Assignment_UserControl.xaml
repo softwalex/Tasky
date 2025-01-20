@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskClientPC.UserControls"
+        xmlns:convert="clr-namespace:TaskClientPC.Covertors"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Assignment" Height="450" Width="800">
+    <Window.Resources>
+        <convert:ConvertShift x:Key="ConvertShift"/>
+        <convert:ConvertUser x:Key="ConvertUser"/>
+    </Window.Resources>
     <Grid Margin="0,20,0,0" RenderTransformOrigin="0.59,0.471">
         <!-- Background Gradient with Orange Colors -->
         <Grid.Background>
@@ -210,17 +215,17 @@
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="ForShiftSP">
                                 <TextBlock Text="For Shift: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding forShift}" x:Name="ForShiftBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding forShift, Converter={StaticResource ConvertShift}}" x:Name="ForShiftBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="ForUserSP">
                                 <TextBlock Text="For User: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding forUser}" x:Name="ForUserBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding forUser, Converter={StaticResource ConvertUser}}" x:Name="ForUserBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="DoneByUserSP">
                                 <TextBlock Text="Done By User: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding doneByUser}" x:Name="DoneByUserBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding doneByUser, Converter={StaticResource ConvertUser}}" x:Name="DoneByUserBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="SummerySP">

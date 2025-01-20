@@ -83,7 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Covertors\ConverShift.cs" />
+    <Compile Include="Covertors\ConvertShift.cs" />
     <Compile Include="Covertors\ConvertUser.cs" />
     <Compile Include="LogInWindow.xaml.cs">
       <DependentUpon>LogInWindow.xaml</DependentUpon>
@@ -93,6 +93,9 @@
     </Compile>
     <Compile Include="UpdateWindows\ConfirmWindow.xaml.cs">
       <DependentUpon>ConfirmWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateWindows\UpdateAssignment.xaml.cs">
+      <DependentUpon>UpdateAssignment.xaml</DependentUpon>
     </Compile>
     <Compile Include="UpdateWindows\UpdateShift.xaml.cs">
       <DependentUpon>UpdateShift.xaml</DependentUpon>
@@ -130,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateWindows\ConfirmWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateWindows\UpdateAssignment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

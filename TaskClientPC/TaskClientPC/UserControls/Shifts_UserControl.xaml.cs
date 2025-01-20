@@ -45,16 +45,16 @@ namespace TaskClientPC.UserControls
                 UpdateButton.Visibility = Visibility.Visible;
             DataGrid.DataContext = shift;
         }
+        private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
             UpdateShift updateShift = new UpdateShift(shift);
-          if((bool) updateShift.ShowDialog())
+            if ((bool)updateShift.ShowDialog())
             {
                 shifts = serviceClient.GetShifts();
                 shiftsListView.ItemsSource = shifts;
-            }    
+            }
         }
-        private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void DeleteShift(object sender, RoutedEventArgs e)
         {
             ConfirmWindow confirmWindow = new ConfirmWindow();

@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskClientPC.TaskyServiceReference;
+using TaskClientPC.UpdateWindows;
 
 namespace TaskClientPC.UserControls
 {
@@ -19,11 +21,26 @@ namespace TaskClientPC.UserControls
     /// </summary>
     public partial class Assignment_UserControl : Window
     {
+        UserServiceClient userServiceClient;
+        Assignment assignment;
+        AssignmentList assignments;
         public Assignment_UserControl()
         {
             InitializeComponent();
+            userServiceClient = new UserServiceClient();
+            assignments = userServiceClient.GetAssignments();
+            AssignmentsListView.ItemsSource = assignments;
+            assignment = new Assignment();
         }
         private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataBorder.Visibility = Visibility.Visible;
+            UpdateButton.Visibility = Visibility.Visible;
+            DeleteButton.Visibility = Visibility.Visible;
+            assignment = AssignmentsListView.SelectedItem as Assignment;
+            DataGrid.DataContext = assignment;
+        }
+        private void UpdateAssignment(object sender, RoutedEventArgs e)
         {
 
         }
@@ -34,12 +51,17 @@ namespace TaskClientPC.UserControls
 
         private void DeleteAssignment(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void UpdateAssignment(object sender, RoutedEventArgs e)
-        {
-
+            ConfirmWindow confirmWindow = new ConfirmWindow();
+            confirmWindow.Owner = Application.Current.MainWindow;
+            bool? Result = confirmWindow.ShowDialog();
+            if (Result == true)
+            {
+                userServiceClient.DeleteAssignment(assignment);
+                DataGrid.DataContext = null;
+                DeleteButton.Visibility = Visibility.Collapsed;
+                UpdateButton.Visibility = Visibility.Collapsed;
+                AssignmentsListView.ItemsSource = userServiceClient.GetUsers();
+            }
         }
     }
 }
