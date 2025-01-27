@@ -10,7 +10,7 @@
         Title="UpdateUser" Height="500" Width="800">
     <Window.Resources>
         <Style TargetType="TextBox">
-                        <Setter Property="Validation.ErrorTemplate">
+             <Setter Property="Validation.ErrorTemplate">
                 <Setter.Value>
                     <ControlTemplate>
                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center">

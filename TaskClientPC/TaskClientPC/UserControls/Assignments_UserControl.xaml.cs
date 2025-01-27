@@ -43,12 +43,14 @@ namespace TaskClientPC.UserControls
         }
         private void UpdateAssignment(object sender, RoutedEventArgs e)
         {
-
+            UpdateAssignment updateAssignment = new UpdateAssignment(assignment);
+            if ((bool)updateAssignment.ShowDialog())
+            {
+                assignments = userServiceClient.GetAssignments();
+                AssignmentsListView.ItemsSource = assignments;
+            }
         }
-        private void AddAssignment(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void AddAssignment(object sender, RoutedEventArgs e)=>new UpdateAssignment().ShowDialog();
 
         private void DeleteAssignment(object sender, RoutedEventArgs e)
         {

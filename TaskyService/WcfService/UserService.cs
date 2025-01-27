@@ -144,24 +144,15 @@ namespace WcfService
         public Assignment NewAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB=new AssignmentDB();
-            if (assignmentDB.SelectBySuject(assignment.subject) == null)
-            {
-                assignmentDB.Insert(assignment);
-                return assignment;
-            }
+            assignmentDB.Insert(assignment);
             return assignment;
             
         }
 
-        public bool UpdateAssignment(Assignment assignment)
+        public void UpdateAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
-            if (assignmentDB.SelectBySuject(assignment.subject) != null)
-            {
-                assignmentDB.Update(assignment);
-                return true;
-            }
-            return false;
+            assignmentDB.Update(assignment);
         }
 
         public bool DeleteAssignment(Assignment assignment)

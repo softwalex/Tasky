@@ -37,7 +37,7 @@ namespace WcfService
         [OperationContract] Assignment GetAssignmentsBySubject(string Subject);
         [OperationContract] AssignmentList GetAssignmentsByCategory(string Category);
         [OperationContract] Assignment NewAssignment(Assignment assignment);
-        [OperationContract] bool UpdateAssignment(Assignment assignment);
+        [OperationContract] void UpdateAssignment(Assignment assignment);
         [OperationContract] bool DeleteAssignment(Assignment assignment);
         #endregion
 

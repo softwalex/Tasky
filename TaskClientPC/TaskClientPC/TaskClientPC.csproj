@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Covertors\ConvertCategory.cs" />
     <Compile Include="Covertors\ConvertShift.cs" />
     <Compile Include="Covertors\ConvertUser.cs" />
     <Compile Include="LogInWindow.xaml.cs">

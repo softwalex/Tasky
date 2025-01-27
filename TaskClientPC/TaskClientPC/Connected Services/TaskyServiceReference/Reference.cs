@@ -19,8 +19,8 @@ namespace TaskClientPC.TaskyServiceReference {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Shift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Assignment))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.UserInShift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Category))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.UserInShift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.User))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -125,6 +125,9 @@ namespace TaskClientPC.TaskyServiceReference {
     public partial class Assignment : TaskClientPC.TaskyServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TaskClientPC.TaskyServiceReference.Category _categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime dateOfAssigmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -132,6 +135,9 @@ namespace TaskClientPC.TaskyServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TaskClientPC.TaskyServiceReference.User doneByUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TaskClientPC.TaskyServiceReference.Shift forShiftField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TaskClientPC.TaskyServiceReference.User forUserField;
@@ -144,6 +150,19 @@ namespace TaskClientPC.TaskyServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string summeryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TaskClientPC.TaskyServiceReference.Category _category {
+            get {
+                return this._categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._categoryField, value) != true)) {
+                    this._categoryField = value;
+                    this.RaisePropertyChanged("_category");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime dateOfAssigment {
@@ -180,6 +199,19 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((object.ReferenceEquals(this.doneByUserField, value) != true)) {
                     this.doneByUserField = value;
                     this.RaisePropertyChanged("doneByUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TaskClientPC.TaskyServiceReference.Shift forShift {
+            get {
+                return this.forShiftField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.forShiftField, value) != true)) {
+                    this.forShiftField = value;
+                    this.RaisePropertyChanged("forShift");
                 }
             }
         }
@@ -232,6 +264,29 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((object.ReferenceEquals(this.summeryField, value) != true)) {
                     this.summeryField = value;
                     this.RaisePropertyChanged("summery");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Category : TaskClientPC.TaskyServiceReference.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
                 }
             }
         }
@@ -335,29 +390,6 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((this.userClockOutField.Equals(value) != true)) {
                     this.userClockOutField = value;
                     this.RaisePropertyChanged("userClockOut");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Model")]
-    [System.SerializableAttribute()]
-    public partial class Category : TaskClientPC.TaskyServiceReference.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
                 }
             }
         }
@@ -628,10 +660,10 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> NewAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         bool DeleteAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
@@ -871,11 +903,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.NewAssignmentAsync(assignment);
         }
         
-        public bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
-            return base.Channel.UpdateAssignment(assignment);
+        public void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+            base.Channel.UpdateAssignment(assignment);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+        public System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
             return base.Channel.UpdateAssignmentAsync(assignment);
         }
         

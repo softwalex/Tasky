@@ -84,8 +84,14 @@ namespace TaskClientPC.UpdateWindows
 
                 if (Result==true)
                 {
-                    userServiceClient.UpdateUser(CurrentUser);
-                    this.Close();
+                    if (userServiceClient.UpdateUser(CurrentUser))
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        ErorText.Text = "The email address is already exists in the system";
+                    }
                 }
             }
 

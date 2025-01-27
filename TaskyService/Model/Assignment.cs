@@ -66,14 +66,14 @@ namespace Model
             set { ForUser = value; }
         }
 		private Shift ForShift;
-
+		[DataMember]
 		public Shift forShift
         {
 			get { return ForShift; }
 			set { ForShift = value; }
 		}
 		private Category _Category;
-
+		[DataMember]
 		public Category _category
 		{
 			get { return _Category; }

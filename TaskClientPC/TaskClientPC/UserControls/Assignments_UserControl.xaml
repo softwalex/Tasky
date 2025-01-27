@@ -9,6 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        <convert:ConvertCategory x:Key="ConvertCategory"/>
         <convert:ConvertShift x:Key="ConvertShift"/>
         <convert:ConvertUser x:Key="ConvertUser"/>
     </UserControl.Resources>
@@ -201,7 +202,7 @@
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="CategorySP">
                                 <TextBlock Text="Category: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding _category.name}" x:Name="CategoryBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding _category.name, Converter={StaticResource ConvertCategory}}" x:Name="CategoryBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="DateOfAssignmentSP">
