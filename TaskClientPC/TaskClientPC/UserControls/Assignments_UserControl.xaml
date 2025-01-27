@@ -1,17 +1,17 @@
-﻿<Window x:Class="TaskClientPC.UserControls.Assignment_UserControl"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TaskClientPC.UserControls"
-        xmlns:convert="clr-namespace:TaskClientPC.Covertors"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
-        Title="Assignment" Height="450" Width="800">
-    <Window.Resources>
+﻿<UserControl x:Class="TaskClientPC.UserControls.Assignments_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskClientPC.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:convert="clr-namespace:TaskClientPC.Covertors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
         <convert:ConvertShift x:Key="ConvertShift"/>
         <convert:ConvertUser x:Key="ConvertUser"/>
-    </Window.Resources>
+    </UserControl.Resources>
     <Grid Margin="0,20,0,0" RenderTransformOrigin="0.59,0.471">
         <!-- Background Gradient with Orange Colors -->
         <Grid.Background>
@@ -96,10 +96,11 @@
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="subject" 
-                                                FontWeight="Bold" 
+                                                FontWeight="Bold"
                                                 FontSize="16" 
-                                                Foreground="#FF5722"/>
-                                        </DataTemplate>
+                                                Foreground="#FF5722">
+                                        </TextBlock>
+                                    </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
@@ -251,4 +252,4 @@
             </Grid>
         </Border>
     </Grid>
-</Window>
+</UserControl>

@@ -44,5 +44,7 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\Ta
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.csproj.CopyComplete
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.exe
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.pdb
-C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignment_UserControl.g.cs
-C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignment_UserControl.baml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UpdateWindows\UpdateAssignment.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UpdateWindows\UpdateAssignment.baml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignments_UserControl.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignments_UserControl.baml

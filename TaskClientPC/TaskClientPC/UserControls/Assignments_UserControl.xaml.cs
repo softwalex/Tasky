@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UpdateWindows;
@@ -17,14 +18,14 @@ using TaskClientPC.UpdateWindows;
 namespace TaskClientPC.UserControls
 {
     /// <summary>
-    /// Interaction logic for Assignment_UserControl.xaml
+    /// Interaction logic for Assignments_UserControl.xaml
     /// </summary>
-    public partial class Assignment_UserControl : Window
+    public partial class Assignments_UserControl : UserControl
     {
         UserServiceClient userServiceClient;
         Assignment assignment;
         AssignmentList assignments;
-        public Assignment_UserControl()
+        public Assignments_UserControl()
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();

@@ -103,8 +103,8 @@
     <Compile Include="UpdateWindows\UpdateUser.xaml.cs">
       <DependentUpon>UpdateUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\Assignment_UserControl.xaml.cs">
-      <DependentUpon>Assignment_UserControl.xaml</DependentUpon>
+    <Compile Include="UserControls\Assignments_UserControl.xaml.cs">
+      <DependentUpon>Assignments_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
@@ -148,7 +148,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\Assignment_UserControl.xaml">
+    <Page Include="UserControls\Assignments_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

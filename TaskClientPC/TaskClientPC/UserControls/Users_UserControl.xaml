@@ -120,7 +120,18 @@
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding userType}"/>
+                                        <TextBlock Text="{Binding userType}">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers><!--making shiftmanger value to be bold-->
+                                                        <!--TODO: improve and add for all other enum values-->
+                                                        <DataTrigger Binding="{Binding userType}" Value="ShiftManager">
+                                                            <Setter Property="FontWeight" Value="ExtraBold"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

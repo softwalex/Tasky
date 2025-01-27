@@ -39,7 +39,7 @@ namespace TaskClientPC.UserControls
                     MainGrid.Children.Add(new Shifts_UserControl());
                     break;
                 case "Assignments":
-                    MainGrid.Children.Add(new Assignment_UserControl());
+                    MainGrid.Children.Add(new Assignments_UserControl());
                     break;
             }
         }
