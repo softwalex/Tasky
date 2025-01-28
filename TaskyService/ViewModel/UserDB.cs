@@ -34,13 +34,16 @@ namespace ViewModel
         }
         public User SelectById(int id)
         {
-            command.Parameters.Clear();
-            command.CommandText = "SELECT * FROM UserTable WHERE Id=@id";
-            command.Parameters.AddWithValue("@id", id);
-            UserList list = new UserList(base.ExecuteCommand());
-            if(list.Count > 0)
+            if (id != 0)
             {
-                return list[0];
+                command.Parameters.Clear();
+                command.CommandText = "SELECT * FROM UserTable WHERE Id=@id";
+                command.Parameters.AddWithValue("@id", id);
+                UserList list = new UserList(base.ExecuteCommand());
+                if (list.Count > 0)
+                {
+                    return list[0];
+                }
             }
             return null;
         }

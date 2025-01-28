@@ -33,6 +33,9 @@ namespace TaskClientPC.UpdateWindows
             CreateProparties();
             this.DataContext = assignment;
             this.assignment = assignment;
+            CategoryComboBox.SelectedItem = assignment._category;
+            UserComboBox.SelectedItem = assignment.forUser;
+            ShiftComboBox.SelectedItem = assignment.forShift;
 
         }
         public UpdateAssignment()
@@ -70,45 +73,6 @@ namespace TaskClientPC.UpdateWindows
             }
             return true;
         }
-        //public object ConvertBackCategory(string value)
-        //{
-        //    string name = value.ToString();
-        //    UserServiceClient userServiceClient = new UserServiceClient();
-        //    CategoryList categories = userServiceClient.GetCategories();
-        //    foreach (Category category in categories)
-        //    {
-        //        string temp = $"{category.name}";
-        //        if (temp.Equals(name))
-        //            return category;
-        //    }
-        //    return null;
-        //}
-        //public object ConverBackUser(string value)
-        //{
-        //    string name = value.ToString();
-        //    UserServiceClient userServiceClient = new UserServiceClient();
-        //    UserList users = userServiceClient.GetUsers();
-        //    foreach (User user in users)
-        //    {
-        //        string temp = $"{user.firstname} {user.lastname} ({user.email})";
-        //        if (temp.Equals(name))
-        //            return user;
-        //    }
-        //    return null;
-        //}
-        //public object ConvertBackShift(string value)
-        //{
-        //    string name = value.ToString();
-        //    UserServiceClient userServiceClient = new UserServiceClient();
-        //    ShiftList shiftList = userServiceClient.GetShifts();
-        //    foreach (Shift shift in shiftList)
-        //    {
-        //        string temp = $"{shift.shiftName} ({shift.start})";
-        //        if (temp.Equals(name))
-        //            return shift;
-        //    }
-        //    return null;
-        //}
         private void UpdateAssignmentButton(object sender, RoutedEventArgs e)
         {
             if(IsValid())

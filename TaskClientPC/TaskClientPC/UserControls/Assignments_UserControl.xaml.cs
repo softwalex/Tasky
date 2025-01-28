@@ -40,6 +40,24 @@ namespace TaskClientPC.UserControls
             DeleteButton.Visibility = Visibility.Visible;
             assignment = AssignmentsListView.SelectedItem as Assignment;
             DataGrid.DataContext = assignment;
+            if (assignment.doneByUser == null)
+            {
+                DoneByUserSP.Visibility = Visibility.Collapsed;
+                SummerySP.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                DoneByUserSP.Visibility = Visibility.Visible;
+                SummerySP.Visibility = Visibility.Visible;
+            }
+            if (assignment.forShift.start < DateTime.Now)
+            {
+                UpdateButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                UpdateButton.Visibility= Visibility.Visible;
+            }
         }
         private void UpdateAssignment(object sender, RoutedEventArgs e)
         {

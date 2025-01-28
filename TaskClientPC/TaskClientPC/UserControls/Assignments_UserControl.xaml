@@ -202,17 +202,17 @@
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="CategorySP">
                                 <TextBlock Text="Category: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding _category.name, Converter={StaticResource ConvertCategory}}" x:Name="CategoryBlock" Style="{StaticResource DetailValueStyle}"/>
-                            </StackPanel>
-                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
-                            <StackPanel Orientation="Horizontal" x:Name="DateOfAssignmentSP">
-                                <TextBlock Text="Date: " Style="{StaticResource DetailLabelStyle}"/>
-                                <TextBlock Text="{Binding dateOfAssignment, StringFormat=dd/MM/yyyy HH:mm}" x:Name="DateOfAssignmentBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <TextBlock Text="{Binding _category, Converter={StaticResource ConvertCategory}}" x:Name="CategoryBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="DescriptionSP">
                                 <TextBlock Text="Description: " Style="{StaticResource DetailLabelStyle}"/>
                                 <TextBlock Text="{Binding description}" x:Name="DescriptionBlock" Style="{StaticResource DetailValueStyle}"/>
+                            </StackPanel>
+                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
+                            <StackPanel Orientation="Horizontal" x:Name="DateOfAssignmentSP">
+                                <TextBlock Text="Date: " Style="{StaticResource DetailLabelStyle}"/>
+                                <TextBlock Text="{Binding dateOfAssigment, StringFormat=dd/MM/yyyy HH:mm}" x:Name="DateOfAssignmentBlock" Style="{StaticResource DetailValueStyle}"/>
                             </StackPanel>
                             <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="ForShiftSP">

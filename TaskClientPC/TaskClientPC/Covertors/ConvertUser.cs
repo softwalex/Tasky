@@ -14,9 +14,11 @@ namespace TaskClientPC.Covertors
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if(value == null) return null;
             try
             {
                 User user = (User)value;
+                if(user == null) return null;
                 return $"{user.firstname} {user.lastname} ({user.email})";
             }
             catch (Exception)

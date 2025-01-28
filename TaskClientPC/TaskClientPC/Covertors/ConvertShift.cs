@@ -14,9 +14,11 @@ namespace TaskClientPC.Covertors
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value == null) return null;
             try
             {
                 Shift shift = (Shift)value;
+                if (value == null) return null;
                 return $"{shift.shiftName} ({shift.start})";
             }
             catch(Exception)

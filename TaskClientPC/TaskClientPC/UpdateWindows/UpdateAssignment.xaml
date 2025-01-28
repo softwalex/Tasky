@@ -34,6 +34,7 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBox x:Name="SubjectBox"
+                                Text="{Binding subject}"
                                 Grid.Column="0"
                                 Margin="0,0,8,0"
                                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
@@ -54,6 +55,7 @@
 
                     <!-- Large Description TextBox -->
                     <TextBox x:Name="DescriptionBox"
+                            Text="{Binding description}"
                             Style="{StaticResource MaterialDesignOutlinedTextBox}"
                             materialDesign:HintAssist.Hint="Description"
                             TextWrapping="Wrap"
