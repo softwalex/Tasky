@@ -125,7 +125,7 @@
                                                 <Style TargetType="TextBlock">
                                                     <Style.Triggers><!--making shiftmanger value to be bold-->
                                                         <!--TODO: improve and add for all other enum values-->
-                                                        <DataTrigger Binding="{Binding userType}" Value="ShiftManager">
+                                                        <DataTrigger Binding="{Binding userType}" Value="Admin">
                                                             <Setter Property="FontWeight" Value="ExtraBold"/>
                                                         </DataTrigger>
                                                     </Style.Triggers>

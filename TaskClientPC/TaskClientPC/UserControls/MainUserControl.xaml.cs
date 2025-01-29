@@ -41,6 +41,9 @@ namespace TaskClientPC.UserControls
                 case "Assignments":
                     MainGrid.Children.Add(new Assignments_UserControl());
                     break;
+                case "Dashboard":
+                    MainGrid.Children.Add(new DashBoard_UserControl());
+                    break;
             }
         }
         private void LinkToLogInWindow(object sender, RoutedEventArgs e)

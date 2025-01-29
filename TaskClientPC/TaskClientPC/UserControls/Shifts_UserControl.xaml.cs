@@ -39,7 +39,7 @@ namespace TaskClientPC.UserControls
             UpdateButton.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Visible;
             shift = shiftsListView.SelectedItem as Shift;
-            if(shift.end<DateTime.Now)
+            if(shift.start<DateTime.Now)
                 UpdateButton.Visibility = Visibility.Collapsed;
             else
                 UpdateButton.Visibility = Visibility.Visible;

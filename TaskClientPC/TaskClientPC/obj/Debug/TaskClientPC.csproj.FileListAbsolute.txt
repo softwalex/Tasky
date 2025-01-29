@@ -48,3 +48,5 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\Up
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UpdateWindows\UpdateAssignment.baml
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignments_UserControl.g.cs
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\Assignments_UserControl.baml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\DashBoard_UserControl.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\UserControls\DashBoard_UserControl.baml

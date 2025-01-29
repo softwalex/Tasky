@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Covertors\ConvertCategory.cs" />
     <Compile Include="Covertors\ConvertShift.cs" />
+    <Compile Include="Covertors\ConvertTimeShift.cs" />
     <Compile Include="Covertors\ConvertUser.cs" />
     <Compile Include="LogInWindow.xaml.cs">
       <DependentUpon>LogInWindow.xaml</DependentUpon>
@@ -106,6 +107,9 @@
     </Compile>
     <Compile Include="UserControls\Assignments_UserControl.xaml.cs">
       <DependentUpon>Assignments_UserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DashBoard_UserControl.xaml.cs">
+      <DependentUpon>DashBoard_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainUserControl.xaml.cs">
       <DependentUpon>MainUserControl.xaml</DependentUpon>
@@ -150,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Assignments_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DashBoard_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

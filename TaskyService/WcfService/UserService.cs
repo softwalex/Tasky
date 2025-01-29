@@ -141,6 +141,13 @@ namespace WcfService
             return list;
         }
 
+        public AssignmentList GetAssignmentByShift(Shift shift)
+        {
+            AssignmentDB assignmentDB=new AssignmentDB();
+            AssignmentList list = assignmentDB.SelectByShift(shift.ID);
+            return list;
+        }
+
         public Assignment NewAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB=new AssignmentDB();
@@ -167,7 +174,7 @@ namespace WcfService
         }
         #endregion
 
-        #region UserInShiftLis
+        #region UserInShift
         public UserInShiftList GetUsersInShift()
         {
             UserInShiftDB usersInShift = new UserInShiftDB();

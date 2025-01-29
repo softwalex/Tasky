@@ -86,6 +86,14 @@ namespace ViewModel
             AssignmentList list = new AssignmentList(base.ExecuteCommand());
             return list;
         }
+        public AssignmentList SelectByShift(int Id)
+        {
+            command.Parameters.Clear();
+            command.CommandText = $"SELECT * FROM AssignmentTable WHERE ForShift=@Id";
+            command.Parameters.AddWithValue("@Id", Id);
+            AssignmentList list = new AssignmentList(base.ExecuteCommand());
+            return list;
+        }
         public int Insert(Assignment assignment)
         {
             command.Parameters.Clear();

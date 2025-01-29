@@ -80,19 +80,27 @@ namespace TaskClientPC.UpdateWindows
                 ErorText.Text = "Start-Date must be before the End-Date";
                 return false;
             }
-            ShiftList shifts = userServiceClient.GetFutureShifts(DateTime.Now);
+            ShiftList shifts = userServiceClient.GetShifts();
             foreach (Shift s in shifts)
             {
                 if (!(s.start == shift.start && s.end == shift.end))
                 {
                     if ((StartDate > s.start && StartDate < s.end) || (EndDate > s.start && EndDate < s.end))
+                    {
+                        ErorText.Text = "There is another shift on those dates";
                         return false;
+                    }
                 }
             }
             return true;
         }
         private void AddShiftButton(object sender, RoutedEventArgs e)
         {
+            if(StartTime.Text==string.Empty || StartTimePicker.Text ==string.Empty || EndTime.Text==string.Empty || EndTimePicker.Text == string.Empty)
+            {
+                ErorText.Text = "Date Fields cannot be empty";
+                return;
+            }
             DateTime StartOfShift = DateTime.Parse(StartTime.Text+" "+StartTimePicker.Text);
             DateTime EndOfShift = DateTime.Parse(EndTime.Text+" "+ EndTimePicker.Text);
             if (ShiftNameBox.Text == string.Empty)

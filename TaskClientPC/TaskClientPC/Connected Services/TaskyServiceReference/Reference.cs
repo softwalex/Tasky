@@ -653,6 +653,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentsByCategory", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsByCategoryResponse")]
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsByCategoryAsync(string Category);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentByShift", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByShiftResponse")]
+        TaskClientPC.TaskyServiceReference.AssignmentList GetAssignmentByShift(TaskClientPC.TaskyServiceReference.Shift shift);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentByShift", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByShiftResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentByShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/NewAssignment", ReplyAction="http://tempuri.org/IUserService/NewAssignmentResponse")]
         TaskClientPC.TaskyServiceReference.Assignment NewAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
@@ -893,6 +899,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsByCategoryAsync(string Category) {
             return base.Channel.GetAssignmentsByCategoryAsync(Category);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.AssignmentList GetAssignmentByShift(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetAssignmentByShift(shift);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentByShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetAssignmentByShiftAsync(shift);
         }
         
         public TaskClientPC.TaskyServiceReference.Assignment NewAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
