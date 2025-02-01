@@ -35,15 +35,32 @@ namespace TaskClientPC.UserControls
         }
         private void shiftsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DataBorder.Visibility = Visibility.Visible;
-            UpdateButton.Visibility = Visibility.Visible;
-            DeleteButton.Visibility = Visibility.Visible;
-            shift = shiftsListView.SelectedItem as Shift;
-            if(shift.start<DateTime.Now)
-                UpdateButton.Visibility = Visibility.Collapsed;
-            else
+            try
+            {
+                DataBorder.Visibility = Visibility.Visible;
                 UpdateButton.Visibility = Visibility.Visible;
-            DataGrid.DataContext = shift;
+                DeleteButton.Visibility = Visibility.Visible;
+                shift = shiftsListView.SelectedItem as Shift;
+                if (shift.start < DateTime.Now)
+                {
+                    UpdateButton.Visibility = Visibility.Collapsed;
+                    //if (shift.end > DateTime.Now)
+                    //{
+                    //    DeleteButton.Visibility = Visibility.Collapsed;
+                    //}
+                    //else
+                    //{
+                    //    DeleteButton.Visibility = Visibility.Visible;
+                    //}
+                }
+                else
+                    UpdateButton.Visibility = Visibility.Visible;
+                DataGrid.DataContext = shift;
+            }
+            catch (NullReferenceException) 
+            {
+                return;
+            }
         }
         private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void UpdateShift(object sender, RoutedEventArgs e)
@@ -66,7 +83,7 @@ namespace TaskClientPC.UserControls
                 DataGrid.DataContext = null;
                 DeleteButton.Visibility = Visibility.Collapsed;
                 UpdateButton.Visibility = Visibility.Collapsed;
-                shiftsListView.ItemsSource = serviceClient.GetUsers();
+                shiftsListView.ItemsSource = serviceClient.GetShifts();
             }
         }
     }

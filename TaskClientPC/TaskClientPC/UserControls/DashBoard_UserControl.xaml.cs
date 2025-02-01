@@ -56,6 +56,24 @@ namespace TaskClientPC.UserControls
                 CurrentShift.DataContext = shift;
                 usersListView.ItemsSource = userInShiftList;
                 AssignmentsListView.ItemsSource = userServiceClient.GetAssignmentByShift(shift);
+                try
+                {
+                    foreach(Assignment a in AssignmentsListView.Items)
+                    {
+                        if (a.doneByUser != null)
+                        {
+                            CompletedBlock.Text = (int.Parse(CompletedBlock.Text)+1).ToString();
+                        }
+                        else
+                        {
+                            InProgressBlock.Text = (int.Parse(InProgressBlock.Text)+1).ToString();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    StatisticsGrid.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {

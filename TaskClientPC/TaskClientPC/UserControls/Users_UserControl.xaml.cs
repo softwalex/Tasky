@@ -27,6 +27,7 @@ namespace TaskClientPC.UserControls
         private UserServiceClient serviceClient;
         private UserList users;
         private User user;
+        private IEnumerable<object> _originalItems;
         public Users_UserControl()
         {
             InitializeComponent();
@@ -43,6 +44,34 @@ namespace TaskClientPC.UserControls
             DeleteButton.Visibility = Visibility.Visible;
             user = usersListView.SelectedItem as User;
             DataGrid.DataContext = user;
+        }
+        // Add this method to handle search
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = SearchBox.Text.ToLower();
+
+            // Store original items if not already stored
+            if (_originalItems == null)
+            {
+                _originalItems = usersListView.ItemsSource.Cast<object>();
+            }
+
+            // If search box is empty, restore original list
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                usersListView.ItemsSource = _originalItems;
+                return;
+            }
+
+            // Filter items
+            var filteredItems = _originalItems.Where(item =>
+            {
+                var firstname = item.GetType().GetProperty("firstname")?.GetValue(item)?.ToString().ToLower() ?? "";
+                var lastname = item.GetType().GetProperty("lastname")?.GetValue(item)?.ToString().ToLower() ?? "";
+                return firstname.Contains(searchText) || lastname.Contains(searchText);
+            });
+
+            usersListView.ItemsSource = filteredItems;
         }
         private void AddUser(object sender, RoutedEventArgs e) => new UpdateUser().ShowDialog();
         private void UpdateUser(object sender, RoutedEventArgs e)

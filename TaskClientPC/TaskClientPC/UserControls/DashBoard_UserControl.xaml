@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Height="700" Width="900"
-             Background="#FFA500"
+             Background="#FFF3E0"
              TextElement.Foreground="{DynamicResource MaterialDesignBody}"
              TextElement.FontWeight="Regular"
              TextElement.FontSize="13"
@@ -20,9 +20,18 @@
         <Style x:Key="CardStyle" TargetType="materialDesign:Card">
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Padding" Value="15"/>
-            <Setter Property="materialDesign:ElevationAssist.Elevation" Value="Dp3"/>
+            <Setter Property="materialDesign:ElevationAssist.Elevation" Value="Dp4"/>
             <Setter Property="Background" Value="White"/>
+            <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth2"/>
         </Style>
+
+        <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FF5722"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
         <convert:ConvertCategory x:Key="ConvertCategory"/>
         <convert:ConvertShift x:Key="ConvertShift"/>
         <convert:ConvertUser x:Key="ConvertUser"/>
@@ -30,163 +39,177 @@
     </UserControl.Resources>
 
     <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="23.808"/>
-            <ColumnDefinition Width="236.192"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="10,0,135,491">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <!-- Shift Header Card -->
-            <materialDesign:Card Style="{StaticResource CardStyle}" Grid.Row="0">
-                <StackPanel x:Name="CurrentShift">
-                    <TextBlock Text="{Binding shiftName}" 
-                             x:Name="CurrentShiftNameBlock"
-                             FontSize="24" 
+        <!-- Shift Header Card with improved styling -->
+        <materialDesign:Card Style="{StaticResource CardStyle}" Grid.Row="0" Grid.ColumnSpan="2" Margin="10,0,10,20">
+            <StackPanel x:Name="CurrentShift">
+                <materialDesign:PackIcon Kind="Clock" Width="32" Height="32" Foreground="#FF5722" HorizontalAlignment="Center"/>
+                <TextBlock Text="{Binding shiftName}" 
+                         x:Name="CurrentShiftNameBlock"
+                         FontSize="28" 
+                         Foreground="#FF5722"
+                         FontWeight="Bold"
+                         HorizontalAlignment="Center"
+                         Margin="0,10,0,5"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}" 
+                             FontSize="20"
                              Foreground="#FF5722"
-                             FontWeight="Bold"
                              HorizontalAlignment="Center"/>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}" 
-                             FontSize="18"
+                    <TextBlock Text=" - " 
+                             FontSize="20"
                              Foreground="#FF5722"
-                             HorizontalAlignment="Center"
-                             Margin="0,5,0,0"/>   
-                        <TextBlock Text=" - " 
-                             FontSize="18"
+                             Margin="10,0"/>
+                    <TextBlock Text="{Binding end, StringFormat=dd/MM/yyyy HH:mm}" 
+                             FontSize="20"
                              Foreground="#FF5722"
-                             HorizontalAlignment="Center"
-                             Margin="0,5,0,0"/>
-                        <TextBlock Text="{Binding end, StringFormat=dd/MM/yyyy HH:mm}" 
-                             FontSize="18"
-                             Foreground="#FF5722"
-                             HorizontalAlignment="Center"
-                             Margin="0,5,0,0"/>
-                    </StackPanel>
+                             HorizontalAlignment="Center"/>
                 </StackPanel>
-            </materialDesign:Card>
+            </StackPanel>
+        </materialDesign:Card>
 
-            <!-- Staff Icons Card -->
-            <materialDesign:Card Style="{StaticResource CardStyle}" Grid.Row="1" Margin="10,10,10,-359">
-                <DockPanel>
-                    <TextBlock Text="Users In Current Shift" 
-                         Foreground="#FF5722"
-                         FontSize="20"
-                         FontWeight="Bold"
-                         Margin="0,0,0,10"
-                         DockPanel.Dock="Top"/>
-                    <ListView x:Name="usersListView"
-                    Grid.Row="1" Grid.Column="0"
-                    SelectionChanged="usersListView_SelectionChanged" 
-                    ScrollViewer.CanContentScroll="True" 
-                    FontSize="10" 
-                    HorizontalAlignment="Left" 
-                    Width="400"
-                    BorderThickness="0">
-                        <!-- Existing ListView content -->
-                        <ListView.View>
-                            <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                                <GridViewColumn Header="Name" Width="250">
-                                    <GridViewColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="Name" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.HeaderTemplate>
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding _user}"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                            </GridView>
-                        </ListView.View>
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="FontSize" Value="14" />
-                                <Setter Property="Padding" Value="10" />
-                                <Setter Property="Margin" Value="0,2" />
-                                <Setter Property="Background" Value="Transparent" />
-                                <Setter Property="Foreground" Value="#424242" />
-                                <Style.Triggers>
-                                    <Trigger Property="IsSelected" Value="True">
-                                        <Setter Property="Background" Value="#FFE0B2"/>
-                                        <Setter Property="Foreground" Value="#E65100"/>
-                                    </Trigger>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#FFF3E0"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                    </ListView>
-                </DockPanel>
-            </materialDesign:Card>
-        </Grid>
-        <!-- Tasks Card -->
-        <materialDesign:Card Style="{StaticResource CardStyle}" 
-                           MinWidth="250"
-                           MaxWidth="700" 
-                           HorizontalAlignment="Left" 
-                           Margin="485,10,0,130" 
-                           Width="365" 
-                           Grid.ColumnSpan="3">
+        <!-- Staff Section -->
+        <materialDesign:Card Style="{StaticResource CardStyle}" Grid.Row="1" Grid.Column="0" Margin="10,0,5,10">
             <DockPanel>
-                <TextBlock Text="Tasks For Current Shift" 
-                         Foreground="#FF5722"
-                         FontSize="20"
-                         FontWeight="Bold"
-                         Margin="0,0,0,10"
-                         DockPanel.Dock="Top"/>
-                <ListView x:Name="AssignmentsListView"
-                          Grid.Row="1" Grid.Column="0"
-                          SelectionChanged="AssignmentsListView_SelectionChanged"
-                          ScrollViewer.CanContentScroll="True"
-                          FontSize="10"
-                          HorizontalAlignment="Left"
-                          Width="540"
-                          BorderThickness="0">
+                <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,15">
+                    <materialDesign:PackIcon Kind="AccountGroup" Width="24" Height="24" Foreground="#FF5722" Margin="0,0,10,0"/>
+                    <TextBlock Text="Users In Current Shift" Style="{StaticResource HeaderTextStyle}"/>
+                </StackPanel>
+
+                <ListView x:Name="usersListView"
+                         SelectionChanged="usersListView_SelectionChanged" 
+                         BorderThickness="0">
                     <ListView.View>
-                        <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                            <GridViewColumn Header="Subject" Width="200">
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="250">
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="subject" 
-                                                FontWeight="Bold"
-                                                FontSize="16" 
-                                                Foreground="#FF5722">
-                                        </TextBlock>
+                                        <TextBlock Text="Name" 
+                                                 FontWeight="Bold" 
+                                                 FontSize="16" 
+                                                 Foreground="#FF5722"/>
                                     </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="Account" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding _user}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="FontSize" Value="14" />
+                            <Setter Property="Padding" Value="10" />
+                            <Setter Property="Margin" Value="0,2" />
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#424242" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#FFE0B2"/>
+                                    <Setter Property="Foreground" Value="#E65100"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FFF3E0"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </DockPanel>
+        </materialDesign:Card>
+
+        <!-- Tasks Section with Chart -->
+        <materialDesign:Card Style="{StaticResource CardStyle}" Grid.Row="1" Grid.Column="1" Margin="5,0,10,10">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                        <materialDesign:PackIcon Kind="ClipboardList" Width="24" Height="24" Foreground="#FF5722" Margin="0,0,10,0"/>
+                        <TextBlock Text="Tasks For Current Shift" Style="{StaticResource HeaderTextStyle}"/>
+                    </StackPanel>
+
+                    <!-- Task Statistics -->
+                    <Grid Margin="0,0,0,15" x:Name="StatisticsGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <materialDesign:Card Grid.Column="0" Margin="5" Background="#FBE9E7">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="Total Tasks" FontWeight="Medium"/>
+                                <TextBlock Text="{Binding Items.Count, ElementName=AssignmentsListView}"
+                                         FontSize="24" FontWeight="Bold"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Grid.Column="1" Margin="5" Background="#FBE9E7">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="In Progress" FontWeight="Medium"/>
+                                <TextBlock x:Name="InProgressBlock" Text="0" FontSize="24" FontWeight="Bold"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Grid.Column="2" Margin="5" Background="#FBE9E7">
+                            <StackPanel Margin="10">
+                                <TextBlock Text="Completed" FontWeight="Medium"/>
+                                <TextBlock x:Name="CompletedBlock" Text="0" FontSize="24" FontWeight="Bold"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </Grid>
+                </StackPanel>
+
+                <ListView x:Name="AssignmentsListView"
+                         SelectionChanged="AssignmentsListView_SelectionChanged"
+                         BorderThickness="0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Subject" Width="200">
+                                <GridViewColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Subject" 
+                                                 FontWeight="Bold"
+                                                 FontSize="16" 
+                                                 Foreground="#FF5722"/>
+                                    </DataTemplate>
+                                </GridViewColumn.HeaderTemplate>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="ClipboardText" Margin="0,0,10,0"/>
                                             <TextBlock Text="{Binding subject}"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
-                            <GridViewColumn Header="Date" Width="120">
+                            <GridViewColumn Header="For User" Width="120">
                                 <GridViewColumn.HeaderTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="For User"
-                                                   FontSize="16"
-                                                   FontWeight="Bold"
-                                                   Foreground="#FF5722"/>
+                                                 FontSize="16"
+                                                 FontWeight="Bold"
+                                                 Foreground="#FF5722"/>
                                     </DataTemplate>
                                 </GridViewColumn.HeaderTemplate>
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding forUser, Converter={StaticResource ConvertUser}}"/>
+                                        <StackPanel Orientation="Horizontal">
+                                            <materialDesign:PackIcon Kind="Account" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding forUser, Converter={StaticResource ConvertUser}}"/>
+                                        </StackPanel>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>

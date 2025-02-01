@@ -59,16 +59,16 @@
                               Margin="10,0,0,15"
                               Foreground="#FF5722"/>
 
-                <Button x:Name="AddNewUserButton"
-                        Click="AddUser"
-                        DockPanel.Dock="Right"
-                        Style="{StaticResource MaterialDesignRaisedButton}"
-                        Height="36"
-                        Width="120"
-                        Margin="0,0,10,15"
-                        Background="#FB8C00"
-                        BorderThickness="0"
-                        materialDesign:ButtonAssist.CornerRadius="18">
+                    <Button x:Name="AddNewUserButton"
+                            Click="AddUser"
+                            DockPanel.Dock="Right"
+                            Style="{StaticResource MaterialDesignRaisedButton}"
+                            Height="36"
+                            Width="120"
+                            Margin="0,0,10,15"
+                            Background="#FB8C00"
+                            BorderThickness="0"
+                            materialDesign:ButtonAssist.CornerRadius="18">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Plus" 
                                        Height="20" 
@@ -78,9 +78,26 @@
                             <TextBlock Text="Add New" 
                                        VerticalAlignment="Center"/>
                         </StackPanel>
-                </Button>
-            </DockPanel>
-            <ListView x:Name="usersListView"
+                    </Button>
+                </DockPanel>
+
+                <!-- Add new search box -->
+                <TextBox DockPanel.Dock="Top"
+                        x:Name="SearchBox"
+                        TextChanged="SearchBox_TextChanged"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                        Margin="10,0,10,20"
+                        Height="50"
+                        materialDesign:HintAssist.Hint="Search users by name..."
+                        materialDesign:TextFieldAssist.HasClearButton="True">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="20"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <ListView x:Name="usersListView"
                     Grid.Row="1" Grid.Column="0"
                     SelectionChanged="usersListView_SelectionChanged" 
                     ScrollViewer.CanContentScroll="True" 
@@ -123,8 +140,7 @@
                                         <TextBlock Text="{Binding userType}">
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock">
-                                                    <Style.Triggers><!--making shiftmanger value to be bold-->
-                                                        <!--TODO: improve and add for all other enum values-->
+                                                    <Style.Triggers>
                                                         <DataTrigger Binding="{Binding userType}" Value="Admin">
                                                             <Setter Property="FontWeight" Value="ExtraBold"/>
                                                         </DataTrigger>
