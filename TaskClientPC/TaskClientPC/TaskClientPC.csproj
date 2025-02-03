@@ -125,6 +125,7 @@
     <Compile Include="Validations\ValidFirstName.cs" />
     <Compile Include="Validations\ValidLastName.cs" />
     <Compile Include="Validations\ValidPassword.cs" />
+    <Compile Include="WpfHelper.cs" />
     <Page Include="LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

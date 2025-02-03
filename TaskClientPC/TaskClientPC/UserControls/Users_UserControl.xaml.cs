@@ -25,6 +25,7 @@ namespace TaskClientPC.UserControls
     public partial class Users_UserControl : UserControl
     {
         private UserServiceClient serviceClient;
+        private WpfHelper wpfHelper;
         private UserList users;
         private User user;
         private IEnumerable<object> _originalItems;
@@ -32,6 +33,7 @@ namespace TaskClientPC.UserControls
         {
             InitializeComponent();
             serviceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             users=serviceClient.GetUsers();
             usersListView.ItemsSource = users;
             user = new User();
@@ -82,10 +84,7 @@ namespace TaskClientPC.UserControls
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = Application.Current.MainWindow;
-            bool? Result = confirmWindow.ShowDialog();
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
             {
                 serviceClient.DeleteUser(user);
                 DataGrid.DataContext = null;

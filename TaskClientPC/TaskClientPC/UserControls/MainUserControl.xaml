@@ -92,11 +92,30 @@
                        Margin="16,0" 
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                    <Image Source="/images/TaskyLogo.png" 
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/images/TaskyLogo.png" 
                        Height="40" 
                        Margin="0,0,24,0"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"/>
+
+                        <StackPanel Orientation="Horizontal" 
+                                Margin="0,0,24,0"
+                                VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Account" 
+                                                 Height="24" 
+                                                 Width="24"
+                                                 Margin="0,0,8,0"
+                                                 Foreground="#424242"
+                                                 VerticalAlignment="Center"/>
+                            <TextBlock Text="" 
+                                   x:Name="ConnectedUserBlock"
+                                   FontSize="14" 
+                                   FontWeight="Medium" 
+                                   Foreground="#ab4b07"
+                                   VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
 
                     <Button Style="{StaticResource MenuButton}"
                     Click="PropertySelected"

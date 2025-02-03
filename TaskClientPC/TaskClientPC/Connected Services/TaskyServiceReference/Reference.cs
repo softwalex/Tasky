@@ -641,6 +641,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignments", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsResponse")]
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentById", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByIdResponse")]
+        TaskClientPC.TaskyServiceReference.Assignment GetAssignmentById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentById", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByIdResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> GetAssignmentByIdAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentsBySubject", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsBySubjectResponse")]
         TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject);
         
@@ -883,6 +889,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync() {
             return base.Channel.GetAssignmentsAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.Assignment GetAssignmentById(int id) {
+            return base.Channel.GetAssignmentById(id);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> GetAssignmentByIdAsync(int id) {
+            return base.Channel.GetAssignmentByIdAsync(id);
         }
         
         public TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject) {

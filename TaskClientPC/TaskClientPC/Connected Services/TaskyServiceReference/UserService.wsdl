@@ -97,6 +97,12 @@
   <wsdl:message name="IUserService_GetAssignments_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAssignmentsResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentById" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetAssignmentsBySubject_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssignmentsBySubject" />
   </wsdl:message>
@@ -253,6 +259,10 @@
     <wsdl:operation name="GetAssignments">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignments" message="tns:IUserService_GetAssignments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsResponse" message="tns:IUserService_GetAssignments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentById" message="tns:IUserService_GetAssignmentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentByIdResponse" message="tns:IUserService_GetAssignmentById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAssignmentsBySubject">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubject" message="tns:IUserService_GetAssignmentsBySubject_InputMessage" />
@@ -449,6 +459,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAssignments">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentById">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

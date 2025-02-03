@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskClientPC.TaskyServiceReference;
+using TaskClientPC.UserControls;
 
 namespace TaskClientPC
 {
@@ -39,7 +40,16 @@ namespace TaskClientPC
             user = userServiceClient.UserLogin(EmailTextBox.Text, PassBox.Password);
             if (user != null)
             {
-                ErrorText.Text = "User was found!";
+                if (user.userType == UserType.Admin)
+                {
+                    MainUserControl mainUserControl = new MainUserControl(user);
+                    mainUserControl.Show();
+                    this.Close();
+                }
+                else
+                {
+                    ErrorText.Text = "You must be a Admin to login this software";
+                }
             }
             else
             {

@@ -20,9 +20,11 @@ namespace TaskClientPC.UserControls
     /// </summary>
     public partial class MainUserControl : Window
     {
-        public MainUserControl()
+        public MainUserControl(User user)
         {
             InitializeComponent();
+            if(user != null)
+                ConnectedUserBlock.Text = $"{user.firstname} {user.lastname}";
         }
 
         private void PropertySelected(object sender, RoutedEventArgs e)

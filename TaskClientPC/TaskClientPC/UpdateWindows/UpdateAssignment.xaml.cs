@@ -22,11 +22,12 @@ namespace TaskClientPC.UpdateWindows
     /// </summary>
     public partial class UpdateAssignment : Window
     {
-        UserServiceClient userServiceClient;
-        Assignment assignment;
-        UserList users;
-        ShiftList shifts;
-        CategoryList categories;
+        private UserServiceClient userServiceClient;
+        private WpfHelper wpfHelper;
+        private Assignment assignment;
+        private UserList users;
+        private ShiftList shifts;
+        private CategoryList categories;
         public UpdateAssignment(Assignment assignment)
         {
             InitializeComponent();
@@ -50,6 +51,7 @@ namespace TaskClientPC.UpdateWindows
         public void CreateProparties()
         { 
             userServiceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             users = userServiceClient.GetUsers();
             shifts = userServiceClient.GetFutureShifts(DateTime.Now);
             categories = userServiceClient.GetCategories();
@@ -86,11 +88,7 @@ namespace TaskClientPC.UpdateWindows
             }
             else { return; }
 
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = this;
-            bool? Result = confirmWindow.ShowDialog();
-
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(this) == true)
             {
                 userServiceClient.UpdateAssignment(assignment);
                 this.Close();
@@ -114,11 +112,7 @@ namespace TaskClientPC.UpdateWindows
             }
             else { return; }
 
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = this;
-            bool? Result = confirmWindow.ShowDialog();
-
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(this) == true)
             {
                 userServiceClient.NewAssignment(assignment);
                 this.Close();

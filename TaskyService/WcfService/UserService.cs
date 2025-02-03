@@ -127,6 +127,12 @@ namespace WcfService
             AssignmentList assignments = assignmentDB.SelectAll();
             return assignments;
         }
+        public Assignment GetAssignmentById(int id)
+        {
+            AssignmentDB assignmentDB=new AssignmentDB();
+            Assignment assignment = assignmentDB.SelectById(id);
+            return assignment;
+        }
         public Assignment GetAssignmentsBySubject(string Subject)
         {
             AssignmentDB assignmentDB = new AssignmentDB();

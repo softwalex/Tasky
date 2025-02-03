@@ -23,12 +23,14 @@ namespace TaskClientPC.UserControls
     public partial class Shifts_UserControl : UserControl
     {
         private UserServiceClient serviceClient;
+        private WpfHelper wpfHelper;
         private ShiftList shifts;
         private Shift shift;
         public Shifts_UserControl()
         {
             InitializeComponent();
             serviceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             shifts = serviceClient.GetShifts();
             shiftsListView.ItemsSource = shifts;
             shift = new Shift();
@@ -41,6 +43,17 @@ namespace TaskClientPC.UserControls
                 UpdateButton.Visibility = Visibility.Visible;
                 DeleteButton.Visibility = Visibility.Visible;
                 shift = shiftsListView.SelectedItem as Shift;
+                if(shift == null)
+                {
+                    UpdateButton.Visibility = Visibility.Collapsed;
+                    DeleteButton.Visibility= Visibility.Collapsed;
+                    return;
+                }
+                else
+                {
+                    UpdateButton.Visibility = Visibility.Visible;
+                    DeleteButton.Visibility = Visibility.Visible;
+                }
                 if (shift.start < DateTime.Now)
                 {
                     UpdateButton.Visibility = Visibility.Collapsed;
@@ -74,10 +87,7 @@ namespace TaskClientPC.UserControls
         }
         private void DeleteShift(object sender, RoutedEventArgs e)
         {
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = Application.Current.MainWindow;
-            bool? Result = confirmWindow.ShowDialog();
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
             {
                 serviceClient.DeleteShift(shift);
                 DataGrid.DataContext = null;

@@ -34,6 +34,8 @@ namespace WcfService
 
         #region Assingment
         [OperationContract] AssignmentList GetAssignments();
+        [OperationContract] Assignment GetAssignmentById(int id);
+
         [OperationContract] Assignment GetAssignmentsBySubject(string Subject);
         [OperationContract] AssignmentList GetAssignmentsByCategory(string Category);
         [OperationContract] AssignmentList GetAssignmentByShift(Shift shift);

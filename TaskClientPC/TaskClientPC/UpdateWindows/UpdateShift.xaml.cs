@@ -20,12 +20,14 @@ namespace TaskClientPC.UpdateWindows
     /// </summary>
     public partial class UpdateShift : Window
     {
-        UserServiceClient userServiceClient;
-        Shift shift;
+        private UserServiceClient userServiceClient;
+        private Shift shift;
+        private WpfHelper wpfHelper;
         public UpdateShift()
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             shift = new Shift();
             SubmitButton.Content = "Add Shift";
             SubmitButton.Click -= UpdateShiftButton;
@@ -35,6 +37,7 @@ namespace TaskClientPC.UpdateWindows
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             this.DataContext = shift;
             this.shift = shift;
         }
@@ -114,11 +117,7 @@ namespace TaskClientPC.UpdateWindows
             shift.start = StartOfShift;
             shift.end = EndOfShift;
 
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = this;
-            bool? Result = confirmWindow.ShowDialog();
-
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(this) == true)
             {
                 userServiceClient.NewShift(shift);
                 this.Close();
@@ -139,11 +138,9 @@ namespace TaskClientPC.UpdateWindows
                 if (!IsValidDate(StartOfShift, EndOfShift))
                     return;
 
-                ConfirmWindow confirmWindow = new ConfirmWindow();
-                confirmWindow.Owner = this;
-                bool? Result = confirmWindow.ShowDialog();
                 shift =new Shift { shiftName = ShiftNameBox.Text, start=StartOfShift, end=EndOfShift, ID=shift.ID};
-                if (Result == true)
+
+                if (wpfHelper.LoadConfirmWindow(this) == true)
                 {
                     userServiceClient.UpdateShift(shift);
                     this.Close();

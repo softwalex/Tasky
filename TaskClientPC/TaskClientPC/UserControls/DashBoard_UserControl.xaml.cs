@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TaskClientPC.TaskyServiceReference;
 
 namespace TaskClientPC.UserControls
@@ -27,6 +28,7 @@ namespace TaskClientPC.UserControls
         private UserInShiftList userInShiftList;
         private UserInShift userInShift;
         private AssignmentList assignmentList;
+        private DispatcherTimer dispatcherTimer;
         public DashBoard_UserControl()
         {
             InitializeComponent();
@@ -34,15 +36,32 @@ namespace TaskClientPC.UserControls
             assignmentList = userServiceClient.GetAssignments();
             shiftList = userServiceClient.GetShifts();
             userInShiftList = userServiceClient.GetUsersInShift();
-
-            foreach(Shift s in shiftList)
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += DispatcherTimer_Tick; ;
+            dispatcherTimer.Interval = new TimeSpan(0, 1, 0);
+            dispatcherTimer.Start();
+         shift= GetCurrentShift();
+            LoadDashBoard();
+        }
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            Shift temp = GetCurrentShift();
+            if(temp!= shift)
+                LoadDashBoard();
+        }
+        private Shift GetCurrentShift()
+        {
+            foreach (Shift s in shiftList)
             {
-                if(s.start<DateTime.Now && s.end > DateTime.Now)
+                if (s.start < DateTime.Now && s.end > DateTime.Now)
                 {
-                    shift = s;
-                    break;
+                    return s;
                 }
             }
+            return null;
+        }
+        private void LoadDashBoard()
+        { 
             if (shift != null)
             {
                 foreach (UserInShift u in userServiceClient.GetUsersInShift())
@@ -55,6 +74,7 @@ namespace TaskClientPC.UserControls
 
                 CurrentShift.DataContext = shift;
                 usersListView.ItemsSource = userInShiftList;
+                InProgressBlock.Text=CompletedBlock.Text = "0";
                 AssignmentsListView.ItemsSource = userServiceClient.GetAssignmentByShift(shift);
                 try
                 {
@@ -80,6 +100,8 @@ namespace TaskClientPC.UserControls
                 CurrentShiftNameBlock.Text = "No Active Shift";
             }
         }
+
+       
 
         private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

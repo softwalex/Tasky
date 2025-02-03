@@ -22,14 +22,16 @@ namespace TaskClientPC.UserControls
     /// </summary>
     public partial class Assignments_UserControl : UserControl
     {
-        UserServiceClient userServiceClient;
-        Assignment assignment;
-        AssignmentList assignments;
+        private UserServiceClient userServiceClient;
+        private Assignment assignment;
+        private AssignmentList assignments;
+        private WpfHelper wpfHelper;
         public Assignments_UserControl()
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
-            assignments = userServiceClient.GetAssignments();
+            wpfHelper = new WpfHelper();
+            assignments = wpfHelper.DeleteAssignmentsThatNull();
             AssignmentsListView.ItemsSource = assignments;
             assignment = new Assignment();
         }
@@ -72,10 +74,7 @@ namespace TaskClientPC.UserControls
 
         private void DeleteAssignment(object sender, RoutedEventArgs e)
         {
-            ConfirmWindow confirmWindow = new ConfirmWindow();
-            confirmWindow.Owner = Application.Current.MainWindow;
-            bool? Result = confirmWindow.ShowDialog();
-            if (Result == true)
+            if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
             {
                 userServiceClient.DeleteAssignment(assignment);
                 DataGrid.DataContext = null;

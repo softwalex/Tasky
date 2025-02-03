@@ -23,12 +23,14 @@ namespace TaskClientPC.UpdateWindows
     /// </summary>
     public partial class UpdateUser : Window
     {
-        UserServiceClient userServiceClient;
-        User CurrentUser;
+        private UserServiceClient userServiceClient;
+        private User CurrentUser;
+        private WpfHelper wpfHelper;
         public UpdateUser(User user)
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             this.DataContext = user;
             UserTypeBox.ItemsSource = Enum.GetValues(typeof(UserType));
             CurrentUser = user;
@@ -38,6 +40,7 @@ namespace TaskClientPC.UpdateWindows
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
+            wpfHelper = new WpfHelper();
             UserTypeBox.ItemsSource = Enum.GetValues(typeof(UserType));
             SubmitButton.Content = "Add User";
             SubmitButton.Click -= UpdateUserButton;
@@ -78,11 +81,7 @@ namespace TaskClientPC.UpdateWindows
             {
                 CurrentUser.userType = (UserType)Enum.Parse(typeof(UserType), UserTypeBox.Text);
 
-                ConfirmWindow confirmWindow = new ConfirmWindow();
-                confirmWindow.Owner = this;
-                bool? Result = confirmWindow.ShowDialog();
-
-                if (Result==true)
+                if (wpfHelper.LoadConfirmWindow(this) == true)
                 {
                     if (userServiceClient.UpdateUser(CurrentUser))
                     {
@@ -109,11 +108,7 @@ namespace TaskClientPC.UpdateWindows
                 CurrentUser.password = OTP.ToString();
                 CurrentUser.userType = (UserType)Enum.Parse(typeof(UserType), UserTypeBox.Text);
 
-                ConfirmWindow confirmWindow = new ConfirmWindow();
-                confirmWindow.Owner = this;
-                bool? Result = confirmWindow.ShowDialog();
-
-                if (Result == true)
+                if (wpfHelper.LoadConfirmWindow(this)==true)
                 {
                     userServiceClient.NewUser(CurrentUser);
                     this.Close();
