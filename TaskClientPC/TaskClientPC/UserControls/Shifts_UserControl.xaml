@@ -37,28 +37,84 @@
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Foreground" Value="#424242"/>
             </Style>
+
+            <Style x:Key="FlipCardStyle" TargetType="Grid">
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Tag" Value="Flipped">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                           Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                           From="0" To="360" Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                           Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                           From="360" To="0" Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
         </Grid.Resources>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Border Grid.Column="0"
-                Background="White"
-                CornerRadius="12"
-                Margin="20,20,-70,20"
-                Padding="15"
-                Effect="{StaticResource MaterialShadow}">
-            <DockPanel>
-                <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <TextBlock Text="Shifts List"
-                               DockPanel.Dock="Left"
-                               FontSize="24"
-                               FontWeight="Bold"
-                               Margin="10,0,0,15"
-                               Foreground="#FF5722"/>
-                    <Button x:Name="AddNewShift"
-                            Click="AddShift"
+        <Border Grid.Column="0" 
+           Background="White" 
+           CornerRadius="12" 
+           Margin="20,20,-70,20" 
+           Padding="15"
+           Effect="{StaticResource MaterialShadow}">
+            <Grid>
+                <Grid x:Name="FrontCard" Style="{StaticResource FlipCardStyle}">
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                            <TextBlock Text="Shifts List" 
+                                     DockPanel.Dock="Left" 
+                                     FontSize="24" 
+                                     FontWeight="Bold" 
+                                     Margin="10,0,0,15"
+                                     Foreground="#FF5722"/>
+
+                            <Button x:Name="AddNewShiftButton"
+                                   Click="AddShift"
+                                   DockPanel.Dock="Right"
+                                   Style="{StaticResource MaterialDesignRaisedButton}"
+                                   Height="36"
+                                   Width="120"
+                                   Margin="0,0,10,15"
+                                   Background="#FB8C00"
+                                   BorderThickness="0"
+                                   materialDesign:ButtonAssist.CornerRadius="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Plus" 
+                                              Height="20" 
+                                              Width="20" 
+                                              VerticalAlignment="Center"
+                                              Margin="0,0,8,0"/>
+                                    <TextBlock Text="Add New" 
+                                              VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="FlipButton"
+                            Click="FlipCard_Click"
                             DockPanel.Dock="Right"
                             Style="{StaticResource MaterialDesignRaisedButton}"
                             Height="36"
@@ -67,81 +123,136 @@
                             Background="#FB8C00"
                             BorderThickness="0"
                             materialDesign:ButtonAssist.CornerRadius="18">
-                            <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Plus" 
-                                               Height="20" 
-                                               Width="20" 
-                                               VerticalAlignment="Center"
-                                               Margin="0,0,8,0"/>
-                                <TextBlock Text="Add New" 
-                                               VerticalAlignment="Center"/>
-                            </StackPanel>
-                    </Button>
-                </DockPanel>
-                <ListView x:Name="shiftsListView"
-                          Grid.Row="1" Grid.Column="0"
-                          SelectionChanged="shiftsListView_SelectionChanged"
-                          ScrollViewer.CanContentScroll="True"
-                          FontSize="10"
-                          HorizontalAlignment="Left"
-                          Width="540"
-                          BorderThickness="0">
-                    <ListView.View>
-                        <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                            <GridViewColumn Header="Name" Width="300">
-                                <GridViewColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Name" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
-                                    </DataTemplate>
-                                </GridViewColumn.HeaderTemplate>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding shiftName}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Date" Width="120">
-                                <GridViewColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Date"
-                                                   FontWeight="Bold"
-                                                   FontSize="16"
-                                                   Foreground="#FF5722"/>
-                                    </DataTemplate>
-                                </GridViewColumn.HeaderTemplate>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding start, StringFormat=dd/MM/yyyy HH:mm}"/>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="FontSize" Value="14" />
-                            <Setter Property="Padding" Value="10" />
-                            <Setter Property="Margin" Value="0,2" />
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Foreground" Value="#424242" />
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FFE0B2"/>
-                                    <Setter Property="Foreground" Value="#E65100"/>
-                                </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FFF3E0"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
-            </DockPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Filter Options" 
+                                       VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </DockPanel>
+
+                        <TextBox DockPanel.Dock="Top"
+                               x:Name="SearchBox"
+                               TextChanged="SearchBox_TextChanged"
+                               Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                               Margin="10,0,10,20"
+                               Height="50"
+                               materialDesign:HintAssist.Hint="Search shifts by name..."
+                               materialDesign:TextFieldAssist.HasClearButton="True">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+
+                        <ListView x:Name="shiftsListView"
+                           Grid.Row="1" Grid.Column="0"
+                           SelectionChanged="shiftsListView_SelectionChanged" 
+                           ScrollViewer.CanContentScroll="True" 
+                           FontSize="10" 
+                           HorizontalAlignment="Left" 
+                           Width="540"
+                           BorderThickness="0">
+                            <ListView.View>
+                                <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                                    <GridViewColumn Header="Name" Width="300">
+                                        <GridViewColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="Name" 
+                                                    FontWeight="Bold" 
+                                                    FontSize="16" 
+                                                    Foreground="#FF5722"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.HeaderTemplate>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding shiftName}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Start" Width="Auto">
+                                        <GridViewColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="Start" 
+                                                    FontWeight="Bold" 
+                                                    FontSize="16" 
+                                                    Foreground="#FF5722"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.HeaderTemplate>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding start , StringFormat=dd/MM/yyyy HH:mm}"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="Padding" Value="10" />
+                                    <Setter Property="Margin" Value="0,2" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Foreground" Value="#424242" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFE0B2"/>
+                                            <Setter Property="Foreground" Value="#E65100"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFF3E0"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </DockPanel>
+                </Grid>
+
+                <Grid x:Name="BackCard" Style="{StaticResource FlipCardStyle}" Visibility="Collapsed">
+                    <StackPanel Orientation="Vertical" Margin="20" x:Name="FilterStackPanle">
+                        <StackPanel Margin="0,0,0,30" Orientation="Horizontal">
+                            <TextBlock Text="Filters" 
+                                  FontSize="24" 
+                                  FontWeight="Bold" 
+                                  Foreground="#FF5722"
+                                  Margin="0,0,30,0"/>
+                            <TextBlock HorizontalAlignment="Center" Foreground="#FF5722" Margin="0,10,0,0" Text="You can leave fields that are not essential to be empty"></TextBlock>
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,30">
+                            <DatePicker x:Name="FilterStartTime"
+                                       materialDesign:HintAssist.Hint="Select Start Time"
+                                       Width="300" 
+                                       />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,30">
+                            <DatePicker x:Name="FilterEndTime"
+                                    materialDesign:HintAssist.Hint="Select End Time"
+                                    Width="300" 
+                                    />
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Content="Apply Filters"
+                                   Click="FlipCard_Click"
+                                   Width="150" 
+                                   Margin="0,0,10,0"
+                                   Background="#FB8C00"
+                                   Foreground="White"/>
+                            <Button Content="Show All Shifts"
+                                   Click="FlipCard_Click"
+                                   Width="150" 
+                                   Background="#FF5722"
+                                   Foreground="White"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
 
         <Border Grid.Column="1"
@@ -177,12 +288,12 @@
                               Margin="0,0,20,0"
                               Foreground="White"
                               BorderThickness="0">
-                                <Button.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="18"/>
-                                    </Style>
-                                </Button.Resources>
-                            </Button>
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="18"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
                     </DockPanel>
 
                     <Border Background="#FBE9E7"

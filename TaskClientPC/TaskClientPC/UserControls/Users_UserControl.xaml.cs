@@ -93,5 +93,51 @@ namespace TaskClientPC.UserControls
                 usersListView.ItemsSource = serviceClient.GetUsers();
             }
         }
+        private void FlipCard_Click(object sender, RoutedEventArgs e)
+        {
+            Button TriggerButton = sender as Button;
+            UserList FilteredUsers = serviceClient.GetUsers();
+
+            if (FrontCard.Visibility == Visibility.Visible)
+            {
+                FrontCard.Visibility = Visibility.Collapsed;
+                BackCard.Visibility = Visibility.Visible;
+                FrontCard.Tag = "Flipped";
+                BackCard.Tag = "Flipped";
+            }
+            else
+            {
+                FrontCard.Visibility = Visibility.Visible;
+                BackCard.Visibility = Visibility.Collapsed;
+                FrontCard.Tag = null;
+                BackCard.Tag = null;
+
+            
+                if (TriggerButton.Content.ToString() == "Apply Filters")
+                {
+                    if (FilterEmailTextBox.Text != string.Empty)
+                    {
+                        FilteredUsers.RemoveAll(u => u.email != FilterEmailTextBox.Text);
+                    }
+                    if(FilterBirthDatePicker.Text != string.Empty)
+                    {
+                        FilteredUsers.RemoveAll(u => u.birthday != DateTime.Parse(FilterBirthDatePicker.Text));
+                    }
+                    if(FilterUserTypeComboBox.Text != string.Empty)
+                    {
+                        FilteredUsers.RemoveAll(u => u.userType != (UserType)Enum.Parse(typeof(UserType), FilterUserTypeComboBox.Text));
+                    }
+                    usersListView.ItemsSource = FilteredUsers;
+                }
+                if(TriggerButton.Content.ToString() == "Show All Users")
+                {
+                    FilterEmailTextBox.Text = string.Empty;
+                    FilterBirthDatePicker.Text = string.Empty;
+                    FilterUserTypeComboBox.Text = string.Empty;
+
+                    usersListView.ItemsSource = serviceClient.GetUsers();
+                }
+            }
+        }
     }
 }

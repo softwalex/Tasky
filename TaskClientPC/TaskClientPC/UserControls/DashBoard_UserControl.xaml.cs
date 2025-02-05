@@ -40,7 +40,7 @@ namespace TaskClientPC.UserControls
             dispatcherTimer.Tick += DispatcherTimer_Tick; ;
             dispatcherTimer.Interval = new TimeSpan(0, 1, 0);
             dispatcherTimer.Start();
-         shift= GetCurrentShift();
+            shift= GetCurrentShift();
             LoadDashBoard();
         }
         private void DispatcherTimer_Tick(object sender, EventArgs e)

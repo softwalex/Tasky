@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TaskClientPC.UserControls" 
+             xmlns:valid="clr-namespace:TaskClientPC.Validations"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0,20,0,0" RenderTransformOrigin="0.59,0.471">
-        <!-- Background Gradient with Orange Colors -->
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#FF9800" Offset="0.0"/>
@@ -17,14 +17,12 @@
         </Grid.Background>
 
         <Grid.Resources>
-            <!-- Material Shadow Effect -->
             <DropShadowEffect x:Key="MaterialShadow" 
                          BlurRadius="10" 
                          Direction="270" 
                          ShadowDepth="3" 
                          Opacity="0.3"/>
 
-            <!-- TextBlock Styles -->
             <Style x:Key="DetailLabelStyle" TargetType="TextBlock">
                 <Setter Property="Margin" Value="20,10"/>
                 <Setter Property="FontSize" Value="14"/>
@@ -36,6 +34,61 @@
                 <Setter Property="Margin" Value="20,10"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Foreground" Value="#424242"/>
+            </Style>
+
+            <Style TargetType="TextBox">
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                <AdornedElementPlaceholder x:Name="Placeholder"/>
+                                <TextBlock FontSize="10"
+                              FontStyle="Italic"
+                              Foreground="red"
+                              Text="{Binding [0].ErrorContent}"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="True">
+                        <Setter Property="ToolTip"
+                                Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                                Path=(Validation.Errors)[0].ErrorContent}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <!-- Flip Card Style -->
+            <Style x:Key="FlipCardStyle" TargetType="Grid">
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="Tag" Value="Flipped">
+                        <Trigger.EnterActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                            Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                            From="0" To="360" Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.EnterActions>
+                        <Trigger.ExitActions>
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                            Storyboard.TargetProperty="(Grid.RenderTransform).(RotateTransform.Angle)"
+                            From="360" To="0" Duration="0:0:0.3"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </Trigger.ExitActions>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
         </Grid.Resources>
 
@@ -50,129 +103,208 @@
             Margin="20,20,-70,20" 
             Padding="15"
             Effect="{StaticResource MaterialShadow}">
-            <DockPanel>
-                <DockPanel DockPanel.Dock="Top" LastChildFill="False">
-                    <TextBlock Text="Users List" 
-                              DockPanel.Dock="Left" 
-                              FontSize="24" 
-                              FontWeight="Bold" 
-                              Margin="10,0,0,15"
-                              Foreground="#FF5722"/>
+            <Grid>
+                <Grid x:Name="FrontCard" Style="{StaticResource FlipCardStyle}">
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                            <TextBlock Text="Users List" 
+                                      DockPanel.Dock="Left" 
+                                      FontSize="24" 
+                                      FontWeight="Bold" 
+                                      Margin="10,0,0,15"
+                                      Foreground="#FF5722"/>
 
-                    <Button x:Name="AddNewUserButton"
-                            Click="AddUser"
-                            DockPanel.Dock="Right"
-                            Style="{StaticResource MaterialDesignRaisedButton}"
-                            Height="36"
-                            Width="120"
-                            Margin="0,0,10,15"
-                            Background="#FB8C00"
-                            BorderThickness="0"
-                            materialDesign:ButtonAssist.CornerRadius="18">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Plus" 
-                                       Height="20" 
-                                       Width="20" 
-                                       VerticalAlignment="Center"
-                                       Margin="0,0,8,0"/>
-                            <TextBlock Text="Add New" 
-                                       VerticalAlignment="Center"/>
+                            <Button x:Name="AddNewUserButton"
+                                    Click="AddUser"
+                                    DockPanel.Dock="Right"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Height="36"
+                                    Width="120"
+                                    Margin="0,0,10,15"
+                                    Background="#FB8C00"
+                                    BorderThickness="0"
+                                    materialDesign:ButtonAssist.CornerRadius="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Plus" 
+                                               Height="20" 
+                                               Width="20" 
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,8,0"/>
+                                    <TextBlock Text="Add New" 
+                                               VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+
+                            <Button x:Name="FlipButton"
+                             Click="FlipCard_Click"
+                             DockPanel.Dock="Right"
+                             Style="{StaticResource MaterialDesignRaisedButton}"
+                             Height="36"
+                             Width="120"
+                             Margin="0,0,10,15"
+                             Background="#FB8C00"
+                             BorderThickness="0"
+                             materialDesign:ButtonAssist.CornerRadius="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Filter Options" 
+                                        VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </DockPanel>
+
+                        <TextBox DockPanel.Dock="Top"
+                                x:Name="SearchBox"
+                                TextChanged="SearchBox_TextChanged"
+                                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                Margin="10,0,10,20"
+                                Height="50"
+                                materialDesign:HintAssist.Hint="Search users by name..."
+                                materialDesign:TextFieldAssist.HasClearButton="True">
+                            <TextBox.Resources>
+                                <Style TargetType="{x:Type Border}">
+                                    <Setter Property="CornerRadius" Value="20"/>
+                                </Style>
+                            </TextBox.Resources>
+                        </TextBox>
+
+                        <ListView x:Name="usersListView"
+                            Grid.Row="1" Grid.Column="0"
+                            SelectionChanged="usersListView_SelectionChanged" 
+                            ScrollViewer.CanContentScroll="True" 
+                            FontSize="10" 
+                            HorizontalAlignment="Left" 
+                            Width="540"
+                            BorderThickness="0">
+                            <ListView.View>
+                                <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                                    <GridViewColumn Header="Name" Width="300">
+                                        <GridViewColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="Name" 
+                                                     FontWeight="Bold" 
+                                                     FontSize="16" 
+                                                     Foreground="#FF5722"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.HeaderTemplate>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding firstname}" Margin="5,0,5,0"/>
+                                                    <TextBlock Text="{Binding lastname}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Type" Width="Auto">
+                                        <GridViewColumn.HeaderTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="Type" 
+                                                     FontWeight="Bold" 
+                                                     FontSize="16" 
+                                                     Foreground="#FF5722"/>
+                                            </DataTemplate>
+                                        </GridViewColumn.HeaderTemplate>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding userType}">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding userType}" Value="Admin">
+                                                                    <Setter Property="FontWeight" Value="ExtraBold"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="FontSize" Value="14" />
+                                    <Setter Property="Padding" Value="10" />
+                                    <Setter Property="Margin" Value="0,2" />
+                                    <Setter Property="Background" Value="Transparent" />
+                                    <Setter Property="Foreground" Value="#424242" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Background" Value="#FFE0B2"/>
+                                            <Setter Property="Foreground" Value="#E65100"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#FFF3E0"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </DockPanel>
+                </Grid>
+
+                <Grid x:Name="BackCard" Style="{StaticResource FlipCardStyle}" Visibility="Collapsed">
+                    <StackPanel Orientation="Vertical" Margin="20" x:Name="FilterStackPanle">
+                        <StackPanel Margin="0,0,0,30" Orientation="Horizontal">
+                            <TextBlock Text="Filters" 
+                                   FontSize="24" 
+                                   FontWeight="Bold" 
+                                   Foreground="#FF5722"
+                                   Margin="0,0,30,0"/>
+                            <TextBlock HorizontalAlignment="Center" Foreground="#FF5722" Margin="0,10,0,0" Text="You can leave fields that are not essential to be empty"></TextBlock>
                         </StackPanel>
-                    </Button>
-                </DockPanel>
 
-                <!-- Add new search box -->
-                <TextBox DockPanel.Dock="Top"
-                        x:Name="SearchBox"
-                        TextChanged="SearchBox_TextChanged"
-                        Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                        Margin="10,0,10,20"
-                        Height="50"
-                        materialDesign:HintAssist.Hint="Search users by name..."
-                        materialDesign:TextFieldAssist.HasClearButton="True">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="20"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                        <StackPanel Margin="0,0,0,30">
+                            <TextBox x:Name="FilterEmailTextBox" 
+                                     Width="300"
+                                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     materialDesign:TextFieldAssist.CharacterCounterVisibility="Visible"
+                                     materialDesign:HintAssist.Hint="Enter email">
+                                <TextBox.Text>
+                                    <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
+                                        <Binding.ValidationRules>
+                                            <valid:ValidEmail/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+                            </TextBox>
+                        </StackPanel>
 
-                <ListView x:Name="usersListView"
-                    Grid.Row="1" Grid.Column="0"
-                    SelectionChanged="usersListView_SelectionChanged" 
-                    ScrollViewer.CanContentScroll="True" 
-                    FontSize="10" 
-                    HorizontalAlignment="Left" 
-                    Width="540"
-                    BorderThickness="0">
-                    <!-- Existing ListView content -->
-                    <ListView.View>
-                        <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                            <GridViewColumn Header="Name" Width="300">
-                                <GridViewColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Name" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
-                                    </DataTemplate>
-                                </GridViewColumn.HeaderTemplate>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding firstname}" Margin="5,0,5,0"/>
-                                            <TextBlock Text="{Binding lastname}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Header="Type" Width="Auto">
-                                <GridViewColumn.HeaderTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="Type" 
-                                             FontWeight="Bold" 
-                                             FontSize="16" 
-                                             Foreground="#FF5722"/>
-                                    </DataTemplate>
-                                </GridViewColumn.HeaderTemplate>
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding userType}">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Style.Triggers>
-                                                        <DataTrigger Binding="{Binding userType}" Value="Admin">
-                                                            <Setter Property="FontWeight" Value="ExtraBold"/>
-                                                        </DataTrigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="FontSize" Value="14" />
-                            <Setter Property="Padding" Value="10" />
-                            <Setter Property="Margin" Value="0,2" />
-                            <Setter Property="Background" Value="Transparent" />
-                            <Setter Property="Foreground" Value="#424242" />
-                            <Style.Triggers>
-                                <Trigger Property="IsSelected" Value="True">
-                                    <Setter Property="Background" Value="#FFE0B2"/>
-                                    <Setter Property="Foreground" Value="#E65100"/>
-                                </Trigger>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#FFF3E0"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                </ListView>
-            </DockPanel>
+                        <StackPanel Margin="0,0,0,30">
+                            <DatePicker x:Name="FilterBirthDatePicker"
+                                        materialDesign:HintAssist.Hint="Select Birthday"
+                                        Width="300" 
+                                        />
+                        </StackPanel>
+
+                        <StackPanel Margin="0,0,0,30">
+                            <ComboBox x:Name="FilterUserTypeComboBox" 
+                                      Width="300"
+                                      materialDesign:HintAssist.Hint="Select User Type">
+                                <ComboBoxItem>Admin</ComboBoxItem>
+                                <ComboBoxItem>Regular</ComboBoxItem>
+                                <ComboBoxItem>Guest</ComboBoxItem>
+                            </ComboBox>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                            <Button Content="Apply Filters"
+                                    Click="FlipCard_Click"
+                                    Width="150" 
+                                    Margin="0,0,10,0"
+                                    Background="#FB8C00"
+                                    Foreground="White"/>
+                            <Button Content="Show All Users"
+                                    Click="FlipCard_Click"
+                                    Width="150" 
+                                    Background="#FF5722"
+                                    Foreground="White"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </Border>
 
         <Border Grid.Column="1"
@@ -235,8 +367,8 @@
                             <StackPanel Orientation="Horizontal" x:Name="BirthDaySP">
                                 <TextBlock Text="Birthday: " Style="{StaticResource DetailLabelStyle}"/>
                                 <TextBlock Text="{Binding birthday, StringFormat=dd/MM/yyyy}" x:Name="BirthdayBlock" Style="{StaticResource DetailValueStyle}"/>
+                                <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             </StackPanel>
-                            <Rectangle Height="1" Fill="#FFE0B2" Margin="20,0"/>
                             <StackPanel Orientation="Horizontal" x:Name="UsertypeSP">
                                 <TextBlock Text="Type: " Style="{StaticResource DetailLabelStyle}"/>
                                 <TextBlock Text="{Binding userType}" x:Name="UsertypeBlock" Style="{StaticResource DetailValueStyle}"/>

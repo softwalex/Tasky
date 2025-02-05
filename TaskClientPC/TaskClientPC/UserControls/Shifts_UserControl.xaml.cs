@@ -26,6 +26,7 @@ namespace TaskClientPC.UserControls
         private WpfHelper wpfHelper;
         private ShiftList shifts;
         private Shift shift;
+        private IEnumerable<object> _originalItems;
         public Shifts_UserControl()
         {
             InitializeComponent();
@@ -75,6 +76,33 @@ namespace TaskClientPC.UserControls
                 return;
             }
         }
+        // Add this method to handle search
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = SearchBox.Text.ToLower();
+
+            // Store original items if not already stored
+            if (_originalItems == null)
+            {
+                _originalItems = shiftsListView.ItemsSource.Cast<object>();
+            }
+
+            // If search box is empty, restore original list
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                shiftsListView.ItemsSource = _originalItems;
+                return;
+            }
+
+            // Filter items
+            var filteredItems = _originalItems.Where(item =>
+            {
+                var firstname = item.GetType().GetProperty("shiftName")?.GetValue(item)?.ToString().ToLower() ?? "";
+                return firstname.Contains(searchText);
+            });
+
+            shiftsListView.ItemsSource = filteredItems;
+        }
         private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
@@ -94,6 +122,47 @@ namespace TaskClientPC.UserControls
                 DeleteButton.Visibility = Visibility.Collapsed;
                 UpdateButton.Visibility = Visibility.Collapsed;
                 shiftsListView.ItemsSource = serviceClient.GetShifts();
+            }
+        }
+
+        private void FlipCard_Click(object sender, RoutedEventArgs e)
+        {
+            Button TriggerButton = sender as Button;
+            ShiftList FilteredShifts = serviceClient.GetShifts();
+
+            if (FrontCard.Visibility == Visibility.Visible)
+            {
+                FrontCard.Visibility = Visibility.Collapsed;
+                BackCard.Visibility = Visibility.Visible;
+                FrontCard.Tag = "Flipped";
+                BackCard.Tag = "Flipped";
+            }
+            else
+            {
+                FrontCard.Visibility = Visibility.Visible;
+                BackCard.Visibility = Visibility.Collapsed;
+                FrontCard.Tag = null;
+                BackCard.Tag = null;
+
+                if(TriggerButton.Content.ToString() == "Apply Filters")
+                {
+                    if(FilterStartTime.Text != string.Empty)
+                    {
+                        FilteredShifts.RemoveAll(s => s.start.Date != DateTime.Parse(FilterStartTime.Text).Date);
+                    }
+                    if(FilterEndTime.Text != string.Empty)
+                    {
+                        FilteredShifts.RemoveAll(s => s.end.Date != DateTime.Parse(FilterEndTime.Text).Date);
+                    }
+                    shiftsListView.ItemsSource = FilteredShifts;
+                }
+                if(TriggerButton.Content.ToString() == "Show All Shifts")
+                {
+                    FilterStartTime.Text = string.Empty;
+                    FilterEndTime.Text = string.Empty;
+
+                    shiftsListView.ItemsSource = serviceClient.GetShifts();
+                }
             }
         }
     }
