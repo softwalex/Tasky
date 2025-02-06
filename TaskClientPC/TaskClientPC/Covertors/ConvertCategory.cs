@@ -9,7 +9,7 @@ using TaskClientPC.TaskyServiceReference;
 
 namespace TaskClientPC.Covertors
 {
-    internal class ConvertCategory : IValueConverter
+    public class ConvertCategory : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

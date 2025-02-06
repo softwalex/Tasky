@@ -43,6 +43,7 @@ namespace TaskClientPC
                 if (user.userType == UserType.Admin)
                 {
                     MainUserControl mainUserControl = new MainUserControl(user);
+                    mainUserControl.MainGrid.Children.Add(new DashBoard_UserControl());
                     mainUserControl.Show();
                     this.Close();
                 }

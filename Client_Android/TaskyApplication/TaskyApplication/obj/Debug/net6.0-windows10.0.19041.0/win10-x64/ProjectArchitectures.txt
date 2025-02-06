@@ -1,0 +1,1 @@
+C:\Users\sasha\Desktop\Project-Alex\Tasky\Client_Android\TaskyApplication\TaskyApplication\TaskyApplication.csproj;x64

@@ -10,7 +10,7 @@ using TaskClientPC.TaskyServiceReference;
 namespace TaskClientPC.Covertors
 {
     //Convert Shift object to a string of shft's name and start date (for XAML use)
-    internal class ConvertShift : IValueConverter
+    public class ConvertShift : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -10,7 +10,7 @@ using TaskClientPC.TaskyServiceReference;
 namespace TaskClientPC.Covertors
 {
     //Convert User object to a string of user's full name and email (for XAML use)
-    internal class ConvertUser : IValueConverter
+    public class ConvertUser : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

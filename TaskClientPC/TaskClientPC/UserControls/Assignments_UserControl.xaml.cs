@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskClientPC.Covertors;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UpdateWindows;
 
@@ -26,6 +27,8 @@ namespace TaskClientPC.UserControls
         private Assignment assignment;
         private AssignmentList assignments;
         private WpfHelper wpfHelper;
+        private IEnumerable<object> _originalItems;
+
         public Assignments_UserControl()
         {
             InitializeComponent();
@@ -33,6 +36,11 @@ namespace TaskClientPC.UserControls
             wpfHelper = new WpfHelper();
             assignments = wpfHelper.DeleteAssignmentsThatNull();
             AssignmentsListView.ItemsSource = assignments;
+
+            FilterCategoryComboBox.ItemsSource = userServiceClient.GetCategories();
+            FilterForUserComboBox.ItemsSource = userServiceClient.GetUsers();
+            FilterForShiftComboBox.ItemsSource = userServiceClient.GetShifts();
+
             assignment = new Assignment();
         }
         private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -42,24 +50,60 @@ namespace TaskClientPC.UserControls
             DeleteButton.Visibility = Visibility.Visible;
             assignment = AssignmentsListView.SelectedItem as Assignment;
             DataGrid.DataContext = assignment;
-            if (assignment.doneByUser == null)
+            if (assignment == null)
             {
-                DoneByUserSP.Visibility = Visibility.Collapsed;
-                SummerySP.Visibility = Visibility.Collapsed;
+                DataBorder.Visibility = Visibility.Collapsed;
             }
             else
             {
-                DoneByUserSP.Visibility = Visibility.Visible;
-                SummerySP.Visibility = Visibility.Visible;
+                DataBorder.Visibility = Visibility.Visible;
+                if (assignment.doneByUser == null)
+                {
+                    DoneByUserSP.Visibility = Visibility.Collapsed;
+                    SummerySP.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    DoneByUserSP.Visibility = Visibility.Visible;
+                    SummerySP.Visibility = Visibility.Visible;
+                }
+                if (assignment.forShift.start < DateTime.Now)
+                {
+                    UpdateButton.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    UpdateButton.Visibility = Visibility.Visible;
+                }
             }
-            if (assignment.forShift.start < DateTime.Now)
+        }
+        // Add this method to handle search
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = SearchBox.Text.ToLower();
+
+            // Store original items if not already stored
+            if (_originalItems == null)
             {
-                UpdateButton.Visibility = Visibility.Collapsed;
+                _originalItems = AssignmentsListView.ItemsSource.Cast<object>();
             }
-            else
+
+            // If search box is empty, restore original list
+            if (string.IsNullOrWhiteSpace(searchText))
             {
-                UpdateButton.Visibility= Visibility.Visible;
+                AssignmentsListView.ItemsSource = _originalItems;
+                return;
             }
+
+            // Filter items
+            var filteredItems = _originalItems.Where(item =>
+            {
+                var firstname = item.GetType().GetProperty("firstname")?.GetValue(item)?.ToString().ToLower() ?? "";
+                var lastname = item.GetType().GetProperty("lastname")?.GetValue(item)?.ToString().ToLower() ?? "";
+                return firstname.Contains(searchText) || lastname.Contains(searchText);
+            });
+
+            AssignmentsListView.ItemsSource = filteredItems;
         }
         private void UpdateAssignment(object sender, RoutedEventArgs e)
         {
@@ -81,6 +125,60 @@ namespace TaskClientPC.UserControls
                 DeleteButton.Visibility = Visibility.Collapsed;
                 UpdateButton.Visibility = Visibility.Collapsed;
                 AssignmentsListView.ItemsSource = userServiceClient.GetUsers();
+            }
+        }
+        private void FlipCard_Click(object sender, RoutedEventArgs e)
+        {
+            Button TriggerButton = sender as Button;
+            AssignmentList FilteredAssignments = userServiceClient.GetAssignments();
+            ConvertUser convertUser = new ConvertUser();
+            ConvertShift convertShift = new ConvertShift();
+            ConvertCategory convertCategory = new ConvertCategory();
+
+            if (FrontCard.Visibility == Visibility.Visible)
+            {
+                FrontCard.Visibility = Visibility.Collapsed;
+                BackCard.Visibility = Visibility.Visible;
+                FrontCard.Tag = "Flipped";
+                BackCard.Tag = "Flipped";
+            }
+            else
+            {
+                FrontCard.Visibility = Visibility.Visible;
+                BackCard.Visibility = Visibility.Collapsed;
+                FrontCard.Tag = null;
+                BackCard.Tag = null;
+            }
+            if (TriggerButton.Content.ToString() == "Apply Filters")
+            {
+                if(FilterSubjectTextBox.Text != string.Empty)
+                {
+                    FilteredAssignments.RemoveAll(a => a.subject != FilterSubjectTextBox.Text);
+                }
+                if(FilterCategoryComboBox.Text != string.Empty)
+                {
+                    FilteredAssignments.RemoveAll(a => a._category.ID != (FilterCategoryComboBox.SelectedItem as Category).ID);
+                }
+                if(FilterDescriptionTextBox.Text != string.Empty)
+                {
+                    FilteredAssignments.RemoveAll(a => a.description != FilterDescriptionTextBox.Text);
+                }
+                if (FilterForUserComboBox.Text != string.Empty)
+                {
+                    FilteredAssignments.RemoveAll(a => a.forUser.ID != (FilterForUserComboBox.SelectedItem as User).ID);
+                }
+                if (FilterForShiftComboBox.Text != string.Empty)
+                {
+                    FilteredAssignments.RemoveAll(a => a.forShift.ID != (FilterForShiftComboBox.SelectedItem as Shift).ID);
+                }
+                AssignmentsListView.ItemsSource = FilteredAssignments;
+            }
+            if(TriggerButton.Content.ToString() == "Show All Assignments")
+            {
+                FilterSubjectTextBox.Text = FilterCategoryComboBox.Text = FilterDescriptionTextBox.Text =
+                    FilterForUserComboBox.Text = FilterForShiftComboBox.Text = string.Empty;
+
+                AssignmentsListView.ItemsSource = userServiceClient.GetAssignments();
             }
         }
     }
