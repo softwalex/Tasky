@@ -103,7 +103,12 @@ namespace TaskClientPC.UserControls
 
             shiftsListView.ItemsSource = filteredItems;
         }
-        private void AddShift(object sender, RoutedEventArgs e) => new UpdateShift().ShowDialog();
+        private void AddShift(object sender, RoutedEventArgs e)
+        {
+            new UpdateShift().ShowDialog();
+            shifts = serviceClient.GetShifts();
+            shiftsListView.ItemsSource = shifts;
+        }
         private void UpdateShift(object sender, RoutedEventArgs e)
         {
             UpdateShift updateShift = new UpdateShift(shift);

@@ -83,13 +83,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Covertors\ConvertCategory.cs" />
-    <Compile Include="Covertors\ConvertShift.cs" />
-    <Compile Include="Covertors\ConvertTimeShift.cs" />
-    <Compile Include="Covertors\ConvertUser.cs" />
+    <Compile Include="scripts\Covertors\ConvertCategory.cs" />
+    <Compile Include="scripts\Covertors\ConvertShift.cs" />
+    <Compile Include="scripts\Covertors\ConvertTimeShift.cs" />
+    <Compile Include="scripts\Covertors\ConvertUser.cs" />
     <Compile Include="LogInWindow.xaml.cs">
       <DependentUpon>LogInWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="scripts\TaskyMessageBox.cs" />
     <Compile Include="SignUpWindow.xaml.cs">
       <DependentUpon>SignUpWindow.xaml</DependentUpon>
     </Compile>
@@ -108,6 +109,9 @@
     <Compile Include="UserControls\Assignments_UserControl.xaml.cs">
       <DependentUpon>Assignments_UserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Categories_UserControl.xaml.cs">
+      <DependentUpon>Categories_UserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\DashBoard_UserControl.xaml.cs">
       <DependentUpon>DashBoard_UserControl.xaml</DependentUpon>
     </Compile>
@@ -120,12 +124,12 @@
     <Compile Include="UserControls\Users_UserControl.xaml.cs">
       <DependentUpon>Users_UserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Validations\ValidDate.cs" />
-    <Compile Include="Validations\ValidEmail.cs" />
-    <Compile Include="Validations\ValidFirstName.cs" />
-    <Compile Include="Validations\ValidLastName.cs" />
-    <Compile Include="Validations\ValidPassword.cs" />
-    <Compile Include="WpfHelper.cs" />
+    <Compile Include="scripts\Validations\ValidDate.cs" />
+    <Compile Include="scripts\Validations\ValidEmail.cs" />
+    <Compile Include="scripts\Validations\ValidFirstName.cs" />
+    <Compile Include="scripts\Validations\ValidLastName.cs" />
+    <Compile Include="scripts\Validations\ValidPassword.cs" />
+    <Compile Include="scripts\WpfHelper.cs" />
     <Page Include="LogInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Assignments_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Categories_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

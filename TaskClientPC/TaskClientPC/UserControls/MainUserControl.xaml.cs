@@ -34,6 +34,9 @@ namespace TaskClientPC.UserControls
             MainGrid.Children.Clear();
             switch (text)
             {
+                case "Dashboard":
+                    MainGrid.Children.Add(new DashBoard_UserControl());
+                    break;
                 case "Users":
                     MainGrid.Children.Add(new Users_UserControl());
                     break;
@@ -43,8 +46,8 @@ namespace TaskClientPC.UserControls
                 case "Assignments":
                     MainGrid.Children.Add(new Assignments_UserControl());
                     break;
-                case "Dashboard":
-                    MainGrid.Children.Add(new DashBoard_UserControl());
+                case "Categories":
+                    MainGrid.Children.Add(new Categories_UserControl());
                     break;
             }
         }

@@ -248,7 +248,7 @@ namespace WcfService
         public Category NewCategory(Category category)
         {
             CategoryDB categoryDB = new CategoryDB();
-            if (categoryDB.SelectByName(category.name) != null)
+            if (categoryDB.SelectByName(category.name) == null)
             {
                 categoryDB.Insert(category);
                 return category;

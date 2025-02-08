@@ -98,9 +98,8 @@ namespace TaskClientPC.UserControls
             // Filter items
             var filteredItems = _originalItems.Where(item =>
             {
-                var firstname = item.GetType().GetProperty("firstname")?.GetValue(item)?.ToString().ToLower() ?? "";
-                var lastname = item.GetType().GetProperty("lastname")?.GetValue(item)?.ToString().ToLower() ?? "";
-                return firstname.Contains(searchText) || lastname.Contains(searchText);
+                var subject = item.GetType().GetProperty("subject")?.GetValue(item)?.ToString().ToLower() ?? "";
+                return subject.Contains(searchText);
             });
 
             AssignmentsListView.ItemsSource = filteredItems;
@@ -114,7 +113,12 @@ namespace TaskClientPC.UserControls
                 AssignmentsListView.ItemsSource = assignments;
             }
         }
-        private void AddAssignment(object sender, RoutedEventArgs e)=>new UpdateAssignment().ShowDialog();
+        private void AddAssignment(object sender, RoutedEventArgs e)
+        {
+            new UpdateAssignment().ShowDialog();
+            assignments = userServiceClient.GetAssignments();
+            AssignmentsListView.ItemsSource = assignments;
+        }
 
         private void DeleteAssignment(object sender, RoutedEventArgs e)
         {

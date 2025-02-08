@@ -75,7 +75,12 @@ namespace TaskClientPC.UserControls
 
             usersListView.ItemsSource = filteredItems;
         }
-        private void AddUser(object sender, RoutedEventArgs e) => new UpdateUser().ShowDialog();
+        private void AddUser(object sender, RoutedEventArgs e)
+        {
+            new UpdateUser().ShowDialog();
+            users = serviceClient.GetUsers();
+            usersListView.ItemsSource = users;
+        }
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
             UpdateUser updateUser = new UpdateUser(user);

@@ -57,7 +57,7 @@ namespace ViewModel
             command.CommandText = @"INSERT INTO CategoryTable (Name) VALUES (@Name);SELECT SCOPE_IDENTITY();";
             command.Parameters.AddWithValue("@Name",category.name);
 
-            return Convert.ToInt32(command.ExecuteScalar());
+            return Convert.ToInt32(base.ExecuteScalar());
         }
         public int Update(Category category)
         {
@@ -65,12 +65,12 @@ namespace ViewModel
             command.CommandText = "@UPDATE CategoryTable SET Name = @Name WHERE Id = @Id";
             command.Parameters.AddWithValue("@Name",category.name);
 
-            return Convert.ToInt32(command.ExecuteScalar());
+            return Convert.ToInt32(base.ExecuteScalar());
         }
         public int Delete(int id)
         {
             command.Parameters.Clear();
-            command.CommandText = "DELETE FROM ShiftTable WHERE Id = @Id";
+            command.CommandText = "DELETE FROM CategoryTable WHERE Id = @Id";
             command.Parameters.AddWithValue("@Id", id);
             return base.ExecuteNonQuery();
         }

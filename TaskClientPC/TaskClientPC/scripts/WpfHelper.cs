@@ -28,7 +28,8 @@ namespace TaskClientPC
             AssignmentList assignments = userServiceClient.GetAssignments();
             foreach (Assignment a in assignments)
             {
-                if ((a.forShift == null || a.forUser == null) || (a.doneByUser == null && a.summery != string.Empty))
+                if ((a.forShift == null || a.forUser == null) || 
+                    (a.doneByUser == null && a.summery != string.Empty) || (a._category == null))
                 {
                     userServiceClient.DeleteAssignment(a);
                 }
