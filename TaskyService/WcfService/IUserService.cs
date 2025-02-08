@@ -18,21 +18,29 @@ namespace WcfService
         [OperationContract] bool UpdateUser(User user);
         [OperationContract] bool DeleteUser(User user);
         [OperationContract] bool IsEmailFree(string email);
-        [OperationContract] UserList GetUsersbyType(string type);
+        [OperationContract] UserList GetUsersbyType(UserType type);
+        [OperationContract] UserList GetUsers();
         #endregion
 
         #region Shift
+        [OperationContract] ShiftList GetShifts();
+        [OperationContract] ShiftList GetPastShifts(DateTime date);
+        [OperationContract] ShiftList GetFutureShifts(DateTime date);
         [OperationContract] Shift GetShift(string name);
         [OperationContract] Shift NewShift(Shift shift);
-        [OperationContract] bool UpdateShift(Shift shift);
+        [OperationContract] void UpdateShift(Shift shift);
         [OperationContract] bool DeleteShift(Shift shift);
         #endregion
 
         #region Assingment
+        [OperationContract] AssignmentList GetAssignments();
+        [OperationContract] Assignment GetAssignmentById(int id);
+
         [OperationContract] Assignment GetAssignmentsBySubject(string Subject);
         [OperationContract] AssignmentList GetAssignmentsByCategory(string Category);
+        [OperationContract] AssignmentList GetAssignmentByShift(Shift shift);
         [OperationContract] Assignment NewAssignment(Assignment assignment);
-        [OperationContract] bool UpdateAssignment(Assignment assignment);
+        [OperationContract] void UpdateAssignment(Assignment assignment);
         [OperationContract] bool DeleteAssignment(Assignment assignment);
         #endregion
 

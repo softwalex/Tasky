@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="TaskClientPC.UserControls.Categories_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TaskClientPC.UserControls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <!-- Background Gradient with Orange Colors -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FF9800" Offset="0.0"/>
+                <GradientStop Color="#F57C00" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.Resources>
+            <!-- Material Shadow Effect -->
+            <DropShadowEffect x:Key="MaterialShadow" 
+                         BlurRadius="10" 
+                         Direction="270" 
+                         ShadowDepth="3" 
+                         Opacity="0.3"/>
+
+            <!-- TextBlock Styles -->
+            <Style x:Key="DetailLabelStyle" TargetType="TextBlock">
+                <Setter Property="Margin" Value="20,10"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Foreground" Value="#FF5722"/>
+            </Style>
+
+            <Style x:Key="DetailValueStyle" TargetType="TextBlock">
+                <Setter Property="Margin" Value="20,10"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Foreground" Value="#424242"/>
+            </Style>
+        </Grid.Resources>
+
+        <!-- Centered Border -->
+        <Border Background="White" 
+                CornerRadius="12" 
+                Padding="15"
+                Effect="{StaticResource MaterialShadow}"
+                Width="500"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Margin="0,20">
+            <Grid>
+                <DockPanel>
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="False">
+                        <TextBlock Text="Categories List" 
+                                    DockPanel.Dock="Left" 
+                                    FontSize="24" 
+                                    FontWeight="Bold" 
+                                    Margin="10,0,0,15"
+                                    Foreground="#FF5722"/>
+                    </DockPanel>
+
+                    <TextBox DockPanel.Dock="Top"
+                              x:Name="SearchBox"
+                              TextChanged="SearchBox_TextChanged"
+                              Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                              Margin="10,0,10,20"
+                              Height="50"
+                              materialDesign:HintAssist.Hint="Search Categories by name..."
+                              materialDesign:TextFieldAssist.HasClearButton="True">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="20"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                    <DockPanel DockPanel.Dock="Top" LastChildFill="True" Margin="10,0,10,20">
+                        <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="10,0,0,0">
+                            <Button x:Name="DeleteButton"
+                                    Click="DeleteCategoryButton"
+                                    DockPanel.Dock="Right"
+                                    Visibility="Collapsed"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Height="30"
+                                    Width="100"
+                                    Margin="0,0,10,15"
+                                    Background="#cc3429"
+                                    BorderThickness="0"
+                                    materialDesign:ButtonAssist.CornerRadius="18">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Delete" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                            </Button>
+                            <Button x:Name="AddNewButton"
+                                   Click="AddNewCategoryButton"
+                                   DockPanel.Dock="Right"
+                                   Style="{StaticResource MaterialDesignRaisedButton}"
+                                   Height="30"
+                                   Width="100"
+                                   Margin="0,0,10,15"
+                                   Background="#FB8C00"
+                                   BorderThickness="0"
+                                   materialDesign:ButtonAssist.CornerRadius="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Add New" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="CencelButton"
+                                    Click="CencelAddButton"
+                                    Visibility="Collapsed"
+                                    DockPanel.Dock="Right"
+                                    Style="{StaticResource MaterialDesignRaisedButton}"
+                                    Height="30"
+                                    Width="100"
+                                    Margin="0,0,10,15"
+                                    Background="#FB8C00"
+                                    BorderThickness="0"
+                                    materialDesign:ButtonAssist.CornerRadius="18">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="Cencel" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                        <StackPanel>
+                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                                     x:Name="NewCategoryTextbox"
+                                     Visibility="Collapsed"
+                                     Height="50"
+                                     Width="200"
+                                     materialDesign:HintAssist.Hint="Enter New Category">
+                                <TextBox.Resources>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Setter Property="CornerRadius" Value="20"/>
+                                    </Style>
+                                </TextBox.Resources>
+                            </TextBox>
+                            <TextBlock x:Name="ErrorText" 
+                                      Foreground="Red"
+                                      Margin="5,5,0,0"
+                                      FontSize="12"/>
+                        </StackPanel>
+                    </DockPanel>
+                    <ListView x:Name="CategoriesListView"
+                          SelectionChanged="CategoriesListView_SelectionChanged" 
+                          ScrollViewer.CanContentScroll="True" 
+                          FontSize="10" 
+                          BorderThickness="0"
+                          Height="300">
+                        <ListView.View>
+                            <GridView ScrollViewer.HorizontalScrollBarVisibility="Visible">
+                                <GridViewColumn Header="Name" Width="300">
+                                    <GridViewColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="Name" 
+                                                   FontWeight="Bold" 
+                                                   FontSize="16" 
+                                                   Foreground="#FF5722"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.HeaderTemplate>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding name}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontSize" Value="14" />
+                                <Setter Property="Padding" Value="10" />
+                                <Setter Property="Margin" Value="0,2" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="#424242" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#FFE0B2"/>
+                                        <Setter Property="Foreground" Value="#E65100"/>
+                                    </Trigger>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#FFF3E0"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </DockPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

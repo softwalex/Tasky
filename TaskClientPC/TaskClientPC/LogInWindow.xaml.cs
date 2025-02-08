@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TaskClientPC.TaskyServiceReference;
+using TaskClientPC.UserControls;
 
 namespace TaskClientPC
 {
@@ -31,15 +32,25 @@ namespace TaskClientPC
 
         private void LogInButtonClick(object sender, RoutedEventArgs e)
         {
-            if(EmailTextBox.Text == string.Empty || PasswordBox.Password.ToString() == string.Empty)
+            if(EmailTextBox.Text == string.Empty || PassBox.Password.ToString() == string.Empty)
             {
                 ErrorText.Text = "You have to fill all of the given fields";
                 return;
             }
-            user = userServiceClient.UserLogin(EmailTextBox.Text, PasswordBox.Password);
+            user = userServiceClient.UserLogin(EmailTextBox.Text, PassBox.Password);
             if (user != null)
             {
-                ErrorText.Text = "User was found!";
+                if (user.userType == UserType.Admin)
+                {
+                    MainUserControl mainUserControl = new MainUserControl(user);
+                    mainUserControl.MainGrid.Children.Add(new DashBoard_UserControl());
+                    mainUserControl.Show();
+                    this.Close();
+                }
+                else
+                {
+                    ErrorText.Text = "You must be a Admin to login this software";
+                }
             }
             else
             {

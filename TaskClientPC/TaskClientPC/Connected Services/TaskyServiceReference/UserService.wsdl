@@ -43,6 +43,30 @@
   <wsdl:message name="IUserService_GetUsersbyType_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersbyTypeResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetShifts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetShifts" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetShifts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetShiftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPastShifts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPastShifts" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetPastShifts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPastShiftsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetFutureShifts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFutureShifts" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetFutureShifts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFutureShiftsResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetShift_InputMessage">
     <wsdl:part name="parameters" element="tns:GetShift" />
   </wsdl:message>
@@ -67,6 +91,18 @@
   <wsdl:message name="IUserService_DeleteShift_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteShiftResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignments" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentById" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetAssignmentsBySubject_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAssignmentsBySubject" />
   </wsdl:message>
@@ -78,6 +114,12 @@
   </wsdl:message>
   <wsdl:message name="IUserService_GetAssignmentsByCategory_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAssignmentsByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentByShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentByShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAssignmentByShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAssignmentByShiftResponse" />
   </wsdl:message>
   <wsdl:message name="IUserService_NewAssignment_InputMessage">
     <wsdl:part name="parameters" element="tns:NewAssignment" />
@@ -182,6 +224,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersbyType" message="tns:IUserService_GetUsersbyType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersbyTypeResponse" message="tns:IUserService_GetUsersbyType_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsers" message="tns:IUserService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUsersResponse" message="tns:IUserService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShifts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShifts" message="tns:IUserService_GetShifts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftsResponse" message="tns:IUserService_GetShifts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPastShifts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetPastShifts" message="tns:IUserService_GetPastShifts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetPastShiftsResponse" message="tns:IUserService_GetPastShifts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFutureShifts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetFutureShifts" message="tns:IUserService_GetFutureShifts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetFutureShiftsResponse" message="tns:IUserService_GetFutureShifts_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetShift" message="tns:IUserService_GetShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetShiftResponse" message="tns:IUserService_GetShift_OutputMessage" />
@@ -198,6 +256,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteShift" message="tns:IUserService_DeleteShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteShiftResponse" message="tns:IUserService_DeleteShift_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAssignments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignments" message="tns:IUserService_GetAssignments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsResponse" message="tns:IUserService_GetAssignments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentById" message="tns:IUserService_GetAssignmentById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentByIdResponse" message="tns:IUserService_GetAssignmentById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAssignmentsBySubject">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubject" message="tns:IUserService_GetAssignmentsBySubject_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsBySubjectResponse" message="tns:IUserService_GetAssignmentsBySubject_OutputMessage" />
@@ -205,6 +271,10 @@
     <wsdl:operation name="GetAssignmentsByCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsByCategory" message="tns:IUserService_GetAssignmentsByCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentsByCategoryResponse" message="tns:IUserService_GetAssignmentsByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentByShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAssignmentByShift" message="tns:IUserService_GetAssignmentByShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAssignmentByShiftResponse" message="tns:IUserService_GetAssignmentByShift_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NewAssignment">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/NewAssignment" message="tns:IUserService_NewAssignment_InputMessage" />
@@ -315,6 +385,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShifts">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPastShifts">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetPastShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFutureShifts">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetFutureShifts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetShift">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetShift" style="document" />
       <wsdl:input>
@@ -351,6 +457,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetAssignments">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentById">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAssignmentsBySubject">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentsBySubject" style="document" />
       <wsdl:input>
@@ -362,6 +486,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAssignmentsByCategory">
       <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentsByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignmentByShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAssignmentByShift" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -66,14 +66,14 @@ namespace Model
             set { ForUser = value; }
         }
 		private Shift ForShift;
-
+		[DataMember]
 		public Shift forShift
         {
 			get { return ForShift; }
 			set { ForShift = value; }
 		}
 		private Category _Category;
-
+		[DataMember]
 		public Category _category
 		{
 			get { return _Category; }
@@ -87,7 +87,7 @@ namespace Model
     public class AssignmentList : List<Assignment>
     {
         public AssignmentList() { }
-        public AssignmentList(IEnumerable<UserInShift> list) : base(list.Cast<Assignment>().ToList()) { }
+        public AssignmentList(IEnumerable<Assignment> list) : base(list.Cast<Assignment>().ToList()) { }
         public AssignmentList(IEnumerable<BaseEntity> list) : base(list.Cast<Assignment>().ToList()) { }
 
 

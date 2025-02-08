@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TaskyDataBaseModelStoreContainer" CdmEntityContainer="TaskyDataBaseEntities">
+    <EntitySetMapping Name="AssignmentTable">
+      <EntityTypeMapping TypeName="TaskyDataBaseModel.AssignmentTable">
+        <MappingFragment StoreEntitySet="AssignmentTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="DateOfAssignment" ColumnName="DateOfAssignment" />
+          <ScalarProperty Name="DoneByUser" ColumnName="DoneByUser" />
+          <ScalarProperty Name="Summery" ColumnName="Summery" />
+          <ScalarProperty Name="ForUser" ColumnName="ForUser" />
+          <ScalarProperty Name="ForShift" ColumnName="ForShift" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTable">
+      <EntityTypeMapping TypeName="TaskyDataBaseModel.CategoryTable">
+        <MappingFragment StoreEntitySet="CategoryTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShiftTable">
+      <EntityTypeMapping TypeName="TaskyDataBaseModel.ShiftTable">
+        <MappingFragment StoreEntitySet="ShiftTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShiftName" ColumnName="ShiftName" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInShiftTable">
+      <EntityTypeMapping TypeName="TaskyDataBaseModel.UserInShiftTable">
+        <MappingFragment StoreEntitySet="UserInShiftTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="User" ColumnName="User" />
+          <ScalarProperty Name="Shift" ColumnName="Shift" />
+          <ScalarProperty Name="IsClockedIn" ColumnName="IsClockedIn" />
+          <ScalarProperty Name="UserClockIn" ColumnName="UserClockIn" />
+          <ScalarProperty Name="IsClockedOut" ColumnName="IsClockedOut" />
+          <ScalarProperty Name="UserClockOut" ColumnName="UserClockOut" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTable">
+      <EntityTypeMapping TypeName="TaskyDataBaseModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

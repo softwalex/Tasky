@@ -21,9 +21,14 @@ namespace WcfService
             User user = userDB.Login(email, password);
             return user;
         }
-        public UserList GetUsersbyType(string type)
+        public UserList GetUsersbyType(UserType type)
         {
             UserList users = userDB.SelectByUserType(type);
+            return users;
+        }
+        public UserList GetUsers()
+        {
+            UserList users = userDB.SelectAll();
             return users;
         }
 
@@ -64,6 +69,25 @@ namespace WcfService
         #endregion
 
         #region Shift
+        public ShiftList GetShifts()
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectAll();
+            return shifts;
+        }
+
+        public ShiftList GetPastShifts(DateTime date)
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectByDate(date,true);
+            return shifts;
+        }
+        public ShiftList GetFutureShifts(DateTime date)
+        {
+            ShiftDB shiftDB = new ShiftDB();
+            ShiftList shifts = shiftDB.SelectByDate(date,false);
+            return shifts;
+        }
         public Shift GetShift(string name)
         {
             ShiftDB shiftDB = new ShiftDB();
@@ -74,23 +98,14 @@ namespace WcfService
         public Shift NewShift(Shift shift)
         {
             ShiftDB ShiftDB = new ShiftDB();
-            if(ShiftDB.SelectByShiftName(shift.shiftName) == null)
-            {
-                ShiftDB.Insert(shift);
-                return shift;
-            }
-            return null;
+            ShiftDB.Insert(shift);
+            return shift;
         }
 
-        public bool UpdateShift(Shift shift)
+        public void UpdateShift(Shift shift)
         {
             ShiftDB shiftDB=new ShiftDB();
-            if (shiftDB.SelectByShiftName(shift.shiftName) != null)
-            {
-                shiftDB.Update(shift);
-                return true;
-            }
-            return false;
+            shiftDB.Update(shift);
         }
 
         public bool DeleteShift(Shift shift)
@@ -106,6 +121,18 @@ namespace WcfService
         #endregion
 
         #region Assignment
+        public AssignmentList GetAssignments()
+        {
+            AssignmentDB assignmentDB = new AssignmentDB();
+            AssignmentList assignments = assignmentDB.SelectAll();
+            return assignments;
+        }
+        public Assignment GetAssignmentById(int id)
+        {
+            AssignmentDB assignmentDB=new AssignmentDB();
+            Assignment assignment = assignmentDB.SelectById(id);
+            return assignment;
+        }
         public Assignment GetAssignmentsBySubject(string Subject)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
@@ -120,27 +147,25 @@ namespace WcfService
             return list;
         }
 
+        public AssignmentList GetAssignmentByShift(Shift shift)
+        {
+            AssignmentDB assignmentDB=new AssignmentDB();
+            AssignmentList list = assignmentDB.SelectByShift(shift.ID);
+            return list;
+        }
+
         public Assignment NewAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB=new AssignmentDB();
-            if (assignmentDB.SelectBySuject(assignment.subject) == null)
-            {
-                assignmentDB.Insert(assignment);
-                return assignment;
-            }
+            assignmentDB.Insert(assignment);
             return assignment;
             
         }
 
-        public bool UpdateAssignment(Assignment assignment)
+        public void UpdateAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
-            if (assignmentDB.SelectBySuject(assignment.subject) != null)
-            {
-                assignmentDB.Update(assignment);
-                return true;
-            }
-            return false;
+            assignmentDB.Update(assignment);
         }
 
         public bool DeleteAssignment(Assignment assignment)
@@ -155,7 +180,7 @@ namespace WcfService
         }
         #endregion
 
-        #region UserInShiftLis
+        #region UserInShift
         public UserInShiftList GetUsersInShift()
         {
             UserInShiftDB usersInShift = new UserInShiftDB();
@@ -223,7 +248,7 @@ namespace WcfService
         public Category NewCategory(Category category)
         {
             CategoryDB categoryDB = new CategoryDB();
-            if (categoryDB.SelectByName(category.name) != null)
+            if (categoryDB.SelectByName(category.name) == null)
             {
                 categoryDB.Insert(category);
                 return category;

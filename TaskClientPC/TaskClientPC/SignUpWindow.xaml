@@ -71,14 +71,18 @@
                         <StackPanel Orientation="Horizontal" 
                             Margin="0,0,0,30">
                             <Border Background="#FF7043" 
-                            CornerRadius="4"
-                            Padding="8">
-                                <Button Click="LinkToLogInWindow">
+                             CornerRadius="4"
+                            >
+                                <Button Click="LinkToLogInWindow" Height="63">
                                     <Button.Content>
-                                        <Image Source="images/TaskyLogo.png" Width="75" Height="63"/>
+                                        <Image Source="images/TaskyLogo.png" 
+                                    Width="70" 
+                                    Height="63"/>
                                     </Button.Content>
                                 </Button>
                             </Border>
+
+
                             <TextBlock Text="SIGN-UP" 
                             FontSize="24" 
                             FontWeight="Bold" 
@@ -162,7 +166,7 @@
                                     <TextBox.Text>
                                         <Binding Path="email" UpdateSourceTrigger="PropertyChanged" ValidatesOnDataErrors="True">
                                             <Binding.ValidationRules>
-                                                <valid:ValidEmail/>
+                                                <valid:ValidLastName/>
                                             </Binding.ValidationRules>
                                         </Binding>
                                     </TextBox.Text>
@@ -182,7 +186,7 @@
                                 BorderBrush="#E0E0E0"
                                 Padding="10"
                                 PasswordChanged="tbPass1_PasswordChanged"/>
-                                    <!-- Repeat Password Field -->
+                                <!-- Repeat Password Field -->
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Repeat Password:"/>
                                     <Label x:Name="lblErroPass2" Foreground="red" FontSize="11"/>
@@ -197,7 +201,7 @@
 
                             </StackPanel>
 
-                                <!-- Sign Up Button -->
+                            <!-- Sign Up Button -->
                             <StackPanel x:Name="SubmitButtonStackPanel">
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Button Content="⬅️"

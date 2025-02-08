@@ -35,25 +35,39 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserList" nillable="true" type="tns:UserList" />
+  <xs:complexType name="ShiftList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shift" nillable="true" type="tns:Shift" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ShiftList" nillable="true" type="tns:ShiftList" />
   <xs:complexType name="Shift">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="end" type="xs:dateTime" />
           <xs:element minOccurs="0" name="shiftName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="strat" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="start" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Shift" nillable="true" type="tns:Shift" />
+  <xs:complexType name="AssignmentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Assignment" nillable="true" type="tns:Assignment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AssignmentList" nillable="true" type="tns:AssignmentList" />
   <xs:complexType name="Assignment">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
+          <xs:element minOccurs="0" name="_category" nillable="true" type="tns:Category" />
           <xs:element minOccurs="0" name="dateOfAssigment" type="xs:dateTime" />
           <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="doneByUser" nillable="true" type="tns:User" />
+          <xs:element minOccurs="0" name="forShift" nillable="true" type="tns:Shift" />
           <xs:element minOccurs="0" name="forUser" nillable="true" type="tns:User" />
           <xs:element minOccurs="0" name="image" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
@@ -63,12 +77,16 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Assignment" nillable="true" type="tns:Assignment" />
-  <xs:complexType name="AssignmentList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Assignment" nillable="true" type="tns:Assignment" />
-    </xs:sequence>
+  <xs:complexType name="Category">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseEntity">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="AssignmentList" nillable="true" type="tns:AssignmentList" />
+  <xs:element name="Category" nillable="true" type="tns:Category" />
   <xs:complexType name="UserInShiftList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="UserInShift" nillable="true" type="tns:UserInShift" />
@@ -96,14 +114,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="CategoryList" nillable="true" type="tns:CategoryList" />
-  <xs:complexType name="Category">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Category" nillable="true" type="tns:Category" />
 </xs:schema>

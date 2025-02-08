@@ -22,7 +22,7 @@ namespace Model
 		private DateTime Start;
 
 		[DataMember]
-		public DateTime strat
+		public DateTime start
 		{
 			get { return Start; }
 			set { Start = value; }
@@ -41,7 +41,7 @@ namespace Model
     public class ShiftList : List<Shift>
     {
         public ShiftList() { }
-        public ShiftList(IEnumerable<UserInShift> list) : base(list.Cast<Shift>().ToList()) { }
+        public ShiftList(IEnumerable<Shift> list) : base(list.Cast<Shift>().ToList()) { }
         public ShiftList(IEnumerable<BaseEntity> list) : base(list.Cast<Shift>().ToList()) { }
 
 

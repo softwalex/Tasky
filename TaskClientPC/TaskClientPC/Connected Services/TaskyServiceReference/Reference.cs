@@ -19,8 +19,8 @@ namespace TaskClientPC.TaskyServiceReference {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Shift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Assignment))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.UserInShift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.Category))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.UserInShift))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TaskClientPC.TaskyServiceReference.User))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -76,7 +76,7 @@ namespace TaskClientPC.TaskyServiceReference {
         private string shiftNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime stratField;
+        private System.DateTime startField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime end {
@@ -105,14 +105,14 @@ namespace TaskClientPC.TaskyServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime strat {
+        public System.DateTime start {
             get {
-                return this.stratField;
+                return this.startField;
             }
             set {
-                if ((this.stratField.Equals(value) != true)) {
-                    this.stratField = value;
-                    this.RaisePropertyChanged("strat");
+                if ((this.startField.Equals(value) != true)) {
+                    this.startField = value;
+                    this.RaisePropertyChanged("start");
                 }
             }
         }
@@ -125,6 +125,9 @@ namespace TaskClientPC.TaskyServiceReference {
     public partial class Assignment : TaskClientPC.TaskyServiceReference.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TaskClientPC.TaskyServiceReference.Category _categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime dateOfAssigmentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -132,6 +135,9 @@ namespace TaskClientPC.TaskyServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TaskClientPC.TaskyServiceReference.User doneByUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private TaskClientPC.TaskyServiceReference.Shift forShiftField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private TaskClientPC.TaskyServiceReference.User forUserField;
@@ -144,6 +150,19 @@ namespace TaskClientPC.TaskyServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string summeryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TaskClientPC.TaskyServiceReference.Category _category {
+            get {
+                return this._categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this._categoryField, value) != true)) {
+                    this._categoryField = value;
+                    this.RaisePropertyChanged("_category");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public System.DateTime dateOfAssigment {
@@ -180,6 +199,19 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((object.ReferenceEquals(this.doneByUserField, value) != true)) {
                     this.doneByUserField = value;
                     this.RaisePropertyChanged("doneByUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public TaskClientPC.TaskyServiceReference.Shift forShift {
+            get {
+                return this.forShiftField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.forShiftField, value) != true)) {
+                    this.forShiftField = value;
+                    this.RaisePropertyChanged("forShift");
                 }
             }
         }
@@ -232,6 +264,29 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((object.ReferenceEquals(this.summeryField, value) != true)) {
                     this.summeryField = value;
                     this.RaisePropertyChanged("summery");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Model")]
+    [System.SerializableAttribute()]
+    public partial class Category : TaskClientPC.TaskyServiceReference.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
                 }
             }
         }
@@ -335,29 +390,6 @@ namespace TaskClientPC.TaskyServiceReference {
                 if ((this.userClockOutField.Equals(value) != true)) {
                     this.userClockOutField = value;
                     this.RaisePropertyChanged("userClockOut");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/Model")]
-    [System.SerializableAttribute()]
-    public partial class Category : TaskClientPC.TaskyServiceReference.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
-            get {
-                return this.nameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
                 }
             }
         }
@@ -489,6 +521,13 @@ namespace TaskClientPC.TaskyServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ShiftList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Shift")]
+    [System.SerializableAttribute()]
+    public class ShiftList : System.Collections.Generic.List<TaskClientPC.TaskyServiceReference.Shift> {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="AssignmentList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Assignment")]
     [System.SerializableAttribute()]
     public class AssignmentList : System.Collections.Generic.List<TaskClientPC.TaskyServiceReference.Assignment> {
@@ -543,10 +582,34 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
-        TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(string type);
+        TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
-        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(string type);
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(TaskClientPC.TaskyServiceReference.UserType type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsers", ReplyAction="http://tempuri.org/IUserService/GetUsersResponse")]
+        TaskClientPC.TaskyServiceReference.UserList GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsers", ReplyAction="http://tempuri.org/IUserService/GetUsersResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShifts", ReplyAction="http://tempuri.org/IUserService/GetShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetShifts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShifts", ReplyAction="http://tempuri.org/IUserService/GetShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetPastShifts", ReplyAction="http://tempuri.org/IUserService/GetPastShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetPastShifts(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetPastShifts", ReplyAction="http://tempuri.org/IUserService/GetPastShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetPastShiftsAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetFutureShifts", ReplyAction="http://tempuri.org/IUserService/GetFutureShiftsResponse")]
+        TaskClientPC.TaskyServiceReference.ShiftList GetFutureShifts(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetFutureShifts", ReplyAction="http://tempuri.org/IUserService/GetFutureShiftsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetFutureShiftsAsync(System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetShift", ReplyAction="http://tempuri.org/IUserService/GetShiftResponse")]
         TaskClientPC.TaskyServiceReference.Shift GetShift(string name);
@@ -561,16 +624,28 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Shift> NewShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateShift", ReplyAction="http://tempuri.org/IUserService/UpdateShiftResponse")]
-        bool UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift);
+        void UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateShift", ReplyAction="http://tempuri.org/IUserService/UpdateShiftResponse")]
-        System.Threading.Tasks.Task<bool> UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
+        System.Threading.Tasks.Task UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteShift", ReplyAction="http://tempuri.org/IUserService/DeleteShiftResponse")]
         bool DeleteShift(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteShift", ReplyAction="http://tempuri.org/IUserService/DeleteShiftResponse")]
         System.Threading.Tasks.Task<bool> DeleteShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignments", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsResponse")]
+        TaskClientPC.TaskyServiceReference.AssignmentList GetAssignments();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignments", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentById", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByIdResponse")]
+        TaskClientPC.TaskyServiceReference.Assignment GetAssignmentById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentById", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByIdResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> GetAssignmentByIdAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentsBySubject", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsBySubjectResponse")]
         TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject);
@@ -584,6 +659,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentsByCategory", ReplyAction="http://tempuri.org/IUserService/GetAssignmentsByCategoryResponse")]
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsByCategoryAsync(string Category);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentByShift", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByShiftResponse")]
+        TaskClientPC.TaskyServiceReference.AssignmentList GetAssignmentByShift(TaskClientPC.TaskyServiceReference.Shift shift);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAssignmentByShift", ReplyAction="http://tempuri.org/IUserService/GetAssignmentByShiftResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentByShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/NewAssignment", ReplyAction="http://tempuri.org/IUserService/NewAssignmentResponse")]
         TaskClientPC.TaskyServiceReference.Assignment NewAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
@@ -591,10 +672,10 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> NewAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         bool DeleteAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
@@ -730,12 +811,44 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.IsEmailFreeAsync(email);
         }
         
-        public TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(string type) {
+        public TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type) {
             return base.Channel.GetUsersbyType(type);
         }
         
-        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(string type) {
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersbyTypeAsync(TaskClientPC.TaskyServiceReference.UserType type) {
             return base.Channel.GetUsersbyTypeAsync(type);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.UserList GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserList> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetShifts() {
+            return base.Channel.GetShifts();
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetShiftsAsync() {
+            return base.Channel.GetShiftsAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetPastShifts(System.DateTime date) {
+            return base.Channel.GetPastShifts(date);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetPastShiftsAsync(System.DateTime date) {
+            return base.Channel.GetPastShiftsAsync(date);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.ShiftList GetFutureShifts(System.DateTime date) {
+            return base.Channel.GetFutureShifts(date);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.ShiftList> GetFutureShiftsAsync(System.DateTime date) {
+            return base.Channel.GetFutureShiftsAsync(date);
         }
         
         public TaskClientPC.TaskyServiceReference.Shift GetShift(string name) {
@@ -754,11 +867,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.NewShiftAsync(shift);
         }
         
-        public bool UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift) {
-            return base.Channel.UpdateShift(shift);
+        public void UpdateShift(TaskClientPC.TaskyServiceReference.Shift shift) {
+            base.Channel.UpdateShift(shift);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
+        public System.Threading.Tasks.Task UpdateShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
             return base.Channel.UpdateShiftAsync(shift);
         }
         
@@ -768,6 +881,22 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
             return base.Channel.DeleteShiftAsync(shift);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.AssignmentList GetAssignments() {
+            return base.Channel.GetAssignments();
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentsAsync() {
+            return base.Channel.GetAssignmentsAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.Assignment GetAssignmentById(int id) {
+            return base.Channel.GetAssignmentById(id);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> GetAssignmentByIdAsync(int id) {
+            return base.Channel.GetAssignmentByIdAsync(id);
         }
         
         public TaskClientPC.TaskyServiceReference.Assignment GetAssignmentsBySubject(string Subject) {
@@ -786,6 +915,14 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.GetAssignmentsByCategoryAsync(Category);
         }
         
+        public TaskClientPC.TaskyServiceReference.AssignmentList GetAssignmentByShift(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetAssignmentByShift(shift);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.AssignmentList> GetAssignmentByShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetAssignmentByShiftAsync(shift);
+        }
+        
         public TaskClientPC.TaskyServiceReference.Assignment NewAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
             return base.Channel.NewAssignment(assignment);
         }
@@ -794,11 +931,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.NewAssignmentAsync(assignment);
         }
         
-        public bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
-            return base.Channel.UpdateAssignment(assignment);
+        public void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+            base.Channel.UpdateAssignment(assignment);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+        public System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
             return base.Channel.UpdateAssignmentAsync(assignment);
         }
         
