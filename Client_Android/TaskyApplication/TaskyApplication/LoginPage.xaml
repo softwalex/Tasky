@@ -43,9 +43,8 @@
 
                 <!-- Error Text -->
                 <Label x:Name="ErrorLabel"
-                       Text="Error Text"
+                       Text=""
                        TextColor="#FF4444"
-                       IsVisible="false"
                        FontSize="14"
                        HorizontalOptions="Center" />
 
@@ -93,18 +92,18 @@
                        FontAttributes="Bold"
                        HorizontalOptions="End">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
                     </Label.GestureRecognizers>
                 </Label>
 
                 <!-- Login Button -->
                 <Button Text="Sign In"
+                        Clicked="LoginClick"
                         BackgroundColor="#FF8036"
                         TextColor="White"
                         FontAttributes="Bold"
                         CornerRadius="8"
-                        HeightRequest="45"
-                        Command="{Binding LoginCommand}">
+                        HeightRequest="45">
                     <Button.Shadow>
                         <Shadow Brush="#FF8036"
                                Offset="0,4"

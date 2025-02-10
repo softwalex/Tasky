@@ -39,7 +39,6 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\Model
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\Model.pdb
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.AssemblyReference.cache
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.CoreCompileInputs.cache
-C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.pdb
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\ViewModel.dll.config
@@ -47,3 +46,4 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\Entit
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.xml
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\obj\Debug\ViewModel.csproj.Up2Date
