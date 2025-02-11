@@ -1,2 +1,0 @@
-images\taskylogo;images\taskylogo
-raw\aboutassets;raw\AboutAssets

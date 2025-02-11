@@ -1,1 +1,0 @@
-C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyApp\TaskyApp\TaskyApp.csproj;x64
