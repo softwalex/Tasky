@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TaskClientPC.scripts;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UserControls;
 
@@ -23,11 +24,13 @@ namespace TaskClientPC
     {
         User user;
         UserServiceClient userServiceClient;
+        TaskyMessageBox taskyMessageBox;
         public LogInWindow()
         {
             InitializeComponent();
             user = new User();
             userServiceClient = new UserServiceClient();
+            taskyMessageBox = new TaskyMessageBox();
         }
 
         private void LogInButtonClick(object sender, RoutedEventArgs e)

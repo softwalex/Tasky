@@ -1153,3 +1153,5 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\zh-Hant\System.ServiceModel.NetNamedPipe.resources.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\zh-Hant\System.ServiceModel.NetTcp.resources.dll
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\System.ServiceModel.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\System.ServiceModel.pdb

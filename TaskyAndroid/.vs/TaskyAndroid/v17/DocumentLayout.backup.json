@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:loginpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\scripts\\servicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:scripts\\servicehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:platforms\\android\\androidmanifest.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,28 +38,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LoginPage.xaml",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml",
-              "RelativeDocumentMoniker": "LoginPage.xaml",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml",
-              "RelativeToolTip": "LoginPage.xaml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-11T20:31:25.242Z",
+              "DocumentIndex": 1,
+              "Title": "ServiceHelper.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\scripts\\ServiceHelper.cs",
+              "RelativeDocumentMoniker": "scripts\\ServiceHelper.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\scripts\\ServiceHelper.cs",
+              "RelativeToolTip": "scripts\\ServiceHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-13T08:31:18.303Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\AppShell.xaml",
-              "RelativeDocumentMoniker": "AppShell.xaml",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\AppShell.xaml",
-              "RelativeToolTip": "AppShell.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "LoginPage.xaml",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml",
+              "RelativeToolTip": "LoginPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-11T20:44:16.1Z",
+              "WhenOpened": "2025-02-11T20:31:25.242Z",
               "EditorCaption": ""
             },
             {
@@ -70,22 +70,22 @@
               "RelativeDocumentMoniker": "LoginPage.xaml.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml.cs",
               "RelativeToolTip": "LoginPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T20:38:07.854Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\App.xaml",
-              "RelativeDocumentMoniker": "App.xaml",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\App.xaml",
-              "RelativeToolTip": "App.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-11T21:20:26.091Z",
+              "DocumentIndex": 2,
+              "Title": "AndroidManifest.xml",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeDocumentMoniker": "Platforms\\Android\\AndroidManifest.xml",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\Platforms\\Android\\AndroidManifest.xml",
+              "RelativeToolTip": "Platforms\\Android\\AndroidManifest.xml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-02-13T08:37:26.975Z",
               "EditorCaption": ""
             }
           ]

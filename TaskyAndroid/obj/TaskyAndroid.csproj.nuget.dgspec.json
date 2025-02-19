@@ -95,7 +95,7 @@
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.1.1, )"
             },
             "System.ServiceModel.NetNamedPipe": {
               "target": "Package",
@@ -184,7 +184,7 @@
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.1.1, )"
             },
             "System.ServiceModel.NetNamedPipe": {
               "target": "Package",
@@ -261,7 +261,7 @@
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.1.1, )"
             },
             "System.ServiceModel.NetNamedPipe": {
               "target": "Package",
@@ -333,7 +333,7 @@
             },
             "System.ServiceModel.Http": {
               "target": "Package",
-              "version": "[6.0.*, )"
+              "version": "[8.1.1, )"
             },
             "System.ServiceModel.NetNamedPipe": {
               "target": "Package",
