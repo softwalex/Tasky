@@ -55,7 +55,7 @@
               "RelativeDocumentMoniker": "WpfHost\\App.config",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\WpfHost\\App.config",
               "RelativeToolTip": "WpfHost\\App.config",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAB4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2024-11-07T07:51:57.168Z",
               "EditorCaption": ""
@@ -115,7 +115,8 @@
               "RelativeToolTip": "ViewModel\\BaseDB.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAnwC4AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T07:38:49.195Z"
+              "WhenOpened": "2024-11-07T07:38:49.195Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

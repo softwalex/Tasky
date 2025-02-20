@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskClientPC.scripts;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UpdateWindows;
 
@@ -38,6 +39,7 @@ namespace TaskClientPC.UserControls
         }
         private void shiftsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (shiftsListView.SelectedIndex == -1) return;
             try
             {
                 DataBorder.Visibility = Visibility.Visible;
@@ -120,13 +122,17 @@ namespace TaskClientPC.UserControls
         }
         private void DeleteShift(object sender, RoutedEventArgs e)
         {
-            if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
+            if (TaskyMessageBox.Show("ATTENTION!"
+                , "By removing this shift all the tasks that include this shift will be removed") == true)
             {
-                serviceClient.DeleteShift(shift);
-                DataGrid.DataContext = null;
-                DeleteButton.Visibility = Visibility.Collapsed;
-                UpdateButton.Visibility = Visibility.Collapsed;
-                shiftsListView.ItemsSource = serviceClient.GetShifts();
+                if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
+                {
+                    serviceClient.DeleteShift(shift);
+                    DataGrid.DataContext = null;
+                    DeleteButton.Visibility = Visibility.Collapsed;
+                    UpdateButton.Visibility = Visibility.Collapsed;
+                    shiftsListView.ItemsSource = serviceClient.GetShifts();
+                }
             }
         }
 

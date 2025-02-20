@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TaskClientPC.scripts;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UpdateWindows;
 
@@ -41,6 +42,7 @@ namespace TaskClientPC.UserControls
 
         private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (usersListView.SelectedIndex == -1) return;
             DataBorder.Visibility = Visibility.Visible;
             UpdateButton.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Visible;
@@ -83,19 +85,24 @@ namespace TaskClientPC.UserControls
         }
         private void UpdateUser(object sender, RoutedEventArgs e)
         {
+            if (user == null) return;
             UpdateUser updateUser = new UpdateUser(user);
             updateUser.ShowDialog();
         }
 
         private void DeleteUser(object sender, RoutedEventArgs e)
         {
-            if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
+            if (TaskyMessageBox.Show("ATTENTION!"
+                , "By removing this user all the tasks that include this user will be removed") == true)
             {
-                serviceClient.DeleteUser(user);
-                DataGrid.DataContext = null;
-                DeleteButton.Visibility = Visibility.Collapsed;
-                UpdateButton.Visibility = Visibility.Collapsed;
-                usersListView.ItemsSource = serviceClient.GetUsers();
+                if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
+                {
+                    serviceClient.DeleteUser(user);
+                    DataGrid.DataContext = null;
+                    DeleteButton.Visibility = Visibility.Collapsed;
+                    UpdateButton.Visibility = Visibility.Collapsed;
+                    usersListView.ItemsSource = serviceClient.GetUsers();
+                }
             }
         }
         private void FlipCard_Click(object sender, RoutedEventArgs e)
@@ -114,27 +121,27 @@ namespace TaskClientPC.UserControls
             {
                 FrontCard.Visibility = Visibility.Visible;
                 BackCard.Visibility = Visibility.Collapsed;
+
                 FrontCard.Tag = null;
                 BackCard.Tag = null;
 
-            
                 if (TriggerButton.Content.ToString() == "Apply Filters")
                 {
                     if (FilterEmailTextBox.Text != string.Empty)
                     {
                         FilteredUsers.RemoveAll(u => u.email != FilterEmailTextBox.Text);
                     }
-                    if(FilterBirthDatePicker.Text != string.Empty)
+                    if (FilterBirthDatePicker.Text != string.Empty)
                     {
                         FilteredUsers.RemoveAll(u => u.birthday != DateTime.Parse(FilterBirthDatePicker.Text));
                     }
-                    if(FilterUserTypeComboBox.Text != string.Empty)
+                    if (FilterUserTypeComboBox.Text != string.Empty)
                     {
                         FilteredUsers.RemoveAll(u => u.userType != (UserType)Enum.Parse(typeof(UserType), FilterUserTypeComboBox.Text));
                     }
                     usersListView.ItemsSource = FilteredUsers;
                 }
-                if(TriggerButton.Content.ToString() == "Show All Users")
+                if (TriggerButton.Content.ToString() == "Show All Users")
                 {
                     FilterEmailTextBox.Text = string.Empty;
                     FilterBirthDatePicker.Text = string.Empty;
@@ -144,5 +151,6 @@ namespace TaskClientPC.UserControls
                 }
             }
         }
+
     }
 }

@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\updatewindows\\updateuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\usercontrols\\assignments_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\usercontrols\\assignments_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\usercontrols\\shifts_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\usercontrols\\shifts_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\usercontrols\\users_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\usercontrols\\users_usercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\usercontrols\\users_usercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\usercontrols\\users_usercontrol.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\updatewindows\\updateuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\updatewindows\\updateuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskclientpc\\taskclientpc\\updatewindows\\confirmwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\updatewindows\\confirmwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\scripts\\wpfhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\scripts\\wpfhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\scripts\\taskymessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\scripts\\taskymessagebox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\taskclientpc\\updatewindows\\confirmwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E70A07D-CC11-4FF2-8AA2-C273E362B88E}|TaskClientPC\\TaskClientPC.csproj|solutionrelative:taskclientpc\\updatewindows\\confirmwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,72 +60,117 @@
         },
         {
           "DockedWidth": 225,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ConfirmWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
-              "RelativeDocumentMoniker": "TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
-              "RelativeToolTip": "TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:34:38.958Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UpdateUser.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
-              "RelativeDocumentMoniker": "TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
-              "RelativeToolTip": "TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
-              "ViewState": "AgIAAFQAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Title": "Assignments_UserControl.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Assignments_UserControl.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\UserControls\\Assignments_UserControl.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Assignments_UserControl.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\UserControls\\Assignments_UserControl.xaml.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAAwDAAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T20:34:02.418Z",
+              "WhenOpened": "2025-02-20T08:45:03.576Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "LogInWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\LogInWindow.xaml.cs",
-              "RelativeDocumentMoniker": "TaskClientPC\\LogInWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\LogInWindow.xaml.cs",
-              "RelativeToolTip": "TaskClientPC\\LogInWindow.xaml.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAAAC4AAAARAAAAAAAAAA==",
+              "Title": "Shifts_UserControl.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Shifts_UserControl.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\UserControls\\Shifts_UserControl.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Shifts_UserControl.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\UserControls\\Shifts_UserControl.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAxwCkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T12:40:42.532Z",
+              "WhenOpened": "2025-02-20T08:43:59.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "TaskyMessageBox.cs",
-              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\TaskyMessageBox.cs",
-              "RelativeDocumentMoniker": "TaskClientPC\\scripts\\TaskyMessageBox.cs",
-              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\TaskyMessageBox.cs",
-              "RelativeToolTip": "TaskClientPC\\scripts\\TaskyMessageBox.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAkwJ4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Users_UserControl.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Users_UserControl.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\UserControls\\Users_UserControl.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Users_UserControl.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\UserControls\\Users_UserControl.xaml.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAADwv24AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-08T20:31:40.351Z",
+              "WhenOpened": "2025-02-20T06:56:18.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Users_UserControl.xaml",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Users_UserControl.xaml",
+              "RelativeDocumentMoniker": "TaskClientPC\\UserControls\\Users_UserControl.xaml",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UserControls\\Users_UserControl.xaml",
+              "RelativeToolTip": "TaskClientPC\\UserControls\\Users_UserControl.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-20T07:09:51.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UpdateUser.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\UpdateWindows\\UpdateUser.xaml.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAIwFUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T06:55:08.838Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TaskyMessageBox.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\TaskyMessageBox.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\scripts\\TaskyMessageBox.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\TaskyMessageBox.cs",
+              "RelativeToolTip": "TaskClientPC\\scripts\\TaskyMessageBox.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-08T20:31:40.351Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ConfirmWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\UpdateWindows\\ConfirmWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T20:34:38.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "WpfHelper.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\WpfHelper.cs",
               "RelativeDocumentMoniker": "TaskClientPC\\scripts\\WpfHelper.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\scripts\\WpfHelper.cs",
               "RelativeToolTip": "TaskClientPC\\scripts\\WpfHelper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwB8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-03T12:23:36.628Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-03T12:23:36.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LogInWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\LogInWindow.xaml.cs",
+              "RelativeDocumentMoniker": "TaskClientPC\\LogInWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskClientPC\\TaskClientPC\\LogInWindow.xaml.cs",
+              "RelativeToolTip": "TaskClientPC\\LogInWindow.xaml.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAxwC4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-10T12:40:42.532Z"
             }
           ]
         }

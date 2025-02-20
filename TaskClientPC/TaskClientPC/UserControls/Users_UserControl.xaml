@@ -283,8 +283,8 @@
                                       Width="300"
                                       materialDesign:HintAssist.Hint="Select User Type">
                                 <ComboBoxItem>Admin</ComboBoxItem>
-                                <ComboBoxItem>Regular</ComboBoxItem>
-                                <ComboBoxItem>Guest</ComboBoxItem>
+                                <ComboBoxItem>ShiftManager</ComboBoxItem>
+                                <ComboBoxItem>Worker</ComboBoxItem>
                             </ComboBox>
                         </StackPanel>
 

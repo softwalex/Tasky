@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskClientPC.Covertors;
+using TaskClientPC.scripts;
 using TaskClientPC.TaskyServiceReference;
 using TaskClientPC.UpdateWindows;
 
@@ -45,6 +46,7 @@ namespace TaskClientPC.UserControls
         }
         private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (AssignmentsListView.SelectedIndex == -1) return;
             DataBorder.Visibility = Visibility.Visible;
             UpdateButton.Visibility = Visibility.Visible;
             DeleteButton.Visibility = Visibility.Visible;

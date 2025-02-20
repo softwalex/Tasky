@@ -15,9 +15,9 @@ namespace TaskClientPC.scripts
             WindowStyle = WindowStyle.None;
             ResizeMode = ResizeMode.NoResize;
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Height = 250;
+            Height = 500;
             Width = 400;
-            Background = new SolidColorBrush(Colors.White);
+            Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#bab8b5"));
             AllowsTransparency = false;
 
             // Define the layout
@@ -96,7 +96,7 @@ namespace TaskClientPC.scripts
             };
 
             buttonPanel.Children.Add(CreateButton("OK", "#FB8C00", true));
-            buttonPanel.Children.Add(CreateButton("Cancel", "#E0E0E0", false));
+            buttonPanel.Children.Add(CreateButton("Cancel", "#3b3937", false));
 
             return buttonPanel;
         }
