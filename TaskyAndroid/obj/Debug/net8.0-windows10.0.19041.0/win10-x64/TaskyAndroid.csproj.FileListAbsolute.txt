@@ -273,3 +273,7 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-windows1
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\System.ServiceModel.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll

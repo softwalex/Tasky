@@ -46,6 +46,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
+[C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/NewPasswordPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.NewPasswordPage.xaml
+build_metadata.AdditionalFiles.TargetPath = NewPasswordPage.xaml
+build_metadata.AdditionalFiles.RelativePath = NewPasswordPage.xaml
+
 [C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.Resources.Styles.Colors.xaml
@@ -57,3 +63,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/StartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.StartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = StartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = StartPage.xaml

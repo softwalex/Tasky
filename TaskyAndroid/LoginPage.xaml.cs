@@ -16,15 +16,24 @@ public partial class LoginPage : ContentPage
     private async void LoginClick(object sender, EventArgs e)
     {
         string email = EmailEntry.Text, password = PasswordEntry.Text;
-        if (EmailEntry.Text != string.Empty && PasswordEntry.Text != string.Empty)
+        if (PasswordEntry.Text != null && PasswordEntry.Text != null)
         {
             try
             {
                 User user = await _userService.CallServiceAsync(client => client.UserLoginAsync(email, password));
                 if (user != null && user.userType != UserType.Admin)
                 {
-                    //await Navigation.PushAsync(new UserPage(user));
-                    ErrorLabel.Text = "USER FOUND!";
+                    //Check if the user is logging in for the first time
+                    //if yes, user has to change his password from the OTP
+                    try
+                    {
+                        int OTP = int.Parse(user.password);
+                    }
+                    catch (Exception)
+                    {
+                        ErrorLabel.Text = "USER FOUND!";
+                    }
+                    await Navigation.PushAsync(new NewPasswordPage(user));
                 }
                 else
                 {
