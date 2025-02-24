@@ -34,6 +34,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
+[C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/LobbyPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.LobbyPage.xaml
+build_metadata.AdditionalFiles.TargetPath = LobbyPage.xaml
+build_metadata.AdditionalFiles.RelativePath = LobbyPage.xaml
+
 [C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.LoginPage.xaml

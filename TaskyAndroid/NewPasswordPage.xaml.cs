@@ -12,7 +12,7 @@ public partial class NewPasswordPage : ContentPage
         _userService = new ServiceHelper<IUserService>();
         this.user = user;
     }
-    private void SetPasswordClick(object sender, EventArgs e)
+    private async void SetPasswordClick(object sender, EventArgs e)
     {
         ErrorLabel.Text = "";
         string Len = "Password must be more than 5 chars and less than 20 chars";
@@ -44,6 +44,7 @@ public partial class NewPasswordPage : ContentPage
                     try
                     {
                         ErrorLabel.Text = "IT WORKS!";
+                        await Navigation.PushAsync(new LobbyPage());
                         //user.password = PasswordEntry.Text;
                         //await _userService.CallServiceAsync(client => client.UpdateUserAsync(user));
                         //Navigate to StartPage
