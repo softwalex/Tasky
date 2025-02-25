@@ -3,6 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TaskyAndroid.LobbyPage"
              Title="LobbyPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF8036" Offset="0.1"/>
+            <GradientStop Color="#e67d40" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.Resources>
         <Color x:Key="PrimaryColor">#FF5722</Color>
         <Color x:Key="SecondaryColor">#FBE9E7</Color>
@@ -95,15 +101,15 @@
                                FontSize="14"
                                TextColor="{StaticResource Gray600}"
                                FontFamily="OpenSansRegular"/>
-                        <Label Text="Morning Shift"
+                        <Label Text="{Binding shiftName}"
                                HorizontalTextAlignment="Center"
                                FontSize="20"
                                TextColor="{StaticResource Gray900}"
                                FontFamily="OpenSansSemiBold"/>
                         <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
-                            <Label Text="12/2/2025 8:00" Style="{StaticResource DataTextStyle}"/>
+                            <Label Text="{Binding start, StringFormat='{0:MM/dd/yyyy hh:mm}'}" Style="{StaticResource DataTextStyle}"/>
                             <Label Text="-" Style="{StaticResource DataTextStyle}"/>
-                            <Label Text="13/2/2025 8:00" Style="{StaticResource DataTextStyle}"/>
+                            <Label Text="{Binding end, StringFormat='{0:MM/dd/yyyy hh:mm}'}" Style="{StaticResource DataTextStyle}"/>
                         </HorizontalStackLayout>
                     </VerticalStackLayout>
                 </Border>
