@@ -102,7 +102,7 @@
           <xs:element minOccurs="0" name="isClockedIn" type="xs:boolean" />
           <xs:element minOccurs="0" name="isClockedOut" type="xs:boolean" />
           <xs:element minOccurs="0" name="userClockIn" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="userClockOut" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="userClockOut" nillable="true" type="xs:dateTime" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

@@ -181,13 +181,18 @@ namespace WcfService
         #endregion
 
         #region UserInShift
-        public UserInShiftList GetUsersInShift()
+        public UserInShiftList GetAllUsersInShift()
         {
             UserInShiftDB usersInShift = new UserInShiftDB();
             UserInShiftList list = usersInShift.SelectAll();
             return list;
         }
-
+        public UserInShiftList GetUsersInShift(Shift shift)
+        {
+            UserInShiftDB usersInShift = new UserInShiftDB();
+            UserInShiftList list = usersInShift.SelectByShift(shift);
+            return list;
+        }
         public UserInShift GetByUser(User user)
         {
             UserInShiftDB userInShiftDB = new UserInShiftDB();
@@ -198,12 +203,8 @@ namespace WcfService
         public UserInShift NewUserInShift(UserInShift user)
         {
             UserInShiftDB userInShiftDB = new UserInShiftDB();
-            if (userInShiftDB.SelectByUser(user._user) != null)
-            {
-                userInShiftDB.Insert(user);
-                return user;
-            }
-            return null;
+            userInShiftDB.Insert(user);
+            return user;
         }   
 
         public bool UpdateUserInShift(UserInShift user)

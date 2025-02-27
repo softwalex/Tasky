@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TaskyAndroid.Convertors"
              x:Class="TaskyAndroid.LobbyPage"
              Title="LobbyPage">
     <ContentPage.Background>
@@ -10,6 +11,10 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:UsernameAndTypeConvert x:Key="UserConvert"/>
+        </ResourceDictionary>
+
         <Color x:Key="PrimaryColor">#FF5722</Color>
         <Color x:Key="SecondaryColor">#FBE9E7</Color>
         <Color x:Key="AccentColor">#FF8A65</Color>
@@ -49,9 +54,15 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="OpenSansRegular"/>
         </Style>
+
+        <Style x:Key="UserInfoLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            <Setter Property="Margin" Value="0,4,0,0"/>
+        </Style>
     </ContentPage.Resources>
 
-    <Grid RowDefinitions="Auto,*"
+    <Grid RowDefinitions="Auto,Auto,*"
           Padding="20"
           x:Name="MainGrid">
 
@@ -88,14 +99,36 @@
             </Grid>
         </Border>
 
-        <!-- Main Content -->
+        <!-- User Info Card -->
         <Border Grid.Row="1"
+                Style="{StaticResource CardStyle}" 
+                Margin="0,0,0,20"
+                x:Name="UserInfoBorder">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- User Details -->
+                <VerticalStackLayout Grid.Column="1"
+                                    VerticalOptions="Center">
+                    <Label Text="{Binding .,Converter={StaticResource UserConvert}}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="20"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                    <Label Text="{Binding email}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- Main Content -->
+        <Border Grid.Row="2"
                 Style="{StaticResource CardStyle}">
             <VerticalStackLayout Spacing="24">
 
                 <!-- Shift Info Card -->
                 <Border Style="{StaticResource CardStyle}"
-                        BackgroundColor="{StaticResource SecondaryColor}">
+                        BackgroundColor="{StaticResource SecondaryColor}"
+                        x:Name="CurrentShiftInfoBorder">
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Current Shift"
                                FontSize="14"
@@ -114,7 +147,7 @@
                     </VerticalStackLayout>
                 </Border>
 
-                <!-- Clock-In Button -->
+                <!-- Clock-In Button with Loading Animation -->
                 <Frame CornerRadius="100"
                        HasShadow="True"
                        BorderColor="Transparent"
@@ -123,14 +156,38 @@
                        Padding="0"
                        HorizontalOptions="Center"
                        BackgroundColor="{StaticResource PrimaryColor}">
-                    <Button Text="Clock-In"
-                            FontSize="24"
-                            FontFamily="OpenSansBold"
-                            TextColor="White"
-                            BackgroundColor="Transparent"
-                            CornerRadius="100"
-                            HeightRequest="200"
-                            WidthRequest="200"/>
+                    <Grid>
+                        <!-- Button -->
+                        <Button x:Name="ClockInButton"
+                                Text="Clock-In"
+                                Clicked="ClockIn"
+                                FontSize="24"
+                                FontFamily="OpenSansBold"
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                CornerRadius="100"
+                                HeightRequest="200"
+                                WidthRequest="200"
+                                IsVisible="True"/>
+
+                        <!-- Loading Indicator -->
+                        <StackLayout x:Name="LoadingIndicator" 
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center" 
+                                    IsVisible="False">
+                            <ActivityIndicator IsRunning="True" 
+                                               Color="White" 
+                                               HeightRequest="50" 
+                                               WidthRequest="50"
+                                               x:Name="LoadingSpinner"/>
+                            <Label Text="Waiting for your clock-in to be approved..." 
+                                   x:Name="LoadingText"
+                                   TextColor="White" 
+                                   FontSize="14" 
+                                   HorizontalOptions="Center"
+                                   Margin="15,0,0,0"/>
+                        </StackLayout>
+                    </Grid>
                 </Frame>
 
                 <!-- Info Text -->

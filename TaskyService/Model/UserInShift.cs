@@ -49,10 +49,10 @@ namespace Model
 			get { return IsClockedOut; }
 			set { IsClockedOut = value; }
 		}
-		private DateTime UserClockOut;
+		private DateTime? UserClockOut;
 
 		[DataMember]
-		public DateTime userClockOut
+		public DateTime? userClockOut
 		{
 			get { return UserClockOut; }
 			set { UserClockOut = value; }

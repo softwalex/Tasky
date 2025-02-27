@@ -314,7 +314,7 @@ namespace TaskClientPC.TaskyServiceReference {
         private System.DateTime userClockInField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime userClockOutField;
+        private System.Nullable<System.DateTime> userClockOutField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public TaskClientPC.TaskyServiceReference.Shift _shift {
@@ -382,7 +382,7 @@ namespace TaskClientPC.TaskyServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime userClockOut {
+        public System.Nullable<System.DateTime> userClockOut {
             get {
                 return this.userClockOutField;
             }
@@ -683,11 +683,17 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         System.Threading.Tasks.Task<bool> DeleteAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetUsersInShiftResponse")]
-        TaskClientPC.TaskyServiceReference.UserInShiftList GetUsersInShift();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetAllUsersInShiftResponse")]
+        TaskClientPC.TaskyServiceReference.UserInShiftList GetAllUsersInShift();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetAllUsersInShiftResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetAllUsersInShiftAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetUsersInShiftResponse")]
-        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetUsersInShiftAsync();
+        TaskClientPC.TaskyServiceReference.UserInShiftList GetUsersInShift(TaskClientPC.TaskyServiceReference.Shift shift);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetUsersInShiftResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetUsersInShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetByUser", ReplyAction="http://tempuri.org/IUserService/GetByUserResponse")]
         TaskClientPC.TaskyServiceReference.UserInShift GetByUser(TaskClientPC.TaskyServiceReference.User user);
@@ -947,12 +953,20 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.DeleteAssignmentAsync(assignment);
         }
         
-        public TaskClientPC.TaskyServiceReference.UserInShiftList GetUsersInShift() {
-            return base.Channel.GetUsersInShift();
+        public TaskClientPC.TaskyServiceReference.UserInShiftList GetAllUsersInShift() {
+            return base.Channel.GetAllUsersInShift();
         }
         
-        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetUsersInShiftAsync() {
-            return base.Channel.GetUsersInShiftAsync();
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetAllUsersInShiftAsync() {
+            return base.Channel.GetAllUsersInShiftAsync();
+        }
+        
+        public TaskClientPC.TaskyServiceReference.UserInShiftList GetUsersInShift(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetUsersInShift(shift);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.UserInShiftList> GetUsersInShiftAsync(TaskClientPC.TaskyServiceReference.Shift shift) {
+            return base.Channel.GetUsersInShiftAsync(shift);
         }
         
         public TaskClientPC.TaskyServiceReference.UserInShift GetByUser(TaskClientPC.TaskyServiceReference.User user) {

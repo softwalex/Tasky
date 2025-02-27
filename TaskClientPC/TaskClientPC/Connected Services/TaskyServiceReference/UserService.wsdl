@@ -139,6 +139,12 @@
   <wsdl:message name="IUserService_DeleteAssignment_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAssignmentResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUsersInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetAllUsersInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersInShiftResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetUsersInShift_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersInShift" />
   </wsdl:message>
@@ -287,6 +293,10 @@
     <wsdl:operation name="DeleteAssignment">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteAssignment" message="tns:IUserService_DeleteAssignment_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteAssignmentResponse" message="tns:IUserService_DeleteAssignment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetAllUsersInShift" message="tns:IUserService_GetAllUsersInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetAllUsersInShiftResponse" message="tns:IUserService_GetAllUsersInShift_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUsersInShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersInShift" message="tns:IUserService_GetUsersInShift_InputMessage" />
@@ -522,6 +532,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAssignment">
       <soap:operation soapAction="http://tempuri.org/IUserService/DeleteAssignment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsersInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetAllUsersInShift" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

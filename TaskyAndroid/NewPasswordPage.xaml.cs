@@ -44,7 +44,7 @@ public partial class NewPasswordPage : ContentPage
                     try
                     {
                         ErrorLabel.Text = "IT WORKS!";
-                        await Navigation.PushAsync(new LobbyPage());
+                        await Navigation.PushAsync(new LobbyPage(user));
                         //user.password = PasswordEntry.Text;
                         //await _userService.CallServiceAsync(client => client.UpdateUserAsync(user));
                         //Navigate to StartPage

@@ -82,7 +82,7 @@ namespace ViewModel
             object result = null;
             try
             {
-                connection.Open(); //פתיחת תקשורת עם המסד
+                 connection.Open();
                 result = command.ExecuteScalar(); //ביצוע השאילתה וקבלת ערך בודד
             }
             catch (Exception ex)

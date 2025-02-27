@@ -33,13 +33,13 @@ namespace TaskClientPC.UserControls
         {
             InitializeComponent();
             userServiceClient = new UserServiceClient();
-            assignmentList = userServiceClient.GetAssignments();
             shiftList = userServiceClient.GetShifts();
-            userInShiftList = userServiceClient.GetUsersInShift();
+
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += DispatcherTimer_Tick; ;
             dispatcherTimer.Interval = new TimeSpan(0, 1, 0);
             dispatcherTimer.Start();
+
             shift= GetCurrentShift();
             LoadDashBoard();
         }
@@ -64,36 +64,41 @@ namespace TaskClientPC.UserControls
         { 
             if (shift != null)
             {
-                foreach (UserInShift u in userServiceClient.GetUsersInShift())
-                {
-                    if (u._shift != shift)
-                    {
-                        userInShiftList.Remove(u);
-                    }
-                }
+                //foreach (UserInShift u in userServiceClient.GetUsersInShift())
+                //{
+                //    if (u._shift != shift)
+                //    {
+                //        userInShiftList.Remove(u);
+                //    }
+                //}
+                //userInShiftList.RemoveAll(u => u._shift != shift);
 
+                assignmentList = userServiceClient.GetAssignmentByShift(shift);
+                userInShiftList = userServiceClient.GetUsersInShift(shift);
+                usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
                 CurrentShift.DataContext = shift;
-                usersListView.ItemsSource = userInShiftList;
                 InProgressBlock.Text=CompletedBlock.Text = "0";
-                AssignmentsListView.ItemsSource = userServiceClient.GetAssignmentByShift(shift);
-                try
-                {
-                    foreach(Assignment a in AssignmentsListView.Items)
-                    {
-                        if (a.doneByUser != null)
-                        {
-                            CompletedBlock.Text = (int.Parse(CompletedBlock.Text)+1).ToString();
-                        }
-                        else
-                        {
-                            InProgressBlock.Text = (int.Parse(InProgressBlock.Text)+1).ToString();
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    StatisticsGrid.Visibility = Visibility.Collapsed;
-                }
+                AssignmentsListView.ItemsSource = assignmentList;
+                CompletedBlock.Text=assignmentList.FindAll(a=>a.doneByUser!=null).Count.ToString();
+                InProgressBlock.Text=assignmentList.FindAll(a=>a.doneByUser==null).Count.ToString();
+                //try
+                //{
+                //    foreach(Assignment a in AssignmentsListView.Items)
+                //    {
+                //        if (a.doneByUser != null)
+                //        {
+                //            CompletedBlock.Text = (int.Parse(CompletedBlock.Text)+1).ToString();
+                //        }
+                //        else
+                //        {
+                //            InProgressBlock.Text = (int.Parse(InProgressBlock.Text)+1).ToString();
+                //        }
+                //    }
+                //}
+                //catch (Exception)
+                //{
+                //    StatisticsGrid.Visibility = Visibility.Collapsed;
+                //}
             }
             else
             {
@@ -109,6 +114,16 @@ namespace TaskClientPC.UserControls
         }
 
         private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ApproveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DenyButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

@@ -338,7 +338,7 @@ namespace UserServer
         
         private System.DateTime userClockInField;
         
-        private System.DateTime userClockOutField;
+        private System.Nullable<System.DateTime> userClockOutField;
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public UserServer.Shift _shift
@@ -426,7 +426,7 @@ namespace UserServer
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime userClockOut
+        public System.Nullable<System.DateTime> userClockOut
         {
             get
             {
@@ -685,8 +685,11 @@ namespace UserServer
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         System.Threading.Tasks.Task<bool> DeleteAssignmentAsync(UserServer.Assignment assignment);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetAllUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetAllUsersInShiftResponse")]
+        System.Threading.Tasks.Task<UserServer.UserInShiftList> GetAllUsersInShiftAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersInShift", ReplyAction="http://tempuri.org/IUserService/GetUsersInShiftResponse")]
-        System.Threading.Tasks.Task<UserServer.UserInShiftList> GetUsersInShiftAsync();
+        System.Threading.Tasks.Task<UserServer.UserInShiftList> GetUsersInShiftAsync(UserServer.Shift shift);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetByUser", ReplyAction="http://tempuri.org/IUserService/GetByUserResponse")]
         System.Threading.Tasks.Task<UserServer.UserInShift> GetByUserAsync(UserServer.User user);
@@ -876,9 +879,14 @@ namespace UserServer
             return base.Channel.DeleteAssignmentAsync(assignment);
         }
         
-        public System.Threading.Tasks.Task<UserServer.UserInShiftList> GetUsersInShiftAsync()
+        public System.Threading.Tasks.Task<UserServer.UserInShiftList> GetAllUsersInShiftAsync()
         {
-            return base.Channel.GetUsersInShiftAsync();
+            return base.Channel.GetAllUsersInShiftAsync();
+        }
+        
+        public System.Threading.Tasks.Task<UserServer.UserInShiftList> GetUsersInShiftAsync(UserServer.Shift shift)
+        {
+            return base.Channel.GetUsersInShiftAsync(shift);
         }
         
         public System.Threading.Tasks.Task<UserServer.UserInShift> GetByUserAsync(UserServer.User user)

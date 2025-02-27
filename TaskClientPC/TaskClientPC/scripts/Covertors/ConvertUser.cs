@@ -17,7 +17,11 @@ namespace TaskClientPC.Covertors
             if(value == null) return null;
             try
             {
-                User user = (User)value;
+                User user=null;
+                if(value is User)
+                    user = (User)value;
+                if (value is UserInShift)
+                    user = ((UserInShift)value)._user;
                 if(user == null) return null;
                 return $"{user.firstname} {user.lastname} ({user.email})";
             }

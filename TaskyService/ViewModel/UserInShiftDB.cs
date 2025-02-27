@@ -1,6 +1,7 @@
 ﻿using Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,20 +16,21 @@ namespace ViewModel
         }
         protected override BaseEntity CreateModel(BaseEntity entity)
         {
-            UserInShift userInShift = new UserInShift();
+            UserInShift userInShift =entity as UserInShift;
+            userInShift.ID = int.Parse(reader["id"].ToString());
 
             UserDB user = new UserDB();
-            int id_User = int.Parse(reader["_User"].ToString());
+            int id_User = int.Parse(reader["User"].ToString());
             userInShift._user = user.SelectById(id_User);
 
             ShiftDB shift = new ShiftDB();
-            int id_Shift = int.Parse(reader["_Shift"].ToString());
+            int id_Shift = int.Parse(reader["Shift"].ToString());
             userInShift._shift = shift.SelectById(id_Shift);
 
             userInShift.isClockedIn = bool.Parse(reader["IsClockedIn"].ToString().ToLower());
             userInShift.userClockIn = DateTime.Parse(reader["UserClockIn"].ToString());
             userInShift.isClockedOut = bool.Parse(reader["IsClockedOut"].ToString());
-            userInShift.userClockOut = DateTime.Parse(reader["UserClockOut"].ToString()); 
+            userInShift.userClockOut = (reader["UserClockOut"].ToString().Equals(string.Empty))? null: DateTime.Parse(reader["UserClockOut"].ToString()); 
             
             return userInShift;
         }
@@ -66,24 +68,24 @@ namespace ViewModel
         {
             command.Parameters.Clear();
             command.CommandText = "SELECT * FROM UserInShiftTable WHERE Shift=@sh";
-            command.Parameters.AddWithValue("@sh", shift);
+            command.Parameters.AddWithValue("@sh", shift.ID);
             UserInShiftList list = new UserInShiftList(base.ExecuteCommand());
             return list;
         }
         public int Insert(UserInShift userInShift)
         {
             command.Parameters.Clear();
-            command.CommandText = @"INSERT INTO UserInShiftTable (User, Shift, IsClockedIn, UserClockIn, IsClockedOut, UserClockOut) VALUES " +
-                "(@User, @Shift, @IsClockedIn, @UserClockIn, @IsClockedOut, @UserClockOut);SELECT SCOPE_IDENTITY();";
+            command.CommandText = @"INSERT INTO UserInShiftTable ([User], Shift, IsClockedIn, UserClockIn, IsClockedOut) 
+                VALUES (@User, @Shift, @IsClockedIn, @UserClockIn, @IsClockedOut);SELECT SCOPE_IDENTITY();";
            
-            command.Parameters.AddWithValue("@User", userInShift._user);
-            command.Parameters.AddWithValue("@Shift", userInShift._shift);
+            command.Parameters.AddWithValue("@User", userInShift._user.ID);
+            command.Parameters.AddWithValue("@Shift", userInShift._shift.ID);
             command.Parameters.AddWithValue("@IsClockedIn", userInShift.isClockedIn);
             command.Parameters.AddWithValue("@UserClockIn", userInShift.userClockIn);
             command.Parameters.AddWithValue("@IsClockedOut", userInShift.isClockedOut);
-            command.Parameters.AddWithValue("@UserClockOut", userInShift.userClockOut);
+            //command.Parameters.AddWithValue("@UserClockOut", userInShift.userClockOut);
 
-            return Convert.ToInt32(command.ExecuteScalar());
+            return Convert.ToInt32(base.ExecuteScalar());
         }
         public int Update(UserInShift userInShift)
         {
