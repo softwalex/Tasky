@@ -28,7 +28,7 @@ public partial class LobbyPage : ContentPage
         userInShift = new UserInShift();
         userInShiftList = new UserInShiftList();
 
-		CurrentUser = user;
+        CurrentUser = user;
 		UserInfoBorder.BindingContext = CurrentUser;
 		_ = SetCurrentShiftBindingAsync();
 
@@ -48,6 +48,10 @@ public partial class LobbyPage : ContentPage
 		}
         CurrentShiftInfoBorder.BindingContext = CurrentShift;
         userInShiftList = await _userService.CallServiceAsync(c => c.GetUsersInShiftAsync(CurrentShift));
+        if(CurrentShift != null)
+            await AlreadyInShift();
+        else
+            ClockInFarme.IsVisible = false;
     }
 
     private async void ClockIn(object sender, EventArgs e)
@@ -65,6 +69,19 @@ public partial class LobbyPage : ContentPage
             await _userService.CallServiceAsync(c => c.NewUserInShiftAsync(userInShift));
             ShowLoadingAnimation(true);
         }
+    }
+    private async Task AlreadyInShift()
+    {
+        UserInShiftList userInShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
+        foreach(UserInShift us in userInShifts)
+        {
+            if(us._user.ID == CurrentUser.ID)
+            {
+                ClockInFarme.IsVisible = false;
+                return;
+            }
+        }
+        ClockInFarme.IsVisible = true;
     }
     private void TimerElapsed(object? sender, ElapsedEventArgs e)
     {
@@ -84,9 +101,6 @@ public partial class LobbyPage : ContentPage
             }
         });
     }
-
-
-
     protected override void OnDisappearing()
     {
         base.OnDisappearing();

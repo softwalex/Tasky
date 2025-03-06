@@ -148,7 +148,8 @@
                 </Border>
 
                 <!-- Clock-In Button with Loading Animation -->
-                <Frame CornerRadius="100"
+                <Frame x:Name="ClockInFarme"
+                       CornerRadius="100"
                        HasShadow="True"
                        BorderColor="Transparent"
                        HeightRequest="200"
@@ -167,8 +168,7 @@
                                 BackgroundColor="Transparent"
                                 CornerRadius="100"
                                 HeightRequest="200"
-                                WidthRequest="200"
-                                IsVisible="True"/>
+                                WidthRequest="200"/>
 
                         <!-- Loading Indicator -->
                         <StackLayout x:Name="LoadingIndicator" 

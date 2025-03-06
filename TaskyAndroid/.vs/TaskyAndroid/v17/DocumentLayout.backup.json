@@ -56,9 +56,10 @@
               "RelativeDocumentMoniker": "LobbyPage.xaml",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml",
               "RelativeToolTip": "LobbyPage.xaml",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAswLEAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAAJYAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T11:41:04.074Z"
+              "WhenOpened": "2025-02-24T11:41:04.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,7 +69,7 @@
               "RelativeDocumentMoniker": "LobbyPage.xaml.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml.cs",
               "RelativeToolTip": "LobbyPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwDUAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T13:50:04.325Z",
               "EditorCaption": ""
