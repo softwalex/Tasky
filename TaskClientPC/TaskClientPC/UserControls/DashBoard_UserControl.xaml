@@ -144,6 +144,7 @@
                                                 </StackPanel>
                                             </Button>
                                             <Button x:Name="DenyButton"
+                                                  Tag="{Binding .}"
                                                   Style="{StaticResource ActionButtonStyle}" 
                                                   Background="#F44336" 
                                                   Foreground="White" 

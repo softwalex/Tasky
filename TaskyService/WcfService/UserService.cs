@@ -221,7 +221,9 @@ namespace WcfService
         public bool DeleteUserInShift(UserInShift user)
         {
             UserInShiftDB userInShiftDB = new UserInShiftDB();
-            if (userInShiftDB.SelectByUser(user._user) != null)
+            var userInList = userInShiftDB.SelectAll().FirstOrDefault(u => u.ID == user.ID);
+
+            if (userInList != null)
             {
                 userInShiftDB.Delete(user.ID);
                 return true;

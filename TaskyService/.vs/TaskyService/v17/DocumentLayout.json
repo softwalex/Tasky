@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|solutionrelative:viewmodel\\userinshiftdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C3766AB0-E74D-4240-83C3-7A1AC0476734}|WcfService\\WcfService.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\wcfservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C3766AB0-E74D-4240-83C3-7A1AC0476734}|WcfService\\WcfService.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\wcfservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C3766AB0-E74D-4240-83C3-7A1AC0476734}|WcfService\\WcfService.csproj|solutionrelative:wcfservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -62,8 +62,7 @@
               "RelativeToolTip": "WcfService\\UserService.cs",
               "ViewState": "AgIAALIAAAAAAAAAAAAtwLoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:17:34.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:17:34.026Z"
             },
             {
               "$type": "Document",

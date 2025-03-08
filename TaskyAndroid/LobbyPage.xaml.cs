@@ -6,9 +6,9 @@ namespace TaskyAndroid;
 public partial class LobbyPage : ContentPage
 {
     private readonly ServiceHelper<IUserService> _userService;
-	private ShiftList shifts;
-	private Shift CurrentShift;
-	private User CurrentUser;
+    private Shift CurrentShift;
+    private User CurrentUser;
+    private ShiftList shifts;
     private UserInShift userInShift;
     private UserInShiftList userInShiftList;
     private System.Timers.Timer _timer;
@@ -75,8 +75,13 @@ public partial class LobbyPage : ContentPage
         UserInShiftList userInShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
         foreach(UserInShift us in userInShifts)
         {
-            if(us._user.ID == CurrentUser.ID)
+            if(us._user.ID == CurrentUser.ID && us._shift == CurrentShift)
             {
+                if (!us.isClockedIn)
+                {
+                    ShowLoadingAnimation(true);
+                    break;
+                }
                 ClockInFarme.IsVisible = false;
                 return;
             }

@@ -125,7 +125,11 @@ namespace TaskClientPC.UserControls
 
         private void DenyButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = sender as Button;
+            userServiceClient.DeleteUserInShift(button.Tag as UserInShift);
 
+            userInShiftList = userServiceClient.GetUsersInShift(shift);
+            usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
         }
     }
 }
