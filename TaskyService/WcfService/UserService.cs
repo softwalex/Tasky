@@ -210,7 +210,7 @@ namespace WcfService
         public bool UpdateUserInShift(UserInShift user)
         {
             UserInShiftDB userInShiftDB = new UserInShiftDB();
-            if (userInShiftDB.SelectByUser(user._user) != null)
+            if (userInShiftDB.SelectById(user.ID) != null)
             {
                 userInShiftDB.Update(user);
                 return true;

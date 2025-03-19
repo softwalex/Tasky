@@ -75,7 +75,7 @@ public partial class LobbyPage : ContentPage
         UserInShiftList userInShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
         foreach(UserInShift us in userInShifts)
         {
-            if(us._user.ID == CurrentUser.ID && us._shift == CurrentShift)
+            if(us._user.ID == CurrentUser.ID && us._shift.ID == CurrentShift.ID)
             {
                 if (!us.isClockedIn)
                 {

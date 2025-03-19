@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "UTmrX/X+R44=",
+  "dgSpecHash": "KSMimei3BQY=",
   "success": true,
   "projectFilePath": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\TaskyAndroid.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sasha\\.nuget\\packages\\communitytoolkit.maui\\8.0.0\\communitytoolkit.maui.8.0.0.nupkg.sha512",
+    "C:\\Users\\sasha\\.nuget\\packages\\communitytoolkit.maui.core\\8.0.0\\communitytoolkit.maui.core.8.0.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
@@ -99,6 +101,7 @@
     "C:\\Users\\sasha\\.nuget\\packages\\system.servicemodel.nettcp\\6.0.0\\system.servicemodel.nettcp.6.0.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\system.servicemodel.primitives\\8.1.1\\system.servicemodel.primitives.8.1.1.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\system.servicemodel.security\\6.0.0\\system.servicemodel.security.6.0.0.nupkg.sha512",
+    "C:\\Users\\sasha\\.nuget\\packages\\system.speech\\8.0.0\\system.speech.8.0.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\sasha\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",

@@ -90,16 +90,16 @@ namespace ViewModel
         public int Update(UserInShift userInShift)
         {
             command.Parameters.Clear();
-            command.CommandText = @"UPDATE INTO UserInShiftTable SET " +
-                "User = @User, Shift = @Shift, IsClockedIn = @IsClockedIn, UserClockIn = @UserClockIn, IsClockedOut = @IsClockedOut, UserClockOut = @UserClockOut " +
+            command.CommandText = @"UPDATE UserInShiftTable SET " +
+                "[User] = @User, Shift = @Shift, IsClockedIn = @IsClockedIn, UserClockIn = @UserClockIn, IsClockedOut = @IsClockedOut " +
                 "WHERE Id = @Id";
 
-            command.Parameters.AddWithValue("@User", userInShift._user);
-            command.Parameters.AddWithValue("@Shift", userInShift._shift);
+            command.Parameters.AddWithValue("@User", userInShift._user.ID);
+            command.Parameters.AddWithValue("@Shift", userInShift._shift.ID);
             command.Parameters.AddWithValue("@IsClockedIn", userInShift.isClockedIn);
             command.Parameters.AddWithValue("@UserClockIn", userInShift.userClockIn);
             command.Parameters.AddWithValue("@IsClockedOut", userInShift.isClockedOut);
-            command.Parameters.AddWithValue("@UserClockOut", userInShift.userClockOut);
+            //command.Parameters.AddWithValue("@UserClockOut", userInShift.userClockOut);
             command.Parameters.AddWithValue("@Id", userInShift.ID);
 
             return Convert.ToInt32(base.ExecuteScalar());

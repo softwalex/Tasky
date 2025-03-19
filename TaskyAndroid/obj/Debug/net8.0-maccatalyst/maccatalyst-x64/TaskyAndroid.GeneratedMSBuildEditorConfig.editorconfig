@@ -71,3 +71,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.StartPage.xaml
 build_metadata.AdditionalFiles.TargetPath = StartPage.xaml
 build_metadata.AdditionalFiles.RelativePath = StartPage.xaml
+
+[C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/TasksPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.TasksPage.xaml
+build_metadata.AdditionalFiles.TargetPath = TasksPage.xaml
+build_metadata.AdditionalFiles.RelativePath = TasksPage.xaml

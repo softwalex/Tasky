@@ -132,6 +132,7 @@
                                         <StackPanel x:Name="ActionsSP" Orientation="Horizontal">
                                             <!-- Modified buttons with visibility binding directly -->
                                             <Button x:Name="ApproveButton"
+                                                  Tag="{Binding .}"
                                                   Style="{StaticResource ActionButtonStyle}" 
                                                   Background="#4CAF50" 
                                                   Foreground="White" 

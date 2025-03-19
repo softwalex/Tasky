@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\lobbypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:lobbypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\taskspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:taskspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\convertors\\usernameandtypeconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:convertors\\usernameandtypeconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\taskspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:taskspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\lobbypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:lobbypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\lobbypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:lobbypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\convertors\\usernameandtypeconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|solutionrelative:convertors\\usernameandtypeconvert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{673B2743-98EA-4FDE-9D21-0E7D2C1A7242}|TaskyAndroid.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyandroid\\newpasswordpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -51,31 +59,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "TasksPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\TasksPage.xaml.cs",
+              "RelativeDocumentMoniker": "TasksPage.xaml.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\TasksPage.xaml.cs",
+              "RelativeToolTip": "TasksPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-19T22:03:44.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TasksPage.xaml",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\TasksPage.xaml",
+              "RelativeDocumentMoniker": "TasksPage.xaml",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\TasksPage.xaml",
+              "RelativeToolTip": "TasksPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-19T22:02:18.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "LobbyPage.xaml",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml",
               "RelativeDocumentMoniker": "LobbyPage.xaml",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml",
               "RelativeToolTip": "LobbyPage.xaml",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAAAJYAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAAAGUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-24T11:41:04.074Z"
+              "WhenOpened": "2025-02-24T11:41:04.074Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "LobbyPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml.cs",
               "RelativeDocumentMoniker": "LobbyPage.xaml.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LobbyPage.xaml.cs",
               "RelativeToolTip": "LobbyPage.xaml.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwAgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T13:50:04.325Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "UsernameAndTypeConvert.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\Convertors\\UsernameAndTypeConvert.cs",
               "RelativeDocumentMoniker": "Convertors\\UsernameAndTypeConvert.cs",
@@ -83,24 +118,24 @@
               "RelativeToolTip": "Convertors\\UsernameAndTypeConvert.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T13:06:30.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T13:06:30.863Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "AppShell.xaml",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\AppShell.xaml",
               "RelativeDocumentMoniker": "AppShell.xaml",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\AppShell.xaml",
               "RelativeToolTip": "AppShell.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-26T13:38:51.435Z"
+              "WhenOpened": "2025-02-26T13:38:51.435Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "NewPasswordPage.xaml",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\NewPasswordPage.xaml",
               "RelativeDocumentMoniker": "NewPasswordPage.xaml",
@@ -108,11 +143,12 @@
               "RelativeToolTip": "NewPasswordPage.xaml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-20T20:35:57.828Z"
+              "WhenOpened": "2025-02-20T20:35:57.828Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "NewPasswordPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\NewPasswordPage.xaml.cs",
               "RelativeDocumentMoniker": "NewPasswordPage.xaml.cs",
@@ -124,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "LoginPage.xaml",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyAndroid\\LoginPage.xaml",
               "RelativeDocumentMoniker": "LoginPage.xaml",
@@ -132,7 +168,8 @@
               "RelativeToolTip": "LoginPage.xaml",
               "ViewState": "AgIAAA8AAAAAAAAAAIBJwCUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-11T20:31:25.242Z"
+              "WhenOpened": "2025-02-11T20:31:25.242Z",
+              "EditorCaption": ""
             }
           ]
         }
