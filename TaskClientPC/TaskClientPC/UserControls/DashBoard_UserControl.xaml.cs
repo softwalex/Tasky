@@ -120,10 +120,8 @@ namespace TaskClientPC.UserControls
 
         private void ApproveButton_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: approve clock in by: isclockedin == true and send it to service
+            //Approve clock in by: isclockedin == true and send it to service
             //update code in MAUI project, current code: stays in the looby while the big button is collapsed
-
-            //CODE TO TEST!!!
             Button button = sender as Button;
             UserInShift userToUpdate = userServiceClient.GetAllUsersInShift().FirstOrDefault(u => u.ID == (button.Tag as UserInShift).ID);
             userToUpdate.isClockedIn = true;
