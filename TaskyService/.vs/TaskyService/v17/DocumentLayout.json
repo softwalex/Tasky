@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\model\\userinshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|solutionrelative:model\\userinshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|solutionrelative:model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|solutionrelative:viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -60,6 +64,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UserInShift.cs",
+              "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\Model\\UserInShift.cs",
+              "RelativeDocumentMoniker": "Model\\UserInShift.cs",
+              "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\Model\\UserInShift.cs",
+              "RelativeToolTip": "Model\\UserInShift.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-21T19:03:58.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Assignment.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\Model\\Assignment.cs",
               "RelativeDocumentMoniker": "Model\\Assignment.cs",
@@ -72,7 +89,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "AssignmentDB.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\ViewModel\\AssignmentDB.cs",
               "RelativeDocumentMoniker": "ViewModel\\AssignmentDB.cs",
@@ -80,12 +97,11 @@
               "RelativeToolTip": "ViewModel\\AssignmentDB.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAswH8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T21:12:05.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T21:12:05.052Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BaseDB.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\ViewModel\\BaseDB.cs",
               "RelativeDocumentMoniker": "ViewModel\\BaseDB.cs",
@@ -93,11 +109,12 @@
               "RelativeToolTip": "ViewModel\\BaseDB.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAiwFgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T18:21:53.258Z"
+              "WhenOpened": "2025-03-19T18:21:53.258Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "dbo.UserTable.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserTable.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserTable.sql",
@@ -106,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "dbo.UserInShiftTable.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserInShiftTable.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserInShiftTable.sql",
@@ -115,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserInShiftDB.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\ViewModel\\UserInShiftDB.cs",
               "RelativeDocumentMoniker": "ViewModel\\UserInShiftDB.cs",
@@ -127,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\WcfService\\UserService.cs",
               "RelativeDocumentMoniker": "WcfService\\UserService.cs",
@@ -139,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "dbo.ShiftTable.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.ShiftTable.sql",
               "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.ShiftTable.sql",
@@ -148,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "App.config",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\WpfHost\\App.config",
               "RelativeDocumentMoniker": "WpfHost\\App.config",
@@ -160,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\WcfService\\IUserService.cs",
               "RelativeDocumentMoniker": "WcfService\\IUserService.cs",

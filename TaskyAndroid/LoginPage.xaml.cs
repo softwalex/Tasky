@@ -1,4 +1,5 @@
 using TaskyAndroid.scripts;
+using TaskyAndroid.scripts.Service;
 using UserServer;
 namespace TaskyAndroid;
 
@@ -21,6 +22,7 @@ public partial class LoginPage : ContentPage
             try
             {
                 User user = await _userService.CallServiceAsync(client => client.UserLoginAsync(email, password));
+                //User user = await Task.Run(() => ServiceClientProvider.Instance.UserService.UserLoginAsync(email, password));
                 if (user != null && user.userType != UserType.Admin)
                 {
                     //Check if the user is logging in for the first time

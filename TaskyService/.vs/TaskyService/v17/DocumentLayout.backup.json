@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|solutionrelative:model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|solutionrelative:viewmodel\\assignmentdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -80,8 +80,7 @@
               "RelativeToolTip": "ViewModel\\AssignmentDB.cs",
               "ViewState": "AgIAAGgAAAAAAAAAAAAswH8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-19T21:12:05.052Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-19T21:12:05.052Z"
             },
             {
               "$type": "Document",

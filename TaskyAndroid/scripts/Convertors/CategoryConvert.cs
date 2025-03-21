@@ -13,17 +13,25 @@ namespace TaskyAndroid.Convertors
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
             if (value == null) return null;
+
             try
             {
-                Category category = (Category)value;
-                if (value == null) return null;
-                return $"{category.name}";
+                // Use pattern matching to safely cast the value to Category
+                if (value is Category category)
+                {
+                    return $"{category.name}";
+                }
+                else
+                {
+                    return string.Empty;  // Return an empty string if the value is not of type Category
+                }
             }
             catch (Exception)
             {
-                return string.Empty;
+                return string.Empty;  // Handle unexpected errors gracefully
             }
         }
+
 
         public object? ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture)
         {

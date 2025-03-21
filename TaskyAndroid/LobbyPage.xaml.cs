@@ -30,7 +30,7 @@ public partial class LobbyPage : ContentPage
 
         CurrentUser = user;
 		UserInfoBorder.BindingContext = CurrentUser;
-		_ = SetCurrentShiftBindingAsync();
+        _ = SetCurrentShiftBindingAsync();
 
     }
 	public async Task SetCurrentShiftBindingAsync()
@@ -83,6 +83,7 @@ public partial class LobbyPage : ContentPage
                     break;
                 }
                 ClockInFarme.IsVisible = false;
+                await Navigation.PushAsync(new TasksPage(us));
                 return;
             }
         }

@@ -5,36 +5,150 @@
              xmlns:local="clr-namespace:TaskyAndroid.Convertors"
              x:Class="TaskyAndroid.TasksPage"
              Title="TasksPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF8036" Offset="0.1"/>
+            <GradientStop Color="#e67d40" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:UsernameAndTypeConvert x:Key="UserConvert"/>
             <local:CategoryConvert x:Key="CategoryConvert"/>
         </ResourceDictionary>
+        <Color x:Key="PrimaryColor">#FF5722</Color>
+        <Color x:Key="SecondaryColor">#FBE9E7</Color>
+        <Color x:Key="AccentColor">#FF8A65</Color>
+
+        <Style x:Key="HeaderButtonStyle" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="Padding" Value="20,0"/>
+            <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black"
+                            Offset="0,2"
+                            Radius="4"
+                            Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CardStyle" TargetType="Border">
+            <Setter Property="Stroke" Value="Transparent"/>
+            <Setter Property="StrokeShape" Value="RoundRectangle 12"/>
+            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Gray600}}"/>
+            <Setter Property="Padding" Value="16"/>
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black"
+                            Offset="0,2"
+                            Radius="6"
+                            Opacity="0.2"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DataTextStyle" TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontFamily" Value="OpenSansRegular"/>
+        </Style>
+
+        <Style x:Key="UserInfoLabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            <Setter Property="TextColor" Value="{StaticResource Gray600}"/>
+            <Setter Property="Margin" Value="0,4,0,0"/>
+        </Style>
     </ContentPage.Resources>
-    <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="10">
-            <CollectionView ItemsSource="{Binding Assignments}" SelectionMode="None">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <toolkit:Expander>
-                            <toolkit:Expander.Header>
-                                <Frame BorderColor="#BDBDBD" CornerRadius="10" Padding="15" HasShadow="True" BackgroundColor="White">
-                                    <Label Text="{Binding subject}" FontSize="Large" TextColor="#212121"/>
-                                </Frame>
-                            </toolkit:Expander.Header>
-                            <toolkit:Expander.Content>
-                                <Frame BorderColor="#E0E0E0" CornerRadius="10" Padding="15" BackgroundColor="White">
-                                    <VerticalStackLayout Spacing="10">
-                                        <Label Text="{Binding ., Converter={StaticResource CategoryConvert}}" TextColor="#757575"/>
-                                        <Label Text="{Binding description}" TextColor="#757575"/>
-                                        <Button Text="Submit Task" BackgroundColor="#FF9800" TextColor="White"/>
-                                    </VerticalStackLayout>
-                                </Frame>
-                            </toolkit:Expander.Content>
-                        </toolkit:Expander>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="20"
+          x:Name="MainGrid">
+
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Style="{StaticResource CardStyle}"
+                Margin="0,0,0,20">
+            <Grid ColumnDefinitions="Auto,*,Auto"
+                  RowSpacing="0">
+
+                <!-- Logo -->
+                <HorizontalStackLayout Grid.Column="0"
+                                      Spacing="8">
+                    <Image Source="taskylogo.png"
+                           HeightRequest="50"
+                           WidthRequest="70"/>
+                </HorizontalStackLayout>
+
+                <!-- My Shifts Button -->
+                <Button Grid.Column="1"
+                        Text="My Shifts"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        BackgroundColor="{StaticResource SecondaryColor}"
+                        TextColor="{StaticResource PrimaryColor}"
+                        FontFamily="OpenSansSemiBold"
+                        Margin="10,0"/>
+
+                <!-- Logout Button -->
+                <Button Grid.Column="2"
+                        Text="Logout"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        BackgroundColor="{StaticResource PrimaryColor}"
+                        TextColor="White"/>
+            </Grid>
+        </Border>
+
+        <!-- User Info Card -->
+        <Border Grid.Row="1"
+                Style="{StaticResource CardStyle}" 
+                Margin="0,0,0,20"
+                x:Name="UserInfoBorder">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- User Details -->
+                <VerticalStackLayout Grid.Column="1"
+                                    VerticalOptions="Center">
+                    <Label Text="{Binding .,Converter={StaticResource UserConvert}}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="20"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                    <Label Text="{Binding email}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" 
+                Style="{StaticResource CardStyle}" 
+                x:Name="TaskBoard">
+            <ScrollView>
+                <VerticalStackLayout Padding="10" Spacing="10">
+                    <CollectionView SelectionMode="None" x:Name="TaskList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <toolkit:Expander>
+                                    <toolkit:Expander.Header>
+                                        <Frame BorderColor="#BDBDBD" CornerRadius="10" Padding="15" HasShadow="True" BackgroundColor="White">
+                                            <Label Text="{Binding subject}" FontSize="Large" TextColor="#212121"/>
+                                        </Frame>
+                                    </toolkit:Expander.Header>
+                                    <toolkit:Expander.Content>
+                                        <Frame BorderColor="#E0E0E0" CornerRadius="10" Padding="15" BackgroundColor="White">
+                                            <VerticalStackLayout Spacing="10">
+                                                <Label Text="{Binding ., Converter={StaticResource CategoryConvert}}" TextColor="#757575"/>
+                                                <Label Text="{Binding description}" TextColor="#757575"/>
+                                                <Button Text="Submit Task" BackgroundColor="#FF9800" TextColor="White"/>
+                                            </VerticalStackLayout>
+                                        </Frame>
+                                    </toolkit:Expander.Content>
+                                </toolkit:Expander>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
 </ContentPage>

@@ -6,6 +6,7 @@ using System.Net;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.NetworkInformation;
 
 namespace TaskyAndroid.scripts.Service
 {
@@ -73,34 +74,27 @@ namespace TaskyAndroid.scripts.Service
             return new UserServer.UserServiceClient(binding, endpoint);
         }
 
-        private string GetLocalIpAddress()
+       private string GetLocalIpAddress()
         {
-            string localIp = string.Empty;
+            string localIP = string.Empty;
 
-            try
+            foreach (var networkInterface in System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces())
             {
-                // Get the host name of the machine
-                string hostName = Dns.GetHostName();
-
-                // Get all the IP addresses associated with the host name
-                IPAddress[] ipAddresses = Dns.GetHostAddresses(hostName);
-
-                foreach (IPAddress ip in ipAddresses)
+                var ipProps = networkInterface.GetIPProperties();
+                foreach (var addr in ipProps.UnicastAddresses)
                 {
-                    if (ip.AddressFamily == AddressFamily.InterNetwork)
+                    if (addr.Address.AddressFamily == AddressFamily.InterNetwork) // Ensure it's an IPv4 address
                     {
-                        localIp = ip.ToString();
-                        break;
+                        localIP = addr.Address.ToString();
+                        if (!localIP.StartsWith("127.")) // Ignore loopback addresses
+                        {
+                            return localIP;
+                        }
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                localIp = "Error retrieving IP address: " + ex.Message;
-                CloseConnection(ref _userServiceClient);
-            }
-            Console.WriteLine($"IP : {localIp}");
-            return localIp;
+
+            return localIP;
         }
 
         // יצירת לקוח WCF חדש לשירות התמונות
