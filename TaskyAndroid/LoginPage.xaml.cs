@@ -17,7 +17,7 @@ public partial class LoginPage : ContentPage
     private async void LoginClick(object sender, EventArgs e)
     {
         string email = EmailEntry.Text, password = PasswordEntry.Text;
-        if (PasswordEntry.Text != null && PasswordEntry.Text != null)
+        if (EmailEntry.Text != null && PasswordEntry.Text != null)
         {
             try
             {
@@ -29,13 +29,23 @@ public partial class LoginPage : ContentPage
                     //if yes, user has to change his password from the OTP
                     try
                     {
-                        int OTP = int.Parse(user.password);
+                        int OTP;
+                        if (int.TryParse(user.password, out OTP))
+                        {
+                            OTP = int.Parse(user.password);
+                            await Navigation.PushAsync(new NewPasswordPage(user));
+                        }
+                        else
+                        {
+                            ErrorLabel.TextColor = Colors.Green;
+                            ErrorLabel.Text = "Loading your account...";
+                            await Navigation.PushAsync(new LobbyPage(user));
+                        }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        ErrorLabel.Text = "USER FOUND!";
+                        ErrorLabel.Text = ex.Message;
                     }
-                    await Navigation.PushAsync(new NewPasswordPage(user));
                 }
                 else
                 {

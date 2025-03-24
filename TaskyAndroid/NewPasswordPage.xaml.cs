@@ -43,11 +43,11 @@ public partial class NewPasswordPage : ContentPage
                 {
                     try
                     {
-                        ErrorLabel.Text = "IT WORKS!";
+                        ErrorLabel.TextColor = Colors.Green;
+                        ErrorLabel.Text = "Loading your account...";
+                        user.password = PasswordEntry.Text;
+                        await _userService.CallServiceAsync(client => client.UpdateUserAsync(user));
                         await Navigation.PushAsync(new LobbyPage(user));
-                        //user.password = PasswordEntry.Text;
-                        //await _userService.CallServiceAsync(client => client.UpdateUserAsync(user));
-                        //Navigate to StartPage
                     }
                     catch (Exception ex)
                     {

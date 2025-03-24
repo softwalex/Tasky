@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|solutionrelative:model\\userinshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{60D0CFFD-A5A2-43A1-8EAA-5348CC7560E9}|Model\\Model.csproj|solutionrelative:model\\assignment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -69,7 +69,7 @@
               "RelativeDocumentMoniker": "Model\\UserInShift.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\Model\\UserInShift.cs",
               "RelativeToolTip": "Model\\UserInShift.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T19:03:58.54Z",
               "EditorCaption": ""
@@ -84,8 +84,7 @@
               "RelativeToolTip": "Model\\Assignment.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T07:34:52.909Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-20T07:34:52.909Z"
             },
             {
               "$type": "Document",
