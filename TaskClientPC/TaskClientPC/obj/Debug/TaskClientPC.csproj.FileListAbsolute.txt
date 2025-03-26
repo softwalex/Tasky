@@ -52,3 +52,5 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\Ta
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClie.1B4A7AC1.Up2Date
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.exe
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\TaskClientPC.pdb
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\ImageWindow.g.cs
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\obj\Debug\ImageWindow.baml

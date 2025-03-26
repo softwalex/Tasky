@@ -68,6 +68,7 @@ namespace TaskClientPC.UserControls
                 {
                     DoneByUserSP.Visibility = Visibility.Visible;
                     SummerySP.Visibility = Visibility.Visible;
+
                 }
                 if (assignment.forShift.start < DateTime.Now)
                 {
@@ -186,6 +187,11 @@ namespace TaskClientPC.UserControls
 
                 AssignmentsListView.ItemsSource = userServiceClient.GetAssignments();
             }
+        }
+
+        private void ViewImage(object sender, RoutedEventArgs e)
+        {
+            new ImageWindow(assignment).Show();
         }
     }
 }

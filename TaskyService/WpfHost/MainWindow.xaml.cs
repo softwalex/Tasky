@@ -25,9 +25,13 @@ namespace WpfHost
         public MainWindow()
         {
             InitializeComponent();
+
             ServiceHost service = new ServiceHost(typeof(UserService));
             service.Open();
 
+
+            ServiceHost Imageservice = new ServiceHost(typeof(ImageService));
+            Imageservice.Open();
         }
     }
 }
