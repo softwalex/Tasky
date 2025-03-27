@@ -6,10 +6,12 @@
 
     <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
 
-    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="Primary">#FFF3E0</Color>
+    <Color x:Key="Secondary">#FF5722</Color>
+    <!--<Color x:Key="Primary">#512BD4</Color>-->
     <Color x:Key="PrimaryDark">#ac99ea</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
+    <!--<Color x:Key="Secondary">#DFD8F7</Color>-->
     <Color x:Key="SecondaryDarkText">#9880e5</Color>
     <Color x:Key="Tertiary">#2B0B98</Color>
 
@@ -42,4 +44,19 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+
+    <Color x:Key="PrimaryColor">#FF5722</Color>
+    <Color x:Key="SecondaryColor">#FBE9E7</Color>
+    <Color x:Key="AccentColor">#FF8A65</Color>
+    <Color x:Key="TaskCardBackground">#FFFFFF</Color>
+    <Color x:Key="TaskCardBorder">#EEEEEE</Color>
+    <Color x:Key="TaskDescriptionColor">#424242</Color>
+    <Color x:Key="CategoryTagColor">#FF9800</Color>
+    <Color x:Key="CategoryTagTextColor">#FFFFFF</Color>
+    <Color x:Key="StatusIndicatorColor">#FF9500</Color>
+    <Color x:Key="SubmitButtonColor">#FF9500</Color>
+
+    <Color x:Key="Accent">#FF9800</Color>
+    <Color x:Key="OnBackground">#333333</Color>
+    <Color x:Key="OnSecondary">White</Color>
 </ResourceDictionary>

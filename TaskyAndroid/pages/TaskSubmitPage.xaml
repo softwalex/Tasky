@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TaskyAndroid.pages.TaskSubmitPage"
+             xmlns:local="clr-namespace:TaskyAndroid.Convertors"
+             Title="TaskSubmitPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF8036" Offset="0.1"/>
+            <GradientStop Color="#e67d40" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:UsernameAndTypeConvert x:Key="UserConvert"/>
+            <local:CategoryConvert x:Key="CategoryConvert"/>
+        </ResourceDictionary>
+        <Shadow x:Key="ElevatedShadow"
+            Brush="#FF5722"
+            Offset="5,5"
+            Radius="10"
+            Opacity="0.3"/>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" 
+                             Padding="20"
+                             VerticalOptions="Center">
+            <Border Grid.Row="1"
+                Style="{StaticResource CardStyle}" 
+                Margin="0,0,0,20"
+                x:Name="UserInfoBorder">
+                <Grid ColumnDefinitions="Auto,*">
+                    <!-- User Details -->
+                    <VerticalStackLayout Grid.Column="1"
+                                    VerticalOptions="Center">
+                        <HorizontalStackLayout>
+                            <Image Source="taskylogo.png"
+                                   HeightRequest="50"
+                                   WidthRequest="70"/>
+                            <Label Text="{Binding .,Converter={StaticResource UserConvert}}"
+                                   FontFamily="OpenSansRegular"
+                                   FontSize="20"
+                                   TextColor="{StaticResource PrimaryColor}"/>
+                        </HorizontalStackLayout>
+                        <Label Text="{Binding email}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Border>
+
+            <!-- Information Section -->
+            <Frame BackgroundColor="{StaticResource Secondary}"
+                   BorderColor="{StaticResource Accent}"
+                   CornerRadius="15"
+                   Padding="15">
+                <Label Text="Submit Your Task Here"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource OnSecondary}"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <!-- Writing Section with Additional Information -->
+            <VerticalStackLayout x:Name="TaskInfoStackLayout" Spacing="10" HorizontalOptions="Start">
+                <!-- Writing Label -->
+                <Label Text="{Binding subject}"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource OnBackground}"
+                       HorizontalOptions="Center"/>
+
+                <!-- Additional Information Labels -->
+                <Label Text="{Binding ., Converter={StaticResource CategoryConvert}}"
+                       FontSize="Medium"
+                       TextColor="{StaticResource OnBackground}"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="{Binding description}"
+                       FontSize="Small"
+                       TextColor="{StaticResource OnBackground}"
+                       HorizontalOptions="Center"/>
+
+                <Label Text="• provide a summry about the task you have done:"
+                       FontSize="Small"
+                       TextColor="{StaticResource OnBackground}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <!-- Input Section -->
+            <Frame BackgroundColor="White"
+                   BorderColor="{StaticResource Accent}"
+                   CornerRadius="10"
+                   Padding="10">
+                <Editor x:Name="InputSummryEditor"
+                        HeightRequest="150"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource OnBackground}"
+                        PlaceholderColor="{StaticResource Secondary}"
+                        MaxLength="500"/>
+            </Frame>
+
+            <!-- Write Button -->
+            <Button x:Name="ImageUploadButton"
+                    Text="Upload an image of the task"
+                    BackgroundColor="{StaticResource Secondary}"
+                    TextColor="{StaticResource OnSecondary}"
+                    CornerRadius="10"
+                    Clicked="OnImageUploadClicked"
+                    HeightRequest="50"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"/>
+
+            <!-- Main Action Button -->
+            <Button x:Name="SubmitButton"
+                    Text="Submit Task"
+                    BackgroundColor="{StaticResource Accent}"
+                    TextColor="White"
+                    CornerRadius="15"
+                    Clicked="OnSubmitButtonClicked"
+                    HeightRequest="60"
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Shadow="{StaticResource ElevatedShadow}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

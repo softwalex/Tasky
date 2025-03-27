@@ -1163,3 +1163,7 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\resizetizer\f\OpenSans-Regular.ttf
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\resizetizer\f\OpenSans-Semibold.ttf
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\resizetizer\A52E68AE06E1868A-files.cache
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\arm64-v8a\System.Private.CoreLib.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\armeabi-v7a\System.Private.CoreLib.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\x86\System.Private.CoreLib.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-android\android\assets\x86_64\System.Private.CoreLib.dll
