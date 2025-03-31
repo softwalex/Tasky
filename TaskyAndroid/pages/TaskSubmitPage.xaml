@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="TaskyAndroid.pages.TaskSubmitPage"
              xmlns:local="clr-namespace:TaskyAndroid.Convertors"
              Title="TaskSubmitPage">
@@ -100,7 +101,17 @@
                         PlaceholderColor="{StaticResource Secondary}"
                         MaxLength="500"/>
             </Frame>
-
+            <Image
+              x:Name="MyImage"
+              IsVisible="Collapse"
+              Source="dotnet_bot.png"
+              HeightRequest="185"
+              Aspect="AspectFit" />
+            <VerticalStackLayout x:Name="ImageStackLayout" IsVisible="Collapse">
+                <toolkit:CameraView x:Name="MyCamera" MediaCaptured="MyCamera_MediaCaptured"/>
+                <Button Text="TAKE A PICTRUE" Clicked="TakePictureClicked"/>
+                <Label x:Name="resultLabel"/>
+            </VerticalStackLayout>
             <!-- Write Button -->
             <Button x:Name="ImageUploadButton"
                     Text="Upload an image of the task"

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using TaskyAndroid.pages;
 
 namespace TaskyAndroid
 {
@@ -10,8 +11,19 @@ namespace TaskyAndroid
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit(); // Initialize CommunityToolkit
+                .UseMauiCommunityToolkit() // Initialize CommunityToolkit
+            .UseMauiCommunityToolkitCamera()
+              .ConfigureFonts(fonts =>
+               {
+                   fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                   fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+               });
 
+            builder.Services.AddTransient<TaskSubmitPage>();
+
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
             return builder.Build();
         }
     }

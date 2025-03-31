@@ -10,6 +10,7 @@
       "TaskyAndroid/1.0": {
         "dependencies": {
           "CommunityToolkit.Maui": "8.0.0",
+          "CommunityToolkit.Maui.Camera": "1.0.2",
           "Microsoft.Extensions.Logging.Debug": "8.0.1",
           "Microsoft.Maui.Controls": "8.0.100",
           "Microsoft.Maui.Controls.Compatibility": "8.0.100",
@@ -48,6 +49,18 @@
         },
         "runtime": {
           "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "CommunityToolkit.Maui.Camera/1.0.2": {
+        "dependencies": {
+          "Microsoft.Maui.Controls": "8.0.100",
+          "Microsoft.Maui.Controls.Compatibility": "8.0.100"
+        },
+        "runtime": {
+          "lib/net8.0-windows10.0.19041/CommunityToolkit.Maui.Camera.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -1230,6 +1243,13 @@
       "sha512": "sha512-GO8x688KPm76UWLSqYElw510+GQF7zO9FU8RillE1hn0kySdBPUZNbwx1tWnBoJZSLJwxKUEONhHsMVIMsEXyw==",
       "path": "communitytoolkit.maui/8.0.0",
       "hashPath": "communitytoolkit.maui.8.0.0.nupkg.sha512"
+    },
+    "CommunityToolkit.Maui.Camera/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hRXH0DGrxHTx5Bt2WzTX2rEwwUAsCVKSeGsmZySXVu8KhIxclj+3HCLdvlkw+IL3ITIuE4CYXeVg6u+8uBcZrw==",
+      "path": "communitytoolkit.maui.camera/1.0.2",
+      "hashPath": "communitytoolkit.maui.camera.1.0.2.nupkg.sha512"
     },
     "CommunityToolkit.Maui.Core/8.0.0": {
       "type": "package",

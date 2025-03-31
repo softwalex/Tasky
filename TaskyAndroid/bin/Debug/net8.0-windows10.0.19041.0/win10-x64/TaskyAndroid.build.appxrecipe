@@ -229,6 +229,9 @@
     <AppxPackagedFile Include="C:\Users\sasha\.nuget\packages\communitytoolkit.maui\8.0.0\lib\net8.0-windows10.0.19041\CommunityToolkit.Maui.dll">
       <PackagePath>CommunityToolkit.Maui.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sasha\.nuget\packages\communitytoolkit.maui.camera\1.0.2\lib\net8.0-windows10.0.19041\CommunityToolkit.Maui.Camera.dll">
+      <PackagePath>CommunityToolkit.Maui.Camera.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sasha\.nuget\packages\communitytoolkit.maui.core\8.0.0\lib\net8.0-windows10.0.19041\CommunityToolkit.Maui.Core.dll">
       <PackagePath>CommunityToolkit.Maui.Core.dll</PackagePath>
     </AppxPackagedFile>

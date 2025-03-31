@@ -401,3 +401,4 @@ C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-maccatal
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\TaskyAnd.43A70125.Up2Date
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\TaskyAndroid.genruntimeconfig.cache
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ref\TaskyAndroid.dll
+C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyAndroid\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\CommunityToolkit.Maui.Camera.dll

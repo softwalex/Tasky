@@ -33,6 +33,7 @@ public partial class TasksPage : ContentPage
 
 	private async void NvigateToSubmitClicked(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new TaskSubmitPage(CurrentUserInShift._user, (sender as Button).BindingContext as Assignment));
+		TaskSubmitPage page = new TaskSubmitPage(CurrentUserInShift._user, (sender as Button).BindingContext as Assignment);
+        await Navigation.PushAsync(page);
 	}
 }
