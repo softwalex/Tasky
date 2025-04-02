@@ -103,13 +103,19 @@
             </Frame>
             <Image
               x:Name="MyImage"
-              IsVisible="Collapse"
+              IsVisible="False"
               Source="dotnet_bot.png"
               HeightRequest="185"
               Aspect="AspectFit" />
-            <VerticalStackLayout x:Name="ImageStackLayout" IsVisible="Collapse">
+            <VerticalStackLayout x:Name="ImageStackLayout" IsVisible="False">
                 <toolkit:CameraView x:Name="MyCamera" MediaCaptured="MyCamera_MediaCaptured"/>
-                <Button Text="TAKE A PICTRUE" Clicked="TakePictureClicked"/>
+                <Button Text="TAKE A PICTRUE" 
+                        Clicked="TakePictureClicked" 
+                        Background="{StaticResource Secondary}"
+                        TextColor="{StaticResource OnSecondary}"
+                        CornerRadius="10"
+                        WidthRequest="150"
+                        HeightRequest="50"/>
                 <Label x:Name="resultLabel"/>
             </VerticalStackLayout>
             <!-- Write Button -->
@@ -120,8 +126,9 @@
                     CornerRadius="10"
                     Clicked="OnImageUploadClicked"
                     HeightRequest="50"
-                    WidthRequest="200"
-                    HorizontalOptions="Center"/>
+                    WidthRequest="250"
+                    HorizontalOptions="Center"
+                    IsVisible="True"/>
 
             <!-- Main Action Button -->
             <Button x:Name="SubmitButton"

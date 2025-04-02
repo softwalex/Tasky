@@ -62,9 +62,9 @@ public partial class TaskSubmitPage : ContentPage
         {
             await MyCamera.CaptureImage(CancellationToken.None);
            
-                MyImage.IsVisible = true;
-                ImageUploadButton.IsEnabled = true;
-                ImageStackLayout.IsVisible = false;
+            MyImage.IsVisible = true;
+            ImageUploadButton.IsVisible = true;
+            ImageStackLayout.IsVisible = false;
            
         }
         catch (Exception ex)
@@ -80,6 +80,7 @@ public partial class TaskSubmitPage : ContentPage
         MyImage.IsVisible = false;
     }
 
+    //TODO : Implement submission logic
     private void OnSubmitButtonClicked(object sender, EventArgs e)
     {
         // Submission logic here
