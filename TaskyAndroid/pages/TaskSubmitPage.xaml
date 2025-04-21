@@ -143,6 +143,8 @@
                     FontAttributes="Bold"
                     FontSize="Large"
                     Shadow="{StaticResource ElevatedShadow}"/>
+
+            <Label x:Name="ErrorLabel" Text="" TextColor="Red" FontSize="Medium"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

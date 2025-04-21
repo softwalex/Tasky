@@ -25,7 +25,7 @@ public partial class TasksPage : ContentPage
 		AssignmentList assignmentsList = await _userService.CallServiceAsync(c => c.GetAssignmentsAsync());
         foreach (Assignment assignment in assignmentsList)
         {
-            if(assignment.forUser.ID == CurrentUserInShift._user.ID && assignment.forShift.ID == CurrentUserInShift._shift.ID)
+            if(assignment.forUser.ID == CurrentUserInShift._user.ID && assignment.forShift.ID == CurrentUserInShift._shift.ID && assignment.doneByUser == null)
 				AssignmentsForCurrentUser.Add(assignment);
         }
 		TaskList.ItemsSource = AssignmentsForCurrentUser;
@@ -33,7 +33,7 @@ public partial class TasksPage : ContentPage
 
 	private async void NvigateToSubmitClicked(object sender, EventArgs e)
 	{
-		TaskSubmitPage page = new TaskSubmitPage(CurrentUserInShift._user, (sender as Button).BindingContext as Assignment);
+		TaskSubmitPage page = new TaskSubmitPage(CurrentUserInShift, (sender as Button).BindingContext as Assignment);
         await Navigation.PushAsync(page);
 	}
 }

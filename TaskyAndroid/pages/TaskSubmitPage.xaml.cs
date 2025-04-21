@@ -6,24 +6,25 @@ using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Core.Primitives;
 using CommunityToolkit.Maui.Storage;
 using System.Linq.Expressions;
+using TaskyAndroid.scripts.Service;
 
 namespace TaskyAndroid.pages;
 
 public partial class TaskSubmitPage : ContentPage
 {
     private readonly ServiceHelper<IUserService> _userService;
-    private User CurrentUser;
+    private UserInShift CurrentUserInShift;
     private Assignment CurrentAssignmrnt;
     private Stream imageStream;
 
-    public TaskSubmitPage(User user, Assignment assignment)
+    public TaskSubmitPage(UserInShift userInShift, Assignment assignment)
     {
         InitializeComponent();
         _userService = new ServiceHelper<IUserService>();
-        CurrentUser = user;
+        CurrentUserInShift = userInShift;
         CurrentAssignmrnt = assignment;
 
-        UserInfoBorder.BindingContext = CurrentUser;
+        UserInfoBorder.BindingContext = CurrentUserInShift._user;
         TaskInfoStackLayout.BindingContext = CurrentAssignmrnt;     
     }
 
@@ -81,8 +82,27 @@ public partial class TaskSubmitPage : ContentPage
     }
 
     //TODO : Implement submission logic
-    private void OnSubmitButtonClicked(object sender, EventArgs e)
+    private async void OnSubmitButtonClicked(object sender, EventArgs e)
     {
         // Submission logic here
+        try
+        {
+            ImageManger manger = new ImageManger();
+            string imageName = CurrentAssignmrnt.subject + CurrentAssignmrnt.dateOfAssigment + ".jpg";
+            manger.SaveImageToService(MyImage.Source, imageName);
+
+            CurrentAssignmrnt.image = imageName;
+            CurrentAssignmrnt.doneByUser = CurrentUserInShift._user;
+            CurrentAssignmrnt.summery = InputSummryEditor.Text;
+
+            //Error to fix
+
+            await _userService.CallServiceAsync(c => c.UpdateAssignmentAsync(CurrentAssignmrnt));
+            await Navigation.PushAsync(new TasksPage(CurrentUserInShift));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

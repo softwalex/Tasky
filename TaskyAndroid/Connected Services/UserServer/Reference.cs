@@ -680,7 +680,7 @@ namespace UserServer
         System.Threading.Tasks.Task<UserServer.Assignment> NewAssignmentAsync(UserServer.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        System.Threading.Tasks.Task UpdateAssignmentAsync(UserServer.Assignment assignment);
+        System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(UserServer.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         System.Threading.Tasks.Task<bool> DeleteAssignmentAsync(UserServer.Assignment assignment);
@@ -869,7 +869,7 @@ namespace UserServer
             return base.Channel.NewAssignmentAsync(assignment);
         }
         
-        public System.Threading.Tasks.Task UpdateAssignmentAsync(UserServer.Assignment assignment)
+        public System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(UserServer.Assignment assignment)
         {
             return base.Channel.UpdateAssignmentAsync(assignment);
         }

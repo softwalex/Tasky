@@ -162,10 +162,17 @@ namespace WcfService
             
         }
 
-        public void UpdateAssignment(Assignment assignment)
+        public bool UpdateAssignment(Assignment assignment)
         {
             AssignmentDB assignmentDB = new AssignmentDB();
-            assignmentDB.Update(assignment);
+            var assignmentInList = assignmentDB.SelectAll().FirstOrDefault(u => u.ID == assignment.ID);
+
+            if (assignmentInList != null)
+            {
+                assignmentDB.Update(assignment);
+                return true;
+            }
+            return false;
         }
 
         public bool DeleteAssignment(Assignment assignment)
