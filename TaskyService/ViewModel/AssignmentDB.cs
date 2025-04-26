@@ -113,11 +113,14 @@ namespace ViewModel
         {
             command.Parameters.Clear();
             command.CommandText = @"UPDATE AssignmentTable SET " +
-                "Subject = @Subject, Description = @Description, ForUser = @ForUser, ForShift = @ForShift, Category = @Category " +
+                "Subject = @Subject, Description = @Description, Image = @Image, Summery = @Summery, DoneByUser = @DoneByUser, ForUser = @ForUser, ForShift = @ForShift, Category = @Category " +
                 "WHERE Id=@Id";
 
             command.Parameters.AddWithValue("@Subject", assignment.subject);
             command.Parameters.AddWithValue("@Description", assignment.description);
+            command.Parameters.AddWithValue("@Image", assignment.image);
+            command.Parameters.AddWithValue("@Summery", assignment.summery);
+            command.Parameters.AddWithValue("@DoneByUser", assignment.doneByUser.ID);
             command.Parameters.AddWithValue("@ForUser", assignment.forUser.ID);
             command.Parameters.AddWithValue("@ForShift", assignment.forShift.ID);
             command.Parameters.AddWithValue("@Category", assignment._category.ID);
