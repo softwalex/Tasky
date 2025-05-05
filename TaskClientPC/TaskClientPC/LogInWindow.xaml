@@ -62,7 +62,7 @@
                     </StackPanel>
 
                     <TextBlock x:Name="ErrorText" Text="" Foreground="Red" HorizontalAlignment="Center"></TextBlock>
-                    
+
                     <!-- Email Field -->
                     <Label Content="Email:"/>
                     <TextBox x:Name="EmailTextBox"
@@ -83,6 +83,13 @@
                              BorderBrush="#E0E0E0"
                              Padding="10" />
 
+                    <!-- Forgot Password Link -->
+                    <TextBlock HorizontalAlignment="Right" Margin="0,0,0,20">
+                        <Hyperlink x:Name="ForgotPasswordLink" Click="ForgotPasswordLink_Click">
+                            <TextBlock Text="Forgot Password?" Foreground="#FF7043"/>
+                        </Hyperlink>
+                    </TextBlock>
+
                     <!-- Login Button -->
                     <Button Content="LOGIN"
                            Height="40"
@@ -91,7 +98,7 @@
                            BorderThickness="0"
                            Margin="0,0,0,20"
                            Click="LogInButtonClick"/>
-                    
+
                     <!-- Sign Up Link -->
                     <StackPanel Orientation="Horizontal" 
                              HorizontalAlignment="Center">

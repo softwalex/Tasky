@@ -72,17 +72,31 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUserByEmailResult" nillable="true" type="q6:User" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetUsersbyType">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="type" type="q6:UserType" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="type" type="q7:UserType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersbyTypeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersbyTypeResult" nillable="true" type="q7:UserList" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersbyTypeResult" nillable="true" type="q8:UserList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -94,7 +108,7 @@
   <xs:element name="GetUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersResult" nillable="true" type="q8:UserList" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersResult" nillable="true" type="q9:UserList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -106,7 +120,7 @@
   <xs:element name="GetShiftsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetShiftsResult" nillable="true" type="q9:ShiftList" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetShiftsResult" nillable="true" type="q10:ShiftList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +134,7 @@
   <xs:element name="GetPastShiftsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetPastShiftsResult" nillable="true" type="q10:ShiftList" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetPastShiftsResult" nillable="true" type="q11:ShiftList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -134,7 +148,7 @@
   <xs:element name="GetFutureShiftsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetFutureShiftsResult" nillable="true" type="q11:ShiftList" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetFutureShiftsResult" nillable="true" type="q12:ShiftList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -148,28 +162,28 @@
   <xs:element name="GetShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetShiftResult" nillable="true" type="q12:Shift" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetShiftResult" nillable="true" type="q13:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q13:Shift" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q14:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewShiftResult" nillable="true" type="q14:Shift" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewShiftResult" nillable="true" type="q15:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q15:Shift" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q16:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,7 +195,7 @@
   <xs:element name="DeleteShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q16:Shift" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q17:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -200,7 +214,7 @@
   <xs:element name="GetAssignmentsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsResult" nillable="true" type="q17:AssignmentList" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsResult" nillable="true" type="q18:AssignmentList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,7 +228,7 @@
   <xs:element name="GetAssignmentByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentByIdResult" nillable="true" type="q18:Assignment" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentByIdResult" nillable="true" type="q19:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -228,7 +242,7 @@
   <xs:element name="GetAssignmentsBySubjectResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsBySubjectResult" nillable="true" type="q19:Assignment" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsBySubjectResult" nillable="true" type="q20:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -242,54 +256,56 @@
   <xs:element name="GetAssignmentsByCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsByCategoryResult" nillable="true" type="q20:AssignmentList" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentsByCategoryResult" nillable="true" type="q21:AssignmentList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAssignmentByShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q21:Shift" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q22:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAssignmentByShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentByShiftResult" nillable="true" type="q22:AssignmentList" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAssignmentByShiftResult" nillable="true" type="q23:AssignmentList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewAssignment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q23:Assignment" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q24:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewAssignmentResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewAssignmentResult" nillable="true" type="q24:Assignment" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewAssignmentResult" nillable="true" type="q25:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateAssignment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q25:Assignment" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q26:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateAssignmentResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateAssignmentResult" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteAssignment">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q26:Assignment" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="assignment" nillable="true" type="q27:Assignment" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -308,56 +324,56 @@
   <xs:element name="GetAllUsersInShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUsersInShiftResult" nillable="true" type="q27:UserInShiftList" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUsersInShiftResult" nillable="true" type="q28:UserInShiftList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersInShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q28:Shift" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="shift" nillable="true" type="q29:Shift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersInShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersInShiftResult" nillable="true" type="q29:UserInShiftList" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersInShiftResult" nillable="true" type="q30:UserInShiftList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetByUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q30:User" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q31:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetByUserResult" nillable="true" type="q31:UserInShift" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetByUserResult" nillable="true" type="q32:UserInShift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewUserInShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q32:UserInShift" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q33:UserInShift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewUserInShiftResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewUserInShiftResult" nillable="true" type="q33:UserInShift" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewUserInShiftResult" nillable="true" type="q34:UserInShift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateUserInShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q34:UserInShift" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q35:UserInShift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -371,7 +387,7 @@
   <xs:element name="DeleteUserInShift">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q35:UserInShift" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q36:UserInShift" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -390,7 +406,7 @@
   <xs:element name="GetCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q36:CategoryList" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q37:CategoryList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -404,28 +420,28 @@
   <xs:element name="GetByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetByNameResult" nillable="true" type="q37:Category" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetByNameResult" nillable="true" type="q38:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewCategory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q38:Category" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q39:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewCategoryResult" nillable="true" type="q39:Category" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="NewCategoryResult" nillable="true" type="q40:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateCategory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q40:Category" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q41:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -439,7 +455,7 @@
   <xs:element name="DeleteCategory">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q41:Category" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="category" nillable="true" type="q42:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -448,6 +464,34 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteCategoryResult" type="xs:boolean" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailAsync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fromEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="subject" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="body" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailAsyncResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailUsingTemplateAsync">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="toEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailUsingTemplateAsyncResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

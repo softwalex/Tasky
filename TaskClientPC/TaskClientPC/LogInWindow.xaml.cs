@@ -66,5 +66,19 @@ namespace TaskClientPC
             signUpWindow.Show();
             this.Close();
         }
+
+        private void ForgotPasswordLink_Click(object sender, RoutedEventArgs e)
+        {
+            if(!userServiceClient.IsEmailFree(EmailTextBox.Text) && user.userType == UserType.Admin)
+            {
+                ResetPassword reset = new ResetPassword(userServiceClient.GetUserByEmail(EmailTextBox.Text));
+                reset.Show();
+                this.Close();
+            }
+            else
+            {
+                ErrorText.Text = "Email adress was not found";
+            }
+        }
     }
 }

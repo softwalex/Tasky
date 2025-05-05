@@ -18,6 +18,7 @@ namespace WcfService
         [OperationContract] bool UpdateUser(User user);
         [OperationContract] bool DeleteUser(User user);
         [OperationContract] bool IsEmailFree(string email);
+        [OperationContract] User GetUserByEmail(string email);
         [OperationContract] UserList GetUsersbyType(UserType type);
         [OperationContract] UserList GetUsers();
         #endregion
@@ -59,6 +60,11 @@ namespace WcfService
         [OperationContract] Category NewCategory(Category category);
         [OperationContract] bool UpdateCategory(Category category);
         [OperationContract] bool DeleteCategory(Category category);
+        #endregion
+
+        #region Email
+        [OperationContract] void SendEmailAsync(string fromEmail, string toEmail, string subject, string body);
+        [OperationContract] void SendEmailUsingTemplateAsync(string toEmail, string Text);
         #endregion
     }
 }

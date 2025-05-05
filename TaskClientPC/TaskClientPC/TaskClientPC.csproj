@@ -92,6 +92,9 @@
     <Compile Include="ImageWindow.xaml.cs">
       <DependentUpon>ImageWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ResetPassword.xaml.cs">
+      <DependentUpon>ResetPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="scripts\Covertors\ConvertCategory.cs" />
     <Compile Include="scripts\Covertors\ConvertShift.cs" />
     <Compile Include="scripts\Covertors\ConvertTimeShift.cs" />
@@ -153,6 +156,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ResetPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignUpWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -51,9 +51,10 @@ public partial class TaskSubmitPage : ContentPage
         if (Dispatcher.IsDispatchRequired)
         {
             Dispatcher.Dispatch(() => MyImage.Source = ImageSource.FromStream(() => e.Media));
+            MyImage.BindingContext = e.Media;
             return;
         }
-
+        imageStream = e.Media;
         MyImage.Source = ImageSource.FromStream(() => e.Media);
     }
 
@@ -89,13 +90,11 @@ public partial class TaskSubmitPage : ContentPage
         {
             ImageManger manger = new ImageManger();
             string imageName = CurrentAssignmrnt.subject + CurrentAssignmrnt.dateOfAssigment + ".jpg";
-            manger.SaveImageToService(MyImage.Source, imageName);
+            manger.SaveImageToService(imageStream, imageName);
 
             CurrentAssignmrnt.image = imageName;
             CurrentAssignmrnt.doneByUser = CurrentUserInShift._user;
             CurrentAssignmrnt.summery = InputSummryEditor.Text;
-
-            //Error to fix
 
             await _userService.CallServiceAsync(c => c.UpdateAssignmentAsync(CurrentAssignmrnt));
             await Navigation.PushAsync(new TasksPage(CurrentUserInShift));

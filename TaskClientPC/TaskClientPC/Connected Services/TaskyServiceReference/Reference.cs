@@ -581,6 +581,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/IsEmailFree", ReplyAction="http://tempuri.org/IUserService/IsEmailFreeResponse")]
         System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmail", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailResponse")]
+        TaskClientPC.TaskyServiceReference.User GetUserByEmail(string email);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmail", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailResponse")]
+        System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.User> GetUserByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
         TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type);
         
@@ -672,10 +678,10 @@ namespace TaskClientPC.TaskyServiceReference {
         System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.Assignment> NewAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateAssignment", ReplyAction="http://tempuri.org/IUserService/UpdateAssignmentResponse")]
-        System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
+        System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteAssignment", ReplyAction="http://tempuri.org/IUserService/DeleteAssignmentResponse")]
         bool DeleteAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment);
@@ -748,6 +754,18 @@ namespace TaskClientPC.TaskyServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteCategory", ReplyAction="http://tempuri.org/IUserService/DeleteCategoryResponse")]
         System.Threading.Tasks.Task<bool> DeleteCategoryAsync(TaskClientPC.TaskyServiceReference.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailAsyncResponse")]
+        void SendEmailAsync(string fromEmail, string toEmail, string subject, string body);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailAsyncResponse")]
+        System.Threading.Tasks.Task SendEmailAsyncAsync(string fromEmail, string toEmail, string subject, string body);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailUsingTemplateAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailUsingTemplateAsyncResponse")]
+        void SendEmailUsingTemplateAsync(string toEmail, string Text);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailUsingTemplateAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailUsingTemplateAsyncResponse")]
+        System.Threading.Tasks.Task SendEmailUsingTemplateAsyncAsync(string toEmail, string Text);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -815,6 +833,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email) {
             return base.Channel.IsEmailFreeAsync(email);
+        }
+        
+        public TaskClientPC.TaskyServiceReference.User GetUserByEmail(string email) {
+            return base.Channel.GetUserByEmail(email);
+        }
+        
+        public System.Threading.Tasks.Task<TaskClientPC.TaskyServiceReference.User> GetUserByEmailAsync(string email) {
+            return base.Channel.GetUserByEmailAsync(email);
         }
         
         public TaskClientPC.TaskyServiceReference.UserList GetUsersbyType(TaskClientPC.TaskyServiceReference.UserType type) {
@@ -937,11 +963,11 @@ namespace TaskClientPC.TaskyServiceReference {
             return base.Channel.NewAssignmentAsync(assignment);
         }
         
-        public void UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
-            base.Channel.UpdateAssignment(assignment);
+        public bool UpdateAssignment(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+            return base.Channel.UpdateAssignment(assignment);
         }
         
-        public System.Threading.Tasks.Task UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
+        public System.Threading.Tasks.Task<bool> UpdateAssignmentAsync(TaskClientPC.TaskyServiceReference.Assignment assignment) {
             return base.Channel.UpdateAssignmentAsync(assignment);
         }
         
@@ -1039,6 +1065,22 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<bool> DeleteCategoryAsync(TaskClientPC.TaskyServiceReference.Category category) {
             return base.Channel.DeleteCategoryAsync(category);
+        }
+        
+        public void SendEmailAsync(string fromEmail, string toEmail, string subject, string body) {
+            base.Channel.SendEmailAsync(fromEmail, toEmail, subject, body);
+        }
+        
+        public System.Threading.Tasks.Task SendEmailAsyncAsync(string fromEmail, string toEmail, string subject, string body) {
+            return base.Channel.SendEmailAsyncAsync(fromEmail, toEmail, subject, body);
+        }
+        
+        public void SendEmailUsingTemplateAsync(string toEmail, string Text) {
+            base.Channel.SendEmailUsingTemplateAsync(toEmail, Text);
+        }
+        
+        public System.Threading.Tasks.Task SendEmailUsingTemplateAsyncAsync(string toEmail, string Text) {
+            return base.Channel.SendEmailUsingTemplateAsyncAsync(toEmail, Text);
         }
     }
 }

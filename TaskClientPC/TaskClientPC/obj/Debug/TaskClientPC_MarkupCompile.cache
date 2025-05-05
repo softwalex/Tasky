@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\App.xaml
-13-1951128060
+14-981392416
 
-32851153533
+33-172826035
 25310477821
-ImageWindow.xaml;LogInWindow.xaml;SignUpWindow.xaml;UpdateWindows\ConfirmWindow.xaml;UpdateWindows\UpdateAssignment.xaml;UpdateWindows\UpdateShift.xaml;UpdateWindows\UpdateUser.xaml;UserControls\Assignments_UserControl.xaml;UserControls\Categories_UserControl.xaml;UserControls\DashBoard_UserControl.xaml;UserControls\MainUserControl.xaml;UserControls\Shifts_UserControl.xaml;UserControls\Users_UserControl.xaml;
+ImageWindow.xaml;LogInWindow.xaml;ResetPassword.xaml;SignUpWindow.xaml;UpdateWindows\ConfirmWindow.xaml;UpdateWindows\UpdateAssignment.xaml;UpdateWindows\UpdateShift.xaml;UpdateWindows\UpdateUser.xaml;UserControls\Assignments_UserControl.xaml;UserControls\Categories_UserControl.xaml;UserControls\DashBoard_UserControl.xaml;UserControls\MainUserControl.xaml;UserControls\Shifts_UserControl.xaml;UserControls\Users_UserControl.xaml;
 
 False
 

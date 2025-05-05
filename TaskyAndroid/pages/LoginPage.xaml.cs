@@ -64,4 +64,18 @@ public partial class LoginPage : ContentPage
             ErrorLabel.Text = "There are empty fields";
         }
     }
+
+    private async void ResetPasswordClick(object sender, TappedEventArgs e)
+    {
+        //TODO : fix an error when link clicked
+        User? user = await _userService.CallServiceAsync(client => client.GetUserByEmailAsync(EmailEntry.Text));
+        if(user != null || user.userType != UserType.Admin)
+        {
+            await Navigation.PushAsync(new NewPasswordPage(user));
+        }
+        else
+        {
+            ErrorLabel.Text = "Email adress wasn't found";
+        }
+    }
 }

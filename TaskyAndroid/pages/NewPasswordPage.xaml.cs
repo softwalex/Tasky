@@ -8,6 +8,7 @@ public partial class NewPasswordPage : ContentPage
 {
     private User user;
     private readonly ServiceHelper<IUserService> _userService;
+    private int ResetCode;
     public NewPasswordPage(User user)
     {
         InitializeComponent();
@@ -66,5 +67,13 @@ public partial class NewPasswordPage : ContentPage
         {
             ErrorLabel.Text = "There are empty fields";
         }
+    }
+    public async Task<int> SendResetCode(User user)
+    {
+        Random random = new Random();
+        int Code = random.Next(100000, 1000000);
+        string Text = $"Hey {user.firstname}, Your Code for your password reset would be: {Code}";
+        await _userService.CallServiceAsync(async client => client.SendEmailUsingTemplateAsyncAsync(user.email, Text));
+        return Code;
     }
 }

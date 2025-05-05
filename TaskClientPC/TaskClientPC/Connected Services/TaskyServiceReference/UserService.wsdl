@@ -37,6 +37,12 @@
   <wsdl:message name="IUserService_IsEmailFree_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsEmailFreeResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_GetUserByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_GetUsersbyType_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersbyType" />
   </wsdl:message>
@@ -205,6 +211,18 @@
   <wsdl:message name="IUserService_DeleteCategory_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_SendEmailAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailAsync" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SendEmailAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailAsyncResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SendEmailUsingTemplateAsync_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailUsingTemplateAsync" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_SendEmailUsingTemplateAsync_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendEmailUsingTemplateAsyncResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUserService">
     <wsdl:operation name="UserLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UserLogin" message="tns:IUserService_UserLogin_InputMessage" />
@@ -225,6 +243,10 @@
     <wsdl:operation name="IsEmailFree">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/IsEmailFree" message="tns:IUserService_IsEmailFree_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/IsEmailFreeResponse" message="tns:IUserService_IsEmailFree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUserByEmail" message="tns:IUserService_GetUserByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/GetUserByEmailResponse" message="tns:IUserService_GetUserByEmail_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetUsersbyType">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/GetUsersbyType" message="tns:IUserService_GetUsersbyType_InputMessage" />
@@ -338,6 +360,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteCategory" message="tns:IUserService_DeleteCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/DeleteCategoryResponse" message="tns:IUserService_DeleteCategory_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SendEmailAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/SendEmailAsync" message="tns:IUserService_SendEmailAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/SendEmailAsyncResponse" message="tns:IUserService_SendEmailAsync_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailUsingTemplateAsync">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/SendEmailUsingTemplateAsync" message="tns:IUserService_SendEmailUsingTemplateAsync_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/SendEmailUsingTemplateAsyncResponse" message="tns:IUserService_SendEmailUsingTemplateAsync_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUserService" type="tns:IUserService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -379,6 +409,15 @@
     </wsdl:operation>
     <wsdl:operation name="IsEmailFree">
       <soap:operation soapAction="http://tempuri.org/IUserService/IsEmailFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmail">
+      <soap:operation soapAction="http://tempuri.org/IUserService/GetUserByEmail" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -631,6 +670,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCategory">
       <soap:operation soapAction="http://tempuri.org/IUserService/DeleteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailAsync">
+      <soap:operation soapAction="http://tempuri.org/IUserService/SendEmailAsync" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEmailUsingTemplateAsync">
+      <soap:operation soapAction="http://tempuri.org/IUserService/SendEmailUsingTemplateAsync" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

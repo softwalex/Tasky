@@ -634,6 +634,9 @@ namespace UserServer
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/IsEmailFree", ReplyAction="http://tempuri.org/IUserService/IsEmailFreeResponse")]
         System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUserByEmail", ReplyAction="http://tempuri.org/IUserService/GetUserByEmailResponse")]
+        System.Threading.Tasks.Task<UserServer.User> GetUserByEmailAsync(string email);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/GetUsersbyType", ReplyAction="http://tempuri.org/IUserService/GetUsersbyTypeResponse")]
         System.Threading.Tasks.Task<UserServer.UserList> GetUsersbyTypeAsync(UserServer.UserType type);
         
@@ -717,6 +720,12 @@ namespace UserServer
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteCategory", ReplyAction="http://tempuri.org/IUserService/DeleteCategoryResponse")]
         System.Threading.Tasks.Task<bool> DeleteCategoryAsync(UserServer.Category category);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailAsyncResponse")]
+        System.Threading.Tasks.Task SendEmailAsyncAsync(string fromEmail, string toEmail, string subject, string body);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/SendEmailUsingTemplateAsync", ReplyAction="http://tempuri.org/IUserService/SendEmailUsingTemplateAsyncResponse")]
+        System.Threading.Tasks.Task SendEmailUsingTemplateAsyncAsync(string toEmail, string Text);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
@@ -792,6 +801,11 @@ namespace UserServer
         public System.Threading.Tasks.Task<bool> IsEmailFreeAsync(string email)
         {
             return base.Channel.IsEmailFreeAsync(email);
+        }
+        
+        public System.Threading.Tasks.Task<UserServer.User> GetUserByEmailAsync(string email)
+        {
+            return base.Channel.GetUserByEmailAsync(email);
         }
         
         public System.Threading.Tasks.Task<UserServer.UserList> GetUsersbyTypeAsync(UserServer.UserType type)
@@ -932,6 +946,16 @@ namespace UserServer
         public System.Threading.Tasks.Task<bool> DeleteCategoryAsync(UserServer.Category category)
         {
             return base.Channel.DeleteCategoryAsync(category);
+        }
+        
+        public System.Threading.Tasks.Task SendEmailAsyncAsync(string fromEmail, string toEmail, string subject, string body)
+        {
+            return base.Channel.SendEmailAsyncAsync(fromEmail, toEmail, subject, body);
+        }
+        
+        public System.Threading.Tasks.Task SendEmailUsingTemplateAsyncAsync(string toEmail, string Text)
+        {
+            return base.Channel.SendEmailUsingTemplateAsyncAsync(toEmail, Text);
         }
         
         public virtual System.Threading.Tasks.Task OpenAsync()

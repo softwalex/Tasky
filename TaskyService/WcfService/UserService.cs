@@ -8,6 +8,13 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using ViewModel;
 using System.Security.Principal;
+using System.Net.Mail;
+using System.ServiceModel.MsmqIntegration;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using SendGrid.Helpers.Mail;
+using SendGrid;
 
 namespace WcfService
 {
@@ -37,7 +44,11 @@ namespace WcfService
             User user = userDB.SelectByEmail(email);
             return (user == null);
         }
-
+        public User GetUserByEmail(string email)
+        {
+            User user = userDB.SelectByEmail(email);
+            return user;
+        }
         public User NewUser(User user)
         {
             if (userDB.SelectByEmail(user.email) != null)
@@ -286,6 +297,62 @@ namespace WcfService
                 return true;
             }
             return false;
+        }
+        #endregion
+
+        #region Email
+        private readonly string smtpServer = "smtp.sendgrid.net";
+        private readonly int smtpPort = 587;
+        private readonly string smtpUser = "apikey";
+        private readonly string smtpPass = Environment.GetEnvironmentVariable("Tasky_Sendgrid_API_Key");
+        private readonly string templateId = "d-ab4e9080da6241838e3d87195e4acfc5";
+
+        public async void SendEmailAsync(string fromEmail, string toEmail, string subject, string body)
+        {
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse(fromEmail));
+            email.To.Add(MailboxAddress.Parse(toEmail));
+            email.Subject = subject;
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Plain)
+            {
+                Text = body
+            };
+
+            using (var smtp = new MailKit.Net.Smtp.SmtpClient())
+            {
+                try
+                {
+                    await smtp.ConnectAsync(smtpServer, smtpPort, SecureSocketOptions.StartTls);
+                    await smtp.AuthenticateAsync(smtpUser, smtpPass);
+                    await smtp.SendAsync(email);
+                }
+                finally
+                {
+                    await smtp.DisconnectAsync(true);
+                }
+            }
+        }
+
+        public void SendEmailUsingTemplateAsync(string toEmail, string Text)
+        {
+            var client = new SendGridClient(smtpPass);
+            var from = new EmailAddress("taskynoreply@gmail.com", "Tasky");
+            var to = new EmailAddress(toEmail);
+
+            var msg = MailHelper.CreateSingleTemplateEmail(from, to, templateId, new
+            {
+                Text = Text
+            });
+
+            try
+            {
+                var response = client.SendEmailAsync(msg).Result;
+                Console.WriteLine($"Email sent! Status Code: {response.StatusCode}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending email: {ex.Message}");
+            }
         }
         #endregion
     }
