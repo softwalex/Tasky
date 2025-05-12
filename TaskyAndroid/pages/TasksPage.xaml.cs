@@ -36,4 +36,13 @@ public partial class TasksPage : ContentPage
 		TaskSubmitPage page = new TaskSubmitPage(CurrentUserInShift, (sender as Button).BindingContext as Assignment);
         await Navigation.PushAsync(page);
 	}
+
+    private async void ClockoutClicked(object sender, EventArgs e)
+    {
+		CurrentUserInShift.isClockedOut = true;
+		CurrentUserInShift.userClockOut = DateTime.Now;
+		await _userService.CallServiceAsync(c => c.FullUpdateUserInShiftAsync(CurrentUserInShift));
+		await Navigation.PushAsync(new LobbyPage(CurrentUserInShift._user));
+
+    }
 }

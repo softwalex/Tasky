@@ -9,11 +9,19 @@ public partial class NewPasswordPage : ContentPage
     private User user;
     private readonly ServiceHelper<IUserService> _userService;
     private int ResetCode;
-    public NewPasswordPage(User user)
+    private bool CodeFlag;
+    public NewPasswordPage(User user, bool ResetFlag)
     {
         InitializeComponent();
         _userService = new ServiceHelper<IUserService>();
         this.user = user;
+        CodeFlag = ResetFlag;
+        if (ResetFlag)
+        {
+            ForgotPasswordLabel.IsVisible = true;
+            ResetCode = SendResetCode(user).Result;
+        }
+        else{ForgotPasswordLabel.IsVisible = false;}
     }
     private async void SetPasswordClick(object sender, EventArgs e)
     {
@@ -23,6 +31,21 @@ public partial class NewPasswordPage : ContentPage
         string LowLetter = "One or more Lower case letters is needed"; bool ContainLow = false;
         string NumLetter = "One or more Numbers"; bool ContainNum = false;
 
+        //Check the reset password code
+        if (CodeFlag)
+        {
+            if(CodeEntry.Text != ResetCode.ToString() || CodeEntry.Text == string.Empty)
+            {
+                ErrorLabel.Text = "Wrong Reset code, Check your email for the code";
+                return;
+            }
+            else if(CodeEntry.Text == ResetCode.ToString())
+            {
+                ErrorLabel.Text = "";
+            }
+        }
+
+        //Check new password and reset if password suitable
         if (PasswordEntry.Text != null && RepeatPasswordEntry.Text != null)
         {
             if (PasswordEntry.Text == RepeatPasswordEntry.Text)

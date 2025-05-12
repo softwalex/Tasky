@@ -76,7 +76,7 @@ public partial class LobbyPage : ContentPage
         UserInShiftList userInShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
         foreach(UserInShift us in userInShifts)
         {
-            if(us._user.ID == CurrentUser.ID && us._shift.ID == CurrentShift.ID)
+            if(us._user.ID == CurrentUser.ID && us._shift.ID == CurrentShift.ID && !us.isClockedOut)
             {
                 if (!us.isClockedIn)
                 {
@@ -97,7 +97,7 @@ public partial class LobbyPage : ContentPage
         {
             foreach (UserInShift us in userInShiftList)
             {
-                if (us._user == CurrentUser && us._shift == CurrentShift && us.isClockedIn)
+                if (us._user == CurrentUser && us._shift == CurrentShift && us.isClockedIn && !us.isClockedOut)
                 {
                     userInShift.userClockIn = DateTime.Now;
                     // Assuming _userService.CallServiceAsync is a Task-returning method
@@ -131,5 +131,10 @@ public partial class LobbyPage : ContentPage
             // Stop the animation
             this.AbortAnimation("LoadingAnimation");
         }
+    }
+
+    private async void LogoutClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginPage());
     }
 }

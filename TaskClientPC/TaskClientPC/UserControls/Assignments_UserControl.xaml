@@ -341,23 +341,7 @@
                                 </Style>
                             </Button.Resources>
                         </Button>
-                        <Button x:Name="ImageButton" 
-                              Grid.ColumnSpan="3" 
-                              Click="ViewImage" 
-                              Background="#FF5722" 
-                              Content="Image" 
-                              Height="36" 
-                              Width="100" 
-                              HorizontalAlignment="Right"
-                              Margin="0,0,20,0"
-                              Foreground="White"
-                              BorderThickness="0">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="18"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
+
                     </DockPanel>
                     <Border Background="#FBE9E7"
                             CornerRadius="8"
@@ -405,6 +389,25 @@
                             </StackPanel>
                         </StackPanel>
                     </Border>
+                    <StackPanel HorizontalAlignment="Center" x:Name="ImageSP">
+                        <Button x:Name="ImageButton" 
+                              Grid.ColumnSpan="3" 
+                              Click="ViewImage" 
+                              Background="#FF5722" 
+                              Content="Image" 
+                              Height="50" 
+                              Width="200" 
+                              HorizontalAlignment="Right"
+                              Margin="0,0,20,0"
+                              Foreground="White"
+                              BorderThickness="0">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="18"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </StackPanel>
                     <Button x:Name="UpdateButton"
                         Style="{StaticResource MaterialDesignRaisedDarkButton}"
                         Height="50"

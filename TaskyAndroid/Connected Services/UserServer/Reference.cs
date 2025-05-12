@@ -703,6 +703,9 @@ namespace UserServer
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUserInShift", ReplyAction="http://tempuri.org/IUserService/UpdateUserInShiftResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserInShiftAsync(UserServer.UserInShift user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FullUpdateUserInShift", ReplyAction="http://tempuri.org/IUserService/FullUpdateUserInShiftResponse")]
+        System.Threading.Tasks.Task<bool> FullUpdateUserInShiftAsync(UserServer.UserInShift user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUserInShift", ReplyAction="http://tempuri.org/IUserService/DeleteUserInShiftResponse")]
         System.Threading.Tasks.Task<bool> DeleteUserInShiftAsync(UserServer.UserInShift user);
         
@@ -916,6 +919,11 @@ namespace UserServer
         public System.Threading.Tasks.Task<bool> UpdateUserInShiftAsync(UserServer.UserInShift user)
         {
             return base.Channel.UpdateUserInShiftAsync(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> FullUpdateUserInShiftAsync(UserServer.UserInShift user)
+        {
+            return base.Channel.FullUpdateUserInShiftAsync(user);
         }
         
         public System.Threading.Tasks.Task<bool> DeleteUserInShiftAsync(UserServer.UserInShift user)

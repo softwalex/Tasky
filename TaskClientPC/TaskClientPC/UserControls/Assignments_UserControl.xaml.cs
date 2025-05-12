@@ -63,20 +63,24 @@ namespace TaskClientPC.UserControls
                 {
                     DoneByUserSP.Visibility = Visibility.Collapsed;
                     SummerySP.Visibility = Visibility.Collapsed;
+                    ImageSP.Visibility = Visibility.Collapsed;
                 }
                 else
                 {
                     DoneByUserSP.Visibility = Visibility.Visible;
                     SummerySP.Visibility = Visibility.Visible;
+                    ImageSP.Visibility = Visibility.Visible;
 
                 }
                 if (assignment.forShift.start < DateTime.Now)
                 {
                     UpdateButton.Visibility = Visibility.Collapsed;
+                    ImageSP.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     UpdateButton.Visibility = Visibility.Visible;
+                    ImageSP.Visibility = Visibility.Collapsed;
                 }
             }
         }

@@ -75,7 +75,8 @@ namespace TaskClientPC.UserControls
 
                 assignmentList = userServiceClient.GetAssignmentByShift(shift);
                 userInShiftList = userServiceClient.GetUsersInShift(shift);
-                usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
+                userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
+                usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn && !u.isClockedOut);
                 CurrentShift.DataContext = shift;
                 InProgressBlock.Text=CompletedBlock.Text = "0";
                 AssignmentsListView.ItemsSource = assignmentList;
@@ -129,6 +130,7 @@ namespace TaskClientPC.UserControls
             userServiceClient.UpdateUserInShift(userToUpdate);
 
             userInShiftList = userServiceClient.GetUsersInShift(shift);
+            userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
             usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
         }
 
@@ -138,6 +140,7 @@ namespace TaskClientPC.UserControls
             userServiceClient.DeleteUserInShift(button.Tag as UserInShift);
 
             userInShiftList = userServiceClient.GetUsersInShift(shift);
+            userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
             usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
         }
     }

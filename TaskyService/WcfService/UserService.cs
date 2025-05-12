@@ -235,7 +235,16 @@ namespace WcfService
             }
             return false;
         }
-
+        public bool FullUpdateUserInShift(UserInShift user)
+        {
+            UserInShiftDB userInShiftDB = new UserInShiftDB();
+            if (userInShiftDB.SelectById(user.ID) != null)
+            {
+                userInShiftDB.FullUpdate(user);
+                return true;
+            }
+            return false;
+        }
         public bool DeleteUserInShift(UserInShift user)
         {
             UserInShiftDB userInShiftDB = new UserInShiftDB();

@@ -51,6 +51,7 @@ namespace WcfService
         [OperationContract] UserInShift GetByUser(User user);
         [OperationContract] UserInShift NewUserInShift(UserInShift user);
         [OperationContract] bool UpdateUserInShift(UserInShift user);
+        [OperationContract] bool FullUpdateUserInShift(UserInShift user);
         [OperationContract] bool DeleteUserInShift(UserInShift user);
         #endregion
 

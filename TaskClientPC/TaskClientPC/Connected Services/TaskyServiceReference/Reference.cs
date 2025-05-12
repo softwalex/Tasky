@@ -719,6 +719,12 @@ namespace TaskClientPC.TaskyServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/UpdateUserInShift", ReplyAction="http://tempuri.org/IUserService/UpdateUserInShiftResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserInShiftAsync(TaskClientPC.TaskyServiceReference.UserInShift user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FullUpdateUserInShift", ReplyAction="http://tempuri.org/IUserService/FullUpdateUserInShiftResponse")]
+        bool FullUpdateUserInShift(TaskClientPC.TaskyServiceReference.UserInShift user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/FullUpdateUserInShift", ReplyAction="http://tempuri.org/IUserService/FullUpdateUserInShiftResponse")]
+        System.Threading.Tasks.Task<bool> FullUpdateUserInShiftAsync(TaskClientPC.TaskyServiceReference.UserInShift user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserService/DeleteUserInShift", ReplyAction="http://tempuri.org/IUserService/DeleteUserInShiftResponse")]
         bool DeleteUserInShift(TaskClientPC.TaskyServiceReference.UserInShift user);
         
@@ -1017,6 +1023,14 @@ namespace TaskClientPC.TaskyServiceReference {
         
         public System.Threading.Tasks.Task<bool> UpdateUserInShiftAsync(TaskClientPC.TaskyServiceReference.UserInShift user) {
             return base.Channel.UpdateUserInShiftAsync(user);
+        }
+        
+        public bool FullUpdateUserInShift(TaskClientPC.TaskyServiceReference.UserInShift user) {
+            return base.Channel.FullUpdateUserInShift(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> FullUpdateUserInShiftAsync(TaskClientPC.TaskyServiceReference.UserInShift user) {
+            return base.Channel.FullUpdateUserInShiftAsync(user);
         }
         
         public bool DeleteUserInShift(TaskClientPC.TaskyServiceReference.UserInShift user) {

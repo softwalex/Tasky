@@ -35,7 +35,7 @@ public partial class LoginPage : ContentPage
                         if (int.TryParse(user.password, out OTP))
                         {
                             OTP = int.Parse(user.password);
-                            await Navigation.PushAsync(new NewPasswordPage(user));
+                            await Navigation.PushAsync(new NewPasswordPage(user, false));
                         }
                         else
                         {
@@ -71,7 +71,7 @@ public partial class LoginPage : ContentPage
         User? user = await _userService.CallServiceAsync(client => client.GetUserByEmailAsync(EmailEntry.Text));
         if(user != null || user.userType != UserType.Admin)
         {
-            await Navigation.PushAsync(new NewPasswordPage(user));
+            await Navigation.PushAsync(new NewPasswordPage(user, true));
         }
         else
         {

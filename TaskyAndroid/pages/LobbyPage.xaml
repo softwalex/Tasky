@@ -82,17 +82,18 @@
                 </HorizontalStackLayout>
 
                 <!-- My Shifts Button -->
-                <Button Grid.Column="1"
+                <!--<Button Grid.Column="1"
                         Text="My Shifts"
                         Style="{StaticResource HeaderButtonStyle}"
                         BackgroundColor="{StaticResource SecondaryColor}"
                         TextColor="{StaticResource PrimaryColor}"
                         FontFamily="OpenSansSemiBold"
-                        Margin="10,0"/>
+                        Margin="10,0"/>-->
 
-                <!-- Logout Button -->
+                 <!--Logout Button--> 
                 <Button Grid.Column="2"
                         Text="Logout"
+                        Clicked="LogoutClicked"
                         Style="{StaticResource HeaderButtonStyle}"
                         BackgroundColor="{StaticResource PrimaryColor}"
                         TextColor="White"/>

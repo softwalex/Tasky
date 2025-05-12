@@ -175,6 +175,12 @@
   <wsdl:message name="IUserService_UpdateUserInShift_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserInShiftResponse" />
   </wsdl:message>
+  <wsdl:message name="IUserService_FullUpdateUserInShift_InputMessage">
+    <wsdl:part name="parameters" element="tns:FullUpdateUserInShift" />
+  </wsdl:message>
+  <wsdl:message name="IUserService_FullUpdateUserInShift_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FullUpdateUserInShiftResponse" />
+  </wsdl:message>
   <wsdl:message name="IUserService_DeleteUserInShift_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserInShift" />
   </wsdl:message>
@@ -335,6 +341,10 @@
     <wsdl:operation name="UpdateUserInShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/UpdateUserInShift" message="tns:IUserService_UpdateUserInShift_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUserService/UpdateUserInShiftResponse" message="tns:IUserService_UpdateUserInShift_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FullUpdateUserInShift">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUserService/FullUpdateUserInShift" message="tns:IUserService_FullUpdateUserInShift_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUserService/FullUpdateUserInShiftResponse" message="tns:IUserService_FullUpdateUserInShift_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUserInShift">
       <wsdl:input wsaw:Action="http://tempuri.org/IUserService/DeleteUserInShift" message="tns:IUserService_DeleteUserInShift_InputMessage" />
@@ -616,6 +626,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateUserInShift">
       <soap:operation soapAction="http://tempuri.org/IUserService/UpdateUserInShift" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FullUpdateUserInShift">
+      <soap:operation soapAction="http://tempuri.org/IUserService/FullUpdateUserInShift" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
