@@ -17,10 +17,9 @@ namespace WcfService
 
             byte[] imageArray = File.ReadAllBytes(path);
             return imageArray;
-
         }
 
-        public void SaveImage(byte[] imgeArray, string fileName)
+        public string SaveImage(byte[] imgeArray, string fileName)
         {
             fileName = fileName.Replace("/", " ");
             fileName = fileName.Replace(":", " ");
@@ -32,7 +31,7 @@ namespace WcfService
             //C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel/TaskImages/special264 26 2025 10:01:08 PM.jpg"
             //C:\Users\sasha\Desktop\Project-Alex\Tasky\TaskyService\ViewModel\TaskImages
             img.Save(path);
-
+            return fileName;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace ImageServer
         System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ImageService/SaveImage", ReplyAction="http://tempuri.org/I_ImageService/SaveImageResponse")]
-        System.Threading.Tasks.Task SaveImageAsync(byte[] imgArray, string fileName);
+        System.Threading.Tasks.Task<string> SaveImageAsync(byte[] imgArray, string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.2.0-preview1.23462.5")]
@@ -78,7 +78,7 @@ namespace ImageServer
             return base.Channel.GetImageAsync(fileName);
         }
         
-        public System.Threading.Tasks.Task SaveImageAsync(byte[] imgArray, string fileName)
+        public System.Threading.Tasks.Task<string> SaveImageAsync(byte[] imgArray, string fileName)
         {
             return base.Channel.SaveImageAsync(imgArray, fileName);
         }

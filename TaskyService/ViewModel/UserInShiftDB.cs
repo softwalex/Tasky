@@ -108,7 +108,7 @@ namespace ViewModel
         {
             command.Parameters.Clear();
             command.CommandText = @"UPDATE UserInShiftTable SET " +
-                "[User] = @User, Shift = @Shift, IsClockedIn = @IsClockedIn, UserClockIn = @UserClockIn, IsClockedOut = @IsClockedOut " +
+                "[User] = @User, Shift = @Shift, IsClockedIn = @IsClockedIn, UserClockIn = @UserClockIn, IsClockedOut = @IsClockedOut, UserClockOut = @UserClockOut " +
                 "WHERE Id = @Id";
 
             command.Parameters.AddWithValue("@User", userInShift._user.ID);

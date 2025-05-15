@@ -14,6 +14,6 @@ namespace WcfService
         byte[] GetImage(string fileName);
 
         [OperationContract]
-        void SaveImage(byte[] imgArray, string fileName);
+        string SaveImage(byte[] imgArray, string fileName);
     }
 }

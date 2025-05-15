@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
 using TaskClientPC.scripts;
+using TaskClientPC.TaskyServiceReference;
 
 namespace TaskClientPC.Covertors
 {
@@ -20,6 +21,9 @@ namespace TaskClientPC.Covertors
             try
             {
                 string fileName = value.ToString();
+                fileName = fileName.Replace("/", " ");
+                fileName = fileName.Replace(":", " ");
+                fileName = fileName.Trim();
                 string path =Path.GetFullPath(ImageManager.ImageDirectory+fileName);
 
                 if (File.Exists(path))

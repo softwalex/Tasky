@@ -22,10 +22,10 @@ namespace TaskClientPC.ImageTaskyServiceReference {
         System.Threading.Tasks.Task<byte[]> GetImageAsync(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ImageService/SaveImage", ReplyAction="http://tempuri.org/I_ImageService/SaveImageResponse")]
-        void SaveImage(byte[] imgArray, string fileName);
+        string SaveImage(byte[] imgArray, string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ImageService/SaveImage", ReplyAction="http://tempuri.org/I_ImageService/SaveImageResponse")]
-        System.Threading.Tasks.Task SaveImageAsync(byte[] imgArray, string fileName);
+        System.Threading.Tasks.Task<string> SaveImageAsync(byte[] imgArray, string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,11 +63,11 @@ namespace TaskClientPC.ImageTaskyServiceReference {
             return base.Channel.GetImageAsync(fileName);
         }
         
-        public void SaveImage(byte[] imgArray, string fileName) {
-            base.Channel.SaveImage(imgArray, fileName);
+        public string SaveImage(byte[] imgArray, string fileName) {
+            return base.Channel.SaveImage(imgArray, fileName);
         }
         
-        public System.Threading.Tasks.Task SaveImageAsync(byte[] imgArray, string fileName) {
+        public System.Threading.Tasks.Task<string> SaveImageAsync(byte[] imgArray, string fileName) {
             return base.Channel.SaveImageAsync(imgArray, fileName);
         }
     }
