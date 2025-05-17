@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:local="clr-namespace:TaskyAndroid.Convertors"
+             x:Class="TaskyAndroid.pages.UserListPage"
+             Title="UserListPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#FF8036" Offset="0.1"/>
+            <GradientStop Color="#e67d40" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:UsernameAndTypeConvert x:Key="UserConvert"/>
+            <local:CategoryConvert x:Key="CategoryConvert"/>
+            <local:InverseBooleanToVisibilityConverter x:Key="InverseBooleanToVisibilityConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="Auto,Auto,*"
+          Padding="20"
+          x:Name="MainGrid">
+        <!-- Header -->
+        <Border Grid.Row="0"
+                Style="{StaticResource CardStyle}"
+                Margin="0,0,0,20">
+            <Grid ColumnDefinitions="Auto,*,Auto"
+                  RowSpacing="0">
+
+                <!-- Logo -->
+                <HorizontalStackLayout Grid.Column="0"
+                                      Spacing="8">
+                    <Image Source="taskylogo.png"
+                           HeightRequest="50"
+                           WidthRequest="70"/>
+                </HorizontalStackLayout>
+
+                <Button Grid.Column="1"
+                        Text="Back"
+                        Clicked="NavigateToTasksPage"
+                        Style="{StaticResource HeaderButtonStyle}"
+                        BackgroundColor="{StaticResource SecondaryColor}"
+                        TextColor="{StaticResource PrimaryColor}"
+                        FontFamily="OpenSansSemiBold"
+                        Margin="10,0"/>
+            </Grid>
+        </Border>
+
+        <!-- User Info Card -->
+        <Border Grid.Row="1"
+                Style="{StaticResource CardStyle}" 
+                Margin="0,0,0,20"
+                x:Name="UserInfoBorder">
+            <Grid ColumnDefinitions="Auto,*">
+                <!-- User Details -->
+                <VerticalStackLayout Grid.Column="1"
+                                    VerticalOptions="Center">
+                    <Label Text="{Binding .,Converter={StaticResource UserConvert}}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="20"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                    <Label Text="{Binding email}"
+                           FontFamily="OpenSansRegular"
+                           FontSize="14"
+                           TextColor="{StaticResource PrimaryColor}"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+        <!-- Title Card -->
+        <Border Grid.Row="1"
+                Style="{StaticResource CardStyle}" 
+                Margin="0,0,0,20">
+            <VerticalStackLayout HorizontalOptions="Center"
+                                VerticalOptions="Center">
+                <Label Text="Users List"
+                       FontFamily="OpenSansBold"
+                       FontSize="24"
+                       TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center"/>
+                <Label Text="Review your workrs in this current shift"
+                       FontFamily="OpenSansRegular"
+                       FontSize="14"
+                       TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Users List -->
+        <Border Grid.Row="2" 
+                Style="{StaticResource CardStyle}">
+            <ScrollView>
+                <VerticalStackLayout Padding="10" Spacing="15">
+
+                    <CollectionView SelectionMode="None" 
+                                    x:Name="ShiftUsersList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame BorderColor="{StaticResource TaskCardBorder}" 
+                                        CornerRadius="12" 
+                                        Padding="15" 
+                                        HasShadow="True" 
+                                        BackgroundColor="{StaticResource TaskCardBackground}"
+                                        Margin="0,0,0,15">
+                                    <Grid RowDefinitions="Auto,Auto"
+                                            ColumnDefinitions="*,Auto,Auto">
+
+                                        <!-- User Information -->
+                                        <VerticalStackLayout Grid.Row="0" 
+                                                            Grid.Column="0"
+                                                            Grid.RowSpan="2"
+                                                            Spacing="5">
+                                            <Label Text="{Binding _user, Converter={StaticResource UserConvert}}" 
+                                                    Style="{StaticResource TaskSubjectStyle}"
+                                                   FontSize="Subtitle"/>
+                                        </VerticalStackLayout>
+
+                                        <!-- Accept Button -->
+                                        <Button Text="V"
+                                                CommandParameter="{Binding .}"
+                                                Clicked="AcceptClicked"
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                IsVisible="{Binding isClockedIn, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                                                Margin="0,0,10,0"
+                                                BackgroundColor="#4CAF50"
+                                                TextColor="White"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="14"
+                                                Padding="15,10"
+                                                CornerRadius="8">
+                                            <Button.Shadow>
+                                                <Shadow Brush="#40000000"
+                                                        Offset="0,3"
+                                                        Radius="5" />
+                                            </Button.Shadow>
+                                        </Button>
+
+                                        <!-- Deny Button -->
+                                        <Button Text="X"
+                                                CommandParameter="{Binding .}"
+                                                Clicked="DenyClicked"
+                                                Grid.Row="0"
+                                                Grid.Column="2"
+                                                IsVisible="{Binding isClockedIn, Converter={StaticResource InverseBooleanToVisibilityConverter}}"
+                                                BackgroundColor="#F44336"
+                                                TextColor="White"
+                                                FontFamily="OpenSansSemiBold"
+                                                FontSize="14"
+                                                Padding="15,10"
+                                                CornerRadius="8">
+                                            <Button.Shadow>
+                                                <Shadow Brush="#40000000"
+                                                        Offset="0,3"
+                                                        Radius="5" />
+                                            </Button.Shadow>
+                                        </Button>
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.EmptyView>
+                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label Text="No pending approvals" 
+                                        FontSize="18" 
+                                        TextColor="#757575" 
+                                        HorizontalOptions="Center"/>
+                                <Label Text="All caught up!" 
+                                        FontSize="14" 
+                                        TextColor="#9E9E9E" 
+                                        HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </CollectionView.EmptyView>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
+</ContentPage>

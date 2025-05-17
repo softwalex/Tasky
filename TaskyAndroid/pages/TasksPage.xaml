@@ -37,9 +37,11 @@
                            WidthRequest="70"/>
                 </HorizontalStackLayout>
 
-                <!-- My Shifts Button -->
+                <!-- My Shift Button -->
                 <Button Grid.Column="1"
-                        Text="My Shifts"
+                        x:Name="MyShiftButton"
+                        Text="My Shift"
+                        Clicked="NavigateToUserList"
                         Style="{StaticResource HeaderButtonStyle}"
                         BackgroundColor="{StaticResource SecondaryColor}"
                         TextColor="{StaticResource PrimaryColor}"

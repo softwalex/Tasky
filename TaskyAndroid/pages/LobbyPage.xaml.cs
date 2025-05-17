@@ -59,16 +59,32 @@ public partial class LobbyPage : ContentPage
     {
         if(CurrentShift != null && CurrentUser != null)
         {
-            userInShift = new UserInShift
+            if (CurrentUser.userType == UserType.Admin)
             {
-                _user = CurrentUser,
-                _shift = CurrentShift,
-                isClockedIn = false,
-                userClockIn = DateTime.Now,
-                isClockedOut = false,
-            };
-            await _userService.CallServiceAsync(c => c.NewUserInShiftAsync(userInShift));
-            ShowLoadingAnimation(true);
+                userInShift = new UserInShift
+                {
+                    _user = CurrentUser,
+                    _shift = CurrentShift,
+                    isClockedIn = true,
+                    userClockIn = DateTime.Now,
+                    isClockedOut = false,
+                };
+                await _userService.CallServiceAsync(c => c.NewUserInShiftAsync(userInShift));
+                await Navigation.PushAsync(new TasksPage(userInShift));
+            }
+            else
+            {
+                userInShift = new UserInShift
+                {
+                    _user = CurrentUser,
+                    _shift = CurrentShift,
+                    isClockedIn = false,
+                    userClockIn = DateTime.Now,
+                    isClockedOut = false,
+                };
+                await _userService.CallServiceAsync(c => c.NewUserInShiftAsync(userInShift));
+                ShowLoadingAnimation(true);
+            }
         }
     }
     private async Task AlreadyInShift()

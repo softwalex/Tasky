@@ -18,6 +18,10 @@ public partial class TasksPage : ContentPage
 		AssignmentsForCurrentUser = new AssignmentList();
 		UserInfoBorder.BindingContext = CurrentUserInShift._user;
 		_ = SetAssignments(CurrentUserInShift._user, CurrentUserInShift._shift);
+		if( CurrentUserInShift._user.userType == UserType.Worker)
+		{
+			MyShiftButton.IsVisible = false;
+		}
 
     }
 	public async Task SetAssignments(User user, Shift shift)
@@ -44,5 +48,10 @@ public partial class TasksPage : ContentPage
 		await _userService.CallServiceAsync(c => c.FullUpdateUserInShiftAsync(CurrentUserInShift));
 		await Navigation.PushAsync(new LobbyPage(CurrentUserInShift._user));
 
+    }
+
+    private async void NavigateToUserList(object sender, EventArgs e)
+    {
+		await Navigation.PushAsync(new UserListPage(CurrentUserInShift));
     }
 }

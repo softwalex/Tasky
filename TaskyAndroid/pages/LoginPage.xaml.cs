@@ -25,7 +25,7 @@ public partial class LoginPage : ContentPage
             {
                 User user = await _userService.CallServiceAsync(client => client.UserLoginAsync(email, password));
                 //User user = await  ServiceClientProvider.Instance.UserService.UserLoginAsync(email, password));
-                if (user != null && user.userType != UserType.Admin)
+                if (user != null)
                 {
                     //Check if the user is logging in for the first time
                     //if yes, user has to change his password from the OTP
@@ -69,7 +69,7 @@ public partial class LoginPage : ContentPage
     {
         //TODO : fix an error when link clicked
         User? user = await _userService.CallServiceAsync(client => client.GetUserByEmailAsync(EmailEntry.Text));
-        if(user != null || user.userType != UserType.Admin)
+        if(user != null)
         {
             await Navigation.PushAsync(new NewPasswordPage(user, true));
         }

@@ -60,6 +60,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.pages.TaskSub
 build_metadata.AdditionalFiles.TargetPath = pages\TaskSubmitPage.xaml
 build_metadata.AdditionalFiles.RelativePath = pages\TaskSubmitPage.xaml
 
+[C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/pages/UserListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.pages.UserListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = pages\UserListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = pages\UserListPage.xaml
+
 [C:/Users/sasha/Desktop/Project-Alex/Tasky/TaskyAndroid/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = TaskyAndroid.Resources.Styles.Colors.xaml
