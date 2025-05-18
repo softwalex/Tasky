@@ -36,5 +36,13 @@ namespace TaskClientPC
             }
             return userServiceClient.GetAssignments();
         }
+        public void SendEmailToAll(string text)
+        {
+            UserList users = userServiceClient.GetUsers();
+            foreach(User user in users)
+            {
+                userServiceClient.SendEmailUsingTemplateAsync(user.email, $"Hello {user.firstname}, {text}");
+            }
+        }
     }
 }

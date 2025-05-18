@@ -120,6 +120,8 @@ namespace TaskClientPC.UpdateWindows
             if (wpfHelper.LoadConfirmWindow(this) == true)
             {
                 userServiceClient.NewShift(shift);
+                wpfHelper.SendEmailToAll($"a new shift has been added to the system." +
+                    $"\n{shift.shiftName} starts at {shift.start} and ends in {shift.end}.");
                 this.Close();
             }
         }

@@ -127,6 +127,9 @@ namespace TaskClientPC.UserControls
             userToUpdate.userClockIn = DateTime.Now;
             userServiceClient.UpdateUserInShift(userToUpdate);
 
+            userServiceClient.SendEmailUsingTemplateAsync(userToUpdate._user.email, $"Hello {userToUpdate._user.firstname}, " +
+                $"your joining of your shift has been approved.");
+
             userInShiftList = userServiceClient.GetUsersInShift(shift);
             userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
             usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);

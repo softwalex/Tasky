@@ -97,6 +97,14 @@ public partial class TaskSubmitPage : ContentPage
             CurrentAssignmrnt.summery = InputSummryEditor.Text;
 
             await _userService.CallServiceAsync(c => c.UpdateAssignmentAsync(CurrentAssignmrnt));
+
+            UserInShiftList inShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
+            foreach(UserInShift us in inShifts)
+            {
+                if((us._user.userType == UserType.Admin || us._user.userType == UserType.ShiftManager) && us._shift.ID == CurrentAssignmrnt.forShift.ID && us.isClockedIn && !us.isClockedOut)
+                    await _userService.CallServiceAsync(async c => c.SendEmailUsingTemplateAsyncAsync(us._user.email, $"Hello {us._user.firstname}, the user {CurrentAssignmrnt.forUser.firstname} {CurrentAssignmrnt.forUser.lastname}" +
+                        $"has completed the task {CurrentAssignmrnt.subject}."));
+            }
             await Navigation.PushAsync(new TasksPage(CurrentUserInShift));
         }
         catch (Exception ex)

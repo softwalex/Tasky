@@ -85,6 +85,7 @@ namespace TaskClientPC.UpdateWindows
                 {
                     if (userServiceClient.UpdateUser(CurrentUser))
                     {
+                        userServiceClient.SendEmailUsingTemplateAsync(CurrentUser.email, $"Hello {CurrentUser.firstname}, Your deatail were updated by the administrtion.");
                         this.Close();
                     }
                     else
@@ -111,6 +112,8 @@ namespace TaskClientPC.UpdateWindows
                 if (wpfHelper.LoadConfirmWindow(this)==true)
                 {
                     userServiceClient.NewUser(CurrentUser);
+                    userServiceClient.SendEmailUsingTemplateAsync(CurrentUser.email, $"Hello {CurrentUser.firstname} {CurrentUser.lastname}, Welcome to Tasky." +
+                        $"\n Your administrator has registered you in our system. Your initial password to log in to the system through the app will be: {CurrentUser.password}.");
                     this.Close();
                 }
             }

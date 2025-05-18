@@ -127,6 +127,7 @@ namespace TaskClientPC.UserControls
             {
                 if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
                 {
+                    wpfHelper.SendEmailToAll($"the shift {shift.shiftName} that starts at {shift.start} and ends at {shift.end} was canceled.");
                     serviceClient.DeleteShift(shift);
                     DataGrid.DataContext = null;
                     DeleteButton.Visibility = Visibility.Collapsed;

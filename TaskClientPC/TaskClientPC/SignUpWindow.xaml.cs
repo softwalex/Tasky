@@ -135,6 +135,9 @@ namespace TaskClientPC
                         user.password = tbPass1.Password.ToString();
                         user.userType = UserType.Admin;
                         User u = serviceClient.NewUser(user);
+                        serviceClient.SendEmailUsingTemplateAsync(user.email, $"Hello {user.firstname} {user.lastname}, Welcome to Tasky!" +
+                            $"\nWe wish you a great time with our administration system!" +
+                            $"\nYou can also checkout our app if you have to do tasks by yourself:)");
                         LinkToLogInWindow(sender,e);
                     }
                     else

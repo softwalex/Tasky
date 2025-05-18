@@ -37,7 +37,7 @@ namespace WpfHost
             Imageservice.Open();
             
             timer = new DispatcherTimer();
-            timer.Interval =new TimeSpan(0,30,0);
+            timer.Interval =new TimeSpan(0,10,0);
             timer.Tick += Timer_Tick;
             timer.Start();
         }

@@ -52,6 +52,7 @@ namespace TaskClientPC
                         {
                             Currentuser.password = RePassBox.Password.ToString();
                             userServiceClient.UpdateUser(Currentuser);
+                            userServiceClient.SendEmailUsingTemplateAsync(Currentuser.email, $"Hello {Currentuser.firstname}, your password has been changed successfully!");
                             MainUserControl mainUserControl = new MainUserControl(Currentuser);
                             mainUserControl.MainGrid.Children.Add(new DashBoard_UserControl());
                             mainUserControl.Show();

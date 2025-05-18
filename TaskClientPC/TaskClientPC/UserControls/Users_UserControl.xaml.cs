@@ -97,6 +97,7 @@ namespace TaskClientPC.UserControls
             {
                 if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
                 {
+                    serviceClient.SendEmailUsingTemplateAsync(user.email, $"Hello {user.firstname}, the administration has removed your user from our system.");
                     serviceClient.DeleteUser(user);
                     DataGrid.DataContext = null;
                     DeleteButton.Visibility = Visibility.Collapsed;

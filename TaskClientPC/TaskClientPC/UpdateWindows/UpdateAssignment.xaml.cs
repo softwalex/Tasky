@@ -115,6 +115,9 @@ namespace TaskClientPC.UpdateWindows
             if (wpfHelper.LoadConfirmWindow(this) == true)
             {
                 userServiceClient.NewAssignment(assignment);
+                userServiceClient.SendEmailUsingTemplateAsync(assignment.forUser.email, $"Hello {assignment.forUser.firstname}," +
+                    $"a new task was added for you in {assignment.forShift.shiftName} that starts at {assignment.forShift.start} and ends in " +
+                    $"{assignment.forShift.end}.");
                 this.Close();
             }
         }

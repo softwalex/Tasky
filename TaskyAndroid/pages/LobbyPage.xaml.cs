@@ -83,6 +83,15 @@ public partial class LobbyPage : ContentPage
                     isClockedOut = false,
                 };
                 await _userService.CallServiceAsync(c => c.NewUserInShiftAsync(userInShift));
+
+                UserInShiftList inShifts = await _userService.CallServiceAsync(c => c.GetAllUsersInShiftAsync());
+                foreach (UserInShift us in inShifts)
+                {
+                    if ((us._user.userType == UserType.Admin || us._user.userType == UserType.ShiftManager) && us._shift.ID == userInShift._shift.ID && us.isClockedIn && !us.isClockedOut)
+                        await _userService.CallServiceAsync(async c => c.SendEmailUsingTemplateAsyncAsync(us._user.email, $"Hello {us._user.firstname}, the user {userInShift._user.firstname} {userInShift._user.lastname}" +
+                            $" has requested to join the current shift.\n({us._shift.shiftName} : {us._shift.start} => {us._shift.end})"));
+                }
+
                 ShowLoadingAnimation(true);
             }
         }
