@@ -30,6 +30,7 @@ public partial class UserListPage : ContentPage
                 CurrentShiftUsers.Add(user);
             }
         }
+        ShiftUsersList.ItemsSource = null;
         ShiftUsersList.ItemsSource = CurrentShiftUsers.OrderBy(u => u.isClockedIn);
     }
 

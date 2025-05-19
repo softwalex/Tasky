@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DDD07EB9-1EA5-4589-97B3-4668450030BE}|WpfHost\\WpfHost.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\wpfhost\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DDD07EB9-1EA5-4589-97B3-4668450030BE}|WpfHost\\WpfHost.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\wpfhost\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DDD07EB9-1EA5-4589-97B3-4668450030BE}|WpfHost\\WpfHost.csproj|solutionrelative:wpfhost\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -17,7 +17,7 @@
       "RelativeMoniker": "D:0:0:{C3766AB0-E74D-4240-83C3-7A1AC0476734}|WcfService\\WcfService.csproj|solutionrelative:wcfservice\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|c:\\users\\sasha\\desktop\\project-alex\\tasky\\taskyservice\\viewmodel\\shiftdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\viewmodel\\shiftdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{938C0B9E-6505-479B-9C5E-695559192434}|ViewModel\\ViewModel.csproj|solutionrelative:viewmodel\\shiftdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -68,22 +68,20 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "dbo.UserTable [Data]",
+              "Title": "dbo.UserTable.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserTable.sql",
-              "ToolTip": "dbo.UserTable [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserTable.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-05-18T17:03:57.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T17:03:57.629Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.UserInShiftTable [Data]",
+              "Title": "dbo.UserInShiftTable.sql",
               "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserInShiftTable.sql",
-              "ToolTip": "dbo.UserInShiftTable [Data]",
+              "ToolTip": "ViewDataWindow_MSSQL__/_LocalDB__MSSQLLocalDB/C__USERS_SASHA_DESKTOP_PROJECT_ALEX_TASKY_TASKYSERVICE_VIEWMODEL_TASKYDATABASE.MDF/True/SqlTable/dbo.UserInShiftTable.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-05-18T17:03:25.249Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-18T17:03:25.249Z"
             },
             {
               "$type": "Document",
@@ -95,8 +93,7 @@
               "RelativeToolTip": "ViewModel\\ShiftDB.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T06:44:29.448Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T06:44:29.448Z"
             },
             {
               "$type": "Document",
@@ -121,8 +118,7 @@
               "RelativeToolTip": "WcfService\\UserService.cs",
               "ViewState": "AgIAAE8BAAAAAAAAAAAtwO8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:17:34.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:17:34.026Z"
             },
             {
               "$type": "Document",
@@ -134,8 +130,7 @@
               "RelativeToolTip": "ViewModel\\UserInShiftDB.cs",
               "ViewState": "AgIAAHcAAAAAAAAAAAAQwG4AAACjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-12T21:37:03.92Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-12T21:37:03.92Z"
             },
             {
               "$type": "Document",
@@ -147,8 +142,7 @@
               "RelativeToolTip": "WpfHost\\App.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-05-15T06:08:03.775Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T06:08:03.775Z"
             },
             {
               "$type": "Document",
@@ -160,8 +154,7 @@
               "RelativeToolTip": "WcfService\\I_ImageService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T05:47:46.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T05:47:46.307Z"
             },
             {
               "$type": "Document",
@@ -173,8 +166,7 @@
               "RelativeToolTip": "WcfService\\ImageService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T09:59:25.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T09:59:25.712Z"
             },
             {
               "$type": "Document",
@@ -186,8 +178,7 @@
               "RelativeToolTip": "WcfService\\IUserService.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T07:38:35.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T07:38:35.804Z"
             },
             {
               "$type": "Document",

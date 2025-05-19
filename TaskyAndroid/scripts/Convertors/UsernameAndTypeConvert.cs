@@ -12,7 +12,7 @@ namespace TaskyAndroid.Convertors
     {
         public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
         {
-            if (value is null) return null;
+            if (value is null) return "X";
 
             try
             {
