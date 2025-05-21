@@ -98,7 +98,19 @@ namespace TaskClientPC.UserControls
                 if (wpfHelper.LoadConfirmWindow(Application.Current.MainWindow) == true)
                 {
                     serviceClient.SendEmailUsingTemplateAsync(user.email, $"Hello {user.firstname}, the administration has removed your user from our system.");
+
+                    UserInShiftList dusers = serviceClient.GetAllUsersInShift();
+                    foreach (UserInShift duser in dusers)
+                    {
+                        if(duser._user.ID == user.ID)
+                        {
+                            serviceClient.DeleteUserInShift(duser);
+                        }
+                    }
+                    wpfHelper.DeleteAssignmentsThatNull();
+
                     serviceClient.DeleteUser(user);
+
                     DataGrid.DataContext = null;
                     DeleteButton.Visibility = Visibility.Collapsed;
                     UpdateButton.Visibility = Visibility.Collapsed;

@@ -64,15 +64,6 @@ namespace TaskClientPC.UserControls
         { 
             if (shift != null)
             {
-                //foreach (UserInShift u in userServiceClient.GetUsersInShift())
-                //{
-                //    if (u._shift != shift)
-                //    {
-                //        userInShiftList.Remove(u);
-                //    }
-                //}
-                //userInShiftList.RemoveAll(u => u._shift != shift);
-
                 assignmentList = userServiceClient.GetAssignmentByShift(shift);
                 userInShiftList = userServiceClient.GetUsersInShift(shift);
                 userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
@@ -82,41 +73,11 @@ namespace TaskClientPC.UserControls
                 AssignmentsListView.ItemsSource = assignmentList;
                 CompletedBlock.Text=assignmentList.FindAll(a=>a.doneByUser!=null).Count.ToString();
                 InProgressBlock.Text=assignmentList.FindAll(a=>a.doneByUser==null).Count.ToString();
-                //try
-                //{
-                //    foreach(Assignment a in AssignmentsListView.Items)
-                //    {
-                //        if (a.doneByUser != null)
-                //        {
-                //            CompletedBlock.Text = (int.Parse(CompletedBlock.Text)+1).ToString();
-                //        }
-                //        else
-                //        {
-                //            InProgressBlock.Text = (int.Parse(InProgressBlock.Text)+1).ToString();
-                //        }
-                //    }
-                //}
-                //catch (Exception)
-                //{
-                //    StatisticsGrid.Visibility = Visibility.Collapsed;
-                //}
             }
             else
             {
                 CurrentShiftNameBlock.Text = "No Active Shift";
             }
-        }
-
-       
-
-        private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
         private void ApproveButton_Click(object sender, RoutedEventArgs e)
@@ -143,6 +104,15 @@ namespace TaskClientPC.UserControls
             userInShiftList = userServiceClient.GetUsersInShift(shift);
             userInShiftList.RemoveAll(u => u.isClockedIn && u.isClockedOut);
             usersListView.ItemsSource = userInShiftList.OrderBy(u => u.isClockedIn);
+        }
+        private void AssignmentsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

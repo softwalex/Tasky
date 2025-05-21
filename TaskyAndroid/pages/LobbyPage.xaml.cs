@@ -144,7 +144,6 @@ public partial class LobbyPage : ContentPage
         ClockInButton.IsVisible = !isLoading;
         LoadingIndicator.IsVisible = isLoading;
 
-        // Optional: Add a rotation animation to the loading spinner for extra effect
         if (isLoading)
         {
             // Start rotation animation

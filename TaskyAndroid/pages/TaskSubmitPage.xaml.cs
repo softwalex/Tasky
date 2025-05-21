@@ -36,7 +36,6 @@ public partial class TaskSubmitPage : ContentPage
         MyCamera.SelectedCamera = MyCamera.GetAvailableCameras(CancellationToken.None).Result.Where(c => c.Position == CameraPosition.Rear).FirstOrDefault();
     }
 
-    // Implemented as a follow up video https://youtu.be/JUdfA7nFdWw
     protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
     {
         base.OnNavigatedFrom(args);
@@ -82,10 +81,8 @@ public partial class TaskSubmitPage : ContentPage
         MyImage.IsVisible = false;
     }
 
-    //TODO : Implement submission logic
     private async void OnSubmitButtonClicked(object sender, EventArgs e)
     {
-        // Submission logic here
         try
         {
             ImageManger manger = new ImageManger();
