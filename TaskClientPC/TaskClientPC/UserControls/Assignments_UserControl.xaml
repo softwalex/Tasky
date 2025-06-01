@@ -149,6 +149,32 @@
                             </TextBox.Resources>
                         </TextBox>
 
+
+                        <materialDesign:ColorZone HorizontalAlignment="Center" DockPanel.Dock="Top" Mode="PrimaryMid">
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Margin="2">
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="Undone" 
+                                  Checked="Checked_Undone"/>
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="All" 
+                                  Checked="Checked_All"/>
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="Done" 
+                                  Checked="Checked_Done"/>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+
                         <ListView x:Name="AssignmentsListView"
                            Grid.Row="1" Grid.Column="0"
                            SelectionChanged="AssignmentsListView_SelectionChanged" 

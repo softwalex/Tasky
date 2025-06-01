@@ -145,6 +145,31 @@
                             </TextBox.Resources>
                         </TextBox>
 
+                        <materialDesign:ColorZone HorizontalAlignment="Center" DockPanel.Dock="Top" Mode="PrimaryMid">
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Margin="2">
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="Past" 
+                                  Checked="Checked_Past"/>
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="All" 
+                                  Checked="Checked_All"/>
+                                <RadioButton
+                                  Style="{StaticResource MaterialDesignTabRadioButton}"
+                                  Margin="4"
+                                  IsChecked="False"
+                                  Content="Futrue" 
+                                  Checked="Checked_Futrue"/>
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+
                         <ListView x:Name="shiftsListView"
                            Grid.Row="1" Grid.Column="0"
                            SelectionChanged="shiftsListView_SelectionChanged" 

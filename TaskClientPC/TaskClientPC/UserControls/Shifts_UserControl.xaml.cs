@@ -177,5 +177,11 @@ namespace TaskClientPC.UserControls
                 }
             }
         }
+
+        private void Checked_Past(object sender, RoutedEventArgs e) => shiftsListView.ItemsSource = serviceClient.GetPastShifts(DateTime.Now);
+
+        private void Checked_All(object sender, RoutedEventArgs e) => shiftsListView.ItemsSource = serviceClient.GetShifts();
+
+        private void Checked_Futrue(object sender, RoutedEventArgs e) => shiftsListView.ItemsSource = serviceClient.GetFutureShifts(DateTime.Now);
     }
 }

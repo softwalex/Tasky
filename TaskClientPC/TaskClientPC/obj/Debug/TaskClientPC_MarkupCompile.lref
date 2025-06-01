@@ -2,6 +2,7 @@
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\App.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\ImageWindow.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\LogInWindow.xaml;;
+FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\ResetPassword.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\SignUpWindow.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UpdateWindows\ConfirmWindow.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UpdateWindows\UpdateAssignment.xaml;;
@@ -13,5 +14,4 @@ FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UserControl
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UserControls\MainUserControl.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UserControls\Shifts_UserControl.xaml;;
 FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\UserControls\Users_UserControl.xaml;;
-FC:\Users\sasha\Desktop\Project-Alex\Tasky\TaskClientPC\TaskClientPC\ResetPassword.xaml;;
 

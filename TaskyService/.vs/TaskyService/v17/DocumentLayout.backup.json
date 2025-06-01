@@ -79,7 +79,7 @@
               "RelativeDocumentMoniker": "WpfHost\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\sasha\\Desktop\\Project-Alex\\Tasky\\TaskyService\\WpfHost\\MainWindow.xaml.cs",
               "RelativeToolTip": "WpfHost\\MainWindow.xaml.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAmwCwAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAmwBoAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-15T06:42:27.804Z",
               "EditorCaption": ""
@@ -94,8 +94,7 @@
               "RelativeToolTip": "WcfService\\UserService.cs",
               "ViewState": "AgIAAE8BAAAAAAAAAAAtwO8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T08:17:34.026Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T08:17:34.026Z"
             },
             {
               "$type": "Document",
@@ -131,8 +130,7 @@
               "RelativeToolTip": "WcfService\\I_ImageService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T05:47:46.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-15T05:47:46.307Z"
             },
             {
               "$type": "Document",
@@ -144,8 +142,7 @@
               "RelativeToolTip": "WcfService\\ImageService.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-26T09:59:25.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-26T09:59:25.712Z"
             },
             {
               "$type": "Document",
@@ -157,8 +154,7 @@
               "RelativeToolTip": "WcfService\\IUserService.cs",
               "ViewState": "AgIAACcAAAAAAAAAAAAAADUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-07T07:38:35.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-07T07:38:35.804Z"
             },
             {
               "$type": "Document",
@@ -179,8 +175,7 @@
               "RelativeToolTip": "ViewModel\\BaseDB.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAnwFgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-05T11:50:20.519Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-05T11:50:20.519Z"
             }
           ]
         }

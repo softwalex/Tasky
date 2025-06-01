@@ -122,7 +122,7 @@ public partial class LobbyPage : ContentPage
         {
             foreach (UserInShift us in userInShiftList)
             {
-                if (us._user == CurrentUser && us._shift == CurrentShift && us.isClockedIn && !us.isClockedOut)
+                if (us._user.ID == CurrentUser.ID && us._shift.ID == CurrentShift.ID && us.isClockedIn && !us.isClockedOut)
                 {
                     userInShift.userClockIn = DateTime.Now;
                     // Assuming _userService.CallServiceAsync is a Task-returning method

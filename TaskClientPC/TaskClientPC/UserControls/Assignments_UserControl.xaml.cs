@@ -29,6 +29,7 @@ namespace TaskClientPC.UserControls
         private AssignmentList assignments;
         private WpfHelper wpfHelper;
         private IEnumerable<object> _originalItems;
+        private AssignmentList CurrentMainListView;
 
         public Assignments_UserControl()
         {
@@ -37,6 +38,7 @@ namespace TaskClientPC.UserControls
             wpfHelper = new WpfHelper();
             assignments = wpfHelper.DeleteAssignmentsThatNull();
             AssignmentsListView.ItemsSource = assignments;
+            CurrentMainListView = AssignmentsListView.ItemsSource as AssignmentList;
 
             FilterCategoryComboBox.ItemsSource = userServiceClient.GetCategories();
             FilterForUserComboBox.ItemsSource = userServiceClient.GetUsers();
@@ -183,6 +185,7 @@ namespace TaskClientPC.UserControls
                     FilteredAssignments.RemoveAll(a => a.forShift.ID != (FilterForShiftComboBox.SelectedItem as Shift).ID);
                 }
                 AssignmentsListView.ItemsSource = FilteredAssignments;
+                CurrentMainListView = AssignmentsListView.ItemsSource as AssignmentList;
             }
             if(TriggerButton.Content.ToString() == "Show All Assignments")
             {
@@ -190,12 +193,32 @@ namespace TaskClientPC.UserControls
                     FilterForUserComboBox.Text = FilterForShiftComboBox.Text = string.Empty;
 
                 AssignmentsListView.ItemsSource = userServiceClient.GetAssignments();
+                CurrentMainListView = AssignmentsListView.ItemsSource as AssignmentList;
             }
         }
 
         private void ViewImage(object sender, RoutedEventArgs e)
         {
             new ImageWindow(assignment).Show();
+        }
+
+        private void Checked_Undone(object sender, RoutedEventArgs e)
+        {
+            AssignmentList assignmentsUnDone = userServiceClient.GetAssignments();
+            assignmentsUnDone.RemoveAll(a => a.doneByUser != null);
+            AssignmentsListView.ItemsSource = assignmentsUnDone;
+        }
+
+        private void Checked_All(object sender, RoutedEventArgs e)
+        {
+            AssignmentsListView.ItemsSource = CurrentMainListView;
+        }
+
+        private void Checked_Done(object sender, RoutedEventArgs e)
+        {
+            AssignmentList assignmentsDone = userServiceClient.GetAssignments();
+            assignmentsDone.RemoveAll(a => a.doneByUser == null);
+            AssignmentsListView.ItemsSource = assignmentsDone;
         }
     }
 }
