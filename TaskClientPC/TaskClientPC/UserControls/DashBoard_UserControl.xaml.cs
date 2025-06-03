@@ -51,6 +51,7 @@ namespace TaskClientPC.UserControls
         }
         private Shift GetCurrentShift()
         {
+            shiftList = userServiceClient.GetShifts();
             foreach (Shift s in shiftList)
             {
                 if (s.start < DateTime.Now && s.end > DateTime.Now)

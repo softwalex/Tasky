@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaskyAndroid")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4fb52969b26686565c514cc782f30a982b1806de")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+abbfe5b17fd98583b9ada0be2a54e99d99e05d35")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaskyAndroid")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaskyAndroid")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

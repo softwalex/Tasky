@@ -66,7 +66,6 @@
                     <!-- Email Field -->
                     <Label Content="Email:"/>
                     <TextBox x:Name="EmailTextBox"
-                           Text="sashadenisenko6@gmail.com"
                            Height="40"
                            Margin="0,0,0,20"
                            BorderThickness="1"
@@ -76,7 +75,6 @@
                     <!-- Password Field -->
                     <Label Content="Password:"/>
                     <PasswordBox x:Name="PassBox"
-                            Password="Alex160407!"
                             Height="40"
                              Margin="0,0,0,20"
                              BorderThickness="1"

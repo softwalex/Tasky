@@ -120,6 +120,7 @@ public partial class LobbyPage : ContentPage
         // Dispatch action to the main thread (without await)
         Dispatcher.Dispatch(async () =>
         {
+            userInShiftList = await _userService.CallServiceAsync(c => c.GetUsersInShiftAsync(CurrentShift));
             foreach (UserInShift us in userInShiftList)
             {
                 if (us._user.ID == CurrentUser.ID && us._shift.ID == CurrentShift.ID && us.isClockedIn && !us.isClockedOut)
@@ -129,6 +130,8 @@ public partial class LobbyPage : ContentPage
                     await _userService.CallServiceAsync(c => c.UpdateUserInShiftAsync(userInShift));
                     ShowLoadingAnimation(false);
                     _timer.Stop();
+                    ClockInFarme.IsVisible = false;
+                    await Navigation.PushAsync(new TasksPage(us));
                 }
             }
         });
